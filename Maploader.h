@@ -6,9 +6,10 @@
 #include <fstream>
 #include "vector"
 #include <SFML/Graphics.hpp>
-
-class   Maploader
+#include "Sprites.h"
+class   Maploader : Sprites
 {
+
 public:
     Maploader(std::string filepath, int Mapheigth, int Mapwidth);
     ~Maploader();
@@ -29,15 +30,8 @@ private:
     int tempmapy = 0;
     
     
-    sf::Texture Tile;
-
+  
     
-    sf::Sprite Tile2sprite;
-    
-    sf::Texture Weg;
-    
-    
-    sf::Sprite Weg2sprite;
 
     
 };

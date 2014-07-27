@@ -1,5 +1,6 @@
 #include "Maploader.h"
 #include <Logfile.h>
+
 Maploader::Maploader(std::string filepath, int Mapheigth, int Mapwidth)
 {
     mMapheigth = Mapheigth;
@@ -11,11 +12,7 @@ Maploader::Maploader(std::string filepath, int Mapheigth, int Mapwidth)
     pMap = new std::ifstream(mFilepath);
     loadMap();
     
-    Tile.loadFromFile("wasser.png");
-    Tile2sprite.setTexture(Tile);
-    Weg.loadFromFile("weg01.png");
-    Weg2sprite.setTexture(Weg);
-    
+ 
 };
 
 Maploader::~Maploader(){};
@@ -37,9 +34,11 @@ void Maploader::render(sf::RenderWindow *window)
     for(auto it : mMapVektor)
     {
         
+       
+        Sprites::WasserSprite.setPosition(tempmapx*16, tempmapy*16);
+        Sprites::WegSprite.setPosition(tempmapx*16, tempmapy*16);
         
-        Tile2sprite.setPosition(tempmapx*16, tempmapy*16);
-        Weg2sprite.setPosition(tempmapx*16, tempmapy*16);
+        
         tempmapx++;
         if (tempmapx == mMapwidth/16) {
             tempmapy++;
@@ -50,10 +49,10 @@ void Maploader::render(sf::RenderWindow *window)
         }
         if(it == "1")
         {
-            window->draw(Tile2sprite);
+            window->draw(Sprites::WasserSprite);
         }
         if (it == "2") {
-            window->draw(Weg2sprite);
+            window->draw(Sprites::WegSprite);
         }
        
         
