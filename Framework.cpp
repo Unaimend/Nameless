@@ -5,7 +5,7 @@
 
 Framework::Framework()
 {
-    pLog = new Logfile("Logfile.log");
+     pLog = new Logfile("Logfile.log");
     
     pRenderWindow   = new sf::RenderWindow(sf::VideoMode(800,600,32), "TITLE");
     pLog->writeToFile("Fenster initialisiert");
@@ -20,7 +20,8 @@ Framework::Framework()
     Mapwidth        = 200;
     pMap = new Maploader("Map.txt", Mapheigth, Mapwidth);
    
-    pLog->writeToFile("Maphöhe:" + pLog->toString(Mapheigth) +" " + "Mapbreite: " + pLog->toString(Mapwidth));
+    pLog->writeToFile("Maphöhe:" + pLog->toString(Mapheigth) +" " + "Mapbreite: " + pLog->toString(Mapwidth) + " " + "Mapgröße: " + pLog->toString((Mapwidth*Mapheigth)));
+    std::vector<float> test = pMap->getMapVektor();
 
 }
 
@@ -62,7 +63,6 @@ void Framework::EventHandling()
     while (pRenderWindow->pollEvent(*pMainEvent)) {
         if (pMainEvent->type == sf::Event::Closed || (pMainEvent->type == sf::Event::KeyPressed   && pMainEvent->key.code == sf::Keyboard::Escape)) {
             mRun = false;
-            pLog->writeToFile("mRun = false");
         }
        
     }

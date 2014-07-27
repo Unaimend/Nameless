@@ -10,7 +10,7 @@ class   Maploader
 public:
     Maploader(std::string filepath, int Mapheigth, int Mapwidth);
     ~Maploader();
-    
+    std::vector<float> getMapVektor(){return mMapVektor;};
 protected:
 private:
     void loadMap();

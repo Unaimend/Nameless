@@ -15,14 +15,14 @@ protected:
 private:
     //--------------PRIVATE VARIABLEN-------------------------
     sf::RenderWindow *pRenderWindow;
-    sf::Event *pMainEvent;
-    sf::Clock *pClock;
-    Logfile *pLog;
-    double mFrameTime;
-    bool mRun;
-    Maploader *pMap;
-    int Mapheigth;
-    int Mapwidth;
+    sf::Event   *pMainEvent;
+    sf::Clock   *pClock;
+    Logfile     *pLog;
+    double      mFrameTime;
+    bool        mRun;
+    Maploader   *pMap;
+    int         Mapheigth;
+    int         Mapwidth;
     
     //--------------PRIVATE FUNKTIONEN------------------------
     //Die Funktion behandelt alle Spielereingaben

@@ -19,6 +19,9 @@ void Maploader::loadMap()
     {
         *pMap >> temporaryMap;
         mMapVektor.push_back(temporaryMap);
+        if (temporaryMap == 99) {
+            break;
+        }
     }
     
 
