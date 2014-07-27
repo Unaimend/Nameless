@@ -1,7 +1,5 @@
-#include <iostream>
 #include "Framework.hpp"
-#include <Logfile.h>
-#include <SFML/Graphics.hpp>
+
 //Version 0.0.1
 
 
@@ -18,6 +16,7 @@ Framework::Framework()
     mRun            = true;
     pLog->writeToFile("Restliche Grrundfunktionen initialisiert");
     
+    pMap = new Maploader("Map.txt")
 }
 
 
@@ -56,9 +55,11 @@ void Framework::Update(double frametime)
 void Framework::EventHandling()
 {
     while (pRenderWindow->pollEvent(*pMainEvent)) {
-        if (pMainEvent->type == sf::Event::Closed) {
+        if (pMainEvent->type == sf::Event::Closed || (pMainEvent->type == sf::Event::KeyPressed   && pMainEvent->key.code == sf::Keyboard::Escape)) {
             mRun = false;
+            pLog->writeToFile("mRun = false");
         }
+       
     }
     
 }

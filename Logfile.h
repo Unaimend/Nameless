@@ -1,8 +1,6 @@
 #ifndef __Nameless__Logfile__
 #define __Nameless__Logfile__
-
 #include <fstream>
-#include <iostream>
 #include <string>
 #include <iomanip>
 #include <ctime>
