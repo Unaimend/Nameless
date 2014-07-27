@@ -6,8 +6,8 @@
 Framework::Framework()
 {
      pLog = new Logfile("Logfile.log");
-    mAuflösungsBreite = 800;
-    mAuflösungsHöhe = 600;
+    mAuflösungsBreite = 1680;
+    mAuflösungsHöhe = 1456;
     pRenderWindow   = new sf::RenderWindow(sf::VideoMode(mAuflösungsBreite,mAuflösungsHöhe,32), "TITLE");
     pLog->writeToFile("Fenster initialisiert");
    

@@ -13,6 +13,8 @@ Maploader::Maploader(std::string filepath, int Mapheigth, int Mapwidth)
     
     Tile.loadFromFile("wasser.png");
     Tile2sprite.setTexture(Tile);
+    Weg.loadFromFile("weg01.png");
+    Weg2sprite.setTexture(Weg);
     
 };
 
@@ -31,25 +33,33 @@ void Maploader::loadMap()
 
 void Maploader::render(sf::RenderWindow *window)
 {
-    int i = 0;
+   
     for(auto it : mMapVektor)
     {
         
         
         Tile2sprite.setPosition(tempmapx*16, tempmapy*16);
+        Weg2sprite.setPosition(tempmapx*16, tempmapy*16);
         tempmapx++;
         if (tempmapx == mMapwidth/16) {
-            if (tempmapy != mMapheigth/16) {
-                tempmapy++;
-            }
+            tempmapy++;
             tempmapx = 0;
         }
+        if (tempmapy == mMapheigth/16) {
+            tempmapy = 0;
+        }
+        if(it == "1")
+        {
+            window->draw(Tile2sprite);
+        }
+        if (it == "2") {
+            window->draw(Weg2sprite);
+        }
+       
         
-        window->draw(Tile2sprite);
         
     }
-   tempmapy = 0;
-    
+   
     
 }
 

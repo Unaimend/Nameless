@@ -33,6 +33,11 @@ private:
 
     
     sf::Sprite Tile2sprite;
+    
+    sf::Texture Weg;
+    
+    
+    sf::Sprite Weg2sprite;
 
     
 };
