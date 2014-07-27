@@ -35,13 +35,4 @@ void Logfile::setmTime()
     tm *ts = localtime(&t);
     mTime = std::string(asctime(ts));
 };
-std::string Logfile::toString( int Peter)
-{
-    std::cout << Peter << std::endl;
-    std::stringstream sstr;
-    sstr << Peter;
-    
-    mParameter = sstr.str();
-    std::cout << mParameter << std::endl;
-    return mParameter;
-};
+

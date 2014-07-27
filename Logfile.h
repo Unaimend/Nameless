@@ -15,8 +15,8 @@ public:
         ~Logfile();
         void writeToFile(std::string parameter);
         void closeFile();
-    
-        std::string toString(int Peter);
+        template<class T>
+        std::string toString(T Wert);
 
 protected:
 private:
@@ -34,8 +34,8 @@ private:
 
 
 
-
-
-
+#include "Test.inl"
 
 #endif /* defined(__Nameless__Logfile__) */
+
+

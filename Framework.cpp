@@ -16,11 +16,11 @@ Framework::Framework()
     mRun            = true;
     pLog->writeToFile("Restliche Grundfunktionen initialisiert");
     
-    Mapheigth       = 0;
-    Mapwidth        = 0;
+    Mapheigth       = 200;
+    Mapwidth        = 200;
     pMap = new Maploader("Map.txt", Mapheigth, Mapwidth);
    
-    pLog->writeToFile(pLog->toString( 5)+ " HI");
+    pLog->writeToFile("Maphöhe:" + pLog->toString(Mapheigth) +" " + "Mapbreite: " + pLog->toString(Mapwidth));
 
 }
 
