@@ -14,9 +14,14 @@ Framework::Framework()
     pMainEvent      = new sf::Event;
     pClock          = new sf::Clock;
     mRun            = true;
-    pLog->writeToFile("Restliche Grrundfunktionen initialisiert");
+    pLog->writeToFile("Restliche Grundfunktionen initialisiert");
     
-    pMap = new Maploader("Map.txt")
+    Mapheigth       = 0;
+    Mapwidth        = 0;
+    pMap = new Maploader("Map.txt", Mapheigth, Mapwidth);
+   
+    pLog->writeToFile(pLog->toString( 5)+ " HI");
+
 }
 
 

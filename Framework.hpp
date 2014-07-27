@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Logfile.h"
 #include <Maploader.h>
+#include <vector>
 #ifndef Neues_SFML_Projekt_Framework_hpp
 #define Neues_SFML_Projekt_Framework_hpp
 
@@ -20,7 +21,8 @@ private:
     double mFrameTime;
     bool mRun;
     Maploader *pMap;
-  
+    int Mapheigth;
+    int Mapwidth;
     
     //--------------PRIVATE FUNKTIONEN------------------------
     //Die Funktion behandelt alle Spielereingaben

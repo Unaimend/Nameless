@@ -1,6 +1,7 @@
 #include "Logfile.h"
 #include <sstream>
 #include <fstream>
+#include <sstream>
 Logfile::Logfile(std::string filepath)
 {
     mFilepath = filepath;
@@ -34,6 +35,13 @@ void Logfile::setmTime()
     tm *ts = localtime(&t);
     mTime = std::string(asctime(ts));
 };
-
-
-
+std::string Logfile::toString( int Peter)
+{
+    std::cout << Peter << std::endl;
+    std::stringstream sstr;
+    sstr << Peter;
+    
+    mParameter = sstr.str();
+    std::cout << mParameter << std::endl;
+    return mParameter;
+};

@@ -4,10 +4,11 @@
 
 #include <iostream>
 #include <fstream>
+#include "vector"
 class   Maploader
 {
 public:
-    Maploader(std::string filepath);
+    Maploader(std::string filepath, int Mapheigth, int Mapwidth);
     ~Maploader();
     
 protected:
@@ -16,5 +17,8 @@ private:
     
     std::ifstream *pMap;
     std::string mFilepath;
+    int mMapheigth, mMapwidth, temporaryMap;
+    std::vector<float> mMapVektor;
+    
 };
 #endif /* defined(__Nameless__Maploader__) */
