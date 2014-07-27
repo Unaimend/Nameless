@@ -23,6 +23,8 @@ private:
     Maploader   *pMap;
     int         Mapheigth;
     int         Mapwidth;
+    int         mAuflösungsBreite;
+    int         mAuflösungsHöhe;
     
     //--------------PRIVATE FUNKTIONEN------------------------
     //Die Funktion behandelt alle Spielereingaben
@@ -42,6 +44,9 @@ public:
     ~Framework();
     //UpdateFunktion in der alles Zusammengeführt wird, wird pro Frame aufgerufen,
     void Run();
+    
+    int getAuflösungsHöhe(){return mAuflösungsHöhe;};
+    int getAuflösungsBreite(){return mAuflösungsBreite;};
 };
 
 

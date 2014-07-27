@@ -6,8 +6,9 @@
 Framework::Framework()
 {
      pLog = new Logfile("Logfile.log");
-    
-    pRenderWindow   = new sf::RenderWindow(sf::VideoMode(800,600,32), "TITLE");
+    mAuflösungsBreite = 800;
+    mAuflösungsHöhe = 600;
+    pRenderWindow   = new sf::RenderWindow(sf::VideoMode(mAuflösungsBreite,mAuflösungsHöhe,32), "TITLE");
     pLog->writeToFile("Fenster initialisiert");
    
     pRenderWindow->setFramerateLimit(60);
@@ -16,12 +17,12 @@ Framework::Framework()
     mRun            = true;
     pLog->writeToFile("Restliche Grundfunktionen initialisiert");
     
-    Mapheigth       = 200;
-    Mapwidth        = 200;
-    pMap = new Maploader("Map.txt", Mapheigth, Mapwidth);
+    Mapheigth       = 100;
+    Mapwidth        = 100;
+    pMap = new Maploader("Map.txt", mAuflösungsHöhe, mAuflösungsBreite);
    
     pLog->writeToFile("Maphöhe:" + pLog->toString(Mapheigth) +" " + "Mapbreite: " + pLog->toString(Mapwidth) + " " + "Mapgröße: " + pLog->toString((Mapwidth*Mapheigth)));
-    std::vector<float> test = pMap->getMapVektor();
+   
 
 }
 
@@ -74,7 +75,7 @@ void Framework::EventHandling()
 void Framework::Render()
 {
     pRenderWindow->clear(sf::Color(120,120,120));
-    
+    pMap->render(pRenderWindow);
     pRenderWindow->display();
   
 }

@@ -4,10 +4,15 @@ Maploader::Maploader(std::string filepath, int Mapheigth, int Mapwidth)
 {
     mMapheigth = Mapheigth;
     mMapwidth = Mapwidth;
+    
+    mMapVektorIterator = mMapVektor.begin();
     mFilepath = filepath;
-    temporaryMap = 0;
+    temporaryMap = "0";
     pMap = new std::ifstream(mFilepath);
-    this->loadMap();
+    loadMap();
+    
+    Tile.loadFromFile("wasser.png");
+    Tile2sprite.setTexture(Tile);
     
 };
 
@@ -15,14 +20,74 @@ Maploader::~Maploader(){};
 
 void Maploader::loadMap()
 {
-    for (int it = 0; it < mMapheigth * mMapwidth; it++)
+    for (int it = 0; it < mMapheigth/16 * mMapwidth/16; it++)
     {
         *pMap >> temporaryMap;
         mMapVektor.push_back(temporaryMap);
-        if (temporaryMap == 99) {
-            break;
-        }
     }
     
-
+    
 };
+
+void Maploader::render(sf::RenderWindow *window)
+{
+    int i = 0;
+    for(auto it : mMapVektor)
+    {
+        
+        tempmapx = tempmapx+16;
+        Tile2sprite.setPosition(tempmapx, 20);
+        window->draw(Tile2sprite);
+    }
+    tempmapx = 0;
+    
+    
+}
+
+
+
+
+
+//    for (int it2 = 0; it2 < mMapheigth; it2++)
+//    {
+//        for (int it = 0; it < mMapwidth; it++)
+//        {
+//
+////            if ((*mMapVektorIterator) == "3")
+////            {
+////                Blumen01Sprite.setPosition(mMapwidth, mMapheigth);
+////                window->draw(Blumen01Sprite);
+////            }
+////            if ((*mMapVektorIterator) == "2")
+////            {
+////                Weg_01Sprite.setPosition(mMapwidth, mMapheigth);
+////
+////                window->draw(Weg_01Sprite);
+////
+////            }
+////            if ((*mMapVektorIterator) == "1")
+////            {
+////                Wassersprite.setPosition(mMapwidth, mMapheigth);
+////                //KOLLISIONSVEKTOR WIRD MIT DEM WASSERTILE GELADEN
+////                //                    sf::RectangleShape *rec = new sf::RectangleShape;
+////                //                    rec->setSize(sf::Vector2f(16,16));
+////                //                    rec->setPosition(xpos, ypos);
+////                //                    rec->setFillColor(sf::Color(255,255,255,255));
+////                //                    kollision.push_back(*rec);
+////                window->draw(Wassersprite);
+////
+////            }
+//            if ((*mMapVektorIterator) == "0")
+//            {
+//                Tile2sprite.setPosition(mMapwidth, mMapheigth);
+//                window->draw(Tile2sprite);
+//            }
+//
+//
+//            *mMapVektorIterator++;
+//            mMapwidth = mMapwidth +16;
+//        }
+//        mMapwidth = 0;
+//        mMapheigth = mMapheigth + 16;
+//    }
+//    mMapheigth  = 0;
