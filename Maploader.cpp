@@ -35,11 +35,20 @@ void Maploader::render(sf::RenderWindow *window)
     for(auto it : mMapVektor)
     {
         
-        tempmapx = tempmapx+16;
-        Tile2sprite.setPosition(tempmapx, 20);
+        
+        Tile2sprite.setPosition(tempmapx*16, tempmapy*16);
+        tempmapx++;
+        if (tempmapx == mMapwidth/16) {
+            if (tempmapy != mMapheigth/16) {
+                tempmapy++;
+            }
+            tempmapx = 0;
+        }
+        
         window->draw(Tile2sprite);
+        
     }
-    tempmapx = 0;
+   tempmapy = 0;
     
     
 }
