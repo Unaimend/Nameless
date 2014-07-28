@@ -24,13 +24,15 @@ void Player::render(sf::RenderWindow *window)
     window->setView(mView);
     window->draw(Sprites::PlayerSprite);
     window->setView(mFixed);
-    window->draw(Sprites::InventorySprite);
+    if (mShowInventory == true)
+         window->draw(Sprites::InventorySprite);
     window->setView(mView);
 };
 
 void Player::update(double frametime)
 {
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
+    
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
     {
         Sprites::PlayerSprite.move(-100*frametime, 0);
     }
@@ -46,7 +48,21 @@ void Player::update(double frametime)
     {
         Sprites::PlayerSprite.move(0, 100*frametime);
     }
-    
     mView.setCenter(sf::Vector2f(Sprites::PlayerSprite.getPosition().x, Sprites::PlayerSprite.getPosition().y));
     mFixed.setCenter(mResX/2, mResY/2  );
+};
+
+void Player::setEvent(sf::Event event)
+{
+    mEvent = event;
+    if (mEvent.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::E) {
+        if (mShowInventory == true) {
+            mShowInventory = false;
+        }
+        else
+        {
+            mShowInventory = true;
+        }
+    }
+
 };

@@ -20,14 +20,17 @@ public:
     ~Player();
     void render(sf::RenderWindow  *window);
     void update(double frametime);
+    void setEvent(sf::Event event);
     
 protected:
 private:
     float mPlayerPositionX = 0;
     float mPlayerPositionY = 0;
+    bool  mShowInventory = true;
     double mFrametime;
     sf::View mView;
     sf::View mFixed;
     int mResY, mResX;
+    sf::Event mEvent;
 };
 #endif /* defined(__Nameless__Player__) */

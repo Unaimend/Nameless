@@ -5,9 +5,12 @@
 
 Framework::Framework()
 {
-     pLog = new Logfile("Logfile.log");
+    pLog = new Logfile("Logfile.log");
     mAuflösungsBreite = 1680;
     mAuflösungsHöhe = 1456;
+//    mAuflösungsBreite = 1920;
+//    mAuflösungsHöhe = 1200;
+
     pRenderWindow   = new sf::RenderWindow(sf::VideoMode(mAuflösungsBreite,mAuflösungsHöhe,32), "TITLE");
     pLog->writeToFile("Fenster initialisiert");
    
@@ -64,10 +67,14 @@ void Framework::Update(double frametime)
 
 void Framework::EventHandling()
 {
-    while (pRenderWindow->pollEvent(*pMainEvent)) {
-        if (pMainEvent->type == sf::Event::Closed || (pMainEvent->type == sf::Event::KeyPressed   && pMainEvent->key.code == sf::Keyboard::Escape)) {
+    while (pRenderWindow->pollEvent(*pMainEvent))
+    {
+        if (pMainEvent->type == sf::Event::Closed || (pMainEvent->type == sf::Event::KeyPressed   && pMainEvent->key.code == sf::Keyboard::Escape))
+        {
             mRun = false;
         }
+        pPlayer1->setEvent(*pMainEvent);
+        
        
     }
     
