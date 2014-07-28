@@ -11,19 +11,27 @@
 
 #include <iostream>
 #include "SFML/Graphics.hpp"
+#include "Logfile.h"
 
 class Sprites
 {
 public:
-    Sprites();
-  
+     Sprites();
+    virtual ~Sprites();
 protected:
+    
+    Logfile *pLog;
+ 
+    
     sf::Texture WasserTexture;
     sf::Texture WegTexture;
     sf::Texture PlayerTexture;
+    sf::Texture InventoryTexture;
+    
     
     sf::Sprite  WasserSprite;
     sf::Sprite  WegSprite;
     sf::Sprite  PlayerSprite;
+    sf::Sprite InventorySprite;
 };
 #endif /* defined(__Nameless__Sprites__) */

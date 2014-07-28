@@ -10,11 +10,31 @@
 
 Sprites::Sprites()
 {
-    WasserTexture.loadFromFile("wasser.png");
-    WegTexture.loadFromFile("weg01.png");
-    PlayerTexture.loadFromFile("player.png");
+    pLog = new Logfile("Texture.log");
+    
+   
+    
+    if(WasserTexture.loadFromFile("wasser.png"))
+        pLog->writeToFile("Wassertextur geladen");
+    if(WegTexture.loadFromFile("weg01.png"))
+        pLog->writeToFile("Wegtextur geladen");
+    if(PlayerTexture.loadFromFile("player.png"))
+        pLog->writeToFile("Spielertextur geladen");
+    if(InventoryTexture.loadFromFile("inventar v01.png"))
+        pLog->writeToFile("Inventartextur geladen");
+
     
     WasserSprite.setTexture(WasserTexture);
     WegSprite.setTexture(WegTexture);
     PlayerSprite.setTexture(PlayerTexture);
+    InventorySprite.setTexture(InventoryTexture);
+    pLog->writeToFile("Alle Sprites geladen");
+    pLog->closeFile();
+    
+    
 }
+
+Sprites::~Sprites()
+{
+   
+};
