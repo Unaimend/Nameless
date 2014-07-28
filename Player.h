@@ -25,5 +25,6 @@ private:
     float mPlayerPositionX = 0;
     float mPlayerPositionY = 0;
     double mFrametime;
+    sf::View mView;
 };
 #endif /* defined(__Nameless__Player__) */
