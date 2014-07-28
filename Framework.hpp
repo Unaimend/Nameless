@@ -1,5 +1,9 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
 #include "Logfile.h"
+#include "Player.h"
+#include "Maploader.h"
+#include <vector>
 #ifndef Neues_SFML_Projekt_Framework_hpp
 #define Neues_SFML_Projekt_Framework_hpp
 
@@ -12,12 +16,17 @@ protected:
 private:
     //--------------PRIVATE VARIABLEN-------------------------
     sf::RenderWindow *pRenderWindow;
-    sf::Event *pMainEvent;
-    sf::Clock *pClock;
-    Logfile *pLog;
-    double mFrameTime;
-    bool mRun;
-  
+    sf::Event   *pMainEvent;
+    sf::Clock   *pClock;
+    Logfile     *pLog;
+    double      mFrameTime;
+    bool        mRun;
+    Maploader   *pMap;
+    Player      *pPlayer1;
+    int         Mapheigth;
+    int         Mapwidth;
+    int         mAuflösungsBreite;
+    int         mAuflösungsHöhe;
     
     //--------------PRIVATE FUNKTIONEN------------------------
     //Die Funktion behandelt alle Spielereingaben
@@ -37,6 +46,9 @@ public:
     ~Framework();
     //UpdateFunktion in der alles Zusammengeführt wird, wird pro Frame aufgerufen,
     void Run();
+    
+    int getAuflösungsHöhe(){return mAuflösungsHöhe;};
+    int getAuflösungsBreite(){return mAuflösungsBreite;};
 };
 
 
