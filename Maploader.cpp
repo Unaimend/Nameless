@@ -39,7 +39,7 @@ void Maploader::render(sf::RenderWindow *window)
         Sprites::WegSprite.setPosition(tempmapx*16, tempmapy*16);
         
         
-        tempmapx++;
+      
         if (tempmapx == mMapwidth/16) {
             tempmapy++;
             tempmapx = 0;
@@ -54,7 +54,7 @@ void Maploader::render(sf::RenderWindow *window)
         if (it == "2") {
             window->draw(Sprites::WegSprite);
         }
-       
+         tempmapx++;
         
         
     }
