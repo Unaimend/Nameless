@@ -1,7 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Logfile.h"
-#include <Maploader.h>
+#include "Player.h"
+#include "Maploader.h"
 #include <vector>
 #ifndef Neues_SFML_Projekt_Framework_hpp
 #define Neues_SFML_Projekt_Framework_hpp
@@ -21,6 +22,7 @@ private:
     double      mFrameTime;
     bool        mRun;
     Maploader   *pMap;
+    Player      *pPlayer1;
     int         Mapheigth;
     int         Mapwidth;
     int         mAuflösungsBreite;

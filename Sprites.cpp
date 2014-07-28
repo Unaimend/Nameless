@@ -12,7 +12,9 @@ Sprites::Sprites()
 {
     WasserTexture.loadFromFile("wasser.png");
     WegTexture.loadFromFile("weg01.png");
+    PlayerTexture.loadFromFile("player.png");
     
     WasserSprite.setTexture(WasserTexture);
     WegSprite.setTexture(WegTexture);
+    PlayerSprite.setTexture(PlayerTexture);
 }

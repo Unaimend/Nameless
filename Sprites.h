@@ -20,9 +20,10 @@ public:
 protected:
     sf::Texture WasserTexture;
     sf::Texture WegTexture;
+    sf::Texture PlayerTexture;
     
     sf::Sprite  WasserSprite;
     sf::Sprite  WegSprite;
-  
+    sf::Sprite  PlayerSprite;
 };
 #endif /* defined(__Nameless__Sprites__) */

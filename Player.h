@@ -10,15 +10,19 @@
 #define __Nameless__Player__
 
 #include <iostream>
+#include "Sprites.h"
 #include "SFML/Graphics.hpp"
 
-class Player
+class Player : Sprites
 {
 public:
     Player(sf::Vector2f playerPosition);
+    void render(sf::RenderWindow  *window);
     
 protected:
 private:
+    float mPlayerPositionX = 0;
+    float mPlayerPositionY = 0;
     
 };
 #endif /* defined(__Nameless__Player__) */

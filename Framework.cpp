@@ -22,7 +22,9 @@ Framework::Framework()
     pMap = new Maploader("Map.txt", mAuflösungsHöhe, mAuflösungsBreite);
    
     pLog->writeToFile("Maphöhe:" + pLog->toString(Mapheigth) +" " + "Mapbreite: " + pLog->toString(Mapwidth) + " " + "Mapgröße: " + pLog->toString((Mapwidth*Mapheigth)));
-   
+    
+    pPlayer1 = new Player(sf::Vector2f(0,0));
+    
 
 }
 
@@ -76,6 +78,7 @@ void Framework::Render()
 {
     pRenderWindow->clear(sf::Color(120,120,120));
     pMap->render(pRenderWindow);
+    pPlayer1->render(pRenderWindow);
     pRenderWindow->display();
   
 }
