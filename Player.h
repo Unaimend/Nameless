@@ -16,7 +16,8 @@
 class Player : Sprites
 {
 public:
-    Player(sf::Vector2f playerPosition);
+    Player(sf::Vector2f playerPosition, double resX, double resY);
+    ~Player();
     void render(sf::RenderWindow  *window);
     void update(double frametime);
     
@@ -26,5 +27,7 @@ private:
     float mPlayerPositionY = 0;
     double mFrametime;
     sf::View mView;
+    sf::View mFixed;
+    int mResY, mResX;
 };
 #endif /* defined(__Nameless__Player__) */

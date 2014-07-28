@@ -23,7 +23,7 @@ Framework::Framework()
    
     pLog->writeToFile("Maphöhe:" + pLog->toString(Mapheigth) +" " + "Mapbreite: " + pLog->toString(Mapwidth) + " " + "Mapgröße: " + pLog->toString((Mapwidth*Mapheigth)));
     
-    pPlayer1 = new Player(sf::Vector2f(0,0));
+    pPlayer1 = new Player(sf::Vector2f(0,0), mAuflösungsBreite, mAuflösungsHöhe);
     
 
 }
