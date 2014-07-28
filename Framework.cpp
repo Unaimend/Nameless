@@ -55,7 +55,8 @@ void Framework::Run()
 
 void Framework::Update(double frametime)
 {
-   
+    
+    pPlayer1->update(mFrameTime);
    // std::cout << mFrameTime << std::endl;
 }
 

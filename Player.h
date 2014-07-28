@@ -18,11 +18,12 @@ class Player : Sprites
 public:
     Player(sf::Vector2f playerPosition);
     void render(sf::RenderWindow  *window);
+    void update(double frametime);
     
 protected:
 private:
     float mPlayerPositionX = 0;
     float mPlayerPositionY = 0;
-    
+    double mFrametime;
 };
 #endif /* defined(__Nameless__Player__) */
