@@ -36,10 +36,10 @@ void Maploader::render(sf::RenderWindow *window)
         
        
         Sprites::WasserSprite.setPosition(tempmapx*16, tempmapy*16);
-        Sprites::WegSprite.setPosition(tempmapx*16, tempmapy*16);
-        
-        
-      
+        Sprites::pWegSprite->setPosition(tempmapx*16, tempmapy*16);
+        Sprites::pGrasSprite->setPosition(tempmapx*16, tempmapy*16);
+        Sprites::pGrasSpriteOL->setPosition(tempmapx*16, tempmapy*16);
+        Sprites::pGrasSpriteOBEN->setPosition(tempmapx*16, tempmapy*16);
         if (tempmapx == mMapwidth/16) {
             tempmapy++;
             tempmapx = 0;
@@ -47,13 +47,25 @@ void Maploader::render(sf::RenderWindow *window)
         if (tempmapy == mMapheigth/16) {
             tempmapy = 0;
         }
+        if(it == "0")
+        {
+            window->draw(*Sprites::pGrasSprite);
+        }
         if(it == "1")
         {
             window->draw(Sprites::WasserSprite);
         }
         if (it == "2") {
-            window->draw(Sprites::WegSprite);
+            window->draw(*Sprites::pWegSprite);
         }
+        if (it == "3") {
+            window->draw(*Sprites::pGrasSpriteOL);
+        }
+        if (it == "4") {
+            window->draw(*Sprites::pGrasSpriteOBEN);
+        }
+        
+      
          tempmapx++;
         
         

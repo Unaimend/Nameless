@@ -14,7 +14,7 @@ void Logfile::writeToFile(std::string parameter)
 {
     this->setmTime();
     std::string string =   mTime + parameter + "\n";
-    std::cout << parameter << std::endl;
+    //std::cout << parameter << std::endl;
     *pLog << string;
 }
 void Logfile::closeFile()

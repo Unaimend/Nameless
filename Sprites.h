@@ -22,16 +22,22 @@ protected:
     
     Logfile *pLog;
  
+    sf::IntRect mSubRect;
     
+
     sf::Texture WasserTexture;
     sf::Texture WegTexture;
     sf::Texture PlayerTexture;
     sf::Texture InventoryTexture;
-    
+    sf::Texture TileSet_ATexture;
     
     sf::Sprite  WasserSprite;
-    sf::Sprite  WegSprite;
+    sf::Sprite  *pWegSprite;
+    sf::Sprite  *pGrasSprite;
+    sf::Sprite  *pGrasSpriteOL;
+    sf::Sprite  *pGrasSpriteOBEN;
     sf::Sprite  PlayerSprite;
-    sf::Sprite InventorySprite;
+    sf::Sprite  InventorySprite;
+    sf::Sprite  Tileset_ASprite;
 };
 #endif /* defined(__Nameless__Sprites__) */
