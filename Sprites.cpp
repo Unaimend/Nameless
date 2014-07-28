@@ -50,6 +50,11 @@ Sprites::Sprites()
     mSubRect.width = 16;
     mSubRect.height = 16;
     pGrasSpriteOBEN = new sf::Sprite(TileSet_ATexture, mSubRect);
+    mSubRect.left = 16; // of course, you'll have to fill it in with the right values...
+    mSubRect.top = 32;
+    mSubRect.width = 16;
+    mSubRect.height = 16;
+    pGrasSpriteUNTEN = new sf::Sprite(TileSet_ATexture, mSubRect);
     pLog->writeToFile("Alle Sprites geladen");
     pLog->closeFile();
     

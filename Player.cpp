@@ -7,6 +7,7 @@ Player::Player(sf::Vector2f playerPosition)
     Sprites::PlayerSprite.setPosition(mPlayerPositionX, mPlayerPositionY);
     mView.setSize(sf::Vector2f(1200, 800));
     mView.setViewport(sf::FloatRect(0.0f, 0, 1.0f, 1.0f));
+    mView.zoom(0.5);
 
 };
 
