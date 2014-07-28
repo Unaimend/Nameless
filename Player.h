@@ -12,7 +12,7 @@
 #include <iostream>
 #include "Sprites.h"
 #include "SFML/Graphics.hpp"
-
+#include "GuiSystem.h"
 class Player : Sprites
 {
 public:
@@ -21,6 +21,7 @@ public:
     void render(sf::RenderWindow  *window);
     void update(double frametime);
     void setEvent(sf::Event event);
+    
     
 protected:
 private:
@@ -32,5 +33,6 @@ private:
     sf::View mFixed;
     int mResY, mResX;
     sf::Event mEvent;
+    GuiSystem GUI;
 };
 #endif /* defined(__Nameless__Player__) */

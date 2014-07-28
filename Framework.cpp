@@ -74,10 +74,7 @@ void Framework::EventHandling()
             mRun = false;
         }
         pPlayer1->setEvent(*pMainEvent);
-        
-       
     }
-    
 }
 
 

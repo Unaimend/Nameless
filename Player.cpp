@@ -35,18 +35,30 @@ void Player::update(double frametime)
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
     {
         Sprites::PlayerSprite.move(-100*frametime, 0);
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::RShift)) {
+            Sprites::PlayerSprite.move(-600*frametime, 0);
+        }
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
     {
         Sprites::PlayerSprite.move(100*frametime, 0);
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LShift)) {
+            Sprites::PlayerSprite.move(600*frametime, 0);
+        }
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
     {
         Sprites::PlayerSprite.move(0, -100*frametime);
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LShift)) {
+            Sprites::PlayerSprite.move(0, -600*frametime);
+        }
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
     {
         Sprites::PlayerSprite.move(0, 100*frametime);
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LShift)) {
+            Sprites::PlayerSprite.move(0, 600*frametime);
+        }
     }
     mView.setCenter(sf::Vector2f(Sprites::PlayerSprite.getPosition().x, Sprites::PlayerSprite.getPosition().y));
     mFixed.setCenter(mResX/2, mResY/2  );
