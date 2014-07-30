@@ -13,6 +13,7 @@
 #include "Sprites.h"
 #include "SFML/Graphics.hpp"
 #include "GuiSystem.h"
+#include "Animation.h"
 class Player : Sprites
 {
 public:
@@ -33,6 +34,8 @@ private:
     sf::View mFixed;
     int mResY, mResX;
     sf::Event mEvent;
-    GuiSystem GUI;
+    GuiSystem *pGUI;
+    sf::Sprite PlayerPointer;
+    Animation *pPlayerAnimation;
 };
 #endif /* defined(__Nameless__Player__) */

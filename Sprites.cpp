@@ -18,7 +18,7 @@ Sprites::Sprites()
         pLog->writeToFile("Wassertextur geladen");
     if(WegTexture.loadFromFile("weg01.png"))
         pLog->writeToFile("Wegtextur geladen");
-    if(PlayerTexture.loadFromFile("player.png"))
+    if(PlayerTexture.loadFromFile("Character.png"))
         pLog->writeToFile("Spielertextur geladen");
     if(InventoryTexture.loadFromFile("inventar v01.png"))
         pLog->writeToFile("Inventartextur geladen");
@@ -28,7 +28,12 @@ Sprites::Sprites()
 
     
     WasserSprite.setTexture(WasserTexture);
-    PlayerSprite.setTexture(PlayerTexture);
+    mSubRect.left = 32;
+    mSubRect.top = 64;
+    mSubRect.width = 32;
+    mSubRect.height = 32;
+    pPlayerSprite = new sf::Sprite(PlayerTexture, mSubRect );
+    
     InventorySprite.setTexture(InventoryTexture);
     mSubRect.left = 16; // of course, you'll have to fill it in with the right values...
     mSubRect.top = 16;
@@ -55,6 +60,7 @@ Sprites::Sprites()
     mSubRect.width = 16;
     mSubRect.height = 16;
     pGrasSpriteUNTEN = new sf::Sprite(TileSet_ATexture, mSubRect);
+   
     pLog->writeToFile("Alle Sprites geladen");
     pLog->closeFile();
     

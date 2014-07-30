@@ -37,8 +37,9 @@ protected:
     sf::Sprite  *pGrasSpriteOL;
     sf::Sprite  *pGrasSpriteOBEN;
     sf::Sprite  *pGrasSpriteUNTEN;
-    sf::Sprite  PlayerSprite;
     sf::Sprite  InventorySprite;
     sf::Sprite  Tileset_ASprite;
+    sf::Sprite *pPlayerSprite;
+    
 };
 #endif /* defined(__Nameless__Sprites__) */
