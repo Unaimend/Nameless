@@ -53,7 +53,8 @@ private:
     sf::Clock mEnduranceCLock;
     bool mIsStanding = false;
     sf::Clock mRefillEnduranceClocl;
-
+    
+  
     
 };
 #endif /* defined(__Nameless__Player__) */

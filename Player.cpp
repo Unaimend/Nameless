@@ -32,6 +32,8 @@ Player::Player(sf::Vector2f playerPosition, double resX, double resY)
     mMagicaText.setCharacterSize(20);
     mMagicaText.setColor(sf::Color::Blue);
     mMagicaText.setFont(mFont);
+    
+    
 };
 
 Player::~Player(){};

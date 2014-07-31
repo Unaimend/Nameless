@@ -28,8 +28,9 @@ Framework::Framework()
     
     pPlayer1 = new Player(sf::Vector2f(0,0), mAuflösungsBreite, mAuflösungsHöhe);
     
+    ptest = new NPC();
+    }
 
-}
 
 
 
@@ -82,8 +83,11 @@ void Framework::EventHandling()
 void Framework::Render()
 {
     pRenderWindow->clear(sf::Color(120,120,120));
+   
     pMap->render(pRenderWindow);
+    ptest->render(pRenderWindow);
     pPlayer1->render(pRenderWindow);
+   
     pRenderWindow->display();
   
 }

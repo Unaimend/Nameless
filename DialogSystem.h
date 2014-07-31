@@ -14,14 +14,17 @@
 class DialogSystem
 {
 public:
-    DialogSystem();
+    DialogSystem(std::string text, int xpos, int ypos, unsigned int ChraracterSize);
     ~DialogSystem();
     void setText(std::string Text){mText.setString(Text);};
+    void render(sf::RenderWindow *window);
+    
 protected:
 private:
     sf::Text mText;
-    sf::RectangleShape mTextBox;
-
+     sf::Font mFont;
+   // sf::RectangleShape mTextBox;
+    
 
 };
 #endif /* defined(__Nameless__DialogSystem__) */

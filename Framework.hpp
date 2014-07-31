@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "Maploader.h"
 #include <vector>
+#include "NPC.h"
 #ifndef Neues_SFML_Projekt_Framework_hpp
 #define Neues_SFML_Projekt_Framework_hpp
 
@@ -27,6 +28,7 @@ private:
     int         Mapwidth;
     int         mAuflösungsBreite;
     int         mAuflösungsHöhe;
+    NPC *ptest;
     
     //--------------PRIVATE FUNKTIONEN------------------------
     //Die Funktion behandelt alle Spielereingaben
