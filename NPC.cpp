@@ -14,7 +14,7 @@ NPC::NPC()
     
     hi.setPosition(100, 100);
     hi.setSize(sf::Vector2f(20,20));
-    ptest = new DialogSystem("HI", 200, 200, 20 );
+    ptest = new DialogSystem("Hallo, \nmein Name ist Thomas", hi.getPosition().x, hi.getPosition().y,100);
 };
 
 void NPC::render(sf::RenderWindow *window)
