@@ -13,7 +13,8 @@
 class GuiSystem : Sprites
 {
 public:
-    GuiSystem();
+//    GuiSystem();
+//    virtual ~GuiSystem();
     void render();
     void update();
 protected:

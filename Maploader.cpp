@@ -40,6 +40,7 @@ void Maploader::render(sf::RenderWindow *window)
         Sprites::pGrasSprite->setPosition(tempmapx*16, tempmapy*16);
         Sprites::pGrasSpriteOL->setPosition(tempmapx*16, tempmapy*16);
         Sprites::pGrasSpriteOBEN->setPosition(tempmapx*16, tempmapy*16);
+        Sprites::pGrasSpriteUNTEN->setPosition(tempmapx*16, tempmapy*16);
         if (tempmapx == mMapwidth/16) {
             tempmapy++;
             tempmapx = 0;
@@ -63,6 +64,9 @@ void Maploader::render(sf::RenderWindow *window)
         }
         if (it == "4") {
             window->draw(*Sprites::pGrasSpriteOBEN);
+        }
+        if (it == "5") {
+            window->draw(*Sprites::pGrasSpriteUNTEN);
         }
         
       
