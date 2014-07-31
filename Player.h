@@ -37,5 +37,23 @@ private:
     GuiSystem *pGUI;
     sf::Sprite PlayerPointer;
     Animation *pPlayerAnimation;
+    sf::Font mFont;
+
+    int mLife = 100;
+    std::string mLifeString;
+    sf::Text mLifeText;
+    
+    
+    int mMagica = 100;
+    std::string mMagicaString;
+    sf::Text mMagicaText;
+    int mEndurance = 100;
+    std::string mEnduranceString;
+    sf::Text mEnduranceText;
+    sf::Clock mEnduranceCLock;
+    bool mIsStanding = false;
+    sf::Clock mRefillEnduranceClocl;
+
+    
 };
 #endif /* defined(__Nameless__Player__) */

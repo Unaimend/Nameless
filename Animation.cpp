@@ -22,47 +22,48 @@ Animation::Animation(sf::Sprite Spritesheet, int SpriteHeigth, int SpriteWidth)
 };
 
 
-void Animation::move(sf::Keyboard::Key PressedKey, double frametime)
+void Animation::move(double frametime, int Endurance)
 {   mClock.getElapsedTime().asSeconds();
-    if (PressedKey == sf::Keyboard::W)
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
     {
-        mSpriteSheet.move(0,-100*frametime);
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LShift)) {
-            mSpriteSheet.move(0,-200*frametime);
+        mSpriteSheet.move(0,-50*frametime);
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LShift) && Endurance > 0) {
+            mSpriteSheet.move(0,-100*frametime);
+            std::cout << "ENDURANCE" << Endurance<< std::endl;
         }
         mSubRect.left = 32;
         mSubRect.top = 0;
         mSpriteSheet.setTextureRect(mSubRect);
-        if (mClock.getElapsedTime().asSeconds() > 0.2f) {
+        if (mClock.getElapsedTime().asSeconds() > 0.3f) {
             mSubRect.left = 0;
             mSubRect.top = 0;
             mSpriteSheet.setTextureRect(mSubRect);
             
         }
-        if (mClock.getElapsedTime().asSeconds() > 0.4f) {
+        if (mClock.getElapsedTime().asSeconds() > 0.6f) {
             mSubRect.left = 64;
             mSubRect.top = 0;
             mSpriteSheet.setTextureRect(mSubRect);
             mClock.restart();
         }
     }
-    else if (PressedKey == sf::Keyboard::S)
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
     {
-        mSpriteSheet.move(0,100*frametime);
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LShift)) {
-            mSpriteSheet.move(0,200*frametime);
+        mSpriteSheet.move(0,50*frametime);
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LShift) && Endurance > 0) {
+            mSpriteSheet.move(0,100*frametime);
         }
         mSubRect.left = 32;
         mSubRect.top = 64;
         mSpriteSheet.setTextureRect(mSubRect);
-        if (mClock.getElapsedTime().asSeconds() > 0.2f) {
+        if (mClock.getElapsedTime().asSeconds() > 0.3f) {
            
             mSubRect.left = 0;
             mSubRect.top = 64;
             mSpriteSheet.setTextureRect(mSubRect);
             
         }
-        if (mClock.getElapsedTime().asSeconds() > 0.4f) {
+        if (mClock.getElapsedTime().asSeconds() > 0.6f) {
             mSubRect.left = 64;
             mSubRect.top = 64;
             mSpriteSheet.setTextureRect(mSubRect);
@@ -71,22 +72,22 @@ void Animation::move(sf::Keyboard::Key PressedKey, double frametime)
         }
        
     }
-    else if (PressedKey == sf::Keyboard::A)
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) )
     {
-        mSpriteSheet.move(-100*frametime, 0);
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LShift)) {
-            mSpriteSheet.move(-200*frametime, 0);
+        mSpriteSheet.move(-50*frametime, 0);
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LShift)&& Endurance > 0) {
+            mSpriteSheet.move(-100*frametime, 0);
         }
         mSubRect.left = 32;
         mSubRect.top = 96;
         mSpriteSheet.setTextureRect(mSubRect);
-        if (mClock.getElapsedTime().asSeconds() > 0.2f) {
+        if (mClock.getElapsedTime().asSeconds() > 0.3f) {
             mSubRect.left = 0;
             mSubRect.top = 96;
             mSpriteSheet.setTextureRect(mSubRect);
         
         }
-       if (mClock.getElapsedTime().asSeconds() > 0.4f) {
+       if (mClock.getElapsedTime().asSeconds() > 0.6f) {
             mSubRect.left = 64;
             mSubRect.top = 96;
             mSpriteSheet.setTextureRect(mSubRect);
@@ -94,32 +95,28 @@ void Animation::move(sf::Keyboard::Key PressedKey, double frametime)
         }
         
     }
-    else if (PressedKey == sf::Keyboard::D)
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
     {
-        mSpriteSheet.move(100*frametime, 0);
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LShift)) {
-            mSpriteSheet.move(200*frametime, 0);
+        mSpriteSheet.move(50*frametime, 0);
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LShift) && Endurance > 0) {
+            mSpriteSheet.move(100*frametime, 0);
         }
         mSubRect.left = 32;
         mSubRect.top = 32;
         mSpriteSheet.setTextureRect(mSubRect);
-        if (mClock.getElapsedTime().asSeconds() > 0.2f) {
+        if (mClock.getElapsedTime().asSeconds() > 0.3f) {
             mSubRect.left = 0;
             mSubRect.top = 32;
             mSpriteSheet.setTextureRect(mSubRect);
            
         }
-        if (mClock.getElapsedTime().asSeconds() > 0.4f) {
+        if (mClock.getElapsedTime().asSeconds() > 0.6f) {
             mSubRect.left = 64;
             mSubRect.top = 32;
             mSpriteSheet.setTextureRect(mSubRect);
             mClock.restart();
         }
     }
-    mSubRect.left = 32;
-    mSubRect.top = 0;
-    mSpriteSheet.setTextureRect(mSubRect);
-    
 };
 
 void Animation::render(sf::RenderWindow *window)

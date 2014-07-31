@@ -16,9 +16,9 @@ class Animation
 {
 public:
     Animation(sf::Sprite SpriteSheet, int SpriteHeigth, int SpriteWidth);
-    void move(sf::Keyboard::Key PressedKey, double frametime);
+    void move(double frametime, int Endurance);
     void render(sf::RenderWindow *window);
-    
+    sf::Sprite getSprite(){return mSpriteSheet;};
     
 protected:
 private:
