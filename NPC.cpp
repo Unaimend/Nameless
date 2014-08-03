@@ -61,7 +61,10 @@ void NPC::setEvent(sf::Event event)
     {
         NpcDialog->setText(mNpcText2);
         mNPCtext = mNpcText3;
-               std::cout << "2" << std::endl;
+        std::cout << "2" << std::endl;
+        if (mNpcText3 == "0") {
+            mNPCtext = mNpcText1;
+        }
         
     }
     else if (mEvent.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::R && mNPCtext == mNpcText3 && mNpcText3 != "0")
