@@ -7,7 +7,7 @@
 //
 
 #include "NPC.h"
-NPC::NPC( Player player, sf::Sprite sprite, float xpos, float ypos, std::string text, std::string text2, std::string text3)
+NPC::NPC( Player player, sf::Sprite sprite, float xpos, float ypos, std::string text, std::string text2, std::string text3, std::string name)
 {
     
     mNPCtext  = text;
@@ -50,18 +50,22 @@ void NPC::setEvent(sf::Event event)
             mShowDialog = true;
         }
     }
+    if (mNpcSprite.getPosition().x - mPlayer.getPlayerSpritePosX() > 75 ||  mNpcSprite.getPosition().x - mPlayer.getPlayerSpritePosX() < -75 || mNpcSprite.getPosition().y - mPlayer.getPlayerSpritePosY() > 75 || mNpcSprite.getPosition().y - mPlayer.getPlayerSpritePosY() < -75) {
+        mShowDialog = false;
+    }
+    
     if (mEvent.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::R && mNPCtext == mNpcText1 && mNpcText1 != "0")
     {
         NpcDialog->setText(mNpcText1);
         mNPCtext = mNpcText2;
-        std::cout << "1" << std::endl;
+        
         
     }
     else if (mEvent.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::R && mNPCtext == mNpcText2 && mNpcText2 != "0")
     {
         NpcDialog->setText(mNpcText2);
         mNPCtext = mNpcText3;
-        std::cout << "2" << std::endl;
+        
         if (mNpcText3 == "0") {
             mNPCtext = mNpcText1;
         }
@@ -71,8 +75,12 @@ void NPC::setEvent(sf::Event event)
     {
         NpcDialog->setText(mNpcText3);
         mNPCtext = mNpcText1;
-             std::cout << "3" << std::endl;
+        
     }
     
-    
+};
+
+void NPC::update()
+{
+    NpcDialog->update();
 };

@@ -7,7 +7,7 @@ DialogSystem::DialogSystem(std::string text1, int xpos, int ypos,unsigned int Ch
     
     mText.setColor(sf::Color::Black);
     mText.setPosition(xpos, ypos - (mText.getScale().y+mText.getCharacterSize()));
-    mText.setScale(0.07, 0.07);
+    mText.setScale(0.05, 0.05);
     mText.setCharacterSize(ChraracterSize);
     
     mTextBox.setPosition(mText.getPosition().x, mText.getPosition().y);
@@ -22,6 +22,10 @@ DialogSystem::DialogSystem(std::string text1, int xpos, int ypos,unsigned int Ch
 
 DialogSystem::~DialogSystem(){};
 
+void DialogSystem::update(){
+    mTextBox.setPosition(mText.getPosition().x, mText.getPosition().y);
+    mTextBox.setSize(sf::Vector2f(mText.getGlobalBounds().width ,mText.getGlobalBounds().height + 10));
+};
 void DialogSystem::render(sf::RenderWindow *window)
 {
     window->draw(mTextBox);

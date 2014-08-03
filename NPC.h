@@ -16,9 +16,9 @@
 class NPC
 {
 public:
-    NPC( Player player , sf::Sprite sprite, float xpos , float ypos , std::string text = "0", std::string text2 = "0", std::string text3 = "0");
+    NPC( Player player , sf::Sprite sprite, float xpos , float ypos , std::string text = "0", std::string text2 = "0", std::string text3 = "0", std::string name = "defaultname");
     void render(sf::RenderWindow *window);
-    
+    void update();
     void setEvent(sf::Event event);
 protected:
 private:

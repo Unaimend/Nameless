@@ -26,8 +26,9 @@ Sprites::Sprites()
         pLog->writeToFile("Tileset A geladen");
     if(NPCHolzfällerTexture.loadFromFile("Holzfäller.png"))
         pLog->writeToFile("Holfäller geladen");
-
     
+
+
     WasserSprite.setTexture(WasserTexture);
     mSubRect.left = 32;
     mSubRect.top = 64;

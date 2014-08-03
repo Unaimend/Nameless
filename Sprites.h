@@ -31,6 +31,8 @@ protected:
     sf::Texture InventoryTexture;
     sf::Texture TileSet_ATexture;
     sf::Texture NPCHolzfällerTexture;
+    sf::Texture Hazs1;
+    sf::Texture Haus2;
     
     sf::Sprite  WasserSprite;
     sf::Sprite  *pWegSprite;
@@ -42,6 +44,9 @@ protected:
     sf::Sprite  Tileset_ASprite;
     sf::Sprite *pPlayerSprite;
     sf::Sprite *pNPCHolzfällerSprite;
+    
+    sf::Sprite  Haus1s;
+    sf::Sprite  Haus2s;
     
 };
 #endif /* defined(__Nameless__Sprites__) */

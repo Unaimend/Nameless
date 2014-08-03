@@ -30,8 +30,9 @@ Framework::Framework()
     
     pPlayer1 = new Player(sf::Vector2f(0,0), mAuflösungsBreite, mAuflösungsHöhe);
     
-    ptest = new NPC(*pPlayer1, *Sprites::pNPCHolzfällerSprite, 290,510, "Willfried: Hallo mein, \nName ist Willfried","Hedo Pedo");
-    }
+    ptest = new NPC(*pPlayer1, *Sprites::pNPCHolzfällerSprite, 290,510, "Willfried: Hallo mein, \nName ist Willfried","Willkommen in unserem \nbescheidenen Dorf", "Die Hauser werden\nnoch geliefert");
+
+}
 
 
 
@@ -64,10 +65,10 @@ void Framework::Update(double frametime)
 {
     
     pPlayer1->update(mFrameTime);
-   
+    ptest->update();
     float currentTime = clock2.restart().asSeconds();
     float fps = 1.f / currentTime ;
-    //std::cout << fps<< std::endl;
+    std::cout << fps<< std::endl;
    // std::cout << mFrameTime << std::endl;
 }
 
@@ -91,7 +92,6 @@ void Framework::EventHandling()
 void Framework::Render()
 {
     pRenderWindow->clear(sf::Color(120,120,120));
-   
     pMap->render(pRenderWindow);
     ptest->render(pRenderWindow);
     pPlayer1->render(pRenderWindow);
