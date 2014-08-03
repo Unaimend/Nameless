@@ -14,7 +14,7 @@
 class DialogSystem
 {
 public:
-    DialogSystem(std::string text, int xpos, int ypos, unsigned int ChraracterSize);
+    DialogSystem(std::string text1, int xpos, int ypos, unsigned int ChraracterSize);
     ~DialogSystem();
     void setText(std::string Text){mText.setString(Text);};
     void render(sf::RenderWindow *window);
@@ -22,8 +22,8 @@ public:
 protected:
 private:
     sf::Text mText;
-     sf::Font mFont;
-   // sf::RectangleShape mTextBox;
+    sf::Font mFont;
+    sf::RectangleShape mTextBox;
     
 
 };

@@ -8,6 +8,8 @@ Framework::Framework()
     pLog = new Logfile("Logfile.log");
     mAuflösungsBreite = 1680;
     mAuflösungsHöhe = 1456;
+   
+    clock2.getElapsedTime().asSeconds();
 //    mAuflösungsBreite = 1920;
 //    mAuflösungsHöhe = 1200;
 
@@ -28,7 +30,7 @@ Framework::Framework()
     
     pPlayer1 = new Player(sf::Vector2f(0,0), mAuflösungsBreite, mAuflösungsHöhe);
     
-    ptest = new NPC();
+    ptest = new NPC("Hallo, \nmein Name ist Thomas \nWie heisst du?", *pPlayer1);
     }
 
 
@@ -36,6 +38,7 @@ Framework::Framework()
 
 Framework::~Framework()
 {   pLog->writeToFile("Fensterinstanz geshlossen");
+    pPlayer1->closePlayer();
     pLog->closeFile();
     
 }
@@ -61,6 +64,9 @@ void Framework::Update(double frametime)
 {
     
     pPlayer1->update(mFrameTime);
+    float currentTime = clock2.restart().asSeconds();
+    float fps = 1.f / currentTime ;
+    //std::cout << fps<< std::endl;
    // std::cout << mFrameTime << std::endl;
 }
 

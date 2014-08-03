@@ -14,15 +14,16 @@
 #include "SFML/Graphics.hpp"
 #include "GuiSystem.h"
 #include "Animation.h"
+#include "Logfile.h"
 class Player : Sprites
 {
 public:
     Player(sf::Vector2f playerPosition, double resX, double resY);
-    ~Player();
+    virtual ~Player();
     void render(sf::RenderWindow  *window);
     void update(double frametime);
     void setEvent(sf::Event event);
-    
+    void closePlayer(){this->~Player();};
     
 protected:
 private:
@@ -52,7 +53,9 @@ private:
     sf::Text mEnduranceText;
     sf::Clock mEnduranceCLock;
     bool mIsStanding = false;
-    sf::Clock mRefillEnduranceClocl;
+    
+    
+    //sf::Clock mRefillEnduranceClock;
     
   
     

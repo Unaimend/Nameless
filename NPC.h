@@ -10,17 +10,19 @@
 #define __Nameless__NPC__
 
 #include <iostream>
-#include "SFML/Graphics.hpp"
 #include "DialogSystem.h"
+#include "Player.h"
+
 class NPC
 {
 public:
-    NPC();
+    NPC(std::string text, Player player);
     void render(sf::RenderWindow *window);
 protected:
 private:
-    sf::RectangleShape hi;
-    DialogSystem *ptest;
+    std::string mNPCtext;
+    sf::RectangleShape mNpc;
+    DialogSystem *NpcDialog;
    
 };
 #endif /* defined(__Nameless__NPC__) */

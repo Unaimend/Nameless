@@ -36,7 +36,7 @@ Player::Player(sf::Vector2f playerPosition, double resX, double resY)
     
 };
 
-Player::~Player(){};
+Player::~Player(){std::cout << "HALLO" << std::endl;};
 void Player::render(sf::RenderWindow *window)
 {
     window->setView(mView);
@@ -73,7 +73,6 @@ void Player::update(double frametime)
         if (mEnduranceCLock.getElapsedTime().asSeconds() > 1)
         {
             mEndurance =  mEndurance - 5;
-           
             mEnduranceCLock.restart();
         }
     }
@@ -94,7 +93,7 @@ void Player::update(double frametime)
 void Player::setEvent(sf::Event event)
 {
     mEvent = event;
-    if (mEvent.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::E) {
+    if (mEvent.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::I) {
         if (mShowInventory == true) {
             mShowInventory = false;
         }

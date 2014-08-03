@@ -7,18 +7,18 @@
 //
 
 #include "NPC.h"
-NPC::NPC()
+NPC::NPC(std::string text, Player player)
 {
-
-  
     
-    hi.setPosition(100, 100);
-    hi.setSize(sf::Vector2f(20,20));
-    ptest = new DialogSystem("Hallo, \nmein Name ist Thomas", hi.getPosition().x, hi.getPosition().y,100);
+    mNPCtext = text;
+    
+    mNpc.setPosition(230, 100);
+    mNpc.setSize(sf::Vector2f(20,20));
+    NpcDialog = new DialogSystem(mNPCtext, mNpc.getPosition().x, mNpc.getPosition().y - 10,100);
 };
 
 void NPC::render(sf::RenderWindow *window)
 {
-    ptest->render(window);
-    window->draw(hi);
+    NpcDialog->render(window);
+    window->draw(mNpc);
 };

@@ -28,8 +28,9 @@ private:
     int         Mapwidth;
     int         mAuflösungsBreite;
     int         mAuflösungsHöhe;
+     sf::Clock clock2;
     NPC *ptest;
-    
+	
     //--------------PRIVATE FUNKTIONEN------------------------
     //Die Funktion behandelt alle Spielereingaben
     void Update(double frametime);
