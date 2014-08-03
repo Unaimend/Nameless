@@ -68,7 +68,8 @@ void Framework::Update(double frametime)
     ptest->update();
     float currentTime = clock2.restart().asSeconds();
     float fps = 1.f / currentTime ;
-    std::cout << fps<< std::endl;
+    
+    //std::cout << fps<< std::endl;
    // std::cout << mFrameTime << std::endl;
 }
 

@@ -40,6 +40,7 @@ Player::~Player(){};
 void Player::render(sf::RenderWindow *window)
 {
     window->setView(mView);
+    
     pPlayerAnimation->render(window);
     window->setView(mFixed);
     window->draw(mEnduranceText);
