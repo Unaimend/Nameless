@@ -62,7 +62,7 @@ Sprites::Sprites()
     mSubRect.height = 16;
     pGrasSpriteUNTEN = new sf::Sprite(TileSet_ATexture, mSubRect);
     mSubRect.left = 32; // of course, you'll have to fill it in with the right values...
-    mSubRect.top = 96;
+    mSubRect.top = 64;
     mSubRect.width = 32;
     mSubRect.height = 32;
     pNPCHolzfällerSprite = new sf::Sprite(NPCHolzfällerTexture, mSubRect);

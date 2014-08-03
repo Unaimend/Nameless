@@ -7,30 +7,30 @@
 //
 
 #include "NPC.h"
-NPC::NPC(std::string text, Player player, sf::Sprite sprite)
+NPC::NPC(std::string text, Player player, sf::Sprite sprite, float xpos, float ypos)
 {
     
     mNPCtext = text;
     mPlayer = player;
-    
+    mNpcPosX = xpos;
+    mNpcPosY = ypos;
     mNpcSprite = sprite;
     
-    mNpc.setPosition(230, 100);
-    mNpc.setSize(sf::Vector2f(20,20));
-    mNpc.setOrigin(mNpc.getScale().x/2, mNpc.getScale().y/2);
-    NpcDialog = new DialogSystem(mNPCtext, mNpc.getPosition().x, mNpc.getPosition().y - 10,100);
+    mNpcSprite.setPosition(mNpcPosX, mNpcPosY);
+    mNpcSprite.setOrigin(mNpcSprite.getScale().x/2, mNpcSprite.getScale().y/2);
+    NpcDialog = new DialogSystem(mNPCtext, mNpcSprite.getPosition().x, mNpcSprite.getPosition().y - 10,100);
 };
 
 void NPC::render(sf::RenderWindow *window)
-{   std::cout << mNpc.getPosition().x - mPlayer.getPlayerSpritePosX()<< std::endl;
-    std::cout << mNpc.getPosition().y - mPlayer.getPlayerSpritePosY()<< std::endl;
+{   //std::cout << mNpc.getPosition().x - mPlayer.getPlayerSpritePosX()<< std::endl;
+    //std::cout << mNpc.getPosition().y - mPlayer.getPlayerSpritePosY()<< std::endl;
     
     
-    if (((mNpc.getPosition().x - mPlayer.getPlayerSpritePosX() < 100 && mNpc.getPosition().x - mPlayer.getPlayerSpritePosX() > -100) && ((mNpc.getPosition().y - mPlayer.getPlayerSpritePosY() < 100) && mNpc.getPosition().y - mPlayer.getPlayerSpritePosY() > -100)) && mShowDialog == true )  {
+    if (((mNpcSprite.getPosition().x - mPlayer.getPlayerSpritePosX() < 75 && mNpcSprite.getPosition().x - mPlayer.getPlayerSpritePosX() > -75) && ((mNpcSprite.getPosition().y - mPlayer.getPlayerSpritePosY() < 75) && mNpcSprite.getPosition().y - mPlayer.getPlayerSpritePosY() > -75)) && mShowDialog == true )  {
         NpcDialog->render(window);
     }
     
-    window->draw(mNpc);
+    window->draw(mNpcSprite);
 };
 
 
