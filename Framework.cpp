@@ -30,7 +30,7 @@ Framework::Framework()
     
     pPlayer1 = new Player(sf::Vector2f(0,0), mAuflösungsBreite, mAuflösungsHöhe);
     
-    ptest = new NPC("Hallo, \nmein Name ist Thomas \nWie heisst du?", *pPlayer1, *Sprites::pNPCHolzfällerSprite, 290,510);
+    ptest = new NPC(*pPlayer1, *Sprites::pNPCHolzfällerSprite, 290,510);
     }
 
 

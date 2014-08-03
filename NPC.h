@@ -16,7 +16,7 @@
 class NPC
 {
 public:
-    NPC(std::string text, Player player, sf::Sprite sprite, float xpos, float ypos);
+    NPC( Player player , sf::Sprite sprite, float xpos , float ypos , std::string text = "Defalut");
     void render(sf::RenderWindow *window);
     
     void setEvent(sf::Event event);

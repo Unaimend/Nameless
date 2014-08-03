@@ -7,7 +7,7 @@
 //
 
 #include "NPC.h"
-NPC::NPC(std::string text, Player player, sf::Sprite sprite, float xpos, float ypos)
+NPC::NPC( Player player, sf::Sprite sprite, float xpos, float ypos, std::string text)
 {
     
     mNPCtext = text;
