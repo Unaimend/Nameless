@@ -19,7 +19,8 @@ public:
     void move(double frametime, int Endurance);
     void render(sf::RenderWindow *window);
     sf::Sprite getSprite(){return mSpriteSheet;};
-    
+    float getAnimationSpritePosX(){return mSpriteSheet.getPosition().x;};
+    float getAnimationSpritePosY(){return mSpriteSheet.getPosition().y;};
 protected:
 private:
     sf::Sprite mSpriteSheet;

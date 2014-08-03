@@ -23,7 +23,7 @@ DialogSystem::DialogSystem(std::string text1, int xpos, int ypos,unsigned int Ch
 DialogSystem::~DialogSystem(){};
 
 void DialogSystem::render(sf::RenderWindow *window)
-{
+{   
     window->draw(mTextBox);
     window->draw(mText);
     

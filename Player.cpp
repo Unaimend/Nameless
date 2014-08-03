@@ -93,7 +93,7 @@ void Player::update(double frametime)
 void Player::setEvent(sf::Event event)
 {
     mEvent = event;
-    if (mEvent.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::I) {
+    if (mEvent.type == sf::Event::KeyPressed && mEvent.key.code == sf::Keyboard::I) {
         if (mShowInventory == true) {
             mShowInventory = false;
         }

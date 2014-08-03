@@ -30,6 +30,7 @@ protected:
     sf::Texture PlayerTexture;
     sf::Texture InventoryTexture;
     sf::Texture TileSet_ATexture;
+    sf::Texture NPCHolzfällerTexture;
     
     sf::Sprite  WasserSprite;
     sf::Sprite  *pWegSprite;
@@ -40,6 +41,7 @@ protected:
     sf::Sprite  InventorySprite;
     sf::Sprite  Tileset_ASprite;
     sf::Sprite *pPlayerSprite;
+    sf::Sprite *pNPCHolzfällerSprite;
     
 };
 #endif /* defined(__Nameless__Sprites__) */

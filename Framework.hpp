@@ -9,7 +9,7 @@
 #define Neues_SFML_Projekt_Framework_hpp
 
 
-class Framework
+class Framework : Sprites
 {
     
     

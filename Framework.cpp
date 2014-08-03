@@ -30,7 +30,7 @@ Framework::Framework()
     
     pPlayer1 = new Player(sf::Vector2f(0,0), mAuflösungsBreite, mAuflösungsHöhe);
     
-    ptest = new NPC("Hallo, \nmein Name ist Thomas \nWie heisst du?", *pPlayer1);
+    ptest = new NPC("Hallo, \nmein Name ist Thomas \nWie heisst du?", *pPlayer1, *Sprites::pNPCHolzfällerSprite);
     }
 
 
@@ -64,6 +64,7 @@ void Framework::Update(double frametime)
 {
     
     pPlayer1->update(mFrameTime);
+   
     float currentTime = clock2.restart().asSeconds();
     float fps = 1.f / currentTime ;
     //std::cout << fps<< std::endl;
@@ -81,6 +82,7 @@ void Framework::EventHandling()
             mRun = false;
         }
         pPlayer1->setEvent(*pMainEvent);
+        ptest->setEvent(*pMainEvent);
     }
 }
 
