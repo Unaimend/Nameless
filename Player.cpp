@@ -36,7 +36,7 @@ Player::Player(sf::Vector2f playerPosition, double resX, double resY)
     
 };
 
-Player::~Player(){std::cout << "HALLO" << std::endl;};
+Player::~Player(){};
 void Player::render(sf::RenderWindow *window)
 {
     window->setView(mView);

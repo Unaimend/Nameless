@@ -29,7 +29,7 @@ void Animation::move(double frametime, int Endurance)
         mSpriteSheet.move(0,-50*frametime);
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LShift) && Endurance > 0) {
             mSpriteSheet.move(0,-100*frametime);
-            std::cout << "ENDURANCE" << Endurance<< std::endl;
+            
         }
         mSubRect.left = 32;
         mSubRect.top = 0;

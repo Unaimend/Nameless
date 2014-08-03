@@ -16,7 +16,7 @@
 class NPC
 {
 public:
-    NPC( Player player , sf::Sprite sprite, float xpos , float ypos , std::string text = "Defalut");
+    NPC( Player player , sf::Sprite sprite, float xpos , float ypos , std::string text = "0", std::string text2 = "0", std::string text3 = "Default");
     void render(sf::RenderWindow *window);
     
     void setEvent(sf::Event event);
@@ -31,5 +31,8 @@ private:
     Player mPlayer;
     sf::Event mEvent;
     bool mShowDialog = false;
+    std::string mNpcText1;
+    std::string mNpcText2;
+    std::string mNpcText3;
 };
 #endif /* defined(__Nameless__NPC__) */
