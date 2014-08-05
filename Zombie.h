@@ -18,7 +18,7 @@ public:
 //    ~Zombie();
     void render(sf::RenderWindow *window);
     void update(double frametime);
-//    void attack();
+    void attack();
 protected:
 private:
     

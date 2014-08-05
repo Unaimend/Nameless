@@ -27,3 +27,5 @@ void Zombie::update(double frametime)
 {
     
 };
+
+void Zombie::attack(){};

@@ -24,3 +24,5 @@ void Enemy::update(double frametime)
 
 
 };
+
+void Enemy::attack(){};

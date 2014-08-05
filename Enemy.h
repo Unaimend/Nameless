@@ -20,7 +20,7 @@ protected:
     void setLife(int life){mLife = life;};
     void setName(std::string name){mName = name;};
     void setPlayer(Player player){mPlayer = player;};
-
+    virtual void attack();
     
     int mLife;
     std::string mLifeString;
