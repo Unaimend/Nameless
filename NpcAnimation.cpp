@@ -31,7 +31,7 @@ void NpcAnimation::move(double frametime, int Endurance)
     {
            mSpriteSheet.move(0, 50*frametime );
     }
-    if  (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
+    else if  (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
     {
           mSpriteSheet.move(50*frametime,0);
     }
@@ -66,7 +66,7 @@ void NpcAnimation::move(double frametime, int Endurance)
         }
         
     }
-    if (mLPosY > mCPosY)
+    else if (mLPosY > mCPosY)
     {
  
         mSubRect.left = 32;
@@ -106,12 +106,8 @@ void NpcAnimation::move(double frametime, int Endurance)
         }
         
     }
-    else if (mLPosX < mCPosX)
+     else if (mLPosX < mCPosX)
     {
-        mSpriteSheet.move(50*frametime, 0);
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LShift) && Endurance > 0) {
-            mSpriteSheet.move(100*frametime, 0);
-        }
         mSubRect.left = 32;
         mSubRect.top = 32;
         mSpriteSheet.setTextureRect(mSubRect);
