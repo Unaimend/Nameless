@@ -14,8 +14,8 @@ public:
 
 protected:
     
-//    void render(sf::RenderWindow *window);
-//    void update(double frametime);
+    void render(sf::RenderWindow *window);
+    void update(double frametime);
     void setSprite(sf::Sprite sprite){mEnemySprite = sprite;};
     void setLife(int life){mLife = life;};
     void setName(std::string name){mName = name;};

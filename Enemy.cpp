@@ -14,12 +14,12 @@ Enemy::Enemy()
 };
 
 Enemy::~Enemy(){};
-//void Enemy::render(sf::RenderWindow *window)
-//{
-//    window->draw(mEnemySprite);
-//};
-//void Enemy::update(double frametime)
-//{
-//
-//
-//};
+void Enemy::render(sf::RenderWindow *window)
+{
+    window->draw(mEnemySprite);
+};
+void Enemy::update(double frametime)
+{
+
+
+};
