@@ -17,7 +17,7 @@ Zombie::Zombie(sf::Sprite sprite, Player player, std::string name, int life)
     mLife = life;
 
 };
-/*
+
 void Zombie::render(sf::RenderWindow *window)
 {
     window->draw(mEnemySprite);
@@ -27,6 +27,3 @@ void Zombie::update(double frametime)
 {
     
 };
-
-void Zombie::attack(){};
-*/
