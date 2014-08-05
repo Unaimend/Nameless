@@ -16,6 +16,7 @@ public:
     std::vector<std::string> getMapVektor(){return mMapVektor;};
     void render(sf::RenderWindow *window);
     void setMap(std::string filepath){mFilepath = filepath;};
+    void renderTileLayer(sf::RenderWindow *window);
      void loadMap();
 protected:
 private:
