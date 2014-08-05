@@ -25,6 +25,7 @@ public:
     void update(double frametime);
     void setEvent(sf::Event event);
     void closePlayer(){this->~Player();};
+
     float getPlayerSpritePosX(){return pPlayerAnimation->getAnimationSpritePosX();};
     float getPlayerSpritePosY(){return pPlayerAnimation->getAnimationSpritePosY();};
     sf::Event getPlayerEvent(){return mEvent;};

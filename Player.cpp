@@ -40,7 +40,6 @@ Player::~Player(){};
 void Player::render(sf::RenderWindow *window)
 {
     window->setView(mView);
-    
     pPlayerAnimation->render(window);
     window->setView(mFixed);
     window->draw(mEnduranceText);
@@ -53,6 +52,7 @@ void Player::render(sf::RenderWindow *window)
 
 void Player::update(double frametime)
 {
+
     mEnduranceString = std::to_string(mEndurance);
     mEnduranceText.setString(mEnduranceString);
     mLifeString = std::to_string(mLife);
@@ -102,5 +102,10 @@ void Player::setEvent(sf::Event event)
             mShowInventory = true;
         }
     }
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+    {
+       
+    }
 
 };
+
