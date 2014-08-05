@@ -14,7 +14,7 @@
 class Zombie : protected Enemy
 {
 public:
-    Zombie(sf::Sprite sprite, Player player, std::string name, int life);
+    Zombie(sf::Sprite sprite, Player player, std::string name, int life, int xpos, int ypos);
     ~Zombie();
     void render(sf::RenderWindow *window);
     void update(double frametime);

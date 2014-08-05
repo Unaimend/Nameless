@@ -22,6 +22,8 @@ protected:
     void setPlayer(Player player){mPlayer = player;};
     virtual void attack();
     
+    int mXpos;
+    int mYpos;
     int mLife;
     std::string mLifeString;
     std::string mName;

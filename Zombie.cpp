@@ -7,7 +7,7 @@
 //
 
 #include "Zombie.h"
-Zombie::Zombie(sf::Sprite sprite, Player player, std::string name, int life)
+Zombie::Zombie(sf::Sprite sprite, Player player, std::string name, int life, int xpos, int ypos)
 {
     mEnemySprite = sprite;
     mLife = life;
@@ -15,6 +15,8 @@ Zombie::Zombie(sf::Sprite sprite, Player player, std::string name, int life)
     mPlayer = player;
     mName = name;
     mLife = life;
+    mXpos = xpos;
+    mYpos = ypos;
 
 };
 Zombie::~Zombie(){};
