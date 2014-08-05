@@ -7,3 +7,12 @@
 //
 
 #include "Enemy.h"
+
+Enemy::Enemy()
+{
+    mLife = 100;
+    mLifeString = std::to_string(mLife);
+    mName = "Gegner";
+};
+
+Enemy::~Enemy(){};
