@@ -17,6 +17,7 @@ Zombie::Zombie(sf::Sprite sprite, Player player, std::string name, int life)
     mLife = life;
 
 };
+Zombie::~Zombie(){};
 
 void Zombie::render(sf::RenderWindow *window)
 {
