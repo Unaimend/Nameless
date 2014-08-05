@@ -34,7 +34,7 @@ void NpcAnimation::move(double frametime, int Endurance)
     if   (mSpriteSheet.getPosition().x > mMaxLeftPos -mSpriteSheet.getScale().x && mSpriteSheet.getPosition().x < mMaxRightPos && mGoRight == true)
     {
           mSpriteSheet.move(50*frametime,0);
-    
+       
     }
     else
     {
@@ -49,6 +49,11 @@ void NpcAnimation::move(double frametime, int Endurance)
         mGoRight = true;
         mGoLeft = false;
     }
+//    if (/*mSpriteSheet.getPosition().y < mMaxDownPos && */mGoDown) {
+//        mSpriteSheet.move(0,50*frametime);
+//    }
+   
+
   
     mCPosX = mSpriteSheet.getPosition().x;
     mCPosY = mSpriteSheet.getPosition().y;

@@ -37,6 +37,8 @@ private:
     int mMaxDownPos;
     bool mGoRight = true;
     bool mGoLeft = false;
+    bool mGoDown = true;
+    bool mGoUp = false;
     
 };
 #endif /* defined(__Nameless__NpcAnimation__) */
