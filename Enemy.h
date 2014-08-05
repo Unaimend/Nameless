@@ -20,6 +20,8 @@ protected:
     void setLife(int life){mLife = life;};
     void setName(std::string name){mName = name;};
     void setPlayer(Player player){mPlayer = player;};
+    void setxPos(int xpos){mXpos = xpos;};
+    void setyPos(int ypos){mYpos = ypos;};
     virtual void attack();
     
     int mXpos;
