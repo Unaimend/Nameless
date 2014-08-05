@@ -32,7 +32,7 @@ Framework::Framework()
     
     ptest = new NPC(*pPlayer1, *Sprites::pNPCHolzfällerSprite, 290,510, "Willfried: Hallo mein, \nName ist Willfried","Willkommen in unserem \nbescheidenen Dorf", "Die Hauser werden\nnoch geliefert");
 
-    pZombie = new Zombie(Sprites::NPCZombieSprite, *pPlayer1, "Zombie", 100, 100,50);
+    pZombie = new Zombie(Sprites::NPCZombieSprite, *pPlayer1, "Zombie", 100, 100,50,0,200);
 }
 
 
