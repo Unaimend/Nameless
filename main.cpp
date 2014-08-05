@@ -3,8 +3,7 @@
 #include <SFML/Window.hpp>
 #include <iostream>
 #include "Logfile.h"
-//Sprinten und Ausdauer hinzugefügt
-//Ausdauer wird oben rechts angezeigt
+
 #include "Framework.hpp"
 int main(int, char const**)
 {

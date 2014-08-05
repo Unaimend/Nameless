@@ -4,11 +4,13 @@
 #include "Player.h"
 #include "Maploader.h"
 #include <vector>
+#include "NPC.h"
+#include "Zombie.h"
 #ifndef Neues_SFML_Projekt_Framework_hpp
 #define Neues_SFML_Projekt_Framework_hpp
 
 
-class Framework
+class Framework : Sprites
 {
     
     
@@ -21,13 +23,16 @@ private:
     Logfile     *pLog;
     double      mFrameTime;
     bool        mRun;
+   
     Maploader   *pMap;
     Player      *pPlayer1;
     int         Mapheigth;
     int         Mapwidth;
     int         mAuflösungsBreite;
     int         mAuflösungsHöhe;
-    
+     sf::Clock clock2;
+    NPC *ptest;
+	Zombie *pZombie;
     //--------------PRIVATE FUNKTIONEN------------------------
     //Die Funktion behandelt alle Spielereingaben
     void Update(double frametime);

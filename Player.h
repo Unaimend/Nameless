@@ -14,16 +14,20 @@
 #include "SFML/Graphics.hpp"
 #include "GuiSystem.h"
 #include "Animation.h"
+#include "Logfile.h"
 class Player : Sprites
 {
 public:
     Player(sf::Vector2f playerPosition, double resX, double resY);
-    ~Player();
+    Player(){};
+    virtual ~Player();
     void render(sf::RenderWindow  *window);
     void update(double frametime);
     void setEvent(sf::Event event);
-    
-    
+    void closePlayer(){this->~Player();};
+    float getPlayerSpritePosX(){return pPlayerAnimation->getAnimationSpritePosX();};
+    float getPlayerSpritePosY(){return pPlayerAnimation->getAnimationSpritePosY();};
+    sf::Event getPlayerEvent(){return mEvent;};
 protected:
 private:
     float mPlayerPositionX = 0;
@@ -52,8 +56,11 @@ private:
     sf::Text mEnduranceText;
     sf::Clock mEnduranceCLock;
     bool mIsStanding = false;
-    sf::Clock mRefillEnduranceClocl;
-
+    
+    
+    //sf::Clock mRefillEnduranceClock;
+    
+  
     
 };
 #endif /* defined(__Nameless__Player__) */

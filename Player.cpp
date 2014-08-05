@@ -15,9 +15,9 @@ Player::Player(sf::Vector2f playerPosition, double resX, double resY)
     mView.zoom(0.5);
     mFixed.setSize(sf::Vector2f(mResX, mResY));
     mView.setViewport(sf::FloatRect(0.0f, 0, 1.0f, 1.0f));
-    Sprites::InventorySprite.setPosition(0, 0);
+    Sprites::InventorySprite.setPosition(300,500 );
     Sprites::InventorySprite.setScale(3, 3);
-    mFont.loadFromFile("/Users/Thomas/Desktop/Fertige Projekte/Nameless/Nameless/Nameless/sansation.ttf");
+    mFont.loadFromFile("sansation.ttf");
     mEnduranceText.setFont(mFont);
     mEnduranceText.setCharacterSize(20);
     mEnduranceText.setPosition(20, 60);
@@ -32,12 +32,15 @@ Player::Player(sf::Vector2f playerPosition, double resX, double resY)
     mMagicaText.setCharacterSize(20);
     mMagicaText.setColor(sf::Color::Blue);
     mMagicaText.setFont(mFont);
+    
+    
 };
 
 Player::~Player(){};
 void Player::render(sf::RenderWindow *window)
 {
     window->setView(mView);
+    
     pPlayerAnimation->render(window);
     window->setView(mFixed);
     window->draw(mEnduranceText);
@@ -71,7 +74,6 @@ void Player::update(double frametime)
         if (mEnduranceCLock.getElapsedTime().asSeconds() > 1)
         {
             mEndurance =  mEndurance - 5;
-            std::cout << mEndurance << std::endl;
             mEnduranceCLock.restart();
         }
     }
@@ -80,8 +82,7 @@ void Player::update(double frametime)
         if (mEnduranceCLock.getElapsedTime().asSeconds() > 1 && mEndurance < 100)
         {
             mEndurance =  mEndurance + 5;
-            std::cout << mEndurance << std::endl;
-            mEnduranceCLock.restart();
+                       mEnduranceCLock.restart();
         }
     }
     pPlayerAnimation->move(mFrametime, mEndurance);
@@ -92,7 +93,7 @@ void Player::update(double frametime)
 void Player::setEvent(sf::Event event)
 {
     mEvent = event;
-    if (mEvent.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::E) {
+    if (mEvent.type == sf::Event::KeyPressed && mEvent.key.code == sf::Keyboard::I) {
         if (mShowInventory == true) {
             mShowInventory = false;
         }
