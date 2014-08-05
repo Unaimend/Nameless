@@ -28,7 +28,10 @@ Sprites::Sprites()
         pLog->writeToFile("Holfäller geladen");
     if(BlackTexture.loadFromFile("BlackTile.png"))
         pLog->writeToFile("BlackTile geladen");
-
+    if(NPCZombieTexture.loadFromFile("Opi.png"))
+        pLog->writeToFile("Opi geladen");
+    
+    NPCZombieSprite.setTexture(NPCZombieTexture);
     BlackSprite.setTexture(BlackTexture);
     WasserSprite.setTexture(WasserTexture);
     mSubRect.left = 32;

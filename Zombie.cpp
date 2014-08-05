@@ -17,18 +17,20 @@ Zombie::Zombie(sf::Sprite sprite, Player player, std::string name, int life, int
     mLife = life;
     mXpos = xpos;
     mYpos = ypos;
-
+    mEnemySprite.setPosition(mXpos, mYpos);
+    pAnimation = new NpcAnimation(Sprites::NPCZombieSprite, 32,32, 50,0);
 };
 Zombie::~Zombie(){};
 
 void Zombie::render(sf::RenderWindow *window)
 {
-    window->draw(mEnemySprite);
+    pAnimation->render(window);
+    //window->draw(mEnemySprite);
 };
 
 void Zombie::update(double frametime)
 {
-    
+    pAnimation->move(frametime, 100);
 };
 
 void Zombie::attack(){};

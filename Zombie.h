@@ -11,7 +11,9 @@
 
 #include <iostream>
 #include "Enemy.h"
-class Zombie : protected Enemy
+#include "NpcAnimation.h"
+#include "Sprites.h"
+class Zombie : protected Enemy,Sprites
 {
 public:
     Zombie(sf::Sprite sprite, Player player, std::string name, int life, int xpos, int ypos);
@@ -21,6 +23,6 @@ public:
     void attack();
 protected:
 private:
-    
+    NpcAnimation *pAnimation;
 };
 #endif /* defined(__Nameless__Zombie__) */

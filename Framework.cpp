@@ -32,6 +32,7 @@ Framework::Framework()
     
     ptest = new NPC(*pPlayer1, *Sprites::pNPCHolzfällerSprite, 290,510, "Willfried: Hallo mein, \nName ist Willfried","Willkommen in unserem \nbescheidenen Dorf", "Die Hauser werden\nnoch geliefert");
 
+    pZombie = new Zombie(Sprites::NPCZombieSprite, *pPlayer1, "Zombie", 100, 100,50);
 }
 
 
@@ -66,6 +67,7 @@ void Framework::Update(double frametime)
     
     pPlayer1->update(mFrameTime);
     ptest->update();
+    pZombie->update(mFrameTime);
     float currentTime = clock2.restart().asSeconds();
     float fps = 1.f / currentTime ;
     
@@ -92,6 +94,7 @@ void Framework::EventHandling()
             pMap = new Maploader("Map1.txt", mAuflösungsHöhe, mAuflösungsBreite);
         }
         pPlayer1->setEvent(*pMainEvent);
+  
         ptest->setEvent(*pMainEvent);
     }
 }
@@ -103,6 +106,7 @@ void Framework::Render()
     pRenderWindow->clear(sf::Color(0,0,0));
     pMap->render(pRenderWindow);
     ptest->render(pRenderWindow);
+    pZombie->render(pRenderWindow);
     pPlayer1->render(pRenderWindow);
    
     pRenderWindow->display();

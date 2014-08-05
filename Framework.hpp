@@ -5,6 +5,7 @@
 #include "Maploader.h"
 #include <vector>
 #include "NPC.h"
+#include "Zombie.h"
 #ifndef Neues_SFML_Projekt_Framework_hpp
 #define Neues_SFML_Projekt_Framework_hpp
 
@@ -31,7 +32,7 @@ private:
     int         mAuflösungsHöhe;
      sf::Clock clock2;
     NPC *ptest;
-	
+	Zombie *pZombie;
     //--------------PRIVATE FUNKTIONEN------------------------
     //Die Funktion behandelt alle Spielereingaben
     void Update(double frametime);

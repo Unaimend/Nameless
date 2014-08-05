@@ -15,7 +15,7 @@
 class NpcAnimation
 {
 public:
-    NpcAnimation(sf::Sprite SpriteSheet, int SpriteHeigth, int SpriteWidth);
+    NpcAnimation(sf::Sprite SpriteSheet, int SpriteHeigth, int SpriteWidth, int xpos, int ypos);
     void move(double frametime, int Endurance);
     void render(sf::RenderWindow *window);
     sf::Sprite getSprite(){return mSpriteSheet;};
@@ -27,6 +27,10 @@ private:
     sf::IntRect mSubRect;
     sf::Sprite mCurrentSprite;
     sf::Clock mClock;
+    int mCPosX;
+    int mCPosY;
+    int mLPosX;
+    int mLPosY;
     
     
 };
