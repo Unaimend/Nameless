@@ -87,6 +87,8 @@ void Framework::EventHandling()
         {
             delete pMap;
             pMap = nullptr;
+            mAuflösungsHöhe = 12*16;
+            mAuflösungsBreite = 12*16;
             pMap = new Maploader("Map1.txt", mAuflösungsHöhe, mAuflösungsBreite);
         }
         pPlayer1->setEvent(*pMainEvent);
@@ -98,7 +100,7 @@ void Framework::EventHandling()
 
 void Framework::Render()
 {
-    pRenderWindow->clear(sf::Color(120,120,120));
+    pRenderWindow->clear(sf::Color(0,0,0));
     pMap->render(pRenderWindow);
     ptest->render(pRenderWindow);
     pPlayer1->render(pRenderWindow);
