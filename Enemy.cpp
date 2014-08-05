@@ -8,24 +8,18 @@
 
 #include "Enemy.h"
 
-Enemy::Enemy(sf::Sprite sprite, Player player)
+Enemy::Enemy()
 {
-    mPlayer = player;
-    mEnemySprite = sprite;
-    mLife = 100;
-    mLifeString = std::to_string(mLife);
-    mName = "Gegner";
+
 };
 
 Enemy::~Enemy(){};
-void Enemy::render(sf::RenderWindow *window)
-{
-    window->draw(mEnemySprite);
-};
-void Enemy::update(double frametime)
-{
-
-
-};
-
-void Enemy::attack(){};
+//void Enemy::render(sf::RenderWindow *window)
+//{
+//    window->draw(mEnemySprite);
+//};
+//void Enemy::update(double frametime)
+//{
+//
+//
+//};

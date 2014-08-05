@@ -8,18 +8,19 @@
 class Enemy
 {
 public:
-    Enemy(sf::Sprite sprite, Player player);
-    Enemy(){};
-    virtual ~Enemy();
+  
+    Enemy();
+     virtual ~Enemy();
 
 protected:
-     void render(sf::RenderWindow *window);
-     void update(double frametime);
+    
+//    void render(sf::RenderWindow *window);
+//    void update(double frametime);
     void setSprite(sf::Sprite sprite){mEnemySprite = sprite;};
     void setLife(int life){mLife = life;};
     void setName(std::string name){mName = name;};
     void setPlayer(Player player){mPlayer = player;};
-     void attack();
+
     
     int mLife;
     std::string mLifeString;
