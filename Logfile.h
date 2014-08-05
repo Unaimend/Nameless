@@ -1,10 +1,11 @@
 #ifndef __Nameless__Logfile__
 #define __Nameless__Logfile__
+
 #include <fstream>
+#include <iostream>
 #include <string>
 #include <iomanip>
 #include <ctime>
-#include <iostream>
 
 class Logfile
 {
@@ -15,8 +16,6 @@ public:
         ~Logfile();
         void writeToFile(std::string parameter);
         void closeFile();
-        template<class T>
-        std::string toString(T Wert);
 
 protected:
 private:
@@ -28,15 +27,5 @@ private:
         time_t t = time(NULL);
         struct tm *ts = localtime(&t);
         std::string mTime = std::string(asctime(ts));
-        std::string mParameter;
-    
-    
 };
-
-
-
-#include "Test.inl"
-
 #endif /* defined(__Nameless__Logfile__) */
-
-
