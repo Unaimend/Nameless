@@ -7,7 +7,7 @@
 //
 
 #include "Zombie.h"
-Zombie::Zombie(sf::Sprite sprite, Player player, std::string name, int life, float xpos, float ypos)
+Zombie::Zombie(sf::Sprite sprite, Player player, std::string name, int life)
 {
     mEnemySprite = sprite;
     mLife = life;
@@ -15,16 +15,15 @@ Zombie::Zombie(sf::Sprite sprite, Player player, std::string name, int life, flo
     mPlayer = player;
     mName = name;
     mLife = life;
-    mXpos = xpos;
-    mYpos = ypos;
 };
 
 void Zombie::render(sf::RenderWindow *window)
 {
-    window->draw(mEnemySprite);
+
 };
 
 void Zombie::update(double frametime)
 {
-    
+
+
 };

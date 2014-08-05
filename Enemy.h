@@ -21,8 +21,6 @@ protected:
     virtual void attack();
     
     int mLife;
-    float mXpos;
-    float mYpos;
     std::string mLifeString;
     std::string mName;
     Player mPlayer;
