@@ -27,7 +27,7 @@ Zombie::~Zombie(){};
 void Zombie::render(sf::RenderWindow *window)
 {
     pAnimation->render(window);
-    //window->draw(mEnemySprite);
+    
 };
 
 void Zombie::update(double frametime)
