@@ -7,18 +7,17 @@
 //
 
 #include "Zombie.h"
-Zombie::Zombie(sf::Sprite sprite, Player player, std::string name, int life, float xpos, float ypos)
-{
-    mEnemySprite = sprite;
-    mLife = life;
-    mLifeString = std::to_string(mLife);
-    mPlayer = player;
-    mName = name;
-    mLife = life;
-    mXpos = xpos;
-    mYpos = ypos;
-};
-
+//Zombie::Zombie(sf::Sprite sprite, Player player, std::string name, int life)
+//{
+//    mEnemySprite = sprite;
+//    mLife = life;
+//    mLifeString = std::to_string(mLife);
+//    mPlayer = player;
+//    mName = name;
+//    mLife = life;
+//
+//};
+/*
 void Zombie::render(sf::RenderWindow *window)
 {
     window->draw(mEnemySprite);
@@ -28,3 +27,6 @@ void Zombie::update(double frametime)
 {
     
 };
+
+void Zombie::attack(){};
+*/

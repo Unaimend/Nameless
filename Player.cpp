@@ -17,7 +17,7 @@ Player::Player(sf::Vector2f playerPosition, double resX, double resY)
     mView.setViewport(sf::FloatRect(0.0f, 0, 1.0f, 1.0f));
     Sprites::InventorySprite.setPosition(300,500 );
     Sprites::InventorySprite.setScale(3, 3);
-    mFont.loadFromFile("/Users/Thomas/Desktop/Fertige Projekte/Nameless/Nameless/Nameless/sansation.ttf");
+    mFont.loadFromFile("sansation.ttf");
     mEnduranceText.setFont(mFont);
     mEnduranceText.setCharacterSize(20);
     mEnduranceText.setPosition(20, 60);
