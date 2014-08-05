@@ -7,7 +7,6 @@
 #include "Framework.hpp"
 int main(int, char const**)
 {
-  
     Framework framework;
     framework.Run();
     return 0;

@@ -13,7 +13,7 @@
 #include "Enemy.h"
 #include "NpcAnimation.h"
 #include "Sprites.h"
-class Zombie : protected Enemy,Sprites
+class Zombie : public Enemy,Sprites
 {
 public:
     Zombie(sf::Sprite sprite, Player player, std::string name, int life, int xpos, int ypos,  int maxrigth, int maxup, int maxdown);
