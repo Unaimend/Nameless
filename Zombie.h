@@ -13,7 +13,13 @@
 #include "Enemy.h"
 class Zombie : Enemy
 {
+public:
     Zombie(sf::Sprite sprite, Player player, std::string name, int life);
     ~Zombie();
+    void render(sf::RenderWindow *window);
+    void update(double frametime);
+protected:
+private:
+    
 };
 #endif /* defined(__Nameless__Zombie__) */
