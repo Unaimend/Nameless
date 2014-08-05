@@ -7,16 +7,16 @@
 //
 
 #include "Zombie.h"
-//Zombie::Zombie(sf::Sprite sprite, Player player, std::string name, int life)
-//{
-//    mEnemySprite = sprite;
-//    mLife = life;
-//    mLifeString = std::to_string(mLife);
-//    mPlayer = player;
-//    mName = name;
-//    mLife = life;
-//
-//};
+Zombie::Zombie(sf::Sprite sprite, Player player, std::string name, int life)
+{
+    mEnemySprite = sprite;
+    mLife = life;
+    mLifeString = std::to_string(mLife);
+    mPlayer = player;
+    mName = name;
+    mLife = life;
+
+};
 /*
 void Zombie::render(sf::RenderWindow *window)
 {
