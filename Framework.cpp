@@ -21,14 +21,13 @@ Framework::Framework()
     pClock          = new sf::Clock;
     mRun            = true;
     pLog->writeToFile("Restliche Grundfunktionen initialisiert");
-    
+ 
     Mapheigth       = 100;
     Mapwidth        = 100;
     pMap = new Maploader("Map.txt", mAuflösungsHöhe, mAuflösungsBreite);
    
     pLog->writeToFile("Maphöhe:" + pLog->toString(Mapheigth) +" " + "Mapbreite: " + pLog->toString(Mapwidth) + " " + "Mapgröße: " + pLog->toString((Mapwidth*Mapheigth)));
     
-    pPlayer1 = new Player(sf::Vector2f(0,0), mAuflösungsBreite, mAuflösungsHöhe);
     
     ptest = new NPC(*pPlayer1, *Sprites::pNPCHolzfällerSprite, 290,510, "Willfried: Hallo mein, \nName ist Willfried","Willkommen in unserem \nbescheidenen Dorf", "Die Hauser werden\nnoch geliefert");
 
@@ -82,6 +81,11 @@ void Framework::EventHandling()
         if (pMainEvent->type == sf::Event::Closed || (pMainEvent->type == sf::Event::KeyPressed   && pMainEvent->key.code == sf::Keyboard::Escape))
         {
             mRun = false;
+        }
+        if (pMainEvent->type == sf::Event::Closed || (pMainEvent->type == sf::Event::KeyPressed   && pMainEvent->key.code == sf::Keyboard::T))
+        {
+            delete pMap;
+            pMap = nullptr;
         }
         pPlayer1->setEvent(*pMainEvent);
         ptest->setEvent(*pMainEvent);

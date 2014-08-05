@@ -82,8 +82,7 @@ void Player::update(double frametime)
         if (mEnduranceCLock.getElapsedTime().asSeconds() > 1 && mEndurance < 100)
         {
             mEndurance =  mEndurance + 5;
-            std::cout << mEndurance << std::endl;
-            mEnduranceCLock.restart();
+                       mEnduranceCLock.restart();
         }
     }
     pPlayerAnimation->move(mFrametime, mEndurance);
