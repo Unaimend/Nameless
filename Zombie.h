@@ -18,9 +18,9 @@ class Zombie : public Enemy,Sprites
 public:
     Zombie(sf::Sprite sprite, Player player, std::string name, int life, int xpos, int ypos,  int maxrigth, int maxup, int maxdown);
     ~Zombie();
-    void render(sf::RenderWindow *window);
-    void update(double frametime);
-    void attack();
+    void render(sf::RenderWindow *window) const;
+    void update(double frametime) const;
+    void attack()const ;
 protected:
 private:
     NpcAnimation *pAnimation;

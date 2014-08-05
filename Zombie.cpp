@@ -24,15 +24,16 @@ Zombie::Zombie(sf::Sprite sprite, Player player, std::string name, int life, int
 };
 Zombie::~Zombie(){};
 
-void Zombie::render(sf::RenderWindow *window)
+void Zombie::render(sf::RenderWindow *window) const
 {
     pAnimation->render(window);
     
 };
 
-void Zombie::update(double frametime)
+void Zombie::update(double frametime) const
 {
     pAnimation->move(frametime, 100);
 };
 
-void Zombie::attack(){};
+void Zombie::attack() const
+{};

@@ -5,24 +5,25 @@
 #include "SFML/Graphics.hpp"
 #include <string>
 #include "Player.h"
+
 class Enemy
 {
 public:
   
     Enemy();
-     virtual ~Enemy();
+    virtual ~Enemy();
 
 protected:
     
-    virtual void render(sf::RenderWindow *window);
-    virtual void update(double frametime);
+    virtual void render(sf::RenderWindow *window) const = 0;
+    virtual void update(double frametime) const = 0;
     void setSprite(sf::Sprite sprite){mEnemySprite = sprite;};
     void setLife(int life){mLife = life;};
     void setName(std::string name){mName = name;};
     void setPlayer(Player player){mPlayer = player;};
     void setxPos(int xpos){mXpos = xpos;};
     void setyPos(int ypos){mYpos = ypos;};
-    virtual void attack();
+    virtual void attack() const = 0;
     
     int mXpos;
     int mYpos;
