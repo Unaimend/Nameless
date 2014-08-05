@@ -28,6 +28,7 @@ Framework::Framework()
    
     pLog->writeToFile("Maphöhe:" + pLog->toString(Mapheigth) +" " + "Mapbreite: " + pLog->toString(Mapwidth) + " " + "Mapgröße: " + pLog->toString((Mapwidth*Mapheigth)));
     
+    pPlayer1 = new Player(sf::Vector2f(0,0), mAuflösungsBreite, mAuflösungsHöhe);
     
     ptest = new NPC(*pPlayer1, *Sprites::pNPCHolzfällerSprite, 290,510, "Willfried: Hallo mein, \nName ist Willfried","Willkommen in unserem \nbescheidenen Dorf", "Die Hauser werden\nnoch geliefert");
 
@@ -86,6 +87,7 @@ void Framework::EventHandling()
         {
             delete pMap;
             pMap = nullptr;
+            pMap = new Maploader("Map1.txt", mAuflösungsHöhe, mAuflösungsBreite);
         }
         pPlayer1->setEvent(*pMainEvent);
         ptest->setEvent(*pMainEvent);

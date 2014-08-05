@@ -22,6 +22,7 @@ private:
     Logfile     *pLog;
     double      mFrameTime;
     bool        mRun;
+   
     Maploader   *pMap;
     Player      *pPlayer1;
     int         Mapheigth;
