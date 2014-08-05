@@ -16,7 +16,7 @@
 class Zombie : protected Enemy,Sprites
 {
 public:
-    Zombie(sf::Sprite sprite, Player player, std::string name, int life, int xpos, int ypos,  int maxrigth);
+    Zombie(sf::Sprite sprite, Player player, std::string name, int life, int xpos, int ypos,  int maxrigth, int maxup, int maxdown);
     ~Zombie();
     void render(sf::RenderWindow *window);
     void update(double frametime);
@@ -24,5 +24,6 @@ public:
 protected:
 private:
     NpcAnimation *pAnimation;
+    
 };
 #endif /* defined(__Nameless__Zombie__) */

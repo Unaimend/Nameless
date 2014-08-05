@@ -33,6 +33,8 @@ protected:
     std::string mName;
     Player mPlayer;
     sf::Sprite mEnemySprite;
+    int mMaxUp;
+    int mMaxDown;
 private:
     
 };

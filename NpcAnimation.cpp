@@ -7,7 +7,7 @@
 //
 
 #include "NpcAnimation.h"
-NpcAnimation::NpcAnimation(sf::Sprite Spritesheet, int SpriteHeigth, int SpriteWidth, int xpos, int ypos, int maxleft, int maxrigth)
+NpcAnimation::NpcAnimation(sf::Sprite Spritesheet, int SpriteHeigth, int SpriteWidth, int xpos, int ypos, int maxleft, int maxrigth, int maxup, int maxdown)
 {
     mSpriteSheet = Spritesheet;
     mSubRect.left = 32;
@@ -19,6 +19,9 @@ NpcAnimation::NpcAnimation(sf::Sprite Spritesheet, int SpriteHeigth, int SpriteW
     mSpriteSheet.setPosition(xpos, ypos);
     mMaxLeftPos = maxleft;
     mMaxRightPos = maxrigth;
+    mMaxUpPos = maxup;
+    mMaxDownPos = maxdown;
+    
 };
 
 
