@@ -18,6 +18,7 @@ Zombie::Zombie(sf::Sprite sprite, Player player, std::string name, int life, int
     mXpos = xpos;
     mYpos = ypos;
     mEnemySprite.setPosition(mXpos, mYpos);
+
     pAnimation = new NpcAnimation(Sprites::NPCZombieSprite, 32,32, 50,0);
 };
 Zombie::~Zombie(){};

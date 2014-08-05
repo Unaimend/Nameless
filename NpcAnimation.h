@@ -15,7 +15,7 @@
 class NpcAnimation
 {
 public:
-    NpcAnimation(sf::Sprite SpriteSheet, int SpriteHeigth, int SpriteWidth, int xpos, int ypos);
+    NpcAnimation(sf::Sprite SpriteSheet, int SpriteHeigth, int SpriteWidth, int xpos, int ypos, int maxleft, int maxrigth);
     void move(double frametime, int Endurance);
     void render(sf::RenderWindow *window);
     sf::Sprite getSprite(){return mSpriteSheet;};
@@ -31,7 +31,10 @@ private:
     int mCPosY;
     int mLPosX;
     int mLPosY;
-    
+    int mMaxLeftPos;
+    int mMaxRightPos;
+    bool mGoRight = true;
+    bool mGoLeft = false;
     
 };
 #endif /* defined(__Nameless__NpcAnimation__) */

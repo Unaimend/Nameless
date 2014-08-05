@@ -7,7 +7,7 @@
 //
 
 #include "NpcAnimation.h"
-NpcAnimation::NpcAnimation(sf::Sprite Spritesheet, int SpriteHeigth, int SpriteWidth, int xpos, int ypos)
+NpcAnimation::NpcAnimation(sf::Sprite Spritesheet, int SpriteHeigth, int SpriteWidth, int xpos, int ypos, int maxleft, int maxrigth)
 {
     mSpriteSheet = Spritesheet;
     mSubRect.left = 32;
@@ -17,8 +17,8 @@ NpcAnimation::NpcAnimation(sf::Sprite Spritesheet, int SpriteHeigth, int SpriteW
     mSpriteSheet.setTextureRect(mSubRect);
     mCurrentSprite.setPosition(0, 0);
     mSpriteSheet.setPosition(xpos, ypos);
-    
-    
+    mMaxLeftPos = maxleft;
+    mMaxRightPos = maxrigth;
 };
 
 
@@ -27,22 +27,26 @@ void NpcAnimation::move(double frametime, int Endurance)
     mLPosX = mSpriteSheet.getPosition().x;
     mLPosY = mSpriteSheet.getPosition().y;
 
-    if  (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
-    {
-           mSpriteSheet.move(0, 50*frametime );
-    }
-    else if  (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
+
+    if   (mSpriteSheet.getPosition().x > mMaxLeftPos -mSpriteSheet.getScale().x && mSpriteSheet.getPosition().x < mMaxRightPos && mGoRight == true)
     {
           mSpriteSheet.move(50*frametime,0);
+    
     }
-    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
+    else
     {
-        mSpriteSheet.move(-50*frametime,0);
+        mGoRight = false;
+        mGoLeft = true;
     }
-    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
+    if (mSpriteSheet.getPosition().x > mMaxLeftPos && mGoLeft) {
+         mSpriteSheet.move(-50*frametime,0);
+    }
+    else
     {
-        mSpriteSheet.move(0,-50*frametime);
+        mGoRight = true;
+        mGoLeft = false;
     }
+  
     mCPosX = mSpriteSheet.getPosition().x;
     mCPosY = mSpriteSheet.getPosition().y;
     if (mLPosY < mCPosY)

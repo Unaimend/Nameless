@@ -27,6 +27,8 @@ protected:
     int mXpos;
     int mYpos;
     int mLife;
+    int mMaxLeft;
+    int mMaxRigth;
     std::string mLifeString;
     std::string mName;
     Player mPlayer;
