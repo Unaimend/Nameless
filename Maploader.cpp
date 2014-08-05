@@ -31,55 +31,57 @@ void Maploader::loadMap()
 void Maploader::render(sf::RenderWindow *window)
 {
    
-    for(auto it : mMapVektor)
-    {
-        
-       
-        Sprites::WasserSprite.setPosition(tempmapx*16, tempmapy*16);
-        Sprites::pWegSprite->setPosition(tempmapx*16, tempmapy*16);
-        Sprites::pGrasSprite->setPosition(tempmapx*16, tempmapy*16);
-        Sprites::pGrasSpriteOL->setPosition(tempmapx*16, tempmapy*16);
-        Sprites::pGrasSpriteOBEN->setPosition(tempmapx*16, tempmapy*16);
-        Sprites::pGrasSpriteUNTEN->setPosition(tempmapx*16, tempmapy*16);
-        if (tempmapx == mMapwidth/16) {
-            tempmapy++;
-            tempmapx = 0;
-        }
-        if (tempmapy == mMapheigth/16) {
-            tempmapy = 0;
-        }
-        if(it == "0")
-        {
-            window->draw(*Sprites::pGrasSprite);
-        }
-        if(it == "1")
-        {
-            window->draw(Sprites::WasserSprite);
-        }
-        if (it == "2") {
-            window->draw(*Sprites::pWegSprite);
-        }
-        if (it == "3") {
-            window->draw(*Sprites::pGrasSpriteOL);
-        }
-        if (it == "4") {
-            window->draw(*Sprites::pGrasSpriteOBEN);
-        }
-        if (it == "5") {
-            window->draw(*Sprites::pGrasSpriteUNTEN);
-        }
-        
-      
-         tempmapx++;
-        
-        
-    }
-   
+    renderTileLayer(window);
     
 }
 
-
-
+void Maploader::renderTileLayer(sf::RenderWindow *window){ for(auto it : mMapVektor)
+{
+    
+    
+    Sprites::WasserSprite.setPosition(tempmapx*16, tempmapy*16);
+    Sprites::pWegSprite->setPosition(tempmapx*16, tempmapy*16);
+    Sprites::pGrasSprite->setPosition(tempmapx*16, tempmapy*16);
+    Sprites::pGrasSpriteOL->setPosition(tempmapx*16, tempmapy*16);
+    Sprites::pGrasSpriteOBEN->setPosition(tempmapx*16, tempmapy*16);
+    Sprites::pGrasSpriteUNTEN->setPosition(tempmapx*16, tempmapy*16);
+    Sprites::BlackSprite.setPosition(tempmapx*16, tempmapy*16);
+    if (tempmapx == mMapwidth/16) {
+        tempmapy++;
+        tempmapx = 0;
+    }
+    if (tempmapy == mMapheigth/16) {
+        tempmapy = 0;
+    }
+   
+    if(it == "0")
+    {
+        window->draw(*Sprites::pGrasSprite);
+    }
+    else if(it == "1")
+    {
+        window->draw(Sprites::WasserSprite);
+    }
+    else if (it == "2") {
+        window->draw(*Sprites::pWegSprite);
+    }
+    else if (it == "3") {
+        window->draw(*Sprites::pGrasSpriteOL);
+    }
+    else if (it == "4") {
+        window->draw(*Sprites::pGrasSpriteOBEN);
+    }
+    else if (it == "5") {
+        window->draw(*Sprites::pGrasSpriteUNTEN);
+    }
+    else if(it == "-1")
+    {
+      window->draw(Sprites::BlackSprite);
+    }
+  
+    tempmapx++;
+    }
+};
 
 
 //    for (int it2 = 0; it2 < mMapheigth; it2++)

@@ -30,6 +30,7 @@ private:
         std::string mTime = std::string(asctime(ts));
         std::string mParameter;
     
+    
 };
 
 

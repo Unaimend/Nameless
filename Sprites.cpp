@@ -24,9 +24,15 @@ Sprites::Sprites()
         pLog->writeToFile("Inventartextur geladen");
     if(TileSet_ATexture.loadFromFile("Tileset A.png"))
         pLog->writeToFile("Tileset A geladen");
-
-
+    if(NPCHolzfällerTexture.loadFromFile("Holzfäller.png"))
+        pLog->writeToFile("Holfäller geladen");
+    if(BlackTexture.loadFromFile("BlackTile.png"))
+        pLog->writeToFile("BlackTile geladen");
+    if(NPCZombieTexture.loadFromFile("Opi.png"))
+        pLog->writeToFile("Opi geladen");
     
+    NPCZombieSprite.setTexture(NPCZombieTexture);
+    BlackSprite.setTexture(BlackTexture);
     WasserSprite.setTexture(WasserTexture);
     mSubRect.left = 32;
     mSubRect.top = 64;
@@ -60,7 +66,11 @@ Sprites::Sprites()
     mSubRect.width = 16;
     mSubRect.height = 16;
     pGrasSpriteUNTEN = new sf::Sprite(TileSet_ATexture, mSubRect);
-   
+    mSubRect.left = 32; // of course, you'll have to fill it in with the right values...
+    mSubRect.top = 64;
+    mSubRect.width = 32;
+    mSubRect.height = 32;
+    pNPCHolzfällerSprite = new sf::Sprite(NPCHolzfällerTexture, mSubRect);
     pLog->writeToFile("Alle Sprites geladen");
     pLog->closeFile();
     
