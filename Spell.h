@@ -10,6 +10,19 @@
 #define __Nameless__Spell__
 
 #include <iostream>
+#include "Player.h"
+#include "SFML/Graphics.hpp"
+class Spell
+{
 
+public:
+    Spell(Player &player) ;
+    virtual ~Spell();
+    virtual void castSpell() = 0;
+protected:
+private:
+    int mManaCost = 0;
+    sf::Clock mRefillTime;
+};
 
 #endif /* defined(__Nameless__Spell__) */

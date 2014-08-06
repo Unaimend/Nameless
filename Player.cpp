@@ -4,6 +4,7 @@ Player::Player(sf::Vector2f playerPosition, double resX, double resY)
 {
     
     pPlayerAnimation = new Animation(*Sprites::pPlayerSprite, 32 ,32);
+    
     mPlayerPositionX = playerPosition.x;
     mPlayerPositionY = playerPosition.y;
     mResX = resX;
@@ -36,7 +37,10 @@ Player::Player(sf::Vector2f playerPosition, double resX, double resY)
     
 };
 
-Player::~Player(){};
+Player::~Player()
+{
+    
+};
 void Player::render(sf::RenderWindow *window)
 {
     window->setView(mView);

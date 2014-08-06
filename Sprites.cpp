@@ -79,5 +79,12 @@ Sprites::Sprites()
 
 Sprites::~Sprites()
 {
-   
+//    delete *pWegSprite;
+//    pWegSprite = nullptr;
+//    *pGrasSprite;
+//    *pGrasSpriteOL;
+//    *pGrasSpriteOBEN;
+//    *pGrasSpriteUNTEN;
+//    *pPlayerSprite;
+//     *pNPCHolzfällerSprite;
 };

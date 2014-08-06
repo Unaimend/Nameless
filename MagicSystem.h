@@ -10,13 +10,16 @@
 #define __Nameless__MagicSystem__
 
 #include <iostream>
+#include <vector>
+#include "Spell.h"
 class MagicSystem
 {
 public:
     MagicSystem();
     ~MagicSystem();
+    void SpawnSpell();
 protected:
 private:
-
+   // std::vector<Spell> mPlayerSpells;
 };
 #endif /* defined(__Nameless__MagicSystem__) */
