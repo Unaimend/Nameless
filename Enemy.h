@@ -37,6 +37,6 @@ protected:
     int mMaxUp;
     int mMaxDown;
 private:
-     NpcAnimation *pAnimation;
+ 
 };
 #endif /* defined(__Nameless__Enemy__) */

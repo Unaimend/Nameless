@@ -8,24 +8,25 @@
 
 #include "Fireball.h"
 
-
-Fireball::Fireball(Player& player, Zombie &target )
+template<class T>
+Fireball<T>::Fireball(Player& player, T &target )
 {
     pEnemy = &target;
     pPlayer = &player;
 };
+template<class T>
 
-Fireball::~Fireball()
+Fireball<T>::~Fireball()
 {
 
 };
-
-void Fireball::castSpell()
+template<class T>
+void Fireball<T>::castSpell()
 {
     
 };
-
-bool Fireball::hasBeenHit()
+template<class T>
+bool Fireball<T>::hasBeenHit()
 {
     
     sf::FloatRect meb = pEnemy->getBounds();
@@ -36,13 +37,13 @@ bool Fireball::hasBeenHit()
     }
 
 };
-
-void Fireball::render(sf::RenderWindow *window)
+template<class T>
+void Fireball<T>::render(sf::RenderWindow *window)
 {
    //window->draw(mFireball);
 };
-
-void Fireball::update()
+template<class T>
+void Fireball<T>::update()
 {
     hasBeenHit();
 };

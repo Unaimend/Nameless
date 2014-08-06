@@ -13,10 +13,11 @@
 #include "SFML/Graphics.hpp"
 #include "Spell.h"
 #include "Zombie.h"
+template<class T>
 class Fireball : public Spell
 {
 public:
-    Fireball(Player &player, Zombie &target);
+    Fireball(Player &player, T &target);
     ~Fireball();
     void castSpell();
     bool hasBeenHit();
@@ -24,9 +25,11 @@ public:
     void update();
 protected:
 private:
-    Zombie *pEnemy;
+    T *pEnemy;
     Player *pPlayer;
     
  
 };
+
+#include "Fireball.inl"
 #endif /* defined(__Nameless__Fireball__) */
