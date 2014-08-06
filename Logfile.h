@@ -13,7 +13,7 @@ public:
         //FUNKTIONEN
         Logfile(std::string filepath);
         ~Logfile();
-        void writeToFile(std::string parameter);
+        void writeToFile(std::string parameter) const;
         void closeFile();
         template<class T>
         std::string toString(T Wert);
