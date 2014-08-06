@@ -11,15 +11,20 @@
 
 #include <iostream>
 #include <vector>
-
+#include "Player.h"
+#include "Enemy.h"
+#include "Fireball.h"
+#include "SFML/Graphics.hpp"
 class MagicSystem
 {
 public:
-    MagicSystem();
+    MagicSystem(Player &player, std::vector<Enemy> EnemyVector);
     ~MagicSystem();
     void SpawnSpell();
+    void render(sf::RenderWindow *window);
+    void update(double frametime);
 protected:
 private:
-   // std::vector<Spell> mPlayerSpells;
+    Fireball<Enemy> *pFireBall;
 };
 #endif /* defined(__Nameless__MagicSystem__) */
