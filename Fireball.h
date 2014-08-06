@@ -26,6 +26,7 @@ protected:
 private:
     Zombie *pEnemy;
     Player *pPlayer;
+    
  
 };
 #endif /* defined(__Nameless__Fireball__) */

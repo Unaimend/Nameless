@@ -30,9 +30,9 @@ bool Fireball::hasBeenHit()
     
     sf::FloatRect meb = pEnemy->getBounds();
     sf::FloatRect mpb = pPlayer->getPlayerBoundingBoxes();
-    std::cout << meb.left << std::endl;
-    if (mpb.intersects(meb)) {
-        std::cout << "boom" << std::endl;
+       if (mpb.intersects(meb)) {
+           std::cout << "boom" << std::endl;
+           return true;
     }
 
 };

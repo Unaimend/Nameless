@@ -5,7 +5,6 @@
 #include "SFML/Graphics.hpp"
 #include <string>
 #include "Player.h"
-
 class Enemy
 {
 public:
@@ -38,6 +37,6 @@ protected:
     int mMaxUp;
     int mMaxDown;
 private:
-    
+     NpcAnimation *pAnimation;
 };
 #endif /* defined(__Nameless__Enemy__) */
