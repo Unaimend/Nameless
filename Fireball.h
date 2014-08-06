@@ -11,23 +11,23 @@
 
 #include <iostream>
 #include "SFML/Graphics.hpp"
-#include "Spell.h"
+
 #include "Zombie.h"
 template<class T>
-class Fireball : public Spell
+class Fireball 
 {
 public:
     Fireball(Player &player, T &target);
     ~Fireball();
-    void castSpell();
     bool hasBeenHit();
     void render(sf::RenderWindow *window);
     void update();
+   // void cast();
 protected:
 private:
     T *pEnemy;
     Player *pPlayer;
-    
+    sf::RectangleShape mFireBall;
  
 };
 

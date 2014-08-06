@@ -14,8 +14,8 @@ public:
     sf::FloatRect getBoundingBoxes(){return mEnemySprite.getGlobalBounds();};
 protected:
     
-    virtual void render(sf::RenderWindow *window) const = 0;
-    virtual void update(double frametime) const = 0;
+    virtual void render(sf::RenderWindow *window);
+    virtual void update(double frametime);
     void setSprite(sf::Sprite sprite){mEnemySprite = sprite;};
     void setLife(int life){mLife = life;};
     void setName(std::string name){mName = name;};
@@ -23,7 +23,6 @@ protected:
     void setxPos(int xpos){mXpos = xpos;};
     void setyPos(int ypos){mYpos = ypos;};
     
-    virtual void attack() const = 0;
     
     int mXpos;
     int mYpos;

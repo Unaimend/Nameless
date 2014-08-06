@@ -11,7 +11,7 @@
 
 #include <iostream>
 #include <vector>
-#include "Spell.h"
+
 class MagicSystem
 {
 public:
