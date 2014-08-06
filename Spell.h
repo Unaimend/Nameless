@@ -20,6 +20,7 @@ public:
     Spell();
     virtual ~Spell();
     virtual void castSpell() = 0;
+
 protected:
 private:
     int mManaCost = 0;

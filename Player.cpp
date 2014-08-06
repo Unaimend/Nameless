@@ -56,7 +56,7 @@ void Player::render(sf::RenderWindow *window)
 
 void Player::update(double frametime)
 {
-
+    
     mEnduranceString = std::to_string(mEndurance);
     mEnduranceText.setString(mEnduranceString);
     mLifeString = std::to_string(mLife);

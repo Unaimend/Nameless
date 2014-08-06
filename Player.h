@@ -29,7 +29,7 @@ public:
     float getPlayerSpritePosX(){return pPlayerAnimation->getAnimationSpritePosX();};
     float getPlayerSpritePosY(){return pPlayerAnimation->getAnimationSpritePosY();};
     
-    sf::FloatRect getPlayerBoundingBoxes(){return pPlayerAnimation->getAnimBoundingBoxes();};
+    sf::FloatRect getPlayerBoundingBoxes(){return pPlayerAnimation->mGetAnimBoundingBoxes();}
     sf::Event getPlayerEvent(){return mEvent;};
 protected:
 private:

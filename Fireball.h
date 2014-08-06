@@ -12,19 +12,20 @@
 #include <iostream>
 #include "SFML/Graphics.hpp"
 #include "Spell.h"
-
-class Fireball :  Spell
+#include "Zombie.h"
+class Fireball : public Spell
 {
 public:
-    Fireball(Player &player, Enemy &target);
+    Fireball(Player &player, Zombie &target);
     ~Fireball();
     void castSpell();
     bool hasBeenHit();
+    void render(sf::RenderWindow *window);
+    void update();
 protected:
 private:
-    sf::RectangleShape mFireball;
-    sf::FloatRect mEnemyGlobalBounds;
-    sf::FloatRect mPlayerGlobalBounds;
-
+    Zombie *pEnemy;
+    Player *pPlayer;
+ 
 };
 #endif /* defined(__Nameless__Fireball__) */

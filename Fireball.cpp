@@ -9,11 +9,10 @@
 #include "Fireball.h"
 
 
-Fireball::Fireball(Player& player, Enemy &target )
+Fireball::Fireball(Player& player, Zombie &target )
 {
-    mFireball.setPosition(player.getPlayerSpritePosX(), player.getPlayerSpritePosY());
-    mEnemyGlobalBounds = target.getBoundingBoxes();
-    mPlayerGlobalBounds = player.getPlayerBoundingBoxes();
+    pEnemy = &target;
+    pPlayer = &player;
 };
 
 Fireball::~Fireball()
@@ -29,5 +28,21 @@ void Fireball::castSpell()
 bool Fireball::hasBeenHit()
 {
     
+    sf::FloatRect meb = pEnemy->getBounds();
+    sf::FloatRect mpb = pPlayer->getPlayerBoundingBoxes();
+    std::cout << meb.left << std::endl;
+    if (mpb.intersects(meb)) {
+        std::cout << "boom" << std::endl;
+    }
 
+};
+
+void Fireball::render(sf::RenderWindow *window)
+{
+   //window->draw(mFireball);
+};
+
+void Fireball::update()
+{
+    hasBeenHit();
 };

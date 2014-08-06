@@ -19,6 +19,7 @@ public:
     void move(double frametime, int Endurance);
     void render(sf::RenderWindow *window);
     sf::Sprite getSprite(){return mSpriteSheet;};
+    sf::FloatRect getEnemyBoundingBoxes(){return mSpriteSheet.getGlobalBounds();}
     float getAnimationSpritePosX(){return mSpriteSheet.getPosition().x;};
     float getAnimationSpritePosY(){return mSpriteSheet.getPosition().y;};
 protected:

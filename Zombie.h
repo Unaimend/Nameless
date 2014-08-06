@@ -21,6 +21,7 @@ public:
     void render(sf::RenderWindow *window) const;
     void update(double frametime) const;
     void attack()const ;
+    sf::FloatRect getBounds(){return pAnimation->getEnemyBoundingBoxes();};
 protected:
 private:
     NpcAnimation *pAnimation;

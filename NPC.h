@@ -20,6 +20,8 @@ public:
     void render(sf::RenderWindow *window);
     void update();
     void setEvent(sf::Event event);
+    
+ 
 protected:
 private:
     std::string mNPCtext;

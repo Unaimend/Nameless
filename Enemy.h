@@ -12,7 +12,7 @@ public:
   
     Enemy();
     virtual ~Enemy();
-    sf::FloatRect getBoundingBoxes(){return mEnemySprite.getLocalBounds();};
+    sf::FloatRect getBoundingBoxes(){return mEnemySprite.getGlobalBounds();};
 protected:
     
     virtual void render(sf::RenderWindow *window) const = 0;
