@@ -16,7 +16,7 @@ class Spell
 {
 
 public:
-    Spell(Player &player) ;
+    Spell();
     virtual ~Spell();
     virtual void castSpell() = 0;
 protected:

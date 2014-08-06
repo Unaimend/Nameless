@@ -13,11 +13,12 @@
 #include "SFML/Graphics.hpp"
 #include "Spell.h"
 
-class Fireball : Spell
+class Fireball :  Spell
 {
 public:
-    Fireball();
+    Fireball(Player &player);
     ~Fireball();
+    void castSpell();
 protected:
 private:
 

@@ -9,11 +9,14 @@
 #include "Fireball.h"
 
 
-Fireball::Fireball()
+Fireball::Fireball(Player& player)
 {
+    
 };
 
 Fireball::~Fireball()
 {
 
 };
+
+void Fireball::castSpell(){};
