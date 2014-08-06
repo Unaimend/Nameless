@@ -9,9 +9,11 @@
 #include "Fireball.h"
 
 
-Fireball::Fireball(Player& player)
+Fireball::Fireball(Player& player, Enemy &target )
 {
-    
+    mFireball.setPosition(player.getPlayerSpritePosX(), player.getPlayerSpritePosY());
+    mEnemyGlobalBounds = target.getBoundingBoxes();
+    mPlayerGlobalBounds = player.getPlayerBoundingBoxes();
 };
 
 Fireball::~Fireball()
@@ -19,4 +21,13 @@ Fireball::~Fireball()
 
 };
 
-void Fireball::castSpell(){};
+void Fireball::castSpell()
+{
+    
+};
+
+bool Fireball::hasBeenHit()
+{
+    
+
+};

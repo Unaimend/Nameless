@@ -16,12 +16,15 @@
 class Fireball :  Spell
 {
 public:
-    Fireball(Player &player);
+    Fireball(Player &player, Enemy &target);
     ~Fireball();
     void castSpell();
+    bool hasBeenHit();
 protected:
 private:
-
+    sf::RectangleShape mFireball;
+    sf::FloatRect mEnemyGlobalBounds;
+    sf::FloatRect mPlayerGlobalBounds;
 
 };
 #endif /* defined(__Nameless__Fireball__) */

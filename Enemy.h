@@ -12,7 +12,7 @@ public:
   
     Enemy();
     virtual ~Enemy();
-
+    sf::FloatRect getBoundingBoxes(){return mEnemySprite.getLocalBounds();};
 protected:
     
     virtual void render(sf::RenderWindow *window) const = 0;
@@ -23,6 +23,7 @@ protected:
     void setPlayer(Player player){mPlayer = player;};
     void setxPos(int xpos){mXpos = xpos;};
     void setyPos(int ypos){mYpos = ypos;};
+    
     virtual void attack() const = 0;
     
     int mXpos;
