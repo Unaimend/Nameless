@@ -27,7 +27,7 @@ private:
     Maploader   *pMap;
     Player      *pPlayer1;
     
-    Fireball<Zombie> *pBall;
+    Fireball<Enemy> *pBall;
     int         Mapheigth;
     int         Mapwidth;
     int         mAuflösungsBreite;

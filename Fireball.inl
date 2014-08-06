@@ -22,11 +22,7 @@ Fireball<T>::~Fireball()
 {
     
 };
-//template<class T>
-//void Fireball<T>::cast()
-//{
-//     mFireBall.setPosition(pPlayer->getPlayerSpritePosX(), pPlayer->getPlayerSpritePosY());
-//};
+
 template<class T>
 bool Fireball<T>::hasBeenHit()
 {

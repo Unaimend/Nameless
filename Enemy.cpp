@@ -18,3 +18,4 @@ Enemy::~Enemy(){};
 void Enemy::render(sf::RenderWindow *window){};
 
 void Enemy::update(double frametime){};
+

@@ -22,7 +22,7 @@ public:
     bool hasBeenHit();
     void render(sf::RenderWindow *window);
     void update();
-   // void cast();
+   
 protected:
 private:
     T *pEnemy;
