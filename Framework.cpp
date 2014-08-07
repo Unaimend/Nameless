@@ -34,7 +34,7 @@ Framework::Framework()
 
     pZombie = new Zombie(Sprites::NPCZombieSprite, *pPlayer1, "Zombie", 100,0,200,500, 0, 1000);
     
-    pBall = new Fireball<Enemy>(*pPlayer1, *pZombie);
+    pBall = new Fireball<Enemy>(*pPlayer1);
 }
 
 
@@ -111,7 +111,6 @@ void Framework::Render()
     ptest->render(pRenderWindow);
     pZombie->render(pRenderWindow);
     pPlayer1->render(pRenderWindow);
-    
     pBall->render(pRenderWindow);
    
     pRenderWindow->display();

@@ -17,7 +17,7 @@ template<class T>
 class Fireball 
 {
 public:
-    Fireball(Player &player, T &target);
+    Fireball(Player &player);
     ~Fireball();
     bool hasBeenHit();
     void render(sf::RenderWindow *window);

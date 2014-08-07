@@ -25,6 +25,8 @@ public:
     void update(double frametime);
 protected:
 private:
+    Enemy mEnemy;
+    Player mPlayer;
     Fireball<Enemy> *pFireBall;
 };
 #endif /* defined(__Nameless__MagicSystem__) */

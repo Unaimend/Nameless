@@ -9,9 +9,8 @@
 #include "Fireball.h"
 
 template<class T>
-Fireball<T>::Fireball(Player& player, T &target )
+Fireball<T>::Fireball(Player& player )
 {
-    pEnemy = &target;
     pPlayer = &player;
     mFireBall.setSize(sf::Vector2f(10,10));
     mFireBall.setOrigin(10/2, 10/2);
@@ -26,17 +25,17 @@ Fireball<T>::~Fireball()
 template<class T>
 bool Fireball<T>::hasBeenHit()
 {
-    sf::FloatRect meb = pEnemy->getBounds();
-    sf::FloatRect mpb = pPlayer->getPlayerBoundingBoxes();
-    if (mpb.intersects(meb))
-    {
-        std::cout << "boom" << std::endl;
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+//    sf::FloatRect meb = pEnemy->getBounds();
+//    sf::FloatRect mpb = pPlayer->getPlayerBoundingBoxes();
+//    if (mpb.intersects(meb))
+//    {
+//        std::cout << "boom" << std::endl;
+//        return true;
+//    }
+//    else
+//    {
+//        return false;
+//    }
 
 };
 template<class T>

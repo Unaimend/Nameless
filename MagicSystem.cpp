@@ -8,14 +8,16 @@
 
 #include "MagicSystem.h"
 
-MagicSystem::MagicSystem(Player &player, std::vector<Enemy> EnemyVector){};
+MagicSystem::MagicSystem(Player &player, std::vector<Enemy> EnemyVector)
+{
+    
+};
 
 MagicSystem::~MagicSystem(){};
 
 void MagicSystem::SpawnSpell()
 {
-
-
+    
 };
 
 
