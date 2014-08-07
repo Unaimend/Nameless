@@ -14,7 +14,6 @@ Fireball<T>::Fireball(Player& player )
     pPlayer = &player;
     mFireBall.setSize(sf::Vector2f(10,10));
     mFireBall.setOrigin(10/2, 10/2);
-   
 };
 template<class T>
 Fireball<T>::~Fireball()

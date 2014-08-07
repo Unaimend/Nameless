@@ -24,9 +24,14 @@ Animation::Animation(sf::Sprite Spritesheet, int SpriteHeigth, int SpriteWidth)
 
 void Animation::move(double frametime, int Endurance)
 {   mClock.getElapsedTime().asSeconds();
+    mLastXPos = mSpriteSheet.getPosition().x;
+    mLastYPos = mSpriteSheet.getPosition().y;
+    
+    //std::cout << "TEST1 "  <<mLastXPos<< std::endl;
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
     {
         mSpriteSheet.move(0,-50*frametime);
+     
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LShift) && Endurance > 0) {
             mSpriteSheet.move(0,-100*frametime);
             
@@ -75,6 +80,7 @@ void Animation::move(double frametime, int Endurance)
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) )
     {
         mSpriteSheet.move(-50*frametime, 0);
+       
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LShift)&& Endurance > 0) {
             mSpriteSheet.move(-100*frametime, 0);
         }
@@ -118,6 +124,47 @@ void Animation::move(double frametime, int Endurance)
             mClock.restart();
         }
     }
+    
+    mCurrentXPos = mSpriteSheet.getPosition().x;
+    mCurrentYPos = mSpriteSheet.getPosition().y;
+    if (mCurrentXPos > mLastXPos)
+    {
+        mIsGoingRight = true;
+    }
+    else
+    {
+        mIsGoingRight = false;
+    }
+    
+    if (mCurrentXPos < mLastXPos)
+    {
+        mIsGoingLeft = true;
+    }
+    else
+    {
+        mIsGoingLeft = false;
+    }
+    
+    if (mCurrentYPos < mLastYPos)
+    {
+        mIsGoingUp = true;
+        std::cout << "OBEN" << std::endl;
+    }
+    else
+    {
+        mIsGoingUp = false;
+    }
+    
+    if (mCurrentYPos > mLastYPos)
+    {
+        mIsGoingDown = true;
+        std::cout << "UNTEN" << std::endl;
+    }
+    else
+    {
+        mIsGoingDown = false;
+    }
+    
 };
 
 void Animation::render(sf::RenderWindow *window)

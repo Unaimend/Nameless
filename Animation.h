@@ -28,6 +28,15 @@ private:
     sf::IntRect mSubRect;
     sf::Sprite mCurrentSprite;
     sf::Clock mClock;
+    
+    int mCurrentXPos;
+    int mLastXPos;
+    int mCurrentYPos;
+    int mLastYPos;
+    bool mIsGoingRight;
+    bool mIsGoingLeft;
+    bool mIsGoingUp;
+    bool mIsGoingDown;
 
 
 };

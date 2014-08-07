@@ -60,7 +60,7 @@ private:
     sf::Clock mEnduranceCLock;
     bool mIsStanding = false;
     
-    
+
     //sf::Clock mRefillEnduranceClock;
     
   

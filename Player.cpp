@@ -18,6 +18,7 @@ Player::Player(sf::Vector2f playerPosition, double resX, double resY)
     mView.setViewport(sf::FloatRect(0.0f, 0, 1.0f, 1.0f));
     Sprites::InventorySprite.setPosition(300,500 );
     Sprites::InventorySprite.setScale(3, 3);
+    
     mFont.loadFromFile("sansation.ttf");
     mEnduranceText.setFont(mFont);
     mEnduranceText.setCharacterSize(20);
@@ -34,6 +35,7 @@ Player::Player(sf::Vector2f playerPosition, double resX, double resY)
     mMagicaText.setColor(sf::Color::Blue);
     mMagicaText.setFont(mFont);
     
+ 
     
 };
 
@@ -89,7 +91,14 @@ void Player::update(double frametime)
                        mEnduranceCLock.restart();
         }
     }
+    
+  
+    
     pPlayerAnimation->move(mFrametime, mEndurance);
+  
+    
+
+    
     mView.setCenter(pPlayerAnimation->getSprite().getPosition().x, pPlayerAnimation->getSprite().getPosition().y);
     mFixed.setCenter(mResX/2, mResY/2  );
 };
@@ -108,8 +117,7 @@ void Player::setEvent(sf::Event event)
     }
     if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
     {
-       
+        
     }
-
 };
 
