@@ -15,10 +15,11 @@
 #include "Enemy.h"
 #include "Fireball.h"
 #include "SFML/Graphics.hpp"
+
 class MagicSystem
 {
 public:
-    MagicSystem(Player &player, std::vector<Enemy> EnemyVector);
+    MagicSystem(Player &player, std::vector<Enemy> &EnemyVector);
     ~MagicSystem();
     void SpawnSpell();
     void render(sf::RenderWindow *window);
@@ -28,5 +29,7 @@ private:
     Enemy mEnemy;
     Player mPlayer;
     Fireball<Enemy> *pFireBall;
+    std::vector<Enemy> mEnemyVector;
+    
 };
 #endif /* defined(__Nameless__MagicSystem__) */
