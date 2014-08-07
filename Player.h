@@ -31,6 +31,11 @@ public:
     
     sf::FloatRect getPlayerBoundingBoxes(){return pPlayerAnimation->mGetAnimBoundingBoxes();}
     sf::Event getPlayerEvent(){return mEvent;};
+    
+    bool getIsGoingRight(){return mIsGoingRight;};
+    bool getIsGoingLeft(){return mIsGoingLeft;};
+    bool getIsGoingUp(){return mIsGoingUp;};
+    bool getIsGoingDown(){return mIsGoingDown;};
 protected:
 private:
     float mPlayerPositionX = 0;
@@ -60,7 +65,10 @@ private:
     sf::Clock mEnduranceCLock;
     bool mIsStanding = false;
     
-
+    bool mIsGoingRight;
+    bool mIsGoingLeft;
+    bool mIsGoingUp;
+    bool mIsGoingDown;
     //sf::Clock mRefillEnduranceClock;
     
   

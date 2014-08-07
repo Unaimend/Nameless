@@ -22,6 +22,11 @@ public:
     sf::FloatRect mGetAnimBoundingBoxes(){return mSpriteSheet.getGlobalBounds();};
     float getAnimationSpritePosX(){return mSpriteSheet.getPosition().x;};
     float getAnimationSpritePosY(){return mSpriteSheet.getPosition().y;};
+    
+    bool getIsGoingRight(){return mIsGoingRight;};
+    bool getIsGoingLeft(){return mIsGoingLeft;};
+    bool getIsGoingUp(){return mIsGoingUp;};
+    bool getIsGoingDown(){return mIsGoingDown;};
 protected:
 private:
     sf::Sprite mSpriteSheet;

@@ -148,7 +148,7 @@ void Animation::move(double frametime, int Endurance)
     if (mCurrentYPos < mLastYPos)
     {
         mIsGoingUp = true;
-        std::cout << "OBEN" << std::endl;
+        //std::cout << "OBEN" << std::endl;
     }
     else
     {
@@ -158,13 +158,12 @@ void Animation::move(double frametime, int Endurance)
     if (mCurrentYPos > mLastYPos)
     {
         mIsGoingDown = true;
-        std::cout << "UNTEN" << std::endl;
+        //std::cout << "UNTEN" << std::endl;
     }
     else
     {
         mIsGoingDown = false;
     }
-    
 };
 
 void Animation::render(sf::RenderWindow *window)
