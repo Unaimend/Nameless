@@ -35,7 +35,10 @@ Player::Player(sf::Vector2f playerPosition, double resX, double resY)
     mMagicaText.setColor(sf::Color::Blue);
     mMagicaText.setFont(mFont);
     
- 
+    mIsGoingDown = pPlayerAnimation->getIsGoingDown();
+    mIsGoingUp = pPlayerAnimation->getIsGoingUp();
+    mIsGoingLeft = pPlayerAnimation->getIsGoingLeft();
+    mIsGoingRight = pPlayerAnimation->getIsGoingRight();
     
 };
 
