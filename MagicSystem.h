@@ -11,13 +11,15 @@
 
 #include <iostream>
 #include "Enemy.h"
+class Player;
+
 class MagicSystem
 {
 public:
 protected:
 private:
+    Player *pPlayer;
     
-
 
 };
 #endif /* defined(__Nameless__MagicSystem__) */

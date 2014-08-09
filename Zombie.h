@@ -13,7 +13,7 @@
 #include "Enemy.h"
 #include "NpcAnimation.h"
 #include "Sprites.h"
-
+#include "Player.h"
 class Zombie : public Enemy,Sprites
 {
 public:
@@ -26,6 +26,6 @@ public:
 protected:
 private:
     NpcAnimation *pAnimation;
-    
+    Player mPlayer;
 };
 #endif /* defined(__Nameless__Zombie__) */

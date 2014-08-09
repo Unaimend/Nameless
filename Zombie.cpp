@@ -12,7 +12,7 @@ Zombie::Zombie(sf::Sprite sprite, Player player, std::string name, int life, int
     mEnemySprite = sprite;
     mLife = life;
     mLifeString = std::to_string(mLife);
-    mPlayer = player;   
+    mPlayer = player;
     mName = name;
     mLife = life;
     mXpos = xpos;
