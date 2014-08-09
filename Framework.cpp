@@ -68,8 +68,15 @@ void Framework::Run()
 
 void Framework::Update(double frametime)
 {
-    
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::H) )
+    {
+        pPlayerMagicSystem->cast();
+       
+       
+    }
+
     pPlayer1->update(mFrameTime);
+    pPlayerMagicSystem->update();
     ptest->update();
     pZombie->update(mFrameTime);
 //    pBall->update();
@@ -98,9 +105,10 @@ void Framework::EventHandling()
             mAuflösungsBreite = 12*16;
             pMap = new Maploader("Map1.txt", mAuflösungsHöhe, mAuflösungsBreite);
         }
-        pPlayer1->setEvent(*pMainEvent);
+                pPlayer1->setEvent(*pMainEvent);
   
         ptest->setEvent(*pMainEvent);
+        pPlayerMagicSystem->setSpell(*pMainEvent);
     }
 }
 
@@ -113,6 +121,7 @@ void Framework::Render()
     ptest->render(pRenderWindow);
     pZombie->render(pRenderWindow);
     pPlayer1->render(pRenderWindow);
+    pPlayerMagicSystem->render(pRenderWindow );
    // pBall->render(pRenderWindow);
    
     pRenderWindow->display();
