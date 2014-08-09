@@ -10,12 +10,16 @@
 #define __Nameless__MagicSystem__
 
 #include <iostream>
+#include "Player.h"
 #include "Enemy.h"
-class Player;
-
 class MagicSystem
 {
 public:
+    MagicSystem(Player &player);
+    ~MagicSystem();
+    void render();
+    void update();
+    void cast();
 protected:
 private:
     Player *pPlayer;

@@ -6,7 +6,7 @@
 #include <vector>
 #include "NPC.h"
 #include "Zombie.h"
-
+#include "MagicSystem.h"
 #ifndef Neues_SFML_Projekt_Framework_hpp
 #define Neues_SFML_Projekt_Framework_hpp
 
@@ -35,6 +35,7 @@ private:
      sf::Clock clock2;
     NPC *ptest;
 	Zombie *pZombie;
+    MagicSystem *pPlayerMagicSystem;
     //--------------PRIVATE FUNKTIONEN------------------------
     //Die Funktion behandelt alle Spielereingaben
     void Update(double frametime);

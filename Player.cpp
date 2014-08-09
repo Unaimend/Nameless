@@ -19,6 +19,8 @@ Player::Player(sf::Vector2f playerPosition, double resX, double resY)
     Sprites::InventorySprite.setPosition(300,500 );
     Sprites::InventorySprite.setScale(3, 3);
     
+    
+    
     mFont.loadFromFile("sansation.ttf");
     mEnduranceText.setFont(mFont);
     mEnduranceText.setCharacterSize(20);

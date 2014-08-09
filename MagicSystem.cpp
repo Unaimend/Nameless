@@ -7,3 +7,27 @@
 //
 
 #include "MagicSystem.h"
+MagicSystem::MagicSystem(Player &player)
+{
+    pPlayer = &player;
+};
+
+MagicSystem::~MagicSystem()
+{
+    
+};
+
+void MagicSystem::render()
+{
+
+};
+
+void MagicSystem::update()
+{
+    
+};
+
+void MagicSystem::cast()
+{
+
+};

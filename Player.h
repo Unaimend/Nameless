@@ -14,7 +14,7 @@
 #include "SFML/Graphics.hpp"
 #include "Animation.h"
 #include "Logfile.h"
-#include "MagicSystem.h"
+
 class Player : Sprites
 {
 public:
@@ -69,6 +69,7 @@ private:
     bool mIsGoingLeft;
     bool mIsGoingUp;
     bool mIsGoingDown;
+
     //sf::Clock mRefillEnduranceClock;
     
   
