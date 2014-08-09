@@ -5,6 +5,7 @@
 #include "SFML/Graphics.hpp"
 #include <string>
 #include "Player.h"
+
 class Enemy
 {
 public:

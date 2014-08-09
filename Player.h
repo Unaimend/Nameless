@@ -12,9 +12,9 @@
 #include <iostream>
 #include "Sprites.h"
 #include "SFML/Graphics.hpp"
-#include "GuiSystem.h"
 #include "Animation.h"
 #include "Logfile.h"
+#include "MagicSystem.h"
 class Player : Sprites
 {
 public:
@@ -46,10 +46,11 @@ private:
     sf::View mFixed;
     int mResY, mResX;
     sf::Event mEvent;
-    GuiSystem *pGUI;
+   // GuiSystem *pGUI;
     sf::Sprite PlayerPointer;
     Animation *pPlayerAnimation;
     sf::Font mFont;
+    
 
     int mLife = 100;
     std::string mLifeString;
@@ -64,7 +65,6 @@ private:
     sf::Text mEnduranceText;
     sf::Clock mEnduranceCLock;
     bool mIsStanding = false;
-    
     bool mIsGoingRight;
     bool mIsGoingLeft;
     bool mIsGoingUp;

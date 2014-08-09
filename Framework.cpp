@@ -34,7 +34,7 @@ Framework::Framework()
 
     pZombie = new Zombie(Sprites::NPCZombieSprite, *pPlayer1, "Zombie", 100,0,200,500, 0, 1000);
     
-    pBall = new Fireball<Enemy>(*pPlayer1);
+    //pBall = new Fireball<Enemy>(*pPlayer1);
 }
 
 
@@ -70,7 +70,7 @@ void Framework::Update(double frametime)
     pPlayer1->update(mFrameTime);
     ptest->update();
     pZombie->update(mFrameTime);
-    pBall->update();
+//    pBall->update();
     float currentTime = clock2.restart().asSeconds();
     float fps = 1.f / currentTime ;
     
@@ -111,7 +111,7 @@ void Framework::Render()
     ptest->render(pRenderWindow);
     pZombie->render(pRenderWindow);
     pPlayer1->render(pRenderWindow);
-    pBall->render(pRenderWindow);
+   // pBall->render(pRenderWindow);
    
     pRenderWindow->display();
   

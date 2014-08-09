@@ -6,7 +6,7 @@
 #include <vector>
 #include "NPC.h"
 #include "Zombie.h"
-#include "Fireball.h"
+
 #ifndef Neues_SFML_Projekt_Framework_hpp
 #define Neues_SFML_Projekt_Framework_hpp
 
@@ -27,7 +27,7 @@ private:
     Maploader   *pMap;
     Player      *pPlayer1;
     
-    Fireball<Enemy> *pBall;
+//    Fireball<Enemy> *pBall;
     int         Mapheigth;
     int         Mapwidth;
     int         mAuflösungsBreite;
