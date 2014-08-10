@@ -35,9 +35,8 @@ Framework::Framework()
     pZombie = new Zombie(Sprites::NPCZombieSprite, *pPlayer1, "Zombie", 100,0,200,500, 0, 1000);
     
     //pBall = new Fireball<Enemy>(*pPlayer1);
-    
-    pPlayerMagicSystem = new MagicSystem(*pPlayer1);
 
+   
     mEnemyVektor.push_back(*pZombie);
 }
 

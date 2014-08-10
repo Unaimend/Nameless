@@ -1,10 +1,3 @@
-//
-//  MagicSystem.cpp
-//  Nameless
-//
-//  Created by Thomas Dost on 09.08.14.
-//  Copyright (c) 2014 Thomas Dost. All rights reserved.
-//
 
 #include "MagicSystem.h"
 #include "cmath"
@@ -17,7 +10,7 @@ MagicSystem::MagicSystem(Player player)
     addSpells();
     
    
-   
+    
     pSpell3 = new sf::RectangleShape();
     pSpell3->setSize(sf::Vector2f(10,10));
     pSpell3->setOutlineColor(sf::Color::Blue);
