@@ -5,7 +5,7 @@ Player::Player()
     
     pPlayerAnimation = new Animation(*Sprites::pPlayerSprite, 32 ,32);
     
-   
+    mMagica = 100;
     Sprites::pPlayerSprite->setPosition(mPlayerPositionX, mPlayerPositionY);
     
     Sprites::InventorySprite.setPosition(300,500 );
@@ -59,7 +59,6 @@ void Player::render(sf::RenderWindow *window)
 
 void Player::update(double frametime)
 {
-    
     mEnduranceString = std::to_string(mEndurance);
     mEnduranceText.setString(mEnduranceString);
     mLifeString = std::to_string(mLife);

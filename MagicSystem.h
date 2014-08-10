@@ -22,13 +22,15 @@ public:
     void render(sf::RenderWindow &window);
     void update();
    
-    void cast();
+    void cast(Player& player);
     void setSpell(sf::Event events);
     void addSpells();
     void changeSpell();
     
-    void setPlayer(Player &player){mPlayer = player;};
+    void setPlayer(Player& player){mPlayer = player;};
     Player getPlayer(){return mPlayer;};
+    
+    void setMagicka(int magicka){mMana = magicka;};
     
     
 protected:

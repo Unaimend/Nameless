@@ -9,7 +9,7 @@ MagicSystem::MagicSystem()
     SpellClock.getElapsedTime().asSeconds();
     addSpells();
     
-   
+    
     
     pSpell3 = new sf::RectangleShape();
     pSpell3->setSize(sf::Vector2f(10,10));
@@ -45,33 +45,33 @@ void MagicSystem::render(sf::RenderWindow &window)
 };
 
 void MagicSystem::update()
-{       std::cout << mPlayer.getMagicka() << std::endl;
+{
     
-//        mCoolDownString = std::to_string(SpellClock.getElapsedTime().asSeconds()) ;
-//    mCoolDownText.setString(mCoolDownString);
-//    if (renderMagic == true) {
-//        pSpell3->move(1, 0);
-//    }
-//    if (mClock.getElapsedTime().asSeconds() > 4.5)
-//    {
-//        delete pSpell3;
-//        pSpell3 = nullptr;
-//        renderMagic = false;
-//        pSpell3 = new sf::RectangleShape();
-//        pSpell3->setSize(sf::Vector2f(10,10));
-//        pSpell3->setOutlineColor(sf::Color::Blue);
-//        pSpell3->setOutlineThickness(2);
-//        mClock.restart();
-//        std::cout << "|";
-//    }
-//    
+        mCoolDownString = std::to_string(SpellClock.getElapsedTime().asSeconds()) ;
+    mCoolDownText.setString(mCoolDownString);
+    if (renderMagic == true) {
+        pSpell3->move(1, 0);
+    }
+    if (mClock.getElapsedTime().asSeconds() > 4.5)
+    {
+        delete pSpell3;
+        pSpell3 = nullptr;
+        renderMagic = false;
+        pSpell3 = new sf::RectangleShape();
+        pSpell3->setSize(sf::Vector2f(10,10));
+        pSpell3->setOutlineColor(sf::Color::Blue);
+        pSpell3->setOutlineThickness(2);
+        mClock.restart();
+        std::cout << "|";
+
+    }
+    
 };
 
-void MagicSystem::cast()
+void MagicSystem::cast(Player& player)
 {
     
     SpellClock.getElapsedTime().asSeconds();
- 
     if ((mMana > 0 && SpellClock.getElapsedTime().asSeconds() > 5 )|| (mFirstSpell == true && mMana > 0))
     {
         pSpell3 = new sf::RectangleShape();
@@ -83,9 +83,11 @@ void MagicSystem::cast()
         pSpell3->setPosition(mPlayer.getPlayerSpritePosX(),mPlayer.getPlayerSpritePosY());
         SpellClock.restart();
         mMana = mMana - 50;
-        mPlayer.setMagicka(mMana);
+        player.setMagicka(mMana);
+       
+        std::cout << "ICH BIN HIER "     << mMana<< std::endl;
     }
-
+   
 };
 
 void MagicSystem::setSpell(sf::Event event)

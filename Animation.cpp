@@ -22,7 +22,7 @@ Animation::Animation(sf::Sprite Spritesheet, int SpriteHeigth, int SpriteWidth)
 };
 
 
-void Animation::move(double frametime, int Endurance)
+void Animation::move(double frametime, int &Endurance)
 {   mClock.getElapsedTime().asSeconds();
     mLastXPos = mSpriteSheet.getPosition().x;
     mLastYPos = mSpriteSheet.getPosition().y;

@@ -32,13 +32,13 @@ Framework::Framework()
     mPlayer1.setStartPos(sf::Vector2f(0,0));
     
     
-//    ptest = new NPC(mPlayer1, *Sprites::pNPCHolzfällerSprite, 290,510, "Willfried: Hallo mein, \nName ist Willfried","Willkommen in unserem \nbescheidenen Dorf", "Die Hauser werden\nnoch geliefert");
+   pNPC_01 = new NPC(mPlayer1, *Sprites::pNPCHolzfällerSprite, 290,510, "Willfried: Hallo mein, \nName ist Willfried","Willkommen in unserem \nbescheidenen Dorf", "Die Hauser werden\nnoch geliefert");
 //
     pZombie = new Zombie(Sprites::NPCZombieSprite, mPlayer1, "Zombie", 100,0,200,500, 0, 1000);
 //    
     //pBall = new Fireball<Enemy>(*pPlayer1);
-//    mPlayerMagicSystem.setPlayer(mPlayer1);
- 
+    mPlayerMagicSystem.setPlayer(mPlayer1);
+    mPlayerMagicSystem.setMagicka(mPlayer1.getMagicka());
 }
 
 
@@ -73,8 +73,9 @@ void Framework::Update(double frametime)
 
     mPlayer1.update(mFrameTime);
     mPlayerMagicSystem.update();
-//    ptest->update();
+    pNPC_01->update();
     pZombie->update(mFrameTime);
+    mPlayerMagicSystem.update();
 //    pBall->update();
     float currentTime = clock2.restart().asSeconds();
     float fps = 1.f / currentTime ;
@@ -103,13 +104,14 @@ void Framework::EventHandling()
         }
         if (pMainEvent->type == sf::Event::KeyPressed   && pMainEvent->key.code == sf::Keyboard::H)
         {
-           // pPlayerMagicSystem->cast();
+            
+            mPlayerMagicSystem.cast(mPlayer1);
             
         }
         mPlayer1.setEvent(*pMainEvent);
   
-//        ptest->setEvent(*pMainEvent);
-        //pPlayerMagicSystem->setSpell(*pMainEvent);
+        pNPC_01->setEvent(*pMainEvent);
+        mPlayerMagicSystem.setSpell(*pMainEvent);
     }
 }
 
@@ -120,10 +122,10 @@ void Framework::Render()
     pRenderWindow->clear(sf::Color(0,0,0));
     pMap->render(pRenderWindow);
     mPlayer1.render(pRenderWindow);
-//    ptest->render(pRenderWindow);
+    pNPC_01->render(pRenderWindow);
     pZombie->render(pRenderWindow);
 
-  //  pPlayerMagicSystem->render(*pRenderWindow);
+    mPlayerMagicSystem.render(*pRenderWindow);
    // pBall->render(pRenderWindow);
    
     pRenderWindow->display();

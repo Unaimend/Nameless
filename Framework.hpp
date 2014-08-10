@@ -33,7 +33,7 @@ private:
     int         mAuflösungsBreite;
     int         mAuflösungsHöhe;
      sf::Clock clock2;
-    NPC *ptest;
+    NPC *pNPC_01;
 	Zombie *pZombie;
     //std::vector<Enemy> mEnemyVektor;
     MagicSystem mPlayerMagicSystem;

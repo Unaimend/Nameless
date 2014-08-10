@@ -16,7 +16,7 @@ class Animation
 {
 public:
     Animation(sf::Sprite SpriteSheet, int SpriteHeigth, int SpriteWidth);
-    void move(double frametime, int Endurance);
+    void move(double frametime, int &Endurance);
     void render(sf::RenderWindow *window);
     sf::Sprite getSprite(){return mSpriteSheet;};
     sf::FloatRect mGetAnimBoundingBoxes(){return mSpriteSheet.getGlobalBounds();};

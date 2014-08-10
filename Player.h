@@ -66,7 +66,7 @@ private:
     sf::Text mLifeText;
     
     
-    int mMagica = 100;
+    int mMagica;
     std::string mMagicaString;
     sf::Text mMagicaText;
     int mEndurance = 100;
