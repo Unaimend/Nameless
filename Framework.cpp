@@ -15,8 +15,8 @@ Framework::Framework()
 
     pRenderWindow   = new sf::RenderWindow(sf::VideoMode(mAuflösungsBreite,mAuflösungsHöhe,32), "TITLE");
     pLog->writeToFile("Fenster initialisiert");
-   
     pRenderWindow->setFramerateLimit(60);
+    
     pMainEvent      = new sf::Event;
     pClock          = new sf::Clock;
     mRun            = true;
@@ -25,27 +25,27 @@ Framework::Framework()
     Mapheigth       = 100;
     Mapwidth        = 100;
     pMap = new Maploader("Map.txt", mAuflösungsHöhe, mAuflösungsBreite);
-   
     pLog->writeToFile("Maphöhe:" + pLog->toString(Mapheigth) +" " + "Mapbreite: " + pLog->toString(Mapwidth) + " " + "Mapgröße: " + pLog->toString((Mapwidth*Mapheigth)));
     
-    pPlayer1 = new Player(sf::Vector2f(0,0), mAuflösungsBreite, mAuflösungsHöhe);
+    mPlayer1.setAuflösungsBreite(mAuflösungsBreite);
+    mPlayer1.setAuflösungsHöhe(mAuflösungsHöhe);
+    mPlayer1.setStartPos(sf::Vector2f(0,0));
     
-    ptest = new NPC(*pPlayer1, *Sprites::pNPCHolzfällerSprite, 290,510, "Willfried: Hallo mein, \nName ist Willfried","Willkommen in unserem \nbescheidenen Dorf", "Die Hauser werden\nnoch geliefert");
-
-    pZombie = new Zombie(Sprites::NPCZombieSprite, *pPlayer1, "Zombie", 100,0,200,500, 0, 1000);
     
+//    ptest = new NPC(mPlayer1, *Sprites::pNPCHolzfällerSprite, 290,510, "Willfried: Hallo mein, \nName ist Willfried","Willkommen in unserem \nbescheidenen Dorf", "Die Hauser werden\nnoch geliefert");
+//
+//    pZombie = new Zombie(Sprites::NPCZombieSprite, mPlayer1, "Zombie", 100,0,200,500, 0, 1000);
+//    
     //pBall = new Fireball<Enemy>(*pPlayer1);
-
-   
-    mEnemyVektor.push_back(*pZombie);
+//    mPlayerMagicSystem.setPlayer(mPlayer1);
+ 
 }
-
-
 
 
 Framework::~Framework()
 {   pLog->writeToFile("Fensterinstanz geshlossen");
-    pPlayer1->closePlayer();
+    delete pRenderWindow;
+    pRenderWindow = nullptr;
     pLog->closeFile();
     
 }
@@ -71,10 +71,10 @@ void Framework::Update(double frametime)
 {
   
 
-    pPlayer1->update(mFrameTime);
-    pPlayerMagicSystem->update();
-    ptest->update();
-    pZombie->update(mFrameTime);
+    mPlayer1.update(mFrameTime);
+    mPlayerMagicSystem.update();
+//    ptest->update();
+//    pZombie->update(mFrameTime);
 //    pBall->update();
     float currentTime = clock2.restart().asSeconds();
     float fps = 1.f / currentTime ;
@@ -103,13 +103,13 @@ void Framework::EventHandling()
         }
         if (pMainEvent->type == sf::Event::KeyPressed   && pMainEvent->key.code == sf::Keyboard::H)
         {
-            pPlayerMagicSystem->cast();
+           // pPlayerMagicSystem->cast();
             
         }
-        pPlayer1->setEvent(*pMainEvent);
+        mPlayer1.setEvent(*pMainEvent);
   
-        ptest->setEvent(*pMainEvent);
-        pPlayerMagicSystem->setSpell(*pMainEvent);
+//        ptest->setEvent(*pMainEvent);
+        //pPlayerMagicSystem->setSpell(*pMainEvent);
     }
 }
 
@@ -119,10 +119,11 @@ void Framework::Render()
 {
     pRenderWindow->clear(sf::Color(0,0,0));
     pMap->render(pRenderWindow);
-    ptest->render(pRenderWindow);
-    pZombie->render(pRenderWindow);
-    pPlayer1->render(pRenderWindow);
-    pPlayerMagicSystem->render(*pRenderWindow);
+    mPlayer1.render(pRenderWindow);
+//    ptest->render(pRenderWindow);
+//    pZombie->render(pRenderWindow);
+
+  //  pPlayerMagicSystem->render(*pRenderWindow);
    // pBall->render(pRenderWindow);
    
     pRenderWindow->display();

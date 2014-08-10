@@ -1,6 +1,6 @@
 
 #include "NPC.h"
-NPC::NPC( Player player, sf::Sprite sprite, float xpos, float ypos, std::string text, std::string text2, std::string text3, std::string name)
+NPC::NPC( Player &player, sf::Sprite sprite, float xpos, float ypos, std::string text, std::string text2, std::string text3, std::string name)
 {
     
     mNPCtext  = text;

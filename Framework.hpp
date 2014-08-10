@@ -25,7 +25,7 @@ private:
     double      mFrameTime;
     bool        mRun;
     Maploader   *pMap;
-    Player      *pPlayer1;
+    Player      mPlayer1;
     
 //    Fireball<Enemy> *pBall;
     int         Mapheigth;
@@ -35,8 +35,8 @@ private:
      sf::Clock clock2;
     NPC *ptest;
 	Zombie *pZombie;
-    std::vector<Enemy> mEnemyVektor;
-    MagicSystem *pPlayerMagicSystem;
+    //std::vector<Enemy> mEnemyVektor;
+    MagicSystem mPlayerMagicSystem;
     //--------------PRIVATE FUNKTIONEN------------------------
     //Die Funktion behandelt alle Spielereingaben
     void Update(double frametime);

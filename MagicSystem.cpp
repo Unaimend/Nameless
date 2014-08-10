@@ -1,10 +1,10 @@
 
 #include "MagicSystem.h"
 #include "cmath"
-MagicSystem::MagicSystem(Player player)
+MagicSystem::MagicSystem()
 {
     
-    mPlayer = player;
+
     mClock.getElapsedTime().asSeconds();
     SpellClock.getElapsedTime().asSeconds();
     addSpells();
@@ -35,8 +35,7 @@ MagicSystem::~MagicSystem()
 void MagicSystem::render(sf::RenderWindow &window)
 {
     mWindow = &window;
-    
-    
+
 
     if (renderMagic == true) {
         mWindow->draw(*pSpell3);
@@ -46,25 +45,26 @@ void MagicSystem::render(sf::RenderWindow &window)
 };
 
 void MagicSystem::update()
-{
-        mCoolDownString = std::to_string(SpellClock.getElapsedTime().asSeconds()) ;
-    mCoolDownText.setString(mCoolDownString);
-    if (renderMagic == true) {
-        pSpell3->move(1, 0);
-    }
-    if (mClock.getElapsedTime().asSeconds() > 4.5)
-    {
-        delete pSpell3;
-        pSpell3 = nullptr;
-        renderMagic = false;
-        pSpell3 = new sf::RectangleShape();
-        pSpell3->setSize(sf::Vector2f(10,10));
-        pSpell3->setOutlineColor(sf::Color::Blue);
-        pSpell3->setOutlineThickness(2);
-        mClock.restart();
-        std::cout << "|";
-    }
+{       std::cout << mPlayer.getMagicka() << std::endl;
     
+//        mCoolDownString = std::to_string(SpellClock.getElapsedTime().asSeconds()) ;
+//    mCoolDownText.setString(mCoolDownString);
+//    if (renderMagic == true) {
+//        pSpell3->move(1, 0);
+//    }
+//    if (mClock.getElapsedTime().asSeconds() > 4.5)
+//    {
+//        delete pSpell3;
+//        pSpell3 = nullptr;
+//        renderMagic = false;
+//        pSpell3 = new sf::RectangleShape();
+//        pSpell3->setSize(sf::Vector2f(10,10));
+//        pSpell3->setOutlineColor(sf::Color::Blue);
+//        pSpell3->setOutlineThickness(2);
+//        mClock.restart();
+//        std::cout << "|";
+//    }
+//    
 };
 
 void MagicSystem::cast()

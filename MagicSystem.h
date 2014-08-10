@@ -17,7 +17,7 @@
 class MagicSystem
 {
 public:
-    MagicSystem(Player player);
+    MagicSystem();
     ~MagicSystem();
     void render(sf::RenderWindow &window);
     void update();
@@ -26,6 +26,11 @@ public:
     void setSpell(sf::Event events);
     void addSpells();
     void changeSpell();
+    
+    void setPlayer(Player &player){mPlayer = player;};
+    Player getPlayer(){return mPlayer;};
+    
+    
 protected:
 private:
     Player  mPlayer;

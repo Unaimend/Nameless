@@ -18,14 +18,13 @@
 class Player : Sprites
 {
 public:
-    Player(sf::Vector2f playerPosition, double resX, double resY);
-    Player(){};
+    Player();
+
     virtual ~Player();
     void render(sf::RenderWindow  *window);
     void update(double frametime);
     void setEvent(sf::Event event);
-    void closePlayer(){this->~Player();};
-
+    
     float getPlayerSpritePosX(){return pPlayerAnimation->getAnimationSpritePosX();};
     float getPlayerSpritePosY(){return pPlayerAnimation->getAnimationSpritePosY();};
     
@@ -39,6 +38,13 @@ public:
     bool getIsGoingLeft(){return mIsGoingLeft;};
     bool getIsGoingUp(){return mIsGoingUp;};
     bool getIsGoingDown(){return mIsGoingDown;};
+    
+    void setAuflösungsHöhe(float höhe){mResY = höhe;};
+    void setAuflösungsBreite(float breite){mResX = breite;};
+    
+    void setStartPos(sf::Vector2f startpos){mPlayerPositionX = startpos.x;
+        mPlayerPositionY = startpos.y;
+    };
 protected:
 private:
     float mPlayerPositionX = 0;

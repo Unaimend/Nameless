@@ -1,21 +1,13 @@
 #include "Player.h"
 
-Player::Player(sf::Vector2f playerPosition, double resX, double resY)
+Player::Player()
 {
     
     pPlayerAnimation = new Animation(*Sprites::pPlayerSprite, 32 ,32);
     
-    mPlayerPositionX = playerPosition.x;
-    mPlayerPositionY = playerPosition.y;
-    mResX = resX;
-    mResY = resY;
+   
     Sprites::pPlayerSprite->setPosition(mPlayerPositionX, mPlayerPositionY);
-    mView.setSize(sf::Vector2f(mResX, mResY));
-    mView.setViewport(sf::FloatRect(0.0f, 0, 1.0f, 1.0f));
-    mView.zoom(0.5);
-    mView.zoom(0.5);
-    mFixed.setSize(sf::Vector2f(mResX, mResY));
-    mView.setViewport(sf::FloatRect(0.0f, 0, 1.0f, 1.0f));
+    
     Sprites::InventorySprite.setPosition(300,500 );
     Sprites::InventorySprite.setScale(3, 3);
     
@@ -49,7 +41,11 @@ Player::~Player()
     
 };
 void Player::render(sf::RenderWindow *window)
-{
+{   mView.setSize(sf::Vector2f(mResX, mResY));
+    mView.setViewport(sf::FloatRect(0.0f, 0, 1.0f, 1.0f));
+    mView.zoom(0.25);
+    mFixed.setSize(sf::Vector2f(mResX, mResY));
+
     window->setView(mView);
     pPlayerAnimation->render(window);
     window->setView(mFixed);
@@ -58,7 +54,7 @@ void Player::render(sf::RenderWindow *window)
     window->draw(mMagicaText);
     if (mShowInventory == true)
         window->draw(Sprites::InventorySprite);
-    window->setView(mView);
+   window->setView(mView);
 };
 
 void Player::update(double frametime)
@@ -68,7 +64,6 @@ void Player::update(double frametime)
     mEnduranceText.setString(mEnduranceString);
     mLifeString = std::to_string(mLife);
     mLifeText.setString(mLifeString);
-    std::cout << "HI" <<mMagica << std::endl;
     mMagicaString = std::to_string(mMagica);
     mMagicaText.setString(mMagicaString);
     mFrametime = frametime;
