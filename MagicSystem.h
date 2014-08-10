@@ -17,7 +17,7 @@
 class MagicSystem
 {
 public:
-    MagicSystem(Player &player);
+    MagicSystem(Player player);
     ~MagicSystem();
     void render(sf::RenderWindow &window);
     void update();
@@ -30,7 +30,7 @@ protected:
 private:
     Player  mPlayer;
     Enemy   mEnemy;
-
+    sf::Font font;
     int mSpellIterator = 0;
     sf::RectangleShape mSpell1;
     sf::RectangleShape mSpell2;
@@ -38,9 +38,10 @@ private:
     sf::RenderWindow *mWindow;
     sf::Clock mClock;
     sf::Clock SpellClock;
-
+    std::string mCoolDownString;
+    sf::Text mCoolDownText;
     bool renderMagic = false;
     bool mFirstSpell = true;
-    int testmag = 200;
+    int mMana;
 };
 #endif /* defined(__Nameless__MagicSystem__) */

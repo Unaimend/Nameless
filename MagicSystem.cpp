@@ -8,17 +8,28 @@
 
 #include "MagicSystem.h"
 #include "cmath"
-MagicSystem::MagicSystem(Player &player)
+MagicSystem::MagicSystem(Player player)
 {
+    
     mPlayer = player;
     mClock.getElapsedTime().asSeconds();
     SpellClock.getElapsedTime().asSeconds();
     addSpells();
     
+   
+   
     pSpell3 = new sf::RectangleShape();
     pSpell3->setSize(sf::Vector2f(10,10));
     pSpell3->setOutlineColor(sf::Color::Blue);
     pSpell3->setOutlineThickness(2);
+    
+
+    font.loadFromFile("sansation.ttf");
+    mCoolDownString = std::to_string(mClock.getElapsedTime().asSeconds()) ;
+    mCoolDownText.setFont(font);
+    mCoolDownText.setCharacterSize(20);
+    mCoolDownText.setPosition(0, 80);
+    mCoolDownText.setString(mCoolDownString);
 
 
 };
@@ -32,17 +43,19 @@ void MagicSystem::render(sf::RenderWindow &window)
 {
     mWindow = &window;
     
-
+    
 
     if (renderMagic == true) {
         mWindow->draw(*pSpell3);
     }
+    mWindow->draw(mCoolDownText);
    // std::cout << SpellClock.getElapsedTime().asSeconds() << std::endl;
 };
 
 void MagicSystem::update()
 {
-   
+        mCoolDownString = std::to_string(SpellClock.getElapsedTime().asSeconds()) ;
+    mCoolDownText.setString(mCoolDownString);
     if (renderMagic == true) {
         pSpell3->move(1, 0);
     }
@@ -51,10 +64,10 @@ void MagicSystem::update()
         delete pSpell3;
         pSpell3 = nullptr;
         renderMagic = false;
-//        pSpell3 = new sf::RectangleShape();
-//        pSpell3->setSize(sf::Vector2f(10,10));
-//        pSpell3->setOutlineColor(sf::Color::Blue);
-//        pSpell3->setOutlineThickness(2);
+        pSpell3 = new sf::RectangleShape();
+        pSpell3->setSize(sf::Vector2f(10,10));
+        pSpell3->setOutlineColor(sf::Color::Blue);
+        pSpell3->setOutlineThickness(2);
         mClock.restart();
         std::cout << "|";
     }
@@ -66,7 +79,7 @@ void MagicSystem::cast()
     
     SpellClock.getElapsedTime().asSeconds();
  
-    if (testmag > 0 && SpellClock.getElapsedTime().asSeconds() > 5 || mFirstSpell == true)
+    if ((mMana > 0 && SpellClock.getElapsedTime().asSeconds() > 5 )|| (mFirstSpell == true && mMana > 0))
     {
         pSpell3 = new sf::RectangleShape();
         pSpell3->setSize(sf::Vector2f(10,10));
@@ -76,7 +89,8 @@ void MagicSystem::cast()
         mFirstSpell = false;
         pSpell3->setPosition(mPlayer.getPlayerSpritePosX(),mPlayer.getPlayerSpritePosY());
         SpellClock.restart();
-        testmag = testmag - 50;
+        mMana = mMana - 50;
+        mPlayer.setMagicka(mMana);
     }
 
 };
@@ -95,7 +109,7 @@ void MagicSystem::setSpell(sf::Event event)
     }
     else if ((event.type == sf::Event::KeyPressed   && event.key.code == sf::Keyboard::B) )
     {
-        testmag = testmag + 200;
+        mMana = mMana + 200;
     }
 };
 

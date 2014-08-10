@@ -68,6 +68,7 @@ void Player::update(double frametime)
     mEnduranceText.setString(mEnduranceString);
     mLifeString = std::to_string(mLife);
     mLifeText.setString(mLifeString);
+    std::cout << "HI" <<mMagica << std::endl;
     mMagicaString = std::to_string(mMagica);
     mMagicaText.setString(mMagicaString);
     mFrametime = frametime;
@@ -114,6 +115,7 @@ void Player::setEvent(sf::Event event)
     if (mEvent.type == sf::Event::KeyPressed && mEvent.key.code == sf::Keyboard::I) {
         if (mShowInventory == true) {
             mShowInventory = false;
+            
         }
         else
         {

@@ -32,6 +32,9 @@ public:
     sf::FloatRect getPlayerBoundingBoxes(){return pPlayerAnimation->mGetAnimBoundingBoxes();}
     sf::Event getPlayerEvent(){return mEvent;};
     
+    
+    int getMagicka(){return mMagica;};
+    void setMagicka(int magicka){mMagica = magicka;};
     bool getIsGoingRight(){return mIsGoingRight;};
     bool getIsGoingLeft(){return mIsGoingLeft;};
     bool getIsGoingUp(){return mIsGoingUp;};

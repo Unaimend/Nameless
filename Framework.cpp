@@ -105,6 +105,7 @@ void Framework::EventHandling()
         if (pMainEvent->type == sf::Event::KeyPressed   && pMainEvent->key.code == sf::Keyboard::H)
         {
             pPlayerMagicSystem->cast();
+            
         }
         pPlayer1->setEvent(*pMainEvent);
   
