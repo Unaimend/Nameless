@@ -31,7 +31,6 @@ private:
     Player  mPlayer;
     Enemy   mEnemy;
 
-
     int mSpellIterator = 0;
     sf::RectangleShape mSpell1;
     sf::RectangleShape mSpell2;
@@ -39,6 +38,7 @@ private:
     sf::RenderWindow *mWindow;
     sf::Clock mClock;
     sf::Clock SpellClock;
+
     bool renderMagic = false;
     bool mFirstSpell = true;
     int testmag = 200;

@@ -7,6 +7,7 @@
 //
 
 #include "MagicSystem.h"
+#include "cmath"
 MagicSystem::MagicSystem(Player &player)
 {
     mPlayer = player;
@@ -18,6 +19,8 @@ MagicSystem::MagicSystem(Player &player)
     pSpell3->setSize(sf::Vector2f(10,10));
     pSpell3->setOutlineColor(sf::Color::Blue);
     pSpell3->setOutlineThickness(2);
+
+
 };
 
 MagicSystem::~MagicSystem()
@@ -27,20 +30,23 @@ MagicSystem::~MagicSystem()
 
 void MagicSystem::render(sf::RenderWindow &window)
 {
-    
     mWindow = &window;
+    
+
+
     if (renderMagic == true) {
         mWindow->draw(*pSpell3);
     }
-    std::cout << SpellClock.getElapsedTime().asSeconds() << std::endl;
+   // std::cout << SpellClock.getElapsedTime().asSeconds() << std::endl;
 };
 
 void MagicSystem::update()
 {
+   
     if (renderMagic == true) {
         pSpell3->move(1, 0);
     }
-    if (mClock.getElapsedTime().asSeconds() > 3)
+    if (mClock.getElapsedTime().asSeconds() > 4.5)
     {
         delete pSpell3;
         pSpell3 = nullptr;
@@ -53,13 +59,13 @@ void MagicSystem::update()
         std::cout << "|";
     }
     
-   
 };
 
 void MagicSystem::cast()
 {
-   
+    
     SpellClock.getElapsedTime().asSeconds();
+ 
     if (testmag > 0 && SpellClock.getElapsedTime().asSeconds() > 5 || mFirstSpell == true)
     {
         pSpell3 = new sf::RectangleShape();
@@ -68,7 +74,7 @@ void MagicSystem::cast()
         pSpell3->setOutlineThickness(2);
         renderMagic = true;
         mFirstSpell = false;
-        pSpell3->setPosition(mPlayer.getPlayerSpritePosX(), mPlayer.getPlayerSpritePosY());
+        pSpell3->setPosition(mPlayer.getPlayerSpritePosX(),mPlayer.getPlayerSpritePosY());
         SpellClock.restart();
         testmag = testmag - 50;
     }

@@ -37,6 +37,8 @@ Framework::Framework()
     //pBall = new Fireball<Enemy>(*pPlayer1);
     
     pPlayerMagicSystem = new MagicSystem(*pPlayer1);
+
+    mEnemyVektor.push_back(*pZombie);
 }
 
 

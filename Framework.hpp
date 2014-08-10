@@ -35,6 +35,7 @@ private:
      sf::Clock clock2;
     NPC *ptest;
 	Zombie *pZombie;
+    std::vector<Enemy> mEnemyVektor;
     MagicSystem *pPlayerMagicSystem;
     //--------------PRIVATE FUNKTIONEN------------------------
     //Die Funktion behandelt alle Spielereingaben
