@@ -34,7 +34,7 @@ Framework::Framework()
     
 //    ptest = new NPC(mPlayer1, *Sprites::pNPCHolzfällerSprite, 290,510, "Willfried: Hallo mein, \nName ist Willfried","Willkommen in unserem \nbescheidenen Dorf", "Die Hauser werden\nnoch geliefert");
 //
-//    pZombie = new Zombie(Sprites::NPCZombieSprite, mPlayer1, "Zombie", 100,0,200,500, 0, 1000);
+    pZombie = new Zombie(Sprites::NPCZombieSprite, mPlayer1, "Zombie", 100,0,200,500, 0, 1000);
 //    
     //pBall = new Fireball<Enemy>(*pPlayer1);
 //    mPlayerMagicSystem.setPlayer(mPlayer1);
@@ -74,7 +74,7 @@ void Framework::Update(double frametime)
     mPlayer1.update(mFrameTime);
     mPlayerMagicSystem.update();
 //    ptest->update();
-//    pZombie->update(mFrameTime);
+    pZombie->update(mFrameTime);
 //    pBall->update();
     float currentTime = clock2.restart().asSeconds();
     float fps = 1.f / currentTime ;
@@ -121,7 +121,7 @@ void Framework::Render()
     pMap->render(pRenderWindow);
     mPlayer1.render(pRenderWindow);
 //    ptest->render(pRenderWindow);
-//    pZombie->render(pRenderWindow);
+    pZombie->render(pRenderWindow);
 
   //  pPlayerMagicSystem->render(*pRenderWindow);
    // pBall->render(pRenderWindow);

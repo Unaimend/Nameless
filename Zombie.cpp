@@ -33,6 +33,7 @@ void Zombie::render(sf::RenderWindow *window) const
 void Zombie::update(double frametime) const
 {
     pAnimation->move(frametime, 100);
+
 };
 
 void Zombie::attack() const
