@@ -15,7 +15,11 @@ Maploader::Maploader(std::string filepath, int Mapheigth, int Mapwidth)
  
 };
 
-Maploader::~Maploader(){};
+Maploader::~Maploader()
+{
+    delete pMap;
+    pMap = nullptr;
+};
 
 void Maploader::loadMap()
 {

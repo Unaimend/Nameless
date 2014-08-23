@@ -6,6 +6,7 @@
 #include <vector>
 #include "NPC.h"
 #include "Zombie.h"
+#include "MagicSystem.h"
 #ifndef Neues_SFML_Projekt_Framework_hpp
 #define Neues_SFML_Projekt_Framework_hpp
 
@@ -23,16 +24,19 @@ private:
     Logfile     *pLog;
     double      mFrameTime;
     bool        mRun;
-   
     Maploader   *pMap;
-    Player      *pPlayer1;
+    Player      mPlayer1;
+    
+//    Fireball<Enemy> *pBall;
     int         Mapheigth;
     int         Mapwidth;
     int         mAuflösungsBreite;
     int         mAuflösungsHöhe;
      sf::Clock clock2;
-    NPC *ptest;
+    NPC *pNPC_01;
 	Zombie *pZombie;
+    //std::vector<Enemy> mEnemyVektor;
+    MagicSystem mPlayerMagicSystem;
     //--------------PRIVATE FUNKTIONEN------------------------
     //Die Funktion behandelt alle Spielereingaben
     void Update(double frametime);

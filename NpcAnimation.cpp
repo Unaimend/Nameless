@@ -7,7 +7,7 @@
 //
 
 #include "NpcAnimation.h"
-NpcAnimation::NpcAnimation(sf::Sprite Spritesheet, int SpriteHeigth, int SpriteWidth, int xpos, int ypos, int maxleft, int maxrigth)
+NpcAnimation::NpcAnimation(sf::Sprite Spritesheet, int SpriteHeigth, int SpriteWidth, int xpos, int ypos, int maxleft, int maxrigth, int maxup, int maxdown)
 {
     mSpriteSheet = Spritesheet;
     mSubRect.left = 32;
@@ -19,6 +19,9 @@ NpcAnimation::NpcAnimation(sf::Sprite Spritesheet, int SpriteHeigth, int SpriteW
     mSpriteSheet.setPosition(xpos, ypos);
     mMaxLeftPos = maxleft;
     mMaxRightPos = maxrigth;
+    mMaxUpPos = maxup;
+    mMaxDownPos = maxdown;
+    
 };
 
 
@@ -31,7 +34,7 @@ void NpcAnimation::move(double frametime, int Endurance)
     if   (mSpriteSheet.getPosition().x > mMaxLeftPos -mSpriteSheet.getScale().x && mSpriteSheet.getPosition().x < mMaxRightPos && mGoRight == true)
     {
           mSpriteSheet.move(50*frametime,0);
-    
+       
     }
     else
     {
@@ -46,6 +49,11 @@ void NpcAnimation::move(double frametime, int Endurance)
         mGoRight = true;
         mGoLeft = false;
     }
+//    if (/*mSpriteSheet.getPosition().y < mMaxDownPos && */mGoDown) {
+//        mSpriteSheet.move(0,50*frametime);
+//    }
+   
+
   
     mCPosX = mSpriteSheet.getPosition().x;
     mCPosY = mSpriteSheet.getPosition().y;

@@ -17,6 +17,8 @@ public:
     ~DialogSystem();
     void setText(std::string Text){mText.setString(Text);};
     void render(sf::RenderWindow *window);
+ 
+
     void update();
 protected:
 private:

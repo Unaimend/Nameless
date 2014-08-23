@@ -15,10 +15,11 @@
 class NpcAnimation
 {
 public:
-    NpcAnimation(sf::Sprite SpriteSheet, int SpriteHeigth, int SpriteWidth, int xpos, int ypos, int maxleft, int maxrigth);
+    NpcAnimation(sf::Sprite SpriteSheet, int SpriteHeigth, int SpriteWidth, int xpos, int ypos, int maxleft, int maxrigthm, int maxup, int maxdown);
     void move(double frametime, int Endurance);
     void render(sf::RenderWindow *window);
     sf::Sprite getSprite(){return mSpriteSheet;};
+    sf::FloatRect getEnemyBoundingBoxes(){return mSpriteSheet.getGlobalBounds();}
     float getAnimationSpritePosX(){return mSpriteSheet.getPosition().x;};
     float getAnimationSpritePosY(){return mSpriteSheet.getPosition().y;};
 protected:
@@ -33,8 +34,12 @@ private:
     int mLPosY;
     int mMaxLeftPos;
     int mMaxRightPos;
+    int mMaxUpPos;
+    int mMaxDownPos;
     bool mGoRight = true;
     bool mGoLeft = false;
+    bool mGoDown = true;
+    bool mGoUp = false;
     
 };
 #endif /* defined(__Nameless__NpcAnimation__) */

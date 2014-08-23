@@ -3,11 +3,9 @@
 #include <SFML/Window.hpp>
 #include <iostream>
 #include "Logfile.h"
-
 #include "Framework.hpp"
 int main(int, char const**)
 {
-  
     Framework framework;
     framework.Run();
     return 0;
@@ -25,5 +23,5 @@ while (window->pollEvent(event))
         if (test.find(unicode) < 100    )
         {
             std::cout << unicode << std::endl;
-            }
-        }*/
+        }
+}*/

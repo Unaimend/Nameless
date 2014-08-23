@@ -12,43 +12,61 @@
 #include <iostream>
 #include "Sprites.h"
 #include "SFML/Graphics.hpp"
-#include "GuiSystem.h"
 #include "Animation.h"
 #include "Logfile.h"
+
 class Player : Sprites
 {
 public:
-    Player(sf::Vector2f playerPosition, double resX, double resY);
-    Player(){};
+    Player();
+
     virtual ~Player();
     void render(sf::RenderWindow  *window);
     void update(double frametime);
     void setEvent(sf::Event event);
-    void closePlayer(){this->~Player();};
+    
     float getPlayerSpritePosX(){return pPlayerAnimation->getAnimationSpritePosX();};
     float getPlayerSpritePosY(){return pPlayerAnimation->getAnimationSpritePosY();};
+    
+    sf::FloatRect getPlayerBoundingBoxes(){return pPlayerAnimation->mGetAnimBoundingBoxes();}
     sf::Event getPlayerEvent(){return mEvent;};
+    
+    
+    int getMagicka(){return mMagica;};
+    void setMagicka(int magicka){this->mMagica = magicka;};
+    bool getIsGoingRight(){return mIsGoingRight;};
+    bool getIsGoingLeft(){return mIsGoingLeft;};
+    bool getIsGoingUp(){return mIsGoingUp;};
+    bool getIsGoingDown(){return mIsGoingDown;};
+    
+    void setAuflösungsHöhe(float höhe){mResY = höhe;};
+    void setAuflösungsBreite(float breite){mResX = breite;};
+    
+    void setStartPos(sf::Vector2f startpos){mPlayerPositionX = startpos.x;
+        mPlayerPositionY = startpos.y;
+    };
 protected:
 private:
     float mPlayerPositionX = 0;
     float mPlayerPositionY = 0;
-    bool  mShowInventory = true;
+    bool  mShowInventory = false;
     double mFrametime;
     sf::View mView;
     sf::View mFixed;
     int mResY, mResX;
     sf::Event mEvent;
-    GuiSystem *pGUI;
+   // GuiSystem *pGUI;
     sf::Sprite PlayerPointer;
     Animation *pPlayerAnimation;
     sf::Font mFont;
+    
 
     int mLife = 100;
     std::string mLifeString;
     sf::Text mLifeText;
     
     
-    int mMagica = 100;
+    int mMagica;
     std::string mMagicaString;
     sf::Text mMagicaText;
     int mEndurance = 100;
@@ -56,8 +74,11 @@ private:
     sf::Text mEnduranceText;
     sf::Clock mEnduranceCLock;
     bool mIsStanding = false;
-    
-    
+    bool mIsGoingRight;
+    bool mIsGoingLeft;
+    bool mIsGoingUp;
+    bool mIsGoingDown;
+
     //sf::Clock mRefillEnduranceClock;
     
   
