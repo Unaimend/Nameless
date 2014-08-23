@@ -49,7 +49,7 @@ protected:
 private:
     float mPlayerPositionX = 0;
     float mPlayerPositionY = 0;
-    bool  mShowInventory = true;
+    bool  mShowInventory = false;
     double mFrametime;
     sf::View mView;
     sf::View mFixed;

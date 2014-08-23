@@ -77,17 +77,17 @@ void Player::update(double frametime)
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LShift) && mEndurance > 0)
     {
         
-        if (mEnduranceCLock.getElapsedTime().asSeconds() > 1)
+        if (mEnduranceCLock.getElapsedTime().asSeconds() > 0.2)
         {
-            mEndurance =  mEndurance - 5;
+            mEndurance =  mEndurance - 1;
             mEnduranceCLock.restart();
         }
     }
     if (mIsStanding) {
         mEnduranceCLock.getElapsedTime().asSeconds();
-        if (mEnduranceCLock.getElapsedTime().asSeconds() > 1 && mEndurance < 100)
+        if (mEnduranceCLock.getElapsedTime().asSeconds() > 0.2 && mEndurance < 100)
         {
-            mEndurance =  mEndurance + 5;
+            mEndurance =  mEndurance + 1;
                        mEnduranceCLock.restart();
         }
     }
