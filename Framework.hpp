@@ -13,7 +13,22 @@
 
 class Framework : Sprites
 {
+public:
+    Framework();
+    ~Framework();
+    void Run();
+    int getAuflösungsHöhe(){return mAuflösungsHöhe;};
+    int getAuflösungsBreite(){return mAuflösungsBreite;};
 private:
+    void        Update(double frametime);
+    void        EventHandling();
+    void        Render();
+    void        Quit();
+    void        loadMap();
+    float       getFrameTime();
+    float       getFPS();
+    
+    
     sf::RenderWindow *pRenderWindow;
     sf::Event   *pMainEvent;
     sf::Clock   *pClock;
@@ -32,29 +47,6 @@ private:
     int         Mapwidth;
     int         mAuflösungsBreite;
     int         mAuflösungsHöhe;
-
-
-    void        Update(double frametime);
-    void        EventHandling();
-    void        Render();
-    void        Quit();
-    void        loadMap();
-    float       getFrameTime();
-    float       getFPS();
-    
-    
-    
-    
-public:
-    //Konstruktor
-    Framework();
-    //Destruktor
-    ~Framework();
-    //UpdateFunktion in der alles Zusammengeführt wird, wird pro Frame aufgerufen,
-    void Run();
-    
-    int getAuflösungsHöhe(){return mAuflösungsHöhe;};
-    int getAuflösungsBreite(){return mAuflösungsBreite;};
 };
 
 
