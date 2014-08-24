@@ -34,13 +34,15 @@ private:
     int         mAuflösungsHöhe;
 
 
-    void Update(double frametime);
-    void EventHandling();
-    void Render();
-    float GetFrameTime();
-    void Quit();
-
- 
+    void        Update(double frametime);
+    void        EventHandling();
+    void        Render();
+    void        Quit();
+    void        loadMap();
+    float       getFrameTime();
+    float       getFPS();
+    
+    
     
     
 public:

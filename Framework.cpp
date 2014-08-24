@@ -30,10 +30,7 @@ Framework::Framework()
     clock2.getElapsedTime().asSeconds();
     
    
-    pLog->writeToFile("Maphöhe:" + pLog->toString(Mapheigth) +" " + "Mapbreite: " + pLog->toString(Mapwidth) + " " + "Mapgröße: " + pLog->toString((Mapwidth*Mapheigth)));
-
-
-    
+    pLog->writeToFile("Maphöhe:" + pLog->toString(Mapheigth) +" " + "Mapbreite: " + pLog->toString(Mapwidth) + " " + "Mapgröße: " + pLog->toString((Mapwidth*Mapheigth)));  
 
 }
 
@@ -43,7 +40,6 @@ Framework::~Framework()
     delete pRenderWindow;
     pRenderWindow = nullptr;
     pLog->closeFile();
-    
 }
 
 
@@ -55,29 +51,20 @@ void Framework::Run()
         Update(mFrameTime);
         EventHandling();
         Render();
-        GetFrameTime();
+        getFrameTime();
         Quit();
     }
-    
 }
 
 
 
 void Framework::Update(double frametime)
 {
-  
-
     mPlayer1.update(mFrameTime);
     mPlayerMagicSystem.update();
     pNPC_01->update();
     pZombie->update(mFrameTime);
     mPlayerMagicSystem.update();
-//    pBall->update();
-    float currentTime = clock2.restart().asSeconds();
-    float fps = 1.f / currentTime ;
-    
-    std::cout << fps<< std::endl;
-   // std::cout << mFrameTime << std::endl;
 }
 
 
@@ -92,20 +79,13 @@ void Framework::EventHandling()
         }
         if (pMainEvent->type == sf::Event::Closed || (pMainEvent->type == sf::Event::KeyPressed   && pMainEvent->key.code == sf::Keyboard::T))
         {
-            delete pMap;
-            pMap = nullptr;
-            mAuflösungsHöhe = 12*16;
-            mAuflösungsBreite = 12*16;
-            pMap = new Maploader("Map1.txt", mAuflösungsHöhe, mAuflösungsBreite);
+            loadMap();
         }
         if (pMainEvent->type == sf::Event::KeyPressed   && pMainEvent->key.code == sf::Keyboard::H)
         {
-            
             mPlayerMagicSystem.cast(mPlayer1);
-            
         }
         mPlayer1.eventHandling(*pMainEvent);
-  
         pNPC_01->setEvent(*pMainEvent);
         mPlayerMagicSystem.setSpell(*pMainEvent);
     }
@@ -120,27 +100,35 @@ void Framework::Render()
     mPlayer1.render(pRenderWindow);
     pNPC_01->render(pRenderWindow);
     pZombie->render(pRenderWindow);
-
     mPlayerMagicSystem.render(*pRenderWindow);
-   // pBall->render(pRenderWindow);
-   
     pRenderWindow->display();
-  
 }
 
 
 
-float Framework::GetFrameTime()
+float Framework::getFrameTime()
 {
     mFrameTime = pClock->getElapsedTime().asSeconds();
     pClock->restart();
-
-
     return mFrameTime;
-    
 }
 
+float Framework::getFPS()
+{
+    float currentTime = clock2.restart().asSeconds();
+    float fps = 1.f / currentTime ;
+    std::cout << fps<< std::endl;
+    return fps;
+};
 
+void Framework::loadMap()
+{
+    delete pMap;
+    pMap = nullptr;
+    mAuflösungsHöhe = 12*16;
+    mAuflösungsBreite = 12*16;
+    pMap = new Maploader("Map1.txt", mAuflösungsHöhe, mAuflösungsBreite);
+};
 
 void Framework::Quit()
 {
