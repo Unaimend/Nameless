@@ -17,35 +17,32 @@ class Animation : Sprites
 {
 public:
     Animation(sf::Sprite SpriteSheet, int SpriteHeigth, int SpriteWidth);
-    void move(double frametime, int &Endurance);
-    void render(sf::RenderWindow *window);
-    sf::Sprite getSprite(){return mSpriteSheet;};
-    sf::FloatRect mGetAnimBoundingBoxes(){return mSpriteSheet.getGlobalBounds();};
-    float getAnimationSpritePosX(){return mSpriteSheet.getPosition().x;};
-    float getAnimationSpritePosY(){return mSpriteSheet.getPosition().y;};
-    
-    bool getIsGoingRight(){return mIsGoingRight;};
-    bool getIsGoingLeft(){return mIsGoingLeft;};
-    bool getIsGoingUp(){   return mIsGoingUp;};
-    bool getIsGoingDown(){return mIsGoingDown;};
-    
-    void sprint();
-protected:
+    sf::Sprite      getSprite(){return mSpriteSheet;};
+    sf::FloatRect   mGetAnimBoundingBoxes(){return mSpriteSheet.getGlobalBounds();};
+    void            move(double frametime, int &Endurance);
+    void            render(sf::RenderWindow *window);
+    void            sprint();
+    float           getAnimationSpritePosX(){return mSpriteSheet.getPosition().x;};
+    float           getAnimationSpritePosY(){return mSpriteSheet.getPosition().y;};
+    bool            getIsGoingRight(){return mIsGoingRight;};
+    bool            getIsGoingLeft(){return mIsGoingLeft;};
+    bool            getIsGoingUp(){   return mIsGoingUp;};
+    bool            getIsGoingDown(){return mIsGoingDown;};
 private:
-    sf::Sprite mSpriteSheet;
+    sf::Sprite  mSpriteSheet;
     sf::IntRect mSubRect;
-    sf::Sprite mCurrentSprite;
-    sf::Clock mClock;
+    sf::Sprite  mCurrentSprite;
+    sf::Clock   mClock;
     
-    int mCurrentXPos;
-    int mLastXPos;
-    int mCurrentYPos;
-    int mLastYPos;
-    int mSprintSpeed;
-    bool mIsGoingRight;
-    bool mIsGoingLeft;
-    bool mIsGoingUp;
-    bool mIsGoingDown;
+    int     mCurrentXPos;
+    int     mLastXPos;
+    int     mCurrentYPos;
+    int     mLastYPos;
+    int     mSprintSpeed;
+    bool    mIsGoingRight;
+    bool    mIsGoingLeft;
+    bool    mIsGoingUp;
+    bool    mIsGoingDown;
 
 
 };
