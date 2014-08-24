@@ -4,12 +4,9 @@
 MagicSystem::MagicSystem()
 {
     
-
     mClock.getElapsedTime().asSeconds();
     SpellClock.getElapsedTime().asSeconds();
     addSpells();
-    
-    
     
     pSpell3 = new sf::RectangleShape();
     pSpell3->setSize(sf::Vector2f(10,10));
@@ -35,21 +32,19 @@ MagicSystem::~MagicSystem()
 void MagicSystem::render(sf::RenderWindow &window)
 {
     mWindow = &window;
-
-
-    if (renderMagic == true) {
+    if (renderMagic == true)
+    {
         mWindow->draw(*pSpell3);
     }
     mWindow->draw(mCoolDownText);
-   // std::cout << SpellClock.getElapsedTime().asSeconds() << std::endl;
 };
 
 void MagicSystem::update()
 {
-    
-        mCoolDownString = std::to_string(SpellClock.getElapsedTime().asSeconds()) ;
+    mCoolDownString = std::to_string(SpellClock.getElapsedTime().asSeconds()) ;
     mCoolDownText.setString(mCoolDownString);
-    if (renderMagic == true) {
+    if (renderMagic == true)
+    {
         pSpell3->move(1, 0);
     }
     if (mClock.getElapsedTime().asSeconds() > 4.5)
@@ -63,9 +58,7 @@ void MagicSystem::update()
         pSpell3->setOutlineThickness(2);
         mClock.restart();
         std::cout << "|";
-
     }
-    
 };
 
 void MagicSystem::cast(Player& player)
@@ -92,7 +85,6 @@ void MagicSystem::cast(Player& player)
 
 void MagicSystem::setSpell(sf::Event event)
 {
-    
     if ((event.type == sf::Event::KeyPressed   && event.key.code == sf::Keyboard::M) )
     {
         mSpellIterator++;
@@ -116,9 +108,5 @@ void MagicSystem::addSpells()
     mSpell2.setSize(sf::Vector2f(10,10));
     mSpell2.setOutlineColor(sf::Color::Green);
     mSpell2.setOutlineThickness(2);
-
-
-  
-    
-   
+ 
 };
