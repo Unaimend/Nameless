@@ -8,37 +8,33 @@ Framework::Framework()
     pLog = new Logfile("Logfile.log");
     mAuflösungsBreite = 1680;
     mAuflösungsHöhe = 1456;
-   
-    clock2.getElapsedTime().asSeconds();
-//    mAuflösungsBreite = 1920;
-//    mAuflösungsHöhe = 1200;
-
     pRenderWindow   = new sf::RenderWindow(sf::VideoMode(mAuflösungsBreite,mAuflösungsHöhe,32), "TITLE");
-    pLog->writeToFile("Fenster dddd");
-    //pRenderWindow->setFramerateLimit(60);
-    
     pMainEvent      = new sf::Event;
     pClock          = new sf::Clock;
+    pMap            = new Maploader("Map.txt", mAuflösungsHöhe, mAuflösungsBreite);
+    pNPC_01         = new NPC(mPlayer1, *Sprites::pNPCHolzfällerSprite, 290,510, "Willfried: Hallo mein, \nName ist Willfried","Willkommen in unserem \nbescheidenen Dorf",                                         "Die Hauser werden\nnoch geliefert");
+    pZombie         = new Zombie(Sprites::NPCZombieSprite, mPlayer1, "Zombie", 100,0,200,500, 0, 1000);
     mRun            = true;
-    pLog->writeToFile("Restliche Grundfunktionen initialisiert");
- 
     Mapheigth       = 100;
     Mapwidth        = 100;
-    pMap = new Maploader("Map.txt", mAuflösungsHöhe, mAuflösungsBreite);
-    pLog->writeToFile("Maphöhe:" + pLog->toString(Mapheigth) +" " + "Mapbreite: " + pLog->toString(Mapwidth) + " " + "Mapgröße: " + pLog->toString((Mapwidth*Mapheigth)));
+    
+    pLog->writeToFile("Fenster und Restliche Grundfunktionen initialisiert");
     
     mPlayer1.setAuflösungsBreite(mAuflösungsBreite);
     mPlayer1.setAuflösungsHöhe(mAuflösungsHöhe);
     mPlayer1.setStartPos(sf::Vector2f(0,0));
     
-    
-   pNPC_01 = new NPC(mPlayer1, *Sprites::pNPCHolzfällerSprite, 290,510, "Willfried: Hallo mein, \nName ist Willfried","Willkommen in unserem \nbescheidenen Dorf", "Die Hauser werden\nnoch geliefert");
-//
-    pZombie = new Zombie(Sprites::NPCZombieSprite, mPlayer1, "Zombie", 100,0,200,500, 0, 1000);
-//    
-    //pBall = new Fireball<Enemy>(*pPlayer1);
     mPlayerMagicSystem.setPlayer(mPlayer1);
     mPlayerMagicSystem.setMagicka(mPlayer1.getMagicka());
+    
+    clock2.getElapsedTime().asSeconds();
+    
+   
+    pLog->writeToFile("Maphöhe:" + pLog->toString(Mapheigth) +" " + "Mapbreite: " + pLog->toString(Mapwidth) + " " + "Mapgröße: " + pLog->toString((Mapwidth*Mapheigth)));
+
+
+    
+
 }
 
 
