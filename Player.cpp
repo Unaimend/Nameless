@@ -8,10 +8,6 @@ Player::Player()
     mMagica = 100;
     Sprites::pPlayerSprite->setPosition(mPlayerPositionX, mPlayerPositionY);
     
-    Sprites::InventorySprite.setPosition(300,500 );
-    Sprites::InventorySprite.setScale(3, 3);
-    
-    
     
     mFont.loadFromFile("sansation.ttf");
     mEnduranceText.setFont(mFont);
@@ -34,6 +30,7 @@ Player::Player()
     mIsGoingLeft = pPlayerAnimation->getIsGoingLeft();
     mIsGoingRight = pPlayerAnimation->getIsGoingRight();
     
+    mInventory.setInventoryPos(sf::Vector2f(300,500));
 };
 
 Player::~Player()
@@ -52,9 +49,8 @@ void Player::render(sf::RenderWindow *window)
     window->draw(mEnduranceText);
     window->draw(mLifeText);
     window->draw(mMagicaText);
-    if (mShowInventory == true)
-        window->draw(Sprites::InventorySprite);
-   window->setView(mView);
+    mInventory.render(window);
+    window->setView(mView);
 };
 
 void Player::update(double frametime)
@@ -65,6 +61,7 @@ void Player::update(double frametime)
     mLifeText.setString(mLifeString);
     mMagicaString = std::to_string(mMagica);
     mMagicaText.setString(mMagicaString);
+    mInventory.update();
     mFrametime = frametime;
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)|| sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S) )
     {
@@ -74,7 +71,7 @@ void Player::update(double frametime)
     {
         mIsStanding = true;
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LShift) && mEndurance > 0)
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LShift) && mEndurance > 0 && !mIsStanding )
     {
         
         if (mEnduranceCLock.getElapsedTime().asSeconds() > 0.2)
@@ -95,24 +92,29 @@ void Player::update(double frametime)
   
     
     pPlayerAnimation->move(mFrametime, mEndurance);
-  
     
-
+    
+    mIsGoingDown = pPlayerAnimation->getIsGoingDown();
+    mIsGoingUp = pPlayerAnimation->getIsGoingUp();
+    mIsGoingLeft = pPlayerAnimation->getIsGoingLeft();
+    mIsGoingRight = pPlayerAnimation->getIsGoingRight();
+    
     
     mView.setCenter(pPlayerAnimation->getSprite().getPosition().x, pPlayerAnimation->getSprite().getPosition().y);
     mFixed.setCenter(mResX/2, mResY/2  );
 };
 
-void Player::setEvent(sf::Event event)
+void Player::eventHandling(sf::Event event)
 {
     mEvent = event;
     if (mEvent.type == sf::Event::KeyPressed && mEvent.key.code == sf::Keyboard::I) {
         if (mShowInventory == true) {
+            mInventory.setInvVisibility(false);
             mShowInventory = false;
-            
         }
         else
         {
+            mInventory.setInvVisibility(true);
             mShowInventory = true;
         }
     }

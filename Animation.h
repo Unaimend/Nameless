@@ -11,8 +11,9 @@
 
 #include <iostream>
 #include "SFML/Graphics.hpp"
+#include "Sprites.h"
 
-class Animation
+class Animation : Sprites
 {
 public:
     Animation(sf::Sprite SpriteSheet, int SpriteHeigth, int SpriteWidth);
@@ -25,8 +26,10 @@ public:
     
     bool getIsGoingRight(){return mIsGoingRight;};
     bool getIsGoingLeft(){return mIsGoingLeft;};
-    bool getIsGoingUp(){return mIsGoingUp;};
+    bool getIsGoingUp(){   return mIsGoingUp;};
     bool getIsGoingDown(){return mIsGoingDown;};
+    
+    void sprint();
 protected:
 private:
     sf::Sprite mSpriteSheet;
@@ -38,6 +41,7 @@ private:
     int mLastXPos;
     int mCurrentYPos;
     int mLastYPos;
+    int mSprintSpeed;
     bool mIsGoingRight;
     bool mIsGoingLeft;
     bool mIsGoingUp;

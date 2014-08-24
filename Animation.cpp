@@ -1,11 +1,3 @@
-//
-//  Animation.cpp
-//  Nameless
-//
-//  Created by Thomas Dost on 30.07.14.
-//  Copyright (c) 2014 Thomas Dost. All rights reserved.
-//
-
 #include "Animation.h"
 
 Animation::Animation(sf::Sprite Spritesheet, int SpriteHeigth, int SpriteWidth)
@@ -17,6 +9,7 @@ Animation::Animation(sf::Sprite Spritesheet, int SpriteHeigth, int SpriteWidth)
     mSubRect.height = SpriteHeigth;
     mSpriteSheet.setTextureRect(mSubRect);
     mCurrentSprite.setPosition(0, 0);
+    mSprintSpeed = 100;
  
     
 };
@@ -33,7 +26,7 @@ void Animation::move(double frametime, int &Endurance)
         mSpriteSheet.move(0,-50*frametime);
      
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LShift) && Endurance > 0) {
-            mSpriteSheet.move(0,-100*frametime);
+            mSpriteSheet.move(0,-mSprintSpeed*frametime);
             
         }
         mSubRect.left = 32;
@@ -56,7 +49,7 @@ void Animation::move(double frametime, int &Endurance)
     {
         mSpriteSheet.move(0,50*frametime);
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LShift) && Endurance > 0) {
-            mSpriteSheet.move(0,100*frametime);
+            mSpriteSheet.move(0,mSprintSpeed*frametime);
         }
         mSubRect.left = 32;
         mSubRect.top = 64;
@@ -82,7 +75,7 @@ void Animation::move(double frametime, int &Endurance)
         mSpriteSheet.move(-50*frametime, 0);
        
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LShift)&& Endurance > 0) {
-            mSpriteSheet.move(-100*frametime, 0);
+            mSpriteSheet.move(-mSprintSpeed*frametime, 0);
         }
         mSubRect.left = 32;
         mSubRect.top = 96;
@@ -105,7 +98,7 @@ void Animation::move(double frametime, int &Endurance)
     {
         mSpriteSheet.move(50*frametime, 0);
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LShift) && Endurance > 0) {
-            mSpriteSheet.move(100*frametime, 0);
+            mSpriteSheet.move(mSprintSpeed*frametime, 0);
             
         }
         mSubRect.left = 32;
@@ -169,4 +162,10 @@ void Animation::move(double frametime, int &Endurance)
 void Animation::render(sf::RenderWindow *window)
 {
     window->draw(mSpriteSheet);
+};
+
+void sprint()
+{
+
+
 };

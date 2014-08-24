@@ -14,6 +14,7 @@
 #include "SFML/Graphics.hpp"
 #include "Animation.h"
 #include "Logfile.h"
+#include "Inventory.h"
 
 class Player : Sprites
 {
@@ -23,7 +24,8 @@ public:
     virtual ~Player();
     void render(sf::RenderWindow  *window);
     void update(double frametime);
-    void setEvent(sf::Event event);
+    void eventHandling(sf::Event event);
+  
     
     float getPlayerSpritePosX(){return pPlayerAnimation->getAnimationSpritePosX();};
     float getPlayerSpritePosY(){return pPlayerAnimation->getAnimationSpritePosY();};
@@ -58,6 +60,7 @@ private:
    // GuiSystem *pGUI;
     sf::Sprite PlayerPointer;
     Animation *pPlayerAnimation;
+    Inventory mInventory;
     sf::Font mFont;
     
 
