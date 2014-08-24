@@ -9,17 +9,14 @@
 #include "Inventory.h"
 Inventory::Inventory()
 {
-   
     mInventorySprite = Sprites::InventorySprite;
     mInventorySprite.setScale(3,3);
-    
 };
 void Inventory::render(sf::RenderWindow *window)
 {    if (mShowInventory == true)
      {
         window->draw(mInventorySprite);
      }
-    
 };
 
 void Inventory::update()

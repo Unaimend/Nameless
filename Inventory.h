@@ -10,21 +10,17 @@ class Inventory : Sprites
     
 public:
     Inventory();
+    sf::Vector2f getInventoryPos(){return mInventoryPosition;};
     void render(sf::RenderWindow *window);
     void update();
-
-    
     void setInvVisibility(bool show){mShowInventory = show;};
-    bool getInvVisibility(){return mShowInventory;};
-    
-    
     void setInventoryPos(sf::Vector2f position){mInventoryPosition.x = position.x; mInventoryPosition.y = position.y;};
-    sf::Vector2f getInventoryPos(){return mInventoryPosition;};
+    bool getInvVisibility(){return mShowInventory;};
     
 private:
     bool mShowInventory = false;
-    sf::Sprite mInventorySprite;
-    sf::Vector2f mInventoryPosition;
+    sf::Sprite          mInventorySprite;
+    sf::Vector2f        mInventoryPosition;
   
 };
 #endif /* defined(__Nameless__Inventory__) */
