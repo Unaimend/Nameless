@@ -19,12 +19,8 @@ public:
      Sprites();
     virtual ~Sprites();
 protected:
-    
     Logfile *pLog;
- 
     sf::IntRect mSubRect;
-    
-
     sf::Texture WasserTexture;
     sf::Texture WegTexture;
     sf::Texture PlayerTexture;
