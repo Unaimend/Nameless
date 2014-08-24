@@ -21,23 +21,25 @@ private:
     sf::RenderWindow *pRenderWindow;
     sf::Event   *pMainEvent;
     sf::Clock   *pClock;
+    
     Logfile     *pLog;
-    double      mFrameTime;
-    bool        mRun;
-    Maploader   *pMap;
     Player      mPlayer1;
+    Maploader   *pMap;
+    NPC *pNPC_01;
+    MagicSystem mPlayerMagicSystem;
+    Zombie *pZombie;
     
 //    Fireball<Enemy> *pBall;
+    double      mFrameTime;
+    bool        mRun;
     int         Mapheigth;
     int         Mapwidth;
     int         mAuflösungsBreite;
     int         mAuflösungsHöhe;
      sf::Clock clock2;
-    NPC *pNPC_01;
-	Zombie *pZombie;
+
     //std::vector<Enemy> mEnemyVektor;
-    MagicSystem mPlayerMagicSystem;
-    //--------------PRIVATE FUNKTIONEN------------------------
+        //--------------PRIVATE FUNKTIONEN------------------------
     //Die Funktion behandelt alle Spielereingaben
     void Update(double frametime);
     void EventHandling();
