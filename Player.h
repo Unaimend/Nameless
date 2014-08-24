@@ -20,71 +20,51 @@ class Player : Sprites
 {
 public:
     Player();
-
-    virtual ~Player();
+    ~Player();
+    sf::FloatRect getPlayerBoundingBoxes(){return pPlayerAnimation->mGetAnimBoundingBoxes();}
+    sf::Event getPlayerEvent(){return mEvent;};
     void render(sf::RenderWindow  *window);
     void update(double frametime);
     void eventHandling(sf::Event event);
-  
-    
+    void setMagicka(int magicka){this->mMagica = magicka;};
+    void setAuflösungsHöhe(float höhe){mResY = höhe;};
+    void setAuflösungsBreite(float breite){mResX = breite;};
+    void setStartPos(sf::Vector2f startpos){mPlayerPositionX = startpos.x; mPlayerPositionY = startpos.y;};
     float getPlayerSpritePosX(){return pPlayerAnimation->getAnimationSpritePosX();};
     float getPlayerSpritePosY(){return pPlayerAnimation->getAnimationSpritePosY();};
-    
-    sf::FloatRect getPlayerBoundingBoxes(){return pPlayerAnimation->mGetAnimBoundingBoxes();}
-    sf::Event getPlayerEvent(){return mEvent;};
-    
-    
-    int getMagicka(){return mMagica;};
-    void setMagicka(int magicka){this->mMagica = magicka;};
     bool getIsGoingRight(){return mIsGoingRight;};
     bool getIsGoingLeft(){return mIsGoingLeft;};
     bool getIsGoingUp(){return mIsGoingUp;};
     bool getIsGoingDown(){return mIsGoingDown;};
-    
-    void setAuflösungsHöhe(float höhe){mResY = höhe;};
-    void setAuflösungsBreite(float breite){mResX = breite;};
-    
-    void setStartPos(sf::Vector2f startpos){mPlayerPositionX = startpos.x;
-        mPlayerPositionY = startpos.y;
-    };
-protected:
+    int getMagicka(){return mMagica;};
 private:
-    float mPlayerPositionX = 0;
-    float mPlayerPositionY = 0;
-    bool  mShowInventory = false;
-    double mFrametime;
-    sf::View mView;
-    sf::View mFixed;
-    int mResY, mResX;
-    sf::Event mEvent;
-   // GuiSystem *pGUI;
-    sf::Sprite PlayerPointer;
     Animation *pPlayerAnimation;
     Inventory mInventory;
+    sf::Event mEvent;
+    sf::Sprite PlayerPointer;
+    sf::View mView;
+    sf::View mFixed;
     sf::Font mFont;
-    
-
-    int mLife = 100;
+    float mPlayerPositionX      = 0;
+    float mPlayerPositionY      = 0;
+    double mFrametime;
+    int mResY, mResX;
+    bool  mShowInventory        = false;
+    bool        mIsStanding     = false;
+    bool        mIsGoingRight;
+    bool        mIsGoingLeft;
+    bool        mIsGoingUp;
+    bool        mIsGoingDown;
+    int         mLife           = 100;
     std::string mLifeString;
-    sf::Text mLifeText;
-    
-    
-    int mMagica;
+    sf::Text    mLifeText;
+    int         mMagica         = 100;
     std::string mMagicaString;
-    sf::Text mMagicaText;
-    int mEndurance = 100;
+    sf::Text    mMagicaText;
+    int         mEndurance      = 100;
     std::string mEnduranceString;
-    sf::Text mEnduranceText;
-    sf::Clock mEnduranceCLock;
-    bool mIsStanding = false;
-    bool mIsGoingRight;
-    bool mIsGoingLeft;
-    bool mIsGoingUp;
-    bool mIsGoingDown;
+    sf::Text    mEnduranceText;
+    sf::Clock   mEnduranceCLock;
 
-    //sf::Clock mRefillEnduranceClock;
-    
-  
-    
 };
 #endif /* defined(__Nameless__Player__) */

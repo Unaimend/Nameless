@@ -33,14 +33,12 @@ private:
     sf::Event           *pMainEvent;
     sf::Clock           *pClock;
     sf::Clock           clock2;
-    
     Logfile     *pLog;
     Player      mPlayer1;
     Maploader   *pMap;
     NPC         *pNPC_01;
     MagicSystem mPlayerMagicSystem;
     Zombie      *pZombie;
-
     double      mFrameTime;
     bool        mRun;
     int         Mapheigth;

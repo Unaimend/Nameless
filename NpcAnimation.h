@@ -28,7 +28,6 @@ private:
     sf::IntRect mSubRect;
     sf::Sprite  mCurrentSprite;
     sf::Clock   mClock;
-    
     int         mCPosX;
     int         mCPosY;
     int         mLPosX;

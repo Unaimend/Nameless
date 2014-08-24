@@ -2,12 +2,14 @@
 
 Player::Player()
 {
-    
     pPlayerAnimation = new Animation(*Sprites::pPlayerSprite, 32 ,32);
+    mMagica         = 100;
+    mIsGoingDown    = pPlayerAnimation->getIsGoingDown();
+    mIsGoingUp      = pPlayerAnimation->getIsGoingUp();
+    mIsGoingLeft    = pPlayerAnimation->getIsGoingLeft();
+    mIsGoingRight   = pPlayerAnimation->getIsGoingRight();
     
-    mMagica = 100;
     Sprites::pPlayerSprite->setPosition(mPlayerPositionX, mPlayerPositionY);
-    
     
     mFont.loadFromFile("sansation.ttf");
     mEnduranceText.setFont(mFont);
@@ -25,11 +27,6 @@ Player::Player()
     mMagicaText.setColor(sf::Color::Blue);
     mMagicaText.setFont(mFont);
     
-    mIsGoingDown = pPlayerAnimation->getIsGoingDown();
-    mIsGoingUp = pPlayerAnimation->getIsGoingUp();
-    mIsGoingLeft = pPlayerAnimation->getIsGoingLeft();
-    mIsGoingRight = pPlayerAnimation->getIsGoingRight();
-    
     mInventory.setInventoryPos(sf::Vector2f(300,500));
 };
 
@@ -38,11 +35,13 @@ Player::~Player()
     
 };
 void Player::render(sf::RenderWindow *window)
-{   mView.setSize(sf::Vector2f(mResX, mResY));
+{
+    mView.setSize(sf::Vector2f(mResX, mResY));
     mView.setViewport(sf::FloatRect(0.0f, 0, 1.0f, 1.0f));
     mView.zoom(0.25);
     mFixed.setSize(sf::Vector2f(mResX, mResY));
 
+    
     window->setView(mView);
     pPlayerAnimation->render(window);
     window->setView(mFixed);
@@ -55,14 +54,15 @@ void Player::render(sf::RenderWindow *window)
 
 void Player::update(double frametime)
 {
-    mEnduranceString = std::to_string(mEndurance);
+    mEnduranceString    = std::to_string(mEndurance);
     mEnduranceText.setString(mEnduranceString);
-    mLifeString = std::to_string(mLife);
+    mLifeString         = std::to_string(mLife);
     mLifeText.setString(mLifeString);
-    mMagicaString = std::to_string(mMagica);
+    mMagicaString       = std::to_string(mMagica);
     mMagicaText.setString(mMagicaString);
     mInventory.update();
     mFrametime = frametime;
+    
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)|| sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S) )
     {
         mIsStanding = false;
@@ -73,7 +73,6 @@ void Player::update(double frametime)
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LShift) && mEndurance > 0 && !mIsStanding )
     {
-        
         if (mEnduranceCLock.getElapsedTime().asSeconds() > 0.2)
         {
             mEndurance =  mEndurance - 1;
@@ -89,15 +88,14 @@ void Player::update(double frametime)
         }
     }
     
-  
-    
+
     pPlayerAnimation->move(mFrametime, mEndurance);
     
     
-    mIsGoingDown = pPlayerAnimation->getIsGoingDown();
-    mIsGoingUp = pPlayerAnimation->getIsGoingUp();
-    mIsGoingLeft = pPlayerAnimation->getIsGoingLeft();
-    mIsGoingRight = pPlayerAnimation->getIsGoingRight();
+    mIsGoingDown    = pPlayerAnimation->getIsGoingDown();
+    mIsGoingUp      = pPlayerAnimation->getIsGoingUp();
+    mIsGoingLeft    = pPlayerAnimation->getIsGoingLeft();
+    mIsGoingRight   = pPlayerAnimation->getIsGoingRight();
     
     
     mView.setCenter(pPlayerAnimation->getSprite().getPosition().x, pPlayerAnimation->getSprite().getPosition().y);

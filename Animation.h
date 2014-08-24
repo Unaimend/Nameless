@@ -32,8 +32,7 @@ private:
     sf::Sprite  mSpriteSheet;
     sf::IntRect mSubRect;
     sf::Sprite  mCurrentSprite;
-    sf::Clock   mClock;
-    
+    sf::Clock   mClock;    
     int     mCurrentXPos;
     int     mLastXPos;
     int     mCurrentYPos;

@@ -23,14 +23,12 @@ public:
 private:
     DialogSystem    *NpcDialog;
     Player          mPlayer;
-    
     sf::Sprite      mNpcSprite;
     sf::Event       mEvent;
     std::string     mNPCtext;
     std::string     mNpcText1;
     std::string     mNpcText2;
-    std::string     mNpcText3;
-    
+    std::string     mNpcText3;    
     float           mNpcPosX = 0;
     float           mNpcPosY = 0;
     bool            mShowDialog = false;
