@@ -29,10 +29,10 @@ private:
     float       getFPS();
     
     
-    sf::RenderWindow *pRenderWindow;
-    sf::Event   *pMainEvent;
-    sf::Clock   *pClock;
-    sf::Clock clock2;
+    sf::RenderWindow    *pRenderWindow;
+    sf::Event           *pMainEvent;
+    sf::Clock           *pClock;
+    sf::Clock           clock2;
     
     Logfile     *pLog;
     Player      mPlayer1;

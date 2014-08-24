@@ -20,21 +20,17 @@ public:
     void render(sf::RenderWindow *window);
     void update();
     void setEvent(sf::Event event);
-    
- 
-protected:
 private:
-    std::string mNPCtext;
-
-    sf::Sprite mNpcSprite;
-    float mNpcPosX = 0;
-    float mNpcPosY = 0;
-    DialogSystem *NpcDialog;
-    Player mPlayer;
-    sf::Event mEvent;
-    bool mShowDialog = false;
-    std::string mNpcText1;
-    std::string mNpcText2;
-    std::string mNpcText3;
+    DialogSystem    *NpcDialog;
+    Player          mPlayer;
+    sf::Sprite      mNpcSprite;
+    sf::Event       mEvent;
+    std::string     mNPCtext;
+    std::string     mNpcText1;
+    std::string     mNpcText2;
+    std::string     mNpcText3;
+    float           mNpcPosX = 0;
+    float           mNpcPosY = 0;
+    bool            mShowDialog = false;
 };
 #endif /* defined(__Nameless__NPC__) */
