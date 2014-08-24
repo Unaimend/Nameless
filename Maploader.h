@@ -17,25 +17,15 @@ public:
     void render(sf::RenderWindow *window);
     void setMap(std::string filepath){mFilepath = filepath;};
     void renderTileLayer(sf::RenderWindow *window);
-     void loadMap();
-protected:
+    void loadMap();
 private:
-   
-    
     std::ifstream *pMap;
     std::string mFilepath;
-    int mMapheigth, mMapwidth;
     std::string temporaryMap;
     std::vector<std::string> mMapVektor;
     std::vector<std::string>::iterator mMapVektorIterator;
-    
+    int mMapheigth, mMapwidth;
     int tempmapx = 0;
     int tempmapy = 0;
-    
-    
-  
-    
-
-    
 };
 #endif /* defined(__Nameless__Maploader__) */

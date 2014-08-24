@@ -20,8 +20,7 @@ public:
 
 protected:
 private:
-        void setmTime();
-    
+        void setmTime();    
         std::ofstream *pLog;
         std::string mFilepath;
         std::time_t mCurrentTime = std::time(nullptr);
@@ -29,8 +28,6 @@ private:
         struct tm *ts = localtime(&t);
         std::string mTime = std::string(asctime(ts));
         std::string mParameter;
-    
-    
 };
 
 

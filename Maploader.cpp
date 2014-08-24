@@ -3,13 +3,12 @@
 
 Maploader::Maploader(std::string filepath, int Mapheigth, int Mapwidth)
 {
-    mMapheigth = Mapheigth;
-    mMapwidth = Mapwidth;
-    
-    mMapVektorIterator = mMapVektor.begin();
-    mFilepath = filepath;
-    temporaryMap = "0";
-    pMap = new std::ifstream(mFilepath);
+    mMapheigth          = Mapheigth;
+    mMapwidth           = Mapwidth;
+    mFilepath           = filepath;
+    temporaryMap        = "0";
+    mMapVektorIterator  = mMapVektor.begin();
+    pMap                = new std::ifstream(mFilepath);
     loadMap();
     
  
@@ -28,8 +27,6 @@ void Maploader::loadMap()
         *pMap >> temporaryMap;
         mMapVektor.push_back(temporaryMap);
     }
-    
-    
 };
 
 void Maploader::render(sf::RenderWindow *window)
@@ -40,9 +37,7 @@ void Maploader::render(sf::RenderWindow *window)
 }
 
 void Maploader::renderTileLayer(sf::RenderWindow *window){ for(auto it : mMapVektor)
-{
-    
-    
+{ 
     Sprites::WasserSprite.setPosition(tempmapx*16, tempmapy*16);
     Sprites::pWegSprite->setPosition(tempmapx*16, tempmapy*16);
     Sprites::pGrasSprite->setPosition(tempmapx*16, tempmapy*16);

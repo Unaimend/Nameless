@@ -19,36 +19,31 @@ class MagicSystem
 public:
     MagicSystem();
     ~MagicSystem();
+    Player getPlayer(){return mPlayer;};
     void render(sf::RenderWindow &window);
     void update();
-   
     void cast(Player& player);
     void setSpell(sf::Event events);
     void addSpells();
     void changeSpell();
-    
     void setPlayer(Player& player){mPlayer = player;};
-    Player getPlayer(){return mPlayer;};
-    
     void setMagicka(int magicka){mMana = magicka;};
-    
-    
-protected:
 private:
-    Player  mPlayer;
-    Enemy   mEnemy;
-    sf::Font font;
-    int mSpellIterator = 0;
-    sf::RectangleShape mSpell1;
-    sf::RectangleShape mSpell2;
-    sf::RectangleShape *pSpell3;
-    sf::RenderWindow *mWindow;
-    sf::Clock mClock;
-    sf::Clock SpellClock;
-    std::string mCoolDownString;
-    sf::Text mCoolDownText;
-    bool renderMagic = false;
-    bool mFirstSpell = true;
+    Player              mPlayer;
+    Enemy               mEnemy;
+    sf::Font            font;
+    sf::RectangleShape  mSpell1;
+    sf::RectangleShape  mSpell2;
+    sf::RectangleShape  *pSpell3;
+    sf::RenderWindow    *mWindow;
+    sf::Clock           mClock;
+    sf::Clock           SpellClock;
+    std::string         mCoolDownString;
+    sf::Text            mCoolDownText;
     int mMana;
+    int mSpellIterator  = 0;
+    bool renderMagic    = false;
+    bool mFirstSpell    = true;
+ 
 };
 #endif /* defined(__Nameless__MagicSystem__) */
