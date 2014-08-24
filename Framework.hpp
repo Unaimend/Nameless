@@ -13,34 +13,27 @@
 
 class Framework : Sprites
 {
-    
-    
-protected:
 private:
-    //--------------PRIVATE VARIABLEN-------------------------
     sf::RenderWindow *pRenderWindow;
     sf::Event   *pMainEvent;
     sf::Clock   *pClock;
+    sf::Clock clock2;
     
     Logfile     *pLog;
     Player      mPlayer1;
     Maploader   *pMap;
-    NPC *pNPC_01;
+    NPC         *pNPC_01;
     MagicSystem mPlayerMagicSystem;
-    Zombie *pZombie;
-    
-//    Fireball<Enemy> *pBall;
+    Zombie      *pZombie;
+
     double      mFrameTime;
     bool        mRun;
     int         Mapheigth;
     int         Mapwidth;
     int         mAuflösungsBreite;
     int         mAuflösungsHöhe;
-     sf::Clock clock2;
 
-    //std::vector<Enemy> mEnemyVektor;
-        //--------------PRIVATE FUNKTIONEN------------------------
-    //Die Funktion behandelt alle Spielereingaben
+
     void Update(double frametime);
     void EventHandling();
     void Render();
