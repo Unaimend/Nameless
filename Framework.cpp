@@ -97,6 +97,7 @@ void Framework::Render()
 {
     pRenderWindow->clear(sf::Color(0,0,0));
     pMap->render(pRenderWindow);
+    test.render(pRenderWindow);
     mPlayer1.render(pRenderWindow);
     pNPC_01->render(pRenderWindow);
     pZombie->render(pRenderWindow);

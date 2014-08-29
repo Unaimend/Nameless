@@ -14,6 +14,7 @@
 #include "NpcAnimation.h"
 #include "Sprites.h"
 #include "Player.h"
+
 class Zombie : public Enemy,Sprites
 {
 public:

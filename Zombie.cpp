@@ -20,8 +20,6 @@ Zombie::Zombie(sf::Sprite sprite, Player player, std::string name, int life, int
     mMaxRigth       = maxrigth;
     pAnimation      = new NpcAnimation(Sprites::NPCZombieSprite, 32,32, 50,0,xpos, mMaxRigth,mMaxUp,mMaxDown);
     mEnemySprite.setPosition(mXpos, mYpos);
-    
-
 };
 Zombie::~Zombie(){};
 

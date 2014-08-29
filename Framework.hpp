@@ -7,6 +7,7 @@
 #include "NPC.h"
 #include "Zombie.h"
 #include "MagicSystem.h"
+#include "Testitem.h"
 #ifndef Neues_SFML_Projekt_Framework_hpp
 #define Neues_SFML_Projekt_Framework_hpp
 
@@ -45,6 +46,12 @@ private:
     int         Mapwidth;
     int         mAuflösungsBreite;
     int         mAuflösungsHöhe;
+    
+    
+    
+    //Testcode
+    Testitem test;
+    
 };
 
 
