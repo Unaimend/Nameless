@@ -39,9 +39,6 @@ Framework::Framework()
     mFixed.setSize(sf::Vector2f(mAuflösungsBreite, mAuflösungsHöhe));
     
     
-    
-    
-    
     pTest = new Testitem();
     testvektor.push_back(*pTest);
 }
@@ -79,7 +76,7 @@ void Framework::Update(double frametime)
     mPlayerMagicSystem.update();
     
     
-    mView.setCenter(pPlayerSprite->getPosition().x, pPlayerSprite->getPosition().y);
+    mView.setCenter(mPlayer1.getPlayerSpritePosX(), mPlayer1.getPlayerSpritePosY());
     mFixed.setCenter(mAuflösungsBreite/2, mAuflösungsHöhe/2  );
 }
 
@@ -112,15 +109,13 @@ void Framework::EventHandling()
 void Framework::Render()
 {
     pRenderWindow->clear(sf::Color(0,0,0));
-    pMap->render(pRenderWindow);
-   
     pRenderWindow->setView(mFixed);
-    
     for(auto it : testvektor)
     {
         pTest->render(pRenderWindow);
     }
     pRenderWindow->setView(mView);
+    pMap->render(pRenderWindow);
     mPlayer1.render(pRenderWindow);
     pNPC_01->render(pRenderWindow);
     pZombie->render(pRenderWindow);

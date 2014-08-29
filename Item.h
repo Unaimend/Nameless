@@ -8,9 +8,9 @@ class Item
 public:
     sf::Sprite mSprite;
     sf::Texture mTexture;
-    double xPos, yPos;
-    std::string mName;
-    
+    double xPos = 0, yPos = 0;
+    std::string mName = "";
+    bool isClicked = false;
     
     virtual void render(sf::RenderWindow *window) ;
     virtual void update(double frametime)  ;
