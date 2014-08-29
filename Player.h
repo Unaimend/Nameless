@@ -38,7 +38,6 @@ public:
     bool getIsGoingDown(){return mIsGoingDown;};
     int getMagicka(){return mMagica;};
 private:
-    sf::RenderWindow &mWindow;
     Animation *pPlayerAnimation;
     Inventory mInventory;
     sf::Event mEvent;
