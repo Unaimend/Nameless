@@ -32,6 +32,18 @@ Framework::Framework()
    
     pLog->writeToFile("Maphöhe:" + pLog->toString(Mapheigth) +" " + "Mapbreite: " + pLog->toString(Mapwidth) + " " + "Mapgröße: " + pLog->toString((Mapwidth*Mapheigth)));  
 
+    //TESTCODE
+    mView.setSize(sf::Vector2f(mAuflösungsBreite, mAuflösungsHöhe));
+    mView.setViewport(sf::FloatRect(0.0f, 0, 1.0f, 1.0f));
+    mView.zoom(0.25);
+    mFixed.setSize(sf::Vector2f(mAuflösungsBreite, mAuflösungsHöhe));
+    
+    
+    
+    
+    
+    pTest = new Testitem();
+    testvektor.push_back(*pTest);
 }
 
 
@@ -65,6 +77,10 @@ void Framework::Update(double frametime)
     pNPC_01->update();
     pZombie->update(mFrameTime);
     mPlayerMagicSystem.update();
+    
+    
+    mView.setCenter(pPlayerSprite->getPosition().x, pPlayerSprite->getPosition().y);
+    mFixed.setCenter(mAuflösungsBreite/2, mAuflösungsHöhe/2  );
 }
 
 
@@ -97,7 +113,14 @@ void Framework::Render()
 {
     pRenderWindow->clear(sf::Color(0,0,0));
     pMap->render(pRenderWindow);
-    test.render(pRenderWindow);
+   
+    pRenderWindow->setView(mFixed);
+    
+    for(auto it : testvektor)
+    {
+        pTest->render(pRenderWindow);
+    }
+    pRenderWindow->setView(mView);
     mPlayer1.render(pRenderWindow);
     pNPC_01->render(pRenderWindow);
     pZombie->render(pRenderWindow);

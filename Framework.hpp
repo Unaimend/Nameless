@@ -29,7 +29,8 @@ private:
     float       getFrameTime();
     float       getFPS();
     
-    
+    sf::View mView;
+    sf::View mFixed;
     sf::RenderWindow    *pRenderWindow;
     sf::Event           *pMainEvent;
     sf::Clock           *pClock;
@@ -50,7 +51,8 @@ private:
     
     
     //Testcode
-    Testitem test;
+    Item *pTest;
+    std::vector<Item> testvektor;
     
 };
 

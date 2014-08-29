@@ -11,7 +11,7 @@
 
 #include <iostream>
 #include "Item.h"
-class Testitem : Item
+class Testitem : public Item
 {
 public:
     Testitem();

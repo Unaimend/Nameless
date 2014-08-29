@@ -5,15 +5,15 @@
 #include "SFML/Graphics.hpp"
 class Item
 {
-protected:
+public:
     sf::Sprite mSprite;
     sf::Texture mTexture;
     double xPos, yPos;
     std::string mName;
     
     
-    virtual void render(sf::RenderWindow *window) = 0 ;
-    virtual void update(double frametime) = 0 ;
+    virtual void render(sf::RenderWindow *window) ;
+    virtual void update(double frametime)  ;
     
 
 };
