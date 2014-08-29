@@ -30,7 +30,6 @@ public:
     void setAuflösungsHöhe(float höhe){mResY = höhe;};
     void setAuflösungsBreite(float breite){mResX = breite;};
     void setStartPos(sf::Vector2f startpos){mPlayerPositionX = startpos.x; mPlayerPositionY = startpos.y;};
-    void setFixedView(sf::View view){};
     float getPlayerSpritePosX(){return pPlayerAnimation->getAnimationSpritePosX();};
     float getPlayerSpritePosY(){return pPlayerAnimation->getAnimationSpritePosY();};
     bool getIsGoingRight(){return mIsGoingRight;};
@@ -39,6 +38,7 @@ public:
     bool getIsGoingDown(){return mIsGoingDown;};
     int getMagicka(){return mMagica;};
 private:
+    sf::RenderWindow &mWindow;
     Animation *pPlayerAnimation;
     Inventory mInventory;
     sf::Event mEvent;

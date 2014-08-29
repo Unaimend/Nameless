@@ -40,8 +40,6 @@ void Player::render(sf::RenderWindow *window)
     mView.setViewport(sf::FloatRect(0.0f, 0, 1.0f, 1.0f));
     mView.zoom(0.25);
     mFixed.setSize(sf::Vector2f(mResX, mResY));
-
-    
     window->setView(mView);
     pPlayerAnimation->render(window);
     window->setView(mFixed);
