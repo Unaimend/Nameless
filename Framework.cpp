@@ -40,7 +40,11 @@ Framework::Framework()
     
     
     pTest = new Testitem();
+    pTest2 = new Testitem();
+    pTest2->setPositiond(sf::Vector2f(mPlayer1.getInvPosX(),mPlayer1.getInvPosY()));
+    pTest2->setScale(2, 2);
     testvektor.push_back(*pTest);
+    Inventoryvektor.push_back(*pTest2);
 }
 
 
@@ -75,7 +79,8 @@ void Framework::Update(double frametime)
     pZombie->update(mFrameTime);
     mPlayerMagicSystem.update();
     
-    
+    std::cout << mPlayer1.getInvPosY() << std::endl;
+    std::cout <<"HI"<< pTest2->getPositionY() << std::endl;
     mView.setCenter(mPlayer1.getPlayerSpritePosX(), mPlayer1.getPlayerSpritePosY());
     mFixed.setCenter(mAuflösungsBreite/2, mAuflösungsHöhe/2  );
 }
@@ -109,21 +114,29 @@ void Framework::EventHandling()
 void Framework::Render()
 {
     pRenderWindow->clear(sf::Color(0,0,0));
-    pRenderWindow->setView(mFixed);
-    for(auto it : testvektor)
-    {
-        pTest->render(pRenderWindow);
-    }
-    pRenderWindow->setView(mView);
     pMap->render(pRenderWindow);
-    mPlayer1.render(pRenderWindow);
     pNPC_01->render(pRenderWindow);
     pZombie->render(pRenderWindow);
     mPlayerMagicSystem.render(*pRenderWindow);
+    for (mtestiter = testvektor.begin(); mtestiter != testvektor.end(); mtestiter++)
+    {
+        mtestiter->render(pRenderWindow);
+    }
+    mPlayer1.render(pRenderWindow);
+    pRenderWindow->setView(mFixed);
+    if (mPlayer1.getInventoryVis() == true) {
+        for(auto it : Inventoryvektor)
+        {
+            it.render(pRenderWindow);
+        }
+    }
+    
+    pRenderWindow->setView(mView);
+   
+   // pTest->render(pRenderWindow);
+  
     pRenderWindow->display();
 }
-
-
 
 float Framework::getFrameTime()
 {

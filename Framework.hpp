@@ -52,8 +52,12 @@ private:
     
     //Testcode
     Item *pTest;
+    Item *pTest2;
     std::vector<Item> testvektor;
-    
+    std::vector<Item> Inventoryvektor;
+    std::vector<Item>::iterator mtestiter2 = Inventoryvektor.begin();
+    bool peter = true;
+    std::vector<Item>::iterator mtestiter = testvektor.begin();
 };
 
 

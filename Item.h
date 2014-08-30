@@ -14,6 +14,11 @@ public:
     
     virtual void render(sf::RenderWindow *window) ;
     virtual void update(double frametime)  ;
+
+    virtual float getPositionX(){return mSprite.getPosition().x;};
+        virtual float getPositionY(){return mSprite.getPosition().y;};
+    void setPositiond(sf::Vector2f position){mSprite.setPosition(position.x, position.y);};
+    void setScale(double x, double y){mSprite.setScale(x, y);};
     
 
 };

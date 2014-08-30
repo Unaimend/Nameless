@@ -32,10 +32,13 @@ public:
     void setStartPos(sf::Vector2f startpos){mPlayerPositionX = startpos.x; mPlayerPositionY = startpos.y;};
     float getPlayerSpritePosX(){return pPlayerAnimation->getAnimationSpritePosX();};
     float getPlayerSpritePosY(){return pPlayerAnimation->getAnimationSpritePosY();};
+    float getInvPosX(){return mInventory.getInventoryPos().x;};
+    float getInvPosY(){return mInventory.getInventoryPos().y;};
     bool getIsGoingRight(){return mIsGoingRight;};
     bool getIsGoingLeft(){return mIsGoingLeft;};
     bool getIsGoingUp(){return mIsGoingUp;};
     bool getIsGoingDown(){return mIsGoingDown;};
+    bool getInventoryVis(){return mInventory.getInvVisibility();};
     int getMagicka(){return mMagica;};
 private:
     Animation *pPlayerAnimation;

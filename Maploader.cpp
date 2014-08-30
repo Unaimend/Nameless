@@ -36,7 +36,8 @@ void Maploader::render(sf::RenderWindow *window)
     
 }
 
-void Maploader::renderTileLayer(sf::RenderWindow *window){ for(auto it : mMapVektor)
+void Maploader::renderTileLayer(sf::RenderWindow *window){
+for(auto it : mMapVektor)
 { 
     Sprites::WasserSprite.setPosition(tempmapx*16, tempmapy*16);
     Sprites::pWegSprite->setPosition(tempmapx*16, tempmapy*16);
