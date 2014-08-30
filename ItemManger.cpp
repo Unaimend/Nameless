@@ -16,11 +16,12 @@ ItemManger::ItemManger(Player &player)
     pTest2->setScale(2, 2);
     testvektor.push_back(*pTest);
     Inventoryvektor.push_back(*pTest2);
+
 };
 
-void ItemManger::update()
+void ItemManger::update(Player &player)
 {
-    std::cout << mPlayer.getInventoryVis() << std::endl;
+    mItemInvVis = player.getInventoryVis();
 };
 
 void ItemManger::render(sf::RenderWindow *window)
@@ -34,7 +35,7 @@ void ItemManger::render(sf::RenderWindow *window)
 void ItemManger::fixrender(sf::RenderWindow *window)
 {
     
-    if (mPlayer.getInventoryVis() == true) {
+    if (mItemInvVis) {
         for(auto it : Inventoryvektor)
         {
             it.render(window);

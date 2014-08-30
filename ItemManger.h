@@ -27,7 +27,7 @@ public:
     std::vector<Item> getItemVektor(){return mItemVektor;};
     std::vector<Item> getInventoryVektor(){return mInventoyVektor;};
     
-    void update();
+    void update(Player &player);
     void render(sf::RenderWindow *window);
     void fixrender(sf::RenderWindow *window);
 private:
@@ -36,6 +36,7 @@ private:
     
     
     //Testcode
+    bool mItemInvVis = false;
     Item *pTest;
     Item *pTest2;
     std::vector<Item> testvektor;

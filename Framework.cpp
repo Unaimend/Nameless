@@ -73,7 +73,7 @@ void Framework::Update(double frametime)
     pNPC_01->update();
     pZombie->update(mFrameTime);
     mPlayerMagicSystem.update();
-    pItemManager->update();
+    pItemManager->update(*pPlayerPtr);
     mView.setCenter(mPlayer1.getPlayerSpritePosX(), mPlayer1.getPlayerSpritePosY());
     mFixed.setCenter(mAuflösungsBreite/2, mAuflösungsHöhe/2  );
 }
@@ -115,6 +115,7 @@ void Framework::Render()
     mPlayer1.render(pRenderWindow);
     pRenderWindow->setView(mFixed);
     pItemManager->fixrender(pRenderWindow);
+    
     std::cout << "NFIXRENDER" << mPlayer1.getInventoryVis() << std::endl;
     pRenderWindow->setView(mView);
    
