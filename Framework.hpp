@@ -8,6 +8,7 @@
 #include "Zombie.h"
 #include "MagicSystem.h"
 #include "Testitem.h"
+#include "ItemManger.h"
 #ifndef Neues_SFML_Projekt_Framework_hpp
 #define Neues_SFML_Projekt_Framework_hpp
 
@@ -48,16 +49,11 @@ private:
     int         mAuflösungsBreite;
     int         mAuflösungsHöhe;
     
+    //TESTCDE
     
-    
-    //Testcode
-    Item *pTest;
-    Item *pTest2;
-    std::vector<Item> testvektor;
-    std::vector<Item> Inventoryvektor;
-    std::vector<Item>::iterator mtestiter2 = Inventoryvektor.begin();
-    bool peter = true;
-    std::vector<Item>::iterator mtestiter = testvektor.begin();
+    ItemManger *pItemManager;
+    Player *pPlayerPtr = &mPlayer1;
+  
 };
 
 

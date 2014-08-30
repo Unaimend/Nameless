@@ -12,24 +12,37 @@
 #include <iostream>
 #include "Inventory.h"
 #include "Item.h"
+#include "Testitem.h"
 #include "SFML/Graphics.hpp"
 #include  <vector>
+#include "Player.h"
 class ItemManger
 {
 public:
-    ItemManger(std::vector<Item> &itemvenktor, std::vector<Inventory> &inventoryvektor);
-    
+    ItemManger(Player &player);
+
     void setItemVektor(std::vector<Item> &itemvektor){mItemVektor = itemvektor;};
-    void setInventoryVektor(std::vector<Inventory> &inventoryvektor){mInventoyVektor = inventoryvektor;};
+    void setInventoryVektor(std::vector<Item> &inventoryvektor){mInventoyVektor = inventoryvektor;};
     
     std::vector<Item> getItemVektor(){return mItemVektor;};
-    std::vector<Inventory> getInventoryVektor(){return mInventoyVektor;};
+    std::vector<Item> getInventoryVektor(){return mInventoyVektor;};
     
     void update();
     void render(sf::RenderWindow *window);
+    void fixrender(sf::RenderWindow *window);
 private:
     std::vector<Item> mItemVektor;
-    std::vector<Inventory> mInventoyVektor;
+    std::vector<Item> mInventoyVektor;
+    
+    
+    //Testcode
+    Item *pTest;
+    Item *pTest2;
+    std::vector<Item> testvektor;
+    std::vector<Item> Inventoryvektor;
+    std::vector<Item>::iterator mtestiter2 = Inventoryvektor.begin();
+    std::vector<Item>::iterator mtestiter = testvektor.begin();
+    Player mPlayer;
 
 };
 #endif /* defined(__Nameless__ItemManger__) */

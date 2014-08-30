@@ -38,13 +38,8 @@ Framework::Framework()
     mView.zoom(0.25);
     mFixed.setSize(sf::Vector2f(mAuflösungsBreite, mAuflösungsHöhe));
     
-    
-    pTest = new Testitem();
-    pTest2 = new Testitem();
-    pTest2->setPositiond(sf::Vector2f(mPlayer1.getInvPosX(),mPlayer1.getInvPosY()));
-    pTest2->setScale(2, 2);
-    testvektor.push_back(*pTest);
-    Inventoryvektor.push_back(*pTest2);
+    pItemManager = new ItemManger(*pPlayerPtr);
+
 }
 
 
@@ -78,9 +73,7 @@ void Framework::Update(double frametime)
     pNPC_01->update();
     pZombie->update(mFrameTime);
     mPlayerMagicSystem.update();
-    
-    std::cout << mPlayer1.getInvPosY() << std::endl;
-    std::cout <<"HI"<< pTest2->getPositionY() << std::endl;
+    pItemManager->update();
     mView.setCenter(mPlayer1.getPlayerSpritePosX(), mPlayer1.getPlayerSpritePosY());
     mFixed.setCenter(mAuflösungsBreite/2, mAuflösungsHöhe/2  );
 }
@@ -118,19 +111,11 @@ void Framework::Render()
     pNPC_01->render(pRenderWindow);
     pZombie->render(pRenderWindow);
     mPlayerMagicSystem.render(*pRenderWindow);
-    for (mtestiter = testvektor.begin(); mtestiter != testvektor.end(); mtestiter++)
-    {
-        mtestiter->render(pRenderWindow);
-    }
+    pItemManager->render(pRenderWindow);
     mPlayer1.render(pRenderWindow);
     pRenderWindow->setView(mFixed);
-    if (mPlayer1.getInventoryVis() == true) {
-        for(auto it : Inventoryvektor)
-        {
-            it.render(pRenderWindow);
-        }
-    }
-    
+    pItemManager->fixrender(pRenderWindow);
+    std::cout << "NFIXRENDER" << mPlayer1.getInventoryVis() << std::endl;
     pRenderWindow->setView(mView);
    
    // pTest->render(pRenderWindow);
