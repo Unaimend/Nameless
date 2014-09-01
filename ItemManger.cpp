@@ -14,6 +14,7 @@ ItemManger::ItemManger(Player& player)
     pTest->setPositiond(sf::Vector2f(50,50));
     pTest->setOnGound(true);
     
+    
     pTest2 = new Testitem();
     pTest2->setPositiond(sf::Vector2f(50,100));
     pTest2->setScale(1, 1);
@@ -240,33 +241,26 @@ void ItemManger::eventHandling(sf::Event event)
     mEvent = event;
     pTest->update(mFrametime);
   
-    //std::cout << "ITEMMANAGER" << std::endl;
+
     for (mItemsIter = mAllItems.begin(); mItemsIter != mAllItems.end(); mItemsIter++)
     {
         if ((mItemsIter->getPositionX() - mPlayer.getPlayerSpritePosX() <24 && mItemsIter->getPositionX() - mPlayer.getPlayerSpritePosX() > -24) && (mItemsIter->getPositionY() - mPlayer.getPlayerSpritePosY() < 24 && mItemsIter->getPositionY() - mPlayer.getPlayerSpritePosY()  > - 24))
         {
             if (mEvent.type == sf::Event::KeyPressed && mEvent.key.code == sf::Keyboard::E)
             {
-                if (mIvenCOunterAll < 30) {
+                if (mIvenCOunterAll < 30)
+                {
                     mItemsIter->setScale(2, 2);
                     mItemsIter->setOnGound(false);
                     
                     if (mItemsIter->getOnGround() == false)
                     {
-                        mItemsIter->setPositiond(sf::Vector2f(mPlayer.getInvPosX() + 56 * mIventoryCounterX ,mPlayer.getInvPosY() + 56 * mIventoryCounterY));
+                        mItemsIter->setPositiond(sf::Vector2f(mPlayer.getInvPosX() + 56 * (mIvenCOunterAll % 5)  ,mPlayer.getInvPosY() + 56 * int(mIvenCOunterAll / 5)));
                     }
-                    mIventoryCounterX++;
-                    if (mIventoryCounterX == 5)
-                    {
-                        mIventoryCounterY++;
-                        mIventoryCounterX = 0;
-                    }
+                    mIvenCOunterAll++;
                 }
-                
-                mIvenCOunterAll++;
             }
         }
-        
     }
 
    

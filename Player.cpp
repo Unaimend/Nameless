@@ -104,7 +104,7 @@ void Player::eventHandling(sf::Event event)
 {
     mEvent = event;
     if (mEvent.type == sf::Event::KeyPressed && mEvent.key.code == sf::Keyboard::I) {
-        std::cout << "INVE" << std::endl;
+        
         if (mShowInventory == true) {
             mInventory.setInvVisibility(false);
             mShowInventory = false;

@@ -57,7 +57,7 @@ void MagicSystem::update(double frametime)
         pSpell3->setOutlineColor(sf::Color::Blue);
         pSpell3->setOutlineThickness(2);
         mClock.restart();
-        std::cout << "|";
+     
     }
 };
 
@@ -78,7 +78,6 @@ void MagicSystem::cast(Player& player)
         mMana = mMana - 50;
         player.setMagicka(mMana);
        
-        std::cout << "ICH BIN HIER "     << mMana<< std::endl;
     }
    
 };
