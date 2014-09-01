@@ -59,7 +59,7 @@ void ItemManger::eventHandling(sf::Event event)
         {
             if (mEvent.type == sf::Event::KeyPressed && mEvent.key.code == sf::Keyboard::E)
             {
-                std::cout << "LÖSCH MOCH BITCH"<< std::endl;
+                //std::cout << "LÖSCH MOCH BITCH"<< std::endl;
                 mIventoryCounter++;
                 switch (mIventoryCounter)
                 {

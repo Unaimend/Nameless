@@ -97,10 +97,7 @@ void Framework::EventHandling()
             mPlayerMagicSystem.cast(mPlayer1);
         }
         
-        if (pMainEvent->type == sf::Event::KeyPressed   && pMainEvent->key.code == sf::Keyboard::E)
-        {
-            std::cout <<"LOL"   ;
-        }
+       
 
         pItemManager->eventHandling(*pMainEvent);
         mPlayer1.eventHandling(*pMainEvent);
