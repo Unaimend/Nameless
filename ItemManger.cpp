@@ -159,7 +159,11 @@ ItemManger::ItemManger(Player& player)
     pTest30->setScale(1, 1);
     pTest30->setOnGound(true);
 
-    
+    pTest31 = new Testitem();
+    pTest31->setPositiond(sf::Vector2f(100,50));
+    pTest31->setScale(1, 1);
+    pTest31->setOnGound(true);
+
     
     mAllItems.push_back(*pTest);
     mAllItems.push_back(*pTest2);
@@ -191,6 +195,7 @@ ItemManger::ItemManger(Player& player)
     mAllItems.push_back(*pTest28);
     mAllItems.push_back(*pTest29);
     mAllItems.push_back(*pTest30);
+    mAllItems.push_back(*pTest31);
 
     
     
@@ -242,7 +247,7 @@ void ItemManger::eventHandling(sf::Event event)
         {
             if (mEvent.type == sf::Event::KeyPressed && mEvent.key.code == sf::Keyboard::E)
             {
-                if (mIvenCOunterAll != 30) {
+                if (mIvenCOunterAll < 30) {
                     mItemsIter->setScale(2, 2);
                     mItemsIter->setOnGound(false);
                     

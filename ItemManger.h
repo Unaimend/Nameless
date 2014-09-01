@@ -68,6 +68,7 @@ private:
      Item *pTest28;
     Item *pTest29;
     Item *pTest30;
+    Item *pTest31;
   
 
     Player mPlayer;
