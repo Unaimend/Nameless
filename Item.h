@@ -11,7 +11,10 @@ public:
     double xPos = 0, yPos = 0;
     std::string mName = "";
     int mID;
-    bool isClicked = false;
+    bool isClicked;
+    bool isOnGround;
+    
+    
     
     virtual void render(sf::RenderWindow *window) ;
     virtual void update(double frametime)  ;
@@ -24,6 +27,8 @@ public:
     void setID(int id){mID = id;};
     void setOirigin(float x, float y){mSprite.setOrigin(x,y);};
     
+    void setOnGound(bool layer){this->isOnGround = layer;};
+    bool getOnGround(){return isOnGround;};
 
 };
 

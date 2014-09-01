@@ -14,7 +14,6 @@ Testitem::Testitem()
     mSprite.setTexture(mTexture);
     mSprite.setPosition(50, 50);
     mSprite.setScale(1, 1);
-    mID = 1000;
        // mWindow = &window;
 };
 

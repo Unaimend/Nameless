@@ -18,6 +18,7 @@ public:
     Testitem();
      void render(sf::RenderWindow *window);
     void update(double frametime);
+  
     
 private:
 

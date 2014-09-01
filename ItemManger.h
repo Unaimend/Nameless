@@ -32,22 +32,26 @@ public:
     void fixrender(sf::RenderWindow *window);
     void eventHandling(sf::Event event);
 private:
-    std::vector<Item> mItemVektor;
-    std::vector<Item> mInventoyVektor;
+    
+   
     
     
     //Testcode
     bool mItemInvVis = false;
     Item *pTest;
     Item *pTest2;
-    Item *pTest3;
+  
     std::vector<Item>::iterator mtestiter2 = mInventoyVektor.begin();
     std::vector<Item>::iterator mtestiter = mItemVektor.begin();
     Player mPlayer;
     sf::Event mEvent;
     int mIventoryCounter = 0;
     double mFrametime = 0;
-
+    std::vector<Item> mAllItems;
+    std::vector<Item> mItemVektor;
+    std::vector<Item> mInventoyVektor;
+    
+    std::vector<Item>::iterator mItemsIter = mAllItems.begin();
     
     std::vector<int> testvec = {0,1};
     int test = 0;
