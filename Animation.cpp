@@ -19,7 +19,7 @@ void Animation::move(double frametime, int &Endurance)
     mLastXPos = mSpriteSheet.getPosition().x;
     mLastYPos = mSpriteSheet.getPosition().y;
     
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W) && mSpriteSheet.getPosition().y > -16)
     {
         mSpriteSheet.move(0,-50*frametime);
      
@@ -69,7 +69,7 @@ void Animation::move(double frametime, int &Endurance)
             mClock.restart();
         }
     }
-    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) )
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) && mSpriteSheet.getPosition().x > 8)
     {
         mSpriteSheet.move(-50*frametime, 0);
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LShift)&& Endurance > 0)

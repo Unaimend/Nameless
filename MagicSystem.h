@@ -21,7 +21,7 @@ public:
     ~MagicSystem();
     Player getPlayer(){return mPlayer;};
     void render(sf::RenderWindow &window);
-    void update();
+    void update(double frametime);
     void cast(Player& player);
     void setSpell(sf::Event events);
     void addSpells();

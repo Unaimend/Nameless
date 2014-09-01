@@ -39,13 +39,13 @@ void MagicSystem::render(sf::RenderWindow &window)
     mWindow->draw(mCoolDownText);
 };
 
-void MagicSystem::update()
+void MagicSystem::update(double frametime)
 {
     mCoolDownString = std::to_string(SpellClock.getElapsedTime().asSeconds()) ;
     mCoolDownText.setString(mCoolDownString);
     if (renderMagic == true)
     {
-        pSpell3->move(1, 0);
+        pSpell3->move(100*frametime, 0);
     }
     if (mClock.getElapsedTime().asSeconds() > 4.5)
     {

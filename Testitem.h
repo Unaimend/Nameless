@@ -16,7 +16,7 @@ class Testitem : public Item
 public:
     
     Testitem();
-    virtual void render(sf::RenderWindow *window);
+     void render(sf::RenderWindow *window);
     void update(double frametime);
     
 private:

@@ -19,7 +19,7 @@
 class ItemManger
 {
 public:
-    ItemManger(Player &player);
+    ItemManger(Player& player);
 
     void setItemVektor(std::vector<Item> &itemvektor){mItemVektor = itemvektor;};
     void setInventoryVektor(std::vector<Item> &inventoryvektor){mInventoyVektor = inventoryvektor;};
@@ -27,9 +27,10 @@ public:
     std::vector<Item> getItemVektor(){return mItemVektor;};
     std::vector<Item> getInventoryVektor(){return mInventoyVektor;};
     
-    void update(Player &player);
+    void update(Player *player, double frametime);
     void render(sf::RenderWindow *window);
     void fixrender(sf::RenderWindow *window);
+    void eventHandling(sf::Event event);
 private:
     std::vector<Item> mItemVektor;
     std::vector<Item> mInventoyVektor;
@@ -39,11 +40,16 @@ private:
     bool mItemInvVis = false;
     Item *pTest;
     Item *pTest2;
-    std::vector<Item> testvektor;
-    std::vector<Item> Inventoryvektor;
-    std::vector<Item>::iterator mtestiter2 = Inventoryvektor.begin();
-    std::vector<Item>::iterator mtestiter = testvektor.begin();
+    Item *pTest3;
+    std::vector<Item>::iterator mtestiter2 = mInventoyVektor.begin();
+    std::vector<Item>::iterator mtestiter = mItemVektor.begin();
     Player mPlayer;
+    sf::Event mEvent;
+    int mIventoryCounter = 0;
+    double mFrametime = 0;
 
+    
+    std::vector<int> testvec = {0,1};
+    int test = 0;
 };
 #endif /* defined(__Nameless__ItemManger__) */

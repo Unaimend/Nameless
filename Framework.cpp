@@ -69,11 +69,11 @@ void Framework::Run()
 void Framework::Update(double frametime)
 {
     mPlayer1.update(mFrameTime);
-    mPlayerMagicSystem.update();
+
     pNPC_01->update();
     pZombie->update(mFrameTime);
-    mPlayerMagicSystem.update();
-    pItemManager->update(*pPlayerPtr);
+    mPlayerMagicSystem.update(mFrameTime);
+    pItemManager->update(pPlayerPtr, mFrameTime);
     mView.setCenter(mPlayer1.getPlayerSpritePosX(), mPlayer1.getPlayerSpritePosY());
     mFixed.setCenter(mAuflösungsBreite/2, mAuflösungsHöhe/2  );
 }
@@ -96,6 +96,13 @@ void Framework::EventHandling()
         {
             mPlayerMagicSystem.cast(mPlayer1);
         }
+        
+        if (pMainEvent->type == sf::Event::KeyPressed   && pMainEvent->key.code == sf::Keyboard::E)
+        {
+            std::cout <<"LOL"   ;
+        }
+
+        pItemManager->eventHandling(*pMainEvent);
         mPlayer1.eventHandling(*pMainEvent);
         pNPC_01->setEvent(*pMainEvent);
         mPlayerMagicSystem.setSpell(*pMainEvent);
@@ -115,8 +122,6 @@ void Framework::Render()
     mPlayer1.render(pRenderWindow);
     pRenderWindow->setView(mFixed);
     pItemManager->fixrender(pRenderWindow);
-    
-    std::cout << "NFIXRENDER" << mPlayer1.getInventoryVis() << std::endl;
     pRenderWindow->setView(mView);
    
    // pTest->render(pRenderWindow);
