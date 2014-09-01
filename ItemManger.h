@@ -41,8 +41,7 @@ private:
     Item *pTest;
     Item *pTest2;
   
-    std::vector<Item>::iterator mtestiter2 = mInventoyVektor.begin();
-    std::vector<Item>::iterator mtestiter = mItemVektor.begin();
+
     Player mPlayer;
     sf::Event mEvent;
     int mIventoryCounter = 0;
