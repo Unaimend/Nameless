@@ -12,8 +12,7 @@ Testitem::Testitem()
 {
     mTexture.loadFromFile("/Users/Thomas/Desktop/iron helmet.png");
     mSprite.setTexture(mTexture);
-    mSprite.setPosition(50, 50);
-    mSprite.setScale(1, 1);
+
        // mWindow = &window;
 };
 
