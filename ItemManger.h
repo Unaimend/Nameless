@@ -31,8 +31,9 @@ public:
     void render(sf::RenderWindow *window);
     void fixrender(sf::RenderWindow *window);
     void eventHandling(sf::Event event);
-private:
     
+private:
+    void setItemPositions();
    
     
     
@@ -49,23 +50,23 @@ private:
     Item *pTest9;
     Item *pTest10;
     Item *pTest11;
-     Item *pTest12;
-     Item *pTest13;
-     Item *pTest14;
-     Item *pTest15;
-     Item *pTest16;
-     Item *pTest17;
-     Item *pTest18;
-     Item *pTest19;
-     Item *pTest20;
-     Item *pTest21;
-     Item *pTest22;
-     Item *pTest23;
-     Item *pTest24;
-     Item *pTest25;
-     Item *pTest26;
-     Item *pTest27;
-     Item *pTest28;
+    Item *pTest12;
+    Item *pTest13;
+    Item *pTest14;
+    Item *pTest15;
+    Item *pTest16;
+    Item *pTest17;
+    Item *pTest18;
+    Item *pTest19;
+    Item *pTest20;
+    Item *pTest21;
+    Item *pTest22;
+    Item *pTest23;
+    Item *pTest24;
+    Item *pTest25;
+    Item *pTest26;
+    Item *pTest27;
+    Item *pTest28;
     Item *pTest29;
     Item *pTest30;
     Item *pTest31;

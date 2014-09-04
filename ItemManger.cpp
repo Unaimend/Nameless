@@ -14,7 +14,6 @@ ItemManger::ItemManger(Player& player)
     pTest->setPositiond(sf::Vector2f(50,50));
     pTest->setOnGound(true);
     
-    
     pTest2 = new Testitem();
     pTest2->setPositiond(sf::Vector2f(50,100));
     pTest2->setScale(1, 1);
@@ -206,6 +205,8 @@ void ItemManger::update(Player *player, double frametime)
 {
     mPlayer = *player;
     mFrametime = frametime;
+    
+    
 };
 
 void ItemManger::render(sf::RenderWindow *window)
@@ -240,7 +241,16 @@ void ItemManger::eventHandling(sf::Event event)
 {
     mEvent = event;
     pTest->update(mFrametime);
-  
+    if (mEvent.type == sf::Event::KeyPressed && mEvent.key.code == sf::Keyboard::M) {
+        
+        mIvenCOunterAll--;
+        setItemPositions();
+    }
+    
+    if (mEvent.type == sf::Event::KeyPressed && mEvent.key.code == sf::Keyboard::N) {
+        
+        mIvenCOunterAll++;
+    }
 
     for (mItemsIter = mAllItems.begin(); mItemsIter != mAllItems.end(); mItemsIter++)
     {
@@ -262,7 +272,27 @@ void ItemManger::eventHandling(sf::Event event)
             }
         }
     }
+};
 
-   
 
+void ItemManger::setItemPositions()
+{
+    for (mItemsIter = mAllItems.begin(); mItemsIter != mAllItems.end(); mItemsIter++)
+    {
+       
+           
+                if (mIvenCOunterAll > 0)
+                {
+                    //mItemsIter->setScale(2, 2);
+                    //mItemsIter->setOnGound(false);
+                    
+                    if (mItemsIter->getOnGround() == false)
+                    {
+                        mItemsIter->setPositiond(sf::Vector2f(mPlayer.getInvPosX() + 56 * (mIvenCOunterAll % 5)  ,mPlayer.getInvPosY() + 56 * int(mIvenCOunterAll / 5)));
+                    }
+                   
+                }
+    }
+    
+    std::cout << mIvenCOunterAll << std::endl;
 };

@@ -30,19 +30,30 @@ void Animation::move(double frametime, int &Endurance)
         mSubRect.left = 32;
         mSubRect.top = 0;
         mSpriteSheet.setTextureRect(mSubRect);
-        if (mClock.getElapsedTime().asSeconds() > 0.3f)
+        if (mClock.getElapsedTime().asSeconds() > 0.2f)
         {
             mSubRect.left = 0;
             mSubRect.top = 0;
             mSpriteSheet.setTextureRect(mSubRect);
+        }
+        if (mClock.getElapsedTime().asSeconds() > 0.4f)
+        {
+            mSubRect.left = 32;
+            mSubRect.top = 0;
+            mSpriteSheet.setTextureRect(mSubRect);
+           
         }
         if (mClock.getElapsedTime().asSeconds() > 0.6f)
         {
             mSubRect.left = 64;
             mSubRect.top = 0;
             mSpriteSheet.setTextureRect(mSubRect);
-            mClock.restart();
         }
+        if (mClock.getElapsedTime().asSeconds() > 0.8f)
+        {
+             mClock.restart();
+        }
+       
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
     {
@@ -91,7 +102,7 @@ void Animation::move(double frametime, int &Endurance)
             mSubRect.left = 64;
             mSubRect.top = 96;
             mSpriteSheet.setTextureRect(mSubRect);
-            mClock.restart();
+           // mClock.restart();
        }
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
@@ -104,19 +115,26 @@ void Animation::move(double frametime, int &Endurance)
         mSubRect.left = 32;
         mSubRect.top = 32;
         mSpriteSheet.setTextureRect(mSubRect);
-        if (mClock.getElapsedTime().asSeconds() > 0.3f)
+        if (mClock.getElapsedTime().asSeconds() > 0.2f)
         {
             mSubRect.left = 0;
             mSubRect.top = 32;
             mSpriteSheet.setTextureRect(mSubRect);
            
         }
-        if (mClock.getElapsedTime().asSeconds() > 0.6f)
+        if (mClock.getElapsedTime().asSeconds() > 0.4f)
         {
             mSubRect.left = 64;
             mSubRect.top = 32;
             mSpriteSheet.setTextureRect(mSubRect);
-            mClock.restart();
+           // mClock.restart();
+        }
+        if (mClock.getElapsedTime().asSeconds() > 0.6f)
+        {
+            mSubRect.left = 0;
+            mSubRect.top = 32;
+            mSpriteSheet.setTextureRect(mSubRect);
+         //   mClock.restart();
         }
     }
     
