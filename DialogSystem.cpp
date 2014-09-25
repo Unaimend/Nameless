@@ -16,6 +16,8 @@ DialogSystem::DialogSystem(std::string text1, int xpos, int ypos,unsigned int Ch
     mTextBox.setSize(sf::Vector2f(mText.getGlobalBounds().width ,mText.getGlobalBounds().height + 10));
 //    std::cout << mText.getGlobalBounds().left << << std::endl;
     
+    pAnswerBox = new AnswerBox(150, 500, 1680/2 ,1456-150, sf::Color::Blue);
+    
     
          
 };
@@ -25,6 +27,7 @@ DialogSystem::~DialogSystem(){};
 void DialogSystem::update(){
     mTextBox.setPosition(mText.getPosition().x, mText.getPosition().y);
     mTextBox.setSize(sf::Vector2f(mText.getGlobalBounds().width ,mText.getGlobalBounds().height + 10));
+    pAnswerBox->update();
 };
 void DialogSystem::render(sf::RenderWindow *window)
 {
@@ -32,4 +35,10 @@ void DialogSystem::render(sf::RenderWindow *window)
     window->draw(mText);
     
     
+};
+
+
+void DialogSystem::answerboxrender(sf::RenderWindow *window)
+{
+    pAnswerBox->render(*window);
 };

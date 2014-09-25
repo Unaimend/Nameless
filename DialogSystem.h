@@ -10,6 +10,7 @@
 #define __Nameless__DialogSystem__
 #include <iostream>
 #include "SFML/Graphics.hpp"
+#include "AnswerBox.h"
 
 class DialogSystem
 {
@@ -18,6 +19,7 @@ public:
     ~DialogSystem();
     void setText(std::string Text){mText.setString(Text);};
     void render(sf::RenderWindow *window);
+     void answerboxrender(sf::RenderWindow *window);
  
 
     void update();
@@ -26,6 +28,7 @@ private:
     sf::Text mText;
     sf::Font mFont;
     sf::RectangleShape mTextBox;
+    AnswerBox   *pAnswerBox;
     
   
     

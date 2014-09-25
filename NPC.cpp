@@ -27,6 +27,14 @@ void NPC::render(sf::RenderWindow *window)
     window->draw(mNpcSprite);
 };
 
+void NPC::nonfixrender(sf::RenderWindow *window)
+{
+    if (((mNpcSprite.getPosition().x - mPlayer.getPlayerSpritePosX() < 75 && mNpcSprite.getPosition().x - mPlayer.getPlayerSpritePosX() > -75) && ((mNpcSprite.getPosition().y - mPlayer.getPlayerSpritePosY() < 75) && mNpcSprite.getPosition().y - mPlayer.getPlayerSpritePosY() > -75)) && mShowDialog == true )
+    {
+        NpcDialog->answerboxrender(window);
+    }
+    
+};
 
 
 void NPC::setEvent(sf::Event event)

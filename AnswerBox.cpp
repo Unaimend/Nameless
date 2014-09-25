@@ -24,6 +24,7 @@ AnswerBox::AnswerBox(int heigth, int width, int posx, int posy, sf::Color color)
     mAnswerBox.setPosition(mPosX, mPosY);
     mAnswerBox.setFillColor(mColor);
     
+    
     mFont.loadFromFile("sansation.ttf");
     mText1.setFont(mFont);
     mText1.setCharacterSize(30);

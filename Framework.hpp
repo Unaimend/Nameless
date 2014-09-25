@@ -43,7 +43,7 @@ private:
     NPC         *pNPC_01;
     MagicSystem mPlayerMagicSystem;
     Zombie      *pZombie;
-    AnswerBox   *pAnswerBox;
+    
     double      mFrameTime;
     bool        mRun;
     int         Mapheigth;
