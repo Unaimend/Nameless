@@ -10,6 +10,7 @@
 #define __Nameless__DialogSystem__
 #include <iostream>
 #include "SFML/Graphics.hpp"
+
 class DialogSystem
 {
 public:
@@ -25,6 +26,8 @@ private:
     sf::Text mText;
     sf::Font mFont;
     sf::RectangleShape mTextBox;
+    
+  
     
 
 };

@@ -31,4 +31,5 @@ void DialogSystem::render(sf::RenderWindow *window)
     window->draw(mTextBox);
     window->draw(mText);
     
+    
 };

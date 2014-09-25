@@ -18,6 +18,7 @@ Framework::Framework()
     Mapheigth       = 100;
     Mapwidth        = 100;
     
+    
     pLog->writeToFile("Fenster und Restliche Grundfunktionen initialisiert");
     
     mPlayer1.setAuflösungsBreite(mAuflösungsBreite);
@@ -39,6 +40,8 @@ Framework::Framework()
     mFixed.setSize(sf::Vector2f(mAuflösungsBreite, mAuflösungsHöhe));
     
     pItemManager = new ItemManger(*pPlayerPtr);
+    
+    pAnswerBox = new AnswerBox(150, 500, mAuflösungsBreite/2 ,mAuflösungsHöhe - 100, sf::Color::Blue);
 
 }
 
@@ -56,6 +59,8 @@ void Framework::Run()
 {
     while (mRun)
     {
+        
+        std::cout <<"" << std::endl;
         Update(mFrameTime);
         EventHandling();
         Render();
@@ -119,6 +124,7 @@ void Framework::Render()
     mPlayer1.render(pRenderWindow);
     pRenderWindow->setView(mFixed);
     pItemManager->fixrender(pRenderWindow);
+    pAnswerBox->render(*pRenderWindow);
     pRenderWindow->setView(mView);
    
    // pTest->render(pRenderWindow);

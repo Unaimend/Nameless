@@ -9,6 +9,7 @@
 #include "MagicSystem.h"
 #include "Testitem.h"
 #include "ItemManger.h"
+#include "AnswerBox.h"
 #ifndef Neues_SFML_Projekt_Framework_hpp
 #define Neues_SFML_Projekt_Framework_hpp
 
@@ -42,6 +43,7 @@ private:
     NPC         *pNPC_01;
     MagicSystem mPlayerMagicSystem;
     Zombie      *pZombie;
+    AnswerBox   *pAnswerBox;
     double      mFrameTime;
     bool        mRun;
     int         Mapheigth;
