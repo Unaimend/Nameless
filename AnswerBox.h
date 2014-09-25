@@ -22,4 +22,22 @@ private:
     
     sf::Color mColor;
     
+    sf::Text mText1;
+    sf::Text mText2;
+    sf::Text mText3;
+    sf::Text mText4;
+    
+    sf::Font mFont;
+    
+    sf::Vector2i mMousePos;
+    sf::Vector2f worldPos2 ;
+    sf::RectangleShape mMousePOs;
+    
+    sf::FloatRect mMOuseBOund;
+    
+    sf::FloatRect mText1BB;
+    sf::FloatRect mText2BB;
+    sf::FloatRect mText3BB;
+    sf::FloatRect mText4BB;
+    
 };

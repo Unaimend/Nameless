@@ -41,7 +41,7 @@ Framework::Framework()
     
     pItemManager = new ItemManger(*pPlayerPtr);
     
-    pAnswerBox = new AnswerBox(150, 500, mAuflösungsBreite/2 ,mAuflösungsHöhe - 100, sf::Color::Blue);
+    pAnswerBox = new AnswerBox(150, 500, mAuflösungsBreite/2 ,mAuflösungsHöhe - 150, sf::Color::Blue);
 
 }
 
@@ -74,7 +74,7 @@ void Framework::Run()
 void Framework::Update(double frametime)
 {
     mPlayer1.update(mFrameTime);
-
+    pAnswerBox->update();
     pNPC_01->update();
     pZombie->update(mFrameTime);
     mPlayerMagicSystem.update(mFrameTime);
@@ -115,6 +115,8 @@ void Framework::EventHandling()
 
 void Framework::Render()
 {
+    
+   
     pRenderWindow->clear(sf::Color(0,0,0));
     pMap->render(pRenderWindow);
     pNPC_01->render(pRenderWindow);
@@ -123,10 +125,11 @@ void Framework::Render()
     pItemManager->render(pRenderWindow);
     mPlayer1.render(pRenderWindow);
     pRenderWindow->setView(mFixed);
+   pAnswerBox->render(*pRenderWindow);
     pItemManager->fixrender(pRenderWindow);
-    pAnswerBox->render(*pRenderWindow);
+  
     pRenderWindow->setView(mView);
-   
+    
    // pTest->render(pRenderWindow);
   
     pRenderWindow->display();
