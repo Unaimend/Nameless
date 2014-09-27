@@ -12,7 +12,7 @@ Framework::Framework()
     pMainEvent      = new sf::Event;
     pClock          = new sf::Clock;
     pMap            = new Maploader("Map.txt", mAuflösungsHöhe, mAuflösungsBreite);
-    pNPC_01         = new NPC(mPlayer1, *Sprites::pNPCHolzfällerSprite, 290,510, "Willfried: Hallo mein, \nName ist Willfried","Willkommen in unserem \nbescheidenen Dorf",                                         "Die Hauser werden\nnoch geliefert");
+    pNPC_01         = new NPC(mPlayer1, *Sprites::pNPCHolzfällerSprite, 290,510, "Hallo mein, \nName ist Willfried. \nWillkommen in unserem \nbescheidenen Dorf.","Ich bin der FUUUEEEEHHHHRER.","Die Hauser werden\nnoch geliefert.","Keine Ahnung", "Da wo deine Mama ist, hahahaha.", "Wilfired", "Ahh, du bists wieder." );
     pZombie         = new Zombie(Sprites::NPCZombieSprite, mPlayer1, "Zombie", 100,0,200,500, 0, 1000);
     mRun            = true;
     Mapheigth       = 100;

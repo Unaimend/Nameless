@@ -20,6 +20,16 @@ public:
     void setText(std::string Text){mText.setString(Text);};
     void render(sf::RenderWindow *window);
      void answerboxrender(sf::RenderWindow *window);
+    
+    bool getAnswer1(){return pAnswerBox->getAnswer1();};
+    bool getAnswer2(){return pAnswerBox->getAnswer2();};
+    bool getAnswer3(){return pAnswerBox->getAnswer3();};
+    bool getAnswer4(){return pAnswerBox->getAnswer4();};
+    
+    void setAnswer1(bool answerstat){pAnswerBox->setAnswer1(answerstat);};
+    void setAnswer2(bool answerstat){pAnswerBox->setAnswer2(answerstat);};
+    void setAnswer3(bool answerstat){pAnswerBox->setAnswer3(answerstat);};
+    void setAnswer4(bool answerstat){pAnswerBox->setAnswer4(answerstat);};
  
 
     void update();

@@ -28,13 +28,14 @@ void DialogSystem::update(){
     mTextBox.setPosition(mText.getPosition().x, mText.getPosition().y);
     mTextBox.setSize(sf::Vector2f(mText.getGlobalBounds().width ,mText.getGlobalBounds().height + 10));
     pAnswerBox->update();
+    std::cout << pAnswerBox->getAnswer1() << pAnswerBox->getAnswer2()  << pAnswerBox->getAnswer3() << pAnswerBox->getAnswer4() << std::endl;
 };
 void DialogSystem::render(sf::RenderWindow *window)
 {
     window->draw(mTextBox);
     window->draw(mText);
     
-    
+  
 };
 
 
