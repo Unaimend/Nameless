@@ -25,34 +25,27 @@ public:
     void setAnswer4(bool answerstat){mText4Answer = answerstat;};
 private:
     sf::RectangleShape mAnswerBox;
-    int mHeigth = 0;
-    int mWidth = 0;
     
-    int mPosX = 0;
-    int mPosY = 0;
-    
-    sf::Color mColor;
-    
-    sf::Text mText1;
-    sf::Text mText2;
-    sf::Text mText3;
-    sf::Text mText4;
-    
-    bool mText1Answer = false, mText2Answer = false, mText3Answer =false, mText4Answer = false;
-    
-    
-    
-    sf::Font mFont;
-    
-    sf::Vector2i mMousePos;
-    sf::Vector2f worldPos2 ;
-    sf::RectangleShape mMousePOs;
-    
-    sf::FloatRect mMOuseBOund;
-    
-    sf::FloatRect mText1BB;
-    sf::FloatRect mText2BB;
-    sf::FloatRect mText3BB;
-    sf::FloatRect mText4BB;
-    
+    sf::Color           mColor;
+    sf::Text            mText1;
+    sf::Text            mText2;
+    sf::Text            mText3;
+    sf::Text            mText4;
+    sf::Font            mFont;
+    sf::Vector2i        mMousePos;
+    sf::Vector2f        worldPos2 ;
+    sf::RectangleShape  mMousePOs;
+    sf::FloatRect       mMOuseBOund;
+    sf::FloatRect       mText1BB;
+    sf::FloatRect       mText2BB;
+    sf::FloatRect       mText3BB;
+    sf::FloatRect       mText4BB;
+    int mHeigth         = 0;
+    int mWidth          = 0;
+    int mPosX           = 0;
+    int mPosY           = 0;
+    bool mText1Answer   = false,
+    mText2Answer        = false,
+    mText3Answer        = false,
+    mText4Answer        = false;
 };

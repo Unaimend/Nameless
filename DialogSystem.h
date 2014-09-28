@@ -19,7 +19,7 @@ public:
     ~DialogSystem();
     void setText(std::string Text){mText.setString(Text);};
     void render(sf::RenderWindow *window);
-     void answerboxrender(sf::RenderWindow *window);
+    void answerboxrender(sf::RenderWindow *window);
     
     bool getAnswer1(){return pAnswerBox->getAnswer1();};
     bool getAnswer2(){return pAnswerBox->getAnswer2();};
@@ -35,10 +35,10 @@ public:
     void update();
 protected:
 private:
-    sf::Text mText;
-    sf::Font mFont;
-    sf::RectangleShape mTextBox;
-    AnswerBox   *pAnswerBox;
+    sf::Text                mText;
+    sf::Font                mFont;
+    sf::RectangleShape      mTextBox;
+    AnswerBox               *pAnswerBox;
     
   
     

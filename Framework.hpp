@@ -23,38 +23,38 @@ public:
     int getAuflösungsHöhe(){return mAuflösungsHöhe;};
     int getAuflösungsBreite(){return mAuflösungsBreite;};
 private:
-    void        Update(double frametime);
-    void        EventHandling();
-    void        Render();
-    void        Quit();
-    void        loadMap();
-    float       getFrameTime();
-    float       getFPS();
+    void                Update(double frametime);
+    void                EventHandling();
+    void                Render();
+    void                Quit();
+    void                loadMap();
+    float               getFrameTime();
+    float               getFPS();
     
-    sf::View mView;
-    sf::View mFixed;
+    sf::View            mView;
+    sf::View            mFixed;
     sf::RenderWindow    *pRenderWindow;
     sf::Event           *pMainEvent;
     sf::Clock           *pClock;
     sf::Clock           clock2;
-    Logfile     *pLog;
-    Player      mPlayer1;
-    Maploader   *pMap;
-    NPC         *pNPC_01;
-    MagicSystem mPlayerMagicSystem;
-    Zombie      *pZombie;
+    Logfile             *pLog;
+    Player              mPlayer1;
+    Maploader           *pMap;
+    NPC                 *pNPC_01;
+    MagicSystem         mPlayerMagicSystem;
+    Zombie              *pZombie;
     
-    double      mFrameTime;
-    bool        mRun;
-    int         Mapheigth;
-    int         Mapwidth;
-    int         mAuflösungsBreite;
-    int         mAuflösungsHöhe;
+    double              mFrameTime;
+    bool                mRun;
+    int                 Mapheigth;
+    int                 Mapwidth;
+    int                 mAuflösungsBreite;
+    int                 mAuflösungsHöhe;
     
     //TESTCDE
     
-    ItemManger *pItemManager;
-    Player *pPlayerPtr = &mPlayer1;
+    ItemManger      *pItemManager;
+    Player          *pPlayerPtr = &mPlayer1;
   
 };
 

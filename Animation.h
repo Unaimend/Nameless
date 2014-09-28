@@ -33,15 +33,15 @@ private:
     sf::IntRect mSubRect;
     sf::Sprite  mCurrentSprite;
     sf::Clock   mClock;    
-    int     mCurrentXPos;
-    int     mLastXPos;
-    int     mCurrentYPos;
-    int     mLastYPos;
-    int     mSprintSpeed;
-    bool    mIsGoingRight;
-    bool    mIsGoingLeft;
-    bool    mIsGoingUp;
-    bool    mIsGoingDown;
+    int         mCurrentXPos;
+    int         mLastXPos;
+    int         mCurrentYPos;
+    int         mLastYPos;
+    int         mSprintSpeed;
+    bool        mIsGoingRight;
+    bool        mIsGoingLeft;
+    bool        mIsGoingUp;
+    bool        mIsGoingDown;
 
 
 };
