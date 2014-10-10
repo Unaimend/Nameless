@@ -25,7 +25,6 @@ public:
     void setAnswer4(bool answerstat){mText4Answer = answerstat;};
 private:
     sf::RectangleShape mAnswerBox;
-    
     sf::Color           mColor;
     sf::Text            mText1;
     sf::Text            mText2;

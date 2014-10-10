@@ -48,7 +48,7 @@ AnswerBox::AnswerBox(int heigth, int width, int posx, int posy, sf::Color color)
     mText4.setCharacterSize(30);
     mText4.setPosition((mPosX - mWidth/2 + 5), (mPosY - mHeigth/2 + 5) + 32 * 3);
     mText4.setColor(sf::Color::Yellow);
-    mText4.setString("Wo ist der Puff?");
+    mText4.setString("Hallooo");
 
     
     mMousePOs.setOrigin(sf::Vector2f(20/2, 20/2));

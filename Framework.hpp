@@ -28,6 +28,7 @@ private:
     void                Render();
     void                Quit();
     void                loadMap();
+    void                loadMap2();
     float               getFrameTime();
     float               getFPS();
     

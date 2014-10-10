@@ -43,8 +43,5 @@ private:
     bool            mShowAnswerBox2 = false;
     bool            mShowAnswerBox3 = false;
     bool            mShowAnswerBox4 = false;
-    
-    
-    
 };
 #endif /* defined(__Nameless__NPC__) */

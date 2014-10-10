@@ -115,9 +115,5 @@ void Player::eventHandling(sf::Event event)
             mShowInventory = true;
         }
     }
-    if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
-    {
-        
-    }
 };
 

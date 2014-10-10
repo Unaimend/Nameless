@@ -97,6 +97,10 @@ void Framework::EventHandling()
         {
             loadMap();
         }
+        if (pMainEvent->type == sf::Event::Closed || (pMainEvent->type == sf::Event::KeyPressed   && pMainEvent->key.code == sf::Keyboard::Z))
+        {
+            loadMap2();
+        }
         if (pMainEvent->type == sf::Event::KeyPressed   && pMainEvent->key.code == sf::Keyboard::H)
         {
             mPlayerMagicSystem.cast(mPlayer1);
@@ -115,8 +119,6 @@ void Framework::EventHandling()
 
 void Framework::Render()
 {
-    
-   
     pRenderWindow->clear(sf::Color(0,0,0));
     pMap->render(pRenderWindow);
     pNPC_01->render(pRenderWindow);
@@ -157,6 +159,15 @@ void Framework::loadMap()
     mAuflösungsHöhe = 12*16;
     mAuflösungsBreite = 12*16;
     pMap = new Maploader("Map1.txt", mAuflösungsHöhe, mAuflösungsBreite);
+};
+
+void Framework::loadMap2()
+{
+    delete pMap;
+    pMap = nullptr;
+    mAuflösungsBreite = 1680;
+    mAuflösungsHöhe = 1456;
+    pMap = new Maploader("Map.txt", mAuflösungsHöhe, mAuflösungsBreite);
 };
 
 void Framework::Quit()
