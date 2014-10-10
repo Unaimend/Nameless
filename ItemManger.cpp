@@ -205,8 +205,6 @@ void ItemManger::update(Player *player, double frametime)
 {
     mPlayer = *player;
     mFrametime = frametime;
-    
-    
 };
 
 void ItemManger::render(sf::RenderWindow *window)
