@@ -10,12 +10,13 @@
 #define __Nameless__NpcAnimation__
 
 #include <iostream>
+#include "Player.h"
 #include "SFML/Graphics.hpp"
 
 class NpcAnimation
 {
 public:
-    NpcAnimation(sf::Sprite SpriteSheet, int SpriteHeigth, int SpriteWidth, int xpos, int ypos, int maxleft, int maxrigthm, int maxup, int maxdown);
+    NpcAnimation(sf::Sprite SpriteSheet, int SpriteHeigth, int SpriteWidth, int xpos, int ypos, int maxleft, int maxrigthm, int maxup, int maxdown, Player &player, bool follow, float aggrotime, float aggrorange);
     sf::Sprite      getSprite(){return mSpriteSheet;};
     sf::FloatRect   getEnemyBoundingBoxes(){return mSpriteSheet.getGlobalBounds();}
     void            move(double frametime, int Endurance);
@@ -28,6 +29,8 @@ private:
     sf::IntRect mSubRect;
     sf::Sprite  mCurrentSprite;
     sf::Clock   mClock;
+    Player      mPlayer;
+    sf::Clock   mAggroTime;
     int         mCPosX;
     int         mCPosY;
     int         mLPosX;
@@ -40,6 +43,12 @@ private:
     bool        mGoLeft = false;
     bool        mGoDown = true;
     bool        mGoUp = false;
-    
+    bool        mFollowLeft = true;
+    bool        mFollowRight = true;
+    bool        mFollowUp = true;
+    bool        mFollowDown = true;
+    bool        mShouldFollow = false;
+    float       mAggroRange;
+    float       mAggroDuration;
 };
 #endif /* defined(__Nameless__NpcAnimation__) */

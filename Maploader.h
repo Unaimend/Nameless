@@ -27,5 +27,7 @@ private:
     int mMapheigth, mMapwidth;
     int tempmapx = 0;
     int tempmapy = 0;
+
+    float grasscolor = 255;
 };
 #endif /* defined(__Nameless__Maploader__) */

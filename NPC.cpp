@@ -135,7 +135,21 @@ void NPC::setEvent(sf::Event event)
     
    };
 
-void NPC::update()
+void NPC::update(double frametime)
 {
     NpcDialog->update();
+//    
+//    if (mNpcSprite.getPosition().y - 50 > mPlayer.getPlayerSpritePosY())
+//    {
+//      mNpcSprite.move(0, -150 * frametime);
+//    }
+//    if (mNpcSprite.getPosition().y + 50 < mPlayer.getPlayerSpritePosY() )
+//    {
+//        mNpcSprite.move(0, 150 * frametime);
+//    }
+//    if (mNpcSprite.getPosition().x + 50 < mPlayer.getPlayerSpritePosX() )
+//    {
+//        mNpcSprite.move(0, 150 * frametime);
+//    }
+    
 };

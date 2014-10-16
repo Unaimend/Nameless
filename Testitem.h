@@ -16,8 +16,9 @@ class Testitem : public Item
 public:
     
     Testitem();
-     void render(sf::RenderWindow *window) override;
+    void render(sf::RenderWindow *window) override;
     void update(double frametime);
+   
   
     
 private:

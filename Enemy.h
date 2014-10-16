@@ -12,8 +12,6 @@ public:
   
     Enemy();
     virtual ~Enemy();
-    
-protected:
     virtual void render(sf::RenderWindow *window);
     virtual void update(double frametime);
     void setSprite(sf::Sprite sprite){mEnemySprite = sprite;};
@@ -23,7 +21,10 @@ protected:
     void setxPos(int xpos){mXpos = xpos;};
     void setyPos(int ypos){mYpos = ypos;};
     
-    std::string mLifeString;
+
+    
+protected:
+        std::string mLifeString;
     std::string mName;
     sf::Sprite  mEnemySprite;
     int         mXpos;
@@ -33,5 +34,7 @@ protected:
     int         mMaxRigth;
     int         mMaxUp;
     int         mMaxDown;
+    float       mAggrotime;
+    float       mAggroRange;
 };
 #endif /* defined(__Nameless__Enemy__) */

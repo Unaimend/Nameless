@@ -1,6 +1,6 @@
 #include "Framework.hpp"
 
-//Version 0.0.1
+//Version 0.1.0
 
 
 Framework::Framework()
@@ -13,7 +13,7 @@ Framework::Framework()
     pClock          = new sf::Clock;
     pMap            = new Maploader("Map.txt", mAuflösungsHöhe, mAuflösungsBreite);
     pNPC_01         = new NPC(mPlayer1, *Sprites::pNPCHolzfällerSprite, 290,510, "Hallo mein, \nName ist Willfried. \nWillkommen in unserem \nbescheidenen Dorf.","Ich bin der FUUUEEEEHHHHRER.","Die Hauser werden\nnoch geliefert.","Keine Ahnung", "Da wo deine Mama ist, hahahaha.", "Wilfired", "Ahh, du bists wieder." );
-    pZombie         = new Zombie(Sprites::NPCZombieSprite, mPlayer1, "Zombie", 100,0,200,500, 0, 1000);
+    pZombie         = new Zombie(Sprites::NPCZombieSprite, mPlayer1, "Zombie", 100,0,200,500, 0, 1000, 75, 5);
     mRun            = true;
     Mapheigth       = 100;
     Mapwidth        = 100;
@@ -59,7 +59,6 @@ void Framework::Run()
 {
     while (mRun)
     {
-        
         std::cout <<"" << std::endl;
         Update(mFrameTime);
         EventHandling();
@@ -74,8 +73,7 @@ void Framework::Run()
 void Framework::Update(double frametime)
 {
     mPlayer1.update(mFrameTime);
-    
-    pNPC_01->update();
+    pNPC_01->update(mFrameTime);
     pZombie->update(mFrameTime);
     mPlayerMagicSystem.update(mFrameTime);
     pItemManager->update(pPlayerPtr, mFrameTime);

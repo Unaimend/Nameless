@@ -50,7 +50,10 @@ Sprites::Sprites()
     mSubRect.top    = 48;
     mSubRect.width  = 16;
     mSubRect.height = 16;
+    
     pGrasSprite     = new sf::Sprite(TileSet_ATexture, mSubRect);
+    
+    //100Sieht gut aus
     
     mSubRect.left   = 0; // of course, you'll have to fill it in with the right values...
     mSubRect.top    = 0;

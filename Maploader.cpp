@@ -31,55 +31,61 @@ void Maploader::loadMap()
 
 void Maploader::render(sf::RenderWindow *window)
 {
-   
+    if (grasscolor < 70) {
+        grasscolor = 255;
+    }
+    pGrasSprite->setColor(sf::Color(255,255,255,grasscolor));
+    WasserSprite.setColor(sf::Color(255,255,255,grasscolor));
+    grasscolor = grasscolor - 0.01;
+    
     renderTileLayer(window);
     
 }
 
-void Maploader::renderTileLayer(sf::RenderWindow *window){
-for(auto it : mMapVektor)
-{ 
-    Sprites::WasserSprite.setPosition(tempmapx*16, tempmapy*16);
-    Sprites::pWegSprite->setPosition(tempmapx*16, tempmapy*16);
-    Sprites::pGrasSprite->setPosition(tempmapx*16, tempmapy*16);
-    Sprites::pGrasSpriteOL->setPosition(tempmapx*16, tempmapy*16);
-    Sprites::pGrasSpriteOBEN->setPosition(tempmapx*16, tempmapy*16);
-    Sprites::pGrasSpriteUNTEN->setPosition(tempmapx*16, tempmapy*16);
-    Sprites::BlackSprite.setPosition(tempmapx*16, tempmapy*16);
-    if (tempmapx == mMapwidth/16) {
-        tempmapy++;
-        tempmapx = 0;
-    }
-    if (tempmapy == mMapheigth/16) {
-        tempmapy = 0;
-    }
+void Maploader::renderTileLayer(sf::RenderWindow *window)
+{
+    for(auto it : mMapVektor)
+    {
+        Sprites::WasserSprite.setPosition(tempmapx*16, tempmapy*16);
+        Sprites::pWegSprite->setPosition(tempmapx*16, tempmapy*16);
+        Sprites::pGrasSprite->setPosition(tempmapx*16, tempmapy*16);
+        Sprites::pGrasSpriteOL->setPosition(tempmapx*16, tempmapy*16);
+        Sprites::pGrasSpriteOBEN->setPosition(tempmapx*16, tempmapy*16);
+        Sprites::pGrasSpriteUNTEN->setPosition(tempmapx*16, tempmapy*16);
+        Sprites::BlackSprite.setPosition(tempmapx*16, tempmapy*16);
+        if (tempmapx == mMapwidth/16) { //Wenn der Counter == Anzahl der max Tiles bestimmt durch die Mapbreite
+            tempmapy++;                 //dann erhöhe die Y-Anzahl um 1 und sezte die X-Anzahl auf 0 damit von
+            tempmapx = 0;               //links gezeichnet wird
+        }
+        if (tempmapy == mMapheigth/16) {    //Wenn du ganz unten bist fange wieder oben an.
+            tempmapy = 0;
+        }
    
-    if(it == "0")
-    {
-        window->draw(*Sprites::pGrasSprite);
-    }
-    else if(it == "1")
-    {
-        window->draw(Sprites::WasserSprite);
-    }
-    else if (it == "2") {
-        window->draw(*Sprites::pWegSprite);
-    }
-    else if (it == "3") {
-        window->draw(*Sprites::pGrasSpriteOL);
-    }
-    else if (it == "4") {
-        window->draw(*Sprites::pGrasSpriteOBEN);
-    }
-    else if (it == "5") {
-        window->draw(*Sprites::pGrasSpriteUNTEN);
-    }
-    else if(it == "-1")
-    {
-      window->draw(Sprites::BlackSprite);
-    }
-  
-    tempmapx++;
+        if(it == "0")
+        {
+            window->draw(*Sprites::pGrasSprite);
+        }
+        else if(it == "1")
+        {
+            window->draw(Sprites::WasserSprite);
+        }
+        else if (it == "2") {
+            window->draw(*Sprites::pWegSprite);
+        }
+        else if (it == "3") {
+            window->draw(*Sprites::pGrasSpriteOL);
+        }
+        else if (it == "4") {
+            window->draw(*Sprites::pGrasSpriteOBEN);
+        }
+        else if (it == "5") {
+            window->draw(*Sprites::pGrasSpriteUNTEN);
+        }
+        else if(it == "-1")
+        {
+            window->draw(Sprites::BlackSprite);
+        }
+        tempmapx++;
     }
 };
 

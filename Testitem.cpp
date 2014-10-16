@@ -18,12 +18,13 @@ Testitem::Testitem()
 
 void Testitem::render(sf::RenderWindow *window)
 {
-        std::cout << "RICHTIGER RENDER" << std::endl;
+    //std::cout << "RICHTIGER RENDER" << std::endl;
     window->draw(mSprite);
 };
 
 void Testitem::update(double frametime)
-{       std::cout << "RICHTIGE UPDATE" << std::endl;
+{
+    //std::cout << "RICHTIGE UPDATE" << std::endl;
 //    sf::FloatRect test;
 //    sf::FloatRect test2(sf::Mouse::getPosition(*mWindow).x, sf::Mouse::getPosition(*mWindow).x, sf::Mouse::getPosition(*mWindow).x, sf::Mouse::getPosition(*mWindow).y);
 //    test.intersects(test2);

@@ -19,7 +19,7 @@ public:
     NPC( Player &player , sf::Sprite sprite, float xpos , float ypos , std::string text = "0", std::string text2 = "0", std::string text3 = "0",std::string text4 = "0", std::string text5 = "0", std::string name = "defaultname", std::string wielctext = "Ahh du bists wieder");
     void render(sf::RenderWindow *window);
     void nonfixrender(sf::RenderWindow *window);
-    void update();
+    void update(double frametime);
     void setEvent(sf::Event event);
 private:
     DialogSystem    *NpcDialog;
@@ -43,5 +43,6 @@ private:
     bool            mShowAnswerBox2 = false;
     bool            mShowAnswerBox3 = false;
     bool            mShowAnswerBox4 = false;
+    
 };
 #endif /* defined(__Nameless__NPC__) */

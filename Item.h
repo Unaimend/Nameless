@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "SFML/Graphics.hpp"
+
 class Item
 {
 public:
@@ -18,7 +19,8 @@ public:
     
     virtual void render(sf::RenderWindow *window) ;
     virtual void update(double frametime)  ;
-
+   
+    
     virtual float getPositionX(){return mSprite.getPosition().x;};
     virtual float getPositionY(){return mSprite.getPosition().y;};
     virtual int getID(){return mID;};

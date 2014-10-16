@@ -18,7 +18,7 @@
 class Zombie : public Enemy,Sprites
 {
 public:
-    Zombie(sf::Sprite sprite, Player player, std::string name, int life, int xpos, int ypos,  int maxrigth, int maxup, int maxdown);
+    Zombie(sf::Sprite sprite, Player &player, std::string name, int life, int xpos, int ypos,  int maxrigth, int maxup, int maxdown, float aggrorange, float aggrotime);
     ~Zombie();
     sf::FloatRect getBounds(){return pAnimation->getEnemyBoundingBoxes();};
     void render(sf::RenderWindow *window) const;
