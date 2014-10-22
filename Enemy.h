@@ -4,6 +4,7 @@
 #include <iostream>
 #include "SFML/Graphics.hpp"
 #include <string>
+#include "NpcAnimation.h"
 //#include "Player.h"
 
 class Enemy
@@ -24,9 +25,11 @@ public:
 
     
 protected:
-        std::string mLifeString;
+    sf::Text    mLifeString;
     std::string mName;
     sf::Sprite  mEnemySprite;
+    sf::Font    mFont;
+     NpcAnimation *pAnimation;
     int         mXpos;
     int         mYpos;
     int         mLife;

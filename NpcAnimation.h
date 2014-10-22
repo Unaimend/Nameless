@@ -43,10 +43,10 @@ private:
     bool        mGoLeft = false;
     bool        mGoDown = true;
     bool        mGoUp = false;
-    bool        mFollowLeft = true;
-    bool        mFollowRight = true;
-    bool        mFollowUp = true;
-    bool        mFollowDown = true;
+    bool        mFollowLeft = false;
+    bool        mFollowRight = false;
+    bool        mFollowUp = false;
+    bool        mFollowDown = false;
     bool        mShouldFollow = false;
     float       mAggroRange;
     float       mAggroDuration;

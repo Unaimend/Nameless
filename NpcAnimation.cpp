@@ -26,6 +26,7 @@ NpcAnimation::NpcAnimation(sf::Sprite Spritesheet, int SpriteHeigth, int SpriteW
     mShouldFollow = follow;
     mAggroRange = aggrorange;
     mAggroDuration = 10;
+
 };
 
 

@@ -4,7 +4,7 @@
 void Item::render(sf::RenderWindow *window)
 {
     window->draw(mSprite);
-   // std::cout << "FALSCHE RENDERFUNKTION" << std::endl;
+    //std::cout << "FALSCHE RENDERFUNKTION" << std::endl;
 };
 
 void Item::update(double frametime)

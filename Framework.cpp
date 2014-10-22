@@ -13,7 +13,6 @@ Framework::Framework()
     pClock          = new sf::Clock;
     pMap            = new Maploader("Map.txt", mAuflösungsHöhe, mAuflösungsBreite);
     pNPC_01         = new NPC(mPlayer1, *Sprites::pNPCHolzfällerSprite, 290,510, "Hallo mein, \nName ist Willfried. \nWillkommen in unserem \nbescheidenen Dorf.","Ich bin der FUUUEEEEHHHHRER.","Die Hauser werden\nnoch geliefert.","Keine Ahnung", "Da wo deine Mama ist, hahahaha.", "Wilfired", "Ahh, du bists wieder." );
-    pZombie         = new Zombie(Sprites::NPCZombieSprite, mPlayer1, "Zombie", 100,0,200,500, 0, 1000, 75, 5);
     mRun            = true;
     Mapheigth       = 100;
     Mapwidth        = 100;
@@ -41,6 +40,7 @@ Framework::Framework()
     
     pItemManager = new ItemManger(*pPlayerPtr);
     
+    pEnemyManger = new EnemyManager(mPlayer1);
 
 
 }
@@ -59,7 +59,6 @@ void Framework::Run()
 {
     while (mRun)
     {
-        std::cout <<"" << std::endl;
         Update(mFrameTime);
         EventHandling();
         Render();
@@ -74,9 +73,9 @@ void Framework::Update(double frametime)
 {
     mPlayer1.update(mFrameTime);
     pNPC_01->update(mFrameTime);
-    pZombie->update(mFrameTime);
     mPlayerMagicSystem.update(mFrameTime);
     pItemManager->update(pPlayerPtr, mFrameTime);
+    pEnemyManger->update(mFrameTime);
     mView.setCenter(mPlayer1.getPlayerSpritePosX(), mPlayer1.getPlayerSpritePosY());
     mFixed.setCenter(mAuflösungsBreite/2, mAuflösungsHöhe/2  );
 }
@@ -103,9 +102,6 @@ void Framework::EventHandling()
         {
             mPlayerMagicSystem.cast(mPlayer1);
         }
-        
-       
-
         pItemManager->eventHandling(*pMainEvent);
         mPlayer1.eventHandling(*pMainEvent);
         pNPC_01->setEvent(*pMainEvent);
@@ -120,7 +116,7 @@ void Framework::Render()
     pRenderWindow->clear(sf::Color(0,0,0));
     pMap->render(pRenderWindow);
     pNPC_01->render(pRenderWindow);
-    pZombie->render(pRenderWindow);
+    pEnemyManger->render(pRenderWindow);
     mPlayerMagicSystem.render(*pRenderWindow);
     pItemManager->render(pRenderWindow);
     mPlayer1.render(pRenderWindow);

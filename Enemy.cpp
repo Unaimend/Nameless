@@ -10,11 +10,11 @@
 
 Enemy::Enemy()
 {
-
+   
 };
 
 Enemy::~Enemy(){};
 
-void Enemy::render(sf::RenderWindow *window){};
+void Enemy::render(sf::RenderWindow *window){std::cout << "ENEMy RENDER" << std::endl;};
 
-void Enemy::update(double frametime){};
+void Enemy::update(double frametime){std::cout <<"FL`LASCH" << std::endl;};
