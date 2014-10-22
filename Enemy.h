@@ -25,9 +25,10 @@ public:
 
     
 protected:
-    sf::Text    mLifeString;
+    sf::Text    mLifeText;
     std::string mName;
     sf::Sprite  mEnemySprite;
+    std::string mLifeString;
     sf::Font    mFont;
      NpcAnimation *pAnimation;
     int         mXpos;

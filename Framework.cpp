@@ -41,7 +41,13 @@ Framework::Framework()
     pItemManager = new ItemManger(*pPlayerPtr);
     
     pEnemyManger = new EnemyManager(mPlayer1);
-
+    
+    //TESTCODE 2
+    mFont.loadFromFile("sansation.ttf");
+    mTestText.setFont(mFont);
+    mTestText.setCharacterSize(20);
+    mTestText.setPosition(0, 0);
+    mTestText.setColor(sf::Color::Green);
 
 }
 
@@ -71,6 +77,8 @@ void Framework::Run()
 
 void Framework::Update(double frametime)
 {
+    
+    mTestText.setString(mTestString);
     mPlayer1.update(mFrameTime);
     pNPC_01->update(mFrameTime);
     mPlayerMagicSystem.update(mFrameTime);
@@ -116,12 +124,12 @@ void Framework::Render()
     pRenderWindow->clear(sf::Color(0,0,0));
     pMap->render(pRenderWindow);
     pNPC_01->render(pRenderWindow);
-    pEnemyManger->render(pRenderWindow);
+   
     mPlayerMagicSystem.render(*pRenderWindow);
     pItemManager->render(pRenderWindow);
     mPlayer1.render(pRenderWindow);
     pRenderWindow->setView(mFixed);
-   
+    pRenderWindow->draw(mTestText);
     pItemManager->fixrender(pRenderWindow);
     pNPC_01->nonfixrender(pRenderWindow);
     pRenderWindow->setView(mView);
