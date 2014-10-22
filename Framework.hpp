@@ -57,10 +57,7 @@ private:
     ItemManger      *pItemManager;
     Player          *pPlayerPtr = &mPlayer1;
     
-    //TESTCODE2
-    sf::Font mFont;
-    sf::String  mTestString = "123";
-    sf::Text    mTestText;
+
   
 };
 

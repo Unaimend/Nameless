@@ -9,13 +9,6 @@
 #include "Zombie.h"
 Zombie::Zombie(sf::Sprite sprite, Player &player, std::string name, int life, int xpos, int ypos, int maxrigth, int maxup, int maxdown, float aggrorange, float aggrotime)
 {
-    
-    mFont.loadFromFile("sansation.ttf");
-    mLifeText.setFont(mFont);
-    mLifeText.setCharacterSize(70);
-    mLifeText.setPosition(0, 30);
-    mLifeText.setColor(sf::Color::Blue);
-    
     mEnemySprite    = sprite;
     mLife           = life;
     mPlayer         = player;
@@ -27,24 +20,35 @@ Zombie::Zombie(sf::Sprite sprite, Player &player, std::string name, int life, in
     mAggrotime      = aggrotime;
     pAnimation      = new NpcAnimation(mEnemySprite, 32,32, xpos,ypos,mMaxLeft, mMaxRigth,mMaxUp,mMaxDown, player, true, mAggroRange, mAggrotime);
     mEnemySprite.setPosition(mXpos, mYpos);
+    
+    
+    //TESTCODDE
+    mFont.loadFromFile("sansation.ttf");
+    test2.setPosition(0, 0);
+    test2.setCharacterSize(12);
+    test2.setColor(sf::Color::Red);
+    test2.setFont(mFont);
+   
+   
 };
 Zombie::~Zombie(){};
 
 void Zombie::render(sf::RenderWindow *window)
 {
+    test2.setString(mLifeString);
+    window->draw(test2);
     pAnimation->render(window);
-    mLifeString = std::to_string(mLife);
-    mLifeText.setString(mLifeString);
-    window->draw(mLifeText);
-    std::cout << mLife << std::endl;
+   
 };
 
 void Zombie::update(double frametime)
 {
     pAnimation->move(frametime, 100);
-   //mLifeString.setPosition(pAnimation->getAnimationSpritePosX(), pAnimation->getAnimationSpritePosY());
-    mLifeText.setPosition(0,0 );
+
+    test2.setPosition(pAnimation->getAnimationSpritePosX() +  6,pAnimation->getAnimationSpritePosY() - 15);
     std::cout << "RICHTUIG" << std::endl;
+    mLife = mLife - 0.1;
+    mLifeString = std::to_string(mLife);
 };
 
 void Zombie::attack() const
