@@ -75,7 +75,7 @@ void Framework::Update(double frametime)
  
     mPlayer1.update(mFrameTime);
     pNPC_01->update(mFrameTime);
-    mPlayerMagicSystem.update(mFrameTime);
+    //mPlayerMagicSystem.update(mFrameTime);
     pItemManager->update(mPlayer1, mFrameTime);
     pEnemyManger->update(mFrameTime);
     mView.setCenter(mPlayer1.getPlayerSpritePosX(), mPlayer1.getPlayerSpritePosY());
@@ -119,7 +119,7 @@ void Framework::Render()
     pMap->render(pRenderWindow);
     pNPC_01->render(pRenderWindow);
    
-    mPlayerMagicSystem.render(*pRenderWindow);
+    //mPlayerMagicSystem.render(*pRenderWindow);
     pItemManager->render(pRenderWindow);
     mPlayer1.render(pRenderWindow);
     pRenderWindow->setView(mFixed);
