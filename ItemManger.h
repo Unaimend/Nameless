@@ -27,7 +27,7 @@ public:
     std::vector<Item> getItemVektor(){return mItemVektor;};
     std::vector<Item> getInventoryVektor(){return mInventoyVektor;};
     
-    void update(Player *player, double frametime);
+    void update(Player &player, double frametime);
     void render(sf::RenderWindow *window);
     void fixrender(sf::RenderWindow *window);
     void eventHandling(sf::Event event);

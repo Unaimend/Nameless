@@ -55,7 +55,7 @@ private:
     //TESTCDE
     
     ItemManger      *pItemManager;
-    Player          *pPlayerPtr = &mPlayer1;
+    
     
 
   

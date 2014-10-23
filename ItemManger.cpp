@@ -193,9 +193,9 @@ ItemManger::ItemManger(Player& player)
     
 };
 
-void ItemManger::update(Player *player, double frametime)
+void ItemManger::update(Player &player, double frametime)
 {
-    mPlayer = *player;
+    mPlayer = player;
     mFrametime = frametime;
  
 

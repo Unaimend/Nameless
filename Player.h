@@ -47,7 +47,7 @@ private:
     sf::Sprite PlayerPointer;
     sf::View mView;
     sf::View mFixed;
-    sf::Font mFont;
+    //sf::Font mFont;
     float mPlayerPositionX      = 0;
     float mPlayerPositionY      = 0;
     double mFrametime;

@@ -38,7 +38,7 @@ Framework::Framework()
     mView.zoom(0.25);
     mFixed.setSize(sf::Vector2f(mAuflösungsBreite, mAuflösungsHöhe));
     
-    pItemManager = new ItemManger(*pPlayerPtr);
+    pItemManager = new ItemManger(mPlayer1);
     
     pEnemyManger = new EnemyManager(mPlayer1);
 
@@ -76,7 +76,7 @@ void Framework::Update(double frametime)
     mPlayer1.update(mFrameTime);
     pNPC_01->update(mFrameTime);
     mPlayerMagicSystem.update(mFrameTime);
-    pItemManager->update(pPlayerPtr, mFrameTime);
+    pItemManager->update(mPlayer1, mFrameTime);
     pEnemyManger->update(mFrameTime);
     mView.setCenter(mPlayer1.getPlayerSpritePosX(), mPlayer1.getPlayerSpritePosY());
     mFixed.setCenter(mAuflösungsBreite/2, mAuflösungsHöhe/2  );
