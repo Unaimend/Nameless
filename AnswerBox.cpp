@@ -69,7 +69,6 @@ void AnswerBox::render(sf::RenderWindow &window)
     worldPos2 = window.mapPixelToCoords(mMousePos);
     mMousePOs.setPosition(worldPos2.x, worldPos2.y);
     
-    
     window.draw(mAnswerBox);
     window.draw(mText1);
     

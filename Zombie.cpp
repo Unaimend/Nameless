@@ -24,10 +24,10 @@ Zombie::Zombie(sf::Sprite sprite, Player &player, std::string name, int life, in
     
     //TESTCODDE
     mFont.loadFromFile("sansation.ttf");
-    mLifeText.setPosition(0, 0);
-    mLifeText.setCharacterSize(12);
-    mLifeText.setColor(sf::Color::Red);
-    mLifeText.setFont(mFont);
+    test2.setPosition(0, 0);
+    test2.setCharacterSize(12);
+    test2.setColor(sf::Color::Red);
+    test2.setFont(mFont);
    
    
 };
@@ -35,8 +35,8 @@ Zombie::~Zombie(){};
 
 void Zombie::render(sf::RenderWindow *window)
 {
-    mLifeText.setString(mLifeString);
-    window->draw(mLifeText);
+    test2.setString(mLifeString);
+    window->draw(test2);
     pAnimation->render(window);
    
 };
@@ -45,7 +45,9 @@ void Zombie::update(double frametime)
 {
     pAnimation->move(frametime, 100);
 
-    mLifeText.setPosition(pAnimation->getAnimationSpritePosX() +  6,pAnimation->getAnimationSpritePosY() - 15);
+    test2.setPosition(pAnimation->getAnimationSpritePosX() +  6,pAnimation->getAnimationSpritePosY() - 15);
+    std::cout << "RICHTUIG" << std::endl;
+    mLife = mLife - 0.1;
     mLifeString = std::to_string(mLife);
 };
 
