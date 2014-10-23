@@ -26,7 +26,7 @@ public:
     
 protected:
     std::string mLifeString;
-    sf::Text test2;
+    sf::Text    mLifeText;
     std::string mName;
     sf::Sprite  mEnemySprite;
     sf::Font    mFont;
