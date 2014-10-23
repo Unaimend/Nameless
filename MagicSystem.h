@@ -26,7 +26,7 @@ public:
     void setSpell(sf::Event events);
     void addSpells();
     void changeSpell();
-    void setPlayer(Player& player){mPlayer = player;};
+    void setPlayer(Player &player){mPlayer = player;};
     void setMagicka(int magicka){mMana = magicka;};
 private:
     Player              mPlayer;

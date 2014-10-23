@@ -26,8 +26,11 @@ Player::Player()
     mMagicaText.setCharacterSize(20);
     mMagicaText.setColor(sf::Color::Blue);
   //  mMagicaText.setFont(mFont);
-    
+
+    mMousRec.setOutlineColor(sf::Color::Black);
+    mMousRec.setSize(sf::Vector2f(25,25));
     mInventory.setInventoryPos(sf::Vector2f(300,500));
+    mMousRec.setOrigin(mMousRec.getSize().x/2,mMousRec.getSize().y/2);
 };
 
 Player::~Player()
@@ -36,6 +39,8 @@ Player::~Player()
 };
 void Player::render(sf::RenderWindow *window)
 {
+   
+    
     mView.setSize(sf::Vector2f(mResX, mResY));
     mView.setViewport(sf::FloatRect(0.0f, 0, 1.0f, 1.0f));
     mView.zoom(0.25);
@@ -43,11 +48,20 @@ void Player::render(sf::RenderWindow *window)
     window->setView(mView);
     pPlayerAnimation->render(window);
     window->setView(mFixed);
+
     window->draw(mEnduranceText);
     window->draw(mLifeText);
     window->draw(mMagicaText);
     mInventory.render(window);
     window->setView(mView);
+};
+
+void Player::fixrender(sf::RenderWindow &window)
+{
+    mMousePos = sf::Mouse::getPosition(window);
+    mRealMousePos = window.mapPixelToCoords(mMousePos);
+    mMousRec.setPosition(mRealMousePos.x, mRealMousePos.y);
+    window.draw(mMousRec);
 };
 
 void Player::update(double frametime)

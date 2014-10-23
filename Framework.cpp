@@ -125,6 +125,7 @@ void Framework::Render()
     pRenderWindow->setView(mFixed);
     pItemManager->fixrender(pRenderWindow);
     pNPC_01->nonfixrender(pRenderWindow);
+    mPlayer1.fixrender(*pRenderWindow);
     pRenderWindow->setView(mView);
     pEnemyManger->render(pRenderWindow);
    // pTest->render(pRenderWindow);

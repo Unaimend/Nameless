@@ -24,6 +24,7 @@ public:
     sf::FloatRect getPlayerBoundingBoxes(){return pPlayerAnimation->mGetAnimBoundingBoxes();}
     sf::Event getPlayerEvent(){return mEvent;};
     void render(sf::RenderWindow  *window);
+    void fixrender(sf::RenderWindow &window);
     void update(double frametime);
     void eventHandling(sf::Event event);
     void setMagicka(int magicka){this->mMagica = magicka;};
@@ -43,10 +44,14 @@ public:
 private:
     Animation *pPlayerAnimation;
     Inventory mInventory;
+    
     sf::Event mEvent;
     sf::Sprite PlayerPointer;
     sf::View mView;
     sf::View mFixed;
+    sf::Vector2i        mMousePos;
+    sf::Vector2f        mRealMousePos;
+    sf::RectangleShape  mMousRec;
     //sf::Font mFont;
     float mPlayerPositionX      = 0;
     float mPlayerPositionY      = 0;
