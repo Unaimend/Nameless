@@ -73,6 +73,14 @@ private:
     std::string mEnduranceString;
     sf::Text    mEnduranceText;
     sf::Clock   mEnduranceCLock;
+    float       mPlayTarDistance;
+    float       mTarXDistance;
+    float       mTarYDistance;
+    float       mXmovement;
+    float       mYmovement;
+    sf::RectangleShape mTestShape;
+    bool        mShoot = false;
+    bool        mCalc = false;
 
 };
 #endif /* defined(__Nameless__Player__) */

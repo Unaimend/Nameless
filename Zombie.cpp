@@ -46,7 +46,6 @@ void Zombie::update(double frametime)
     pAnimation->move(frametime, 100);
 
     test2.setPosition(pAnimation->getAnimationSpritePosX() +  6,pAnimation->getAnimationSpritePosY() - 15);
-    std::cout << "RICHTUIG" << std::endl;
     mLife = mLife - 0.1;
     mLifeString = std::to_string(mLife);
 };

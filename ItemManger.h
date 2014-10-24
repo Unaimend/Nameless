@@ -16,6 +16,7 @@
 #include "SFML/Graphics.hpp"
 #include  <vector>
 #include "Player.h"
+#include "Shot.h"
 class ItemManger
 {
 public:
@@ -81,7 +82,7 @@ private:
     std::vector<Item> mAllItems;
     std::vector<Item> mItemVektor;
     std::vector<Item> mInventoyVektor;
-    
+    std::vector<Shot*> mShootVektor;
     std::vector<Item>::iterator mItemsIter = mAllItems.begin();
     
     std::vector<int> testvec = {0,1};

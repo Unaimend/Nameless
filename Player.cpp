@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "math.h"
 
 Player::Player()
 {
@@ -31,6 +32,11 @@ Player::Player()
     mMousRec.setSize(sf::Vector2f(25,25));
     mInventory.setInventoryPos(sf::Vector2f(300,500));
     mMousRec.setOrigin(mMousRec.getSize().x/2,mMousRec.getSize().y/2);
+    
+    mTestShape.setPosition(pPlayerAnimation->getAnimationSpritePosX(), pPlayerAnimation->getAnimationSpritePosY());
+    mTestShape.setSize(sf::Vector2f(5,5));
+    mTestShape.setOrigin(5/2, 5/2);
+    
 };
 
 Player::~Player()
@@ -39,7 +45,8 @@ Player::~Player()
 };
 void Player::render(sf::RenderWindow *window)
 {
-   
+    mMousePos = sf::Mouse::getPosition(*window);
+    mRealMousePos = window->mapPixelToCoords(mMousePos);
     
     mView.setSize(sf::Vector2f(mResX, mResY));
     mView.setViewport(sf::FloatRect(0.0f, 0, 1.0f, 1.0f));
@@ -47,6 +54,7 @@ void Player::render(sf::RenderWindow *window)
     mFixed.setSize(sf::Vector2f(mResX, mResY));
     window->setView(mView);
     pPlayerAnimation->render(window);
+    window->draw(mTestShape);
     window->setView(mFixed);
 
     window->draw(mEnduranceText);
@@ -58,9 +66,31 @@ void Player::render(sf::RenderWindow *window)
 
 void Player::fixrender(sf::RenderWindow &window)
 {
-    mMousePos = sf::Mouse::getPosition(window);
-    mRealMousePos = window.mapPixelToCoords(mMousePos);
+    
     mMousRec.setPosition(mRealMousePos.x, mRealMousePos.y);
+    std::cout <<"X"<<pPlayerAnimation->getAnimationSpritePosX() << "  Y"<<pPlayerAnimation->getAnimationSpritePosY() << std::endl;
+    
+    mTarXDistance = mRealMousePos.x-pPlayerAnimation->getAnimationSpritePosY();
+    std::cout << "REALMOUSEPOS"<<mMousePos.x << std::endl;
+    mTarYDistance = mRealMousePos.y-pPlayerAnimation->getAnimationSpritePosY();
+    mPlayTarDistance = sqrtf(mTarXDistance*mTarXDistance+mTarYDistance*mTarYDistance);
+    
+   
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+    {
+        mShoot = true;
+        mCalc = true;
+    }
+    if (mCalc) {
+        mXmovement = mTarXDistance/mPlayTarDistance;
+        mYmovement = mTarYDistance/mPlayTarDistance;
+        std::cout << "MXMOVE" << mXmovement <<  " MYMOVE" << mYmovement << std::endl;
+        mCalc = false;
+    }
+    if (mShoot == true) {
+         mTestShape.move(mXmovement, mYmovement);
+    }
+  
     window.draw(mMousRec);
 };
 
