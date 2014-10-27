@@ -1,7 +1,7 @@
 #include "ItemManger.h"
 ItemManger::ItemManger(Player& player)
 {
-    pPlayer = player;
+    mPlayer = player;
     pTest = new Testitem();
     pTest->setPositiond(sf::Vector2f(50,50));
     pTest->setOnGound(true);
@@ -205,7 +205,7 @@ void ItemManger::update(Player &player, double frametime)
     pTestGun->setPositiond(sf::Vector2f(mPlayer.getPlayerSpritePosX()+15,mPlayer.getPlayerSpritePosY() + 20));
     
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-        pTestGun->fire(sf::Vector2f(0.6,0.6), sf::Vector2f(mPlayer.getPlayerSpritePosY,0.7));
+        pTestGun->fire( sf::Vector2f(mPlayer.getPlayerSpritePosX(),mPlayer.getPlayerSpritePosY()), sf::Vector2f(0.6,0.6));
     }
  
 
@@ -226,6 +226,11 @@ void ItemManger::render(sf::RenderWindow *window)
     for(auto it : mTestVector )
     {
         window->draw(*it);
+        it->move(mPlayer.mXmovement, mPlayer.mYmovement);
+    }
+    for(auto it : mShootVector)
+    {
+        it->render(*window);
     }
    std::cout <<"HI"<< mTestVector.size() << std::endl;
 };

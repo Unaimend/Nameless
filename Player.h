@@ -41,6 +41,8 @@ public:
     bool getIsGoingDown(){return mIsGoingDown;};
     bool getInventoryVis(){return mInventory.getInvVisibility();};
     int getMagicka(){return mMagica;};
+    float       mXmovement;
+    float       mYmovement;
 private:
     Animation *pPlayerAnimation;
     Inventory mInventory;
@@ -76,8 +78,7 @@ private:
     float       mPlayTarDistance;
     float       mTarXDistance;
     float       mTarYDistance;
-    float       mXmovement;
-    float       mYmovement;
+    
     sf::RectangleShape mTestShape;
     bool        mShoot = false;
     bool        mCalc = false;

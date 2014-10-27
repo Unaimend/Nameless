@@ -16,6 +16,7 @@ public:
     void render(sf::RenderWindow& window);
     sf::RenderWindow* pRenderWindow;
     std::vector<sf::RectangleShape*> *mTestVector2;
+    std::vector<Shot*> *pShootVector;
     Player* pPlayer;
 };
 #endif /* defined(__Nameless__TestGun__) */

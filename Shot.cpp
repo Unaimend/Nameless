@@ -7,9 +7,9 @@ Shot::Shot(sf::Vector2f direction, sf::Vector2f position, std::string texture, i
     pSprite = new sf::Sprite;
     pSprite->setTexture(mTexture);
     pSprite->setOrigin(mTexture.getSize().x/2, mTexture.getSize().y/2);
-    pSprite->setPosition(0,0);
+    pSprite->setPosition(position);
     //    pSprite->setRotation(direction);
-    pSprite->setScale(5, 5);
+    pSprite->setScale(0.2, 0.2);
     mDirection = direction;
     pClock = new sf::Clock;
     setIsAlive(true);
@@ -39,5 +39,5 @@ void Shot::update(float frametime)
 
 void Shot::render(sf::RenderWindow &rw)
 {
-    
+    rw.draw(*pSprite);
 }
