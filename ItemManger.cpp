@@ -1,7 +1,7 @@
 #include "ItemManger.h"
 ItemManger::ItemManger(Player& player)
 {
-    mPlayer = player;
+    pPlayer = player;
     pTest = new Testitem();
     pTest->setPositiond(sf::Vector2f(50,50));
     pTest->setOnGound(true);
@@ -155,6 +155,9 @@ ItemManger::ItemManger(Player& player)
     pTest31->setPositiond(sf::Vector2f(100,50));
     pTest31->setScale(1, 1);
     pTest31->setOnGound(true);
+    
+    pTestGun = new Gun_TestGun("/Users/Thomas/Desktop/iron helmet.png", 0,0,"PETER", 100, 100, 0.3, mShootVector, mTestVector, mPlayer);
+    pTest->setOnGound(true);
 
     
     mAllItems.push_back(*pTest);
@@ -188,6 +191,8 @@ ItemManger::ItemManger(Player& player)
     mAllItems.push_back(*pTest29);
     mAllItems.push_back(*pTest30);
     mAllItems.push_back(*pTest31);
+    
+    //GemAllItems.push_back(*pTestGun);
 
     
     
@@ -197,12 +202,18 @@ void ItemManger::update(Player &player, double frametime)
 {
     mPlayer = player;
     mFrametime = frametime;
+    pTestGun->setPositiond(sf::Vector2f(mPlayer.getPlayerSpritePosX()+15,mPlayer.getPlayerSpritePosY() + 20));
+    
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        pTestGun->fire(sf::Vector2f(0.6,0.6), sf::Vector2f(mPlayer.getPlayerSpritePosY,0.7));
+    }
  
 
 };
 
 void ItemManger::render(sf::RenderWindow *window)
 {
+    pTestGun->render(*window);
     mItemInvVis = mPlayer.getInventoryVis();
     for (mItemsIter = mAllItems.begin(); mItemsIter != mAllItems.end(); mItemsIter++)
     {
@@ -211,6 +222,12 @@ void ItemManger::render(sf::RenderWindow *window)
             mItemsIter->render(window);
         }
     }
+    
+    for(auto it : mTestVector )
+    {
+        window->draw(*it);
+    }
+   std::cout <<"HI"<< mTestVector.size() << std::endl;
 };
 
 void ItemManger::fixrender(sf::RenderWindow *window)
@@ -286,5 +303,5 @@ void ItemManger::setItemPositions()
                 }
     }
     
-    std::cout << mIvenCOunterAll << std::endl;
+
 };

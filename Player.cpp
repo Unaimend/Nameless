@@ -47,6 +47,10 @@ void Player::render(sf::RenderWindow *window)
 {
     mMousePos = sf::Mouse::getPosition(*window);
     mRealMousePos = window->mapPixelToCoords(mMousePos);
+    mTarXDistance = mRealMousePos.x-pPlayerAnimation->getAnimationSpritePosX();
+    
+    mTarYDistance = mRealMousePos.y-pPlayerAnimation->getAnimationSpritePosY();
+    mPlayTarDistance = sqrtf(mTarXDistance*mTarXDistance+mTarYDistance*mTarYDistance);
     
     mView.setSize(sf::Vector2f(mResX, mResY));
     mView.setViewport(sf::FloatRect(0.0f, 0, 1.0f, 1.0f));
@@ -66,14 +70,7 @@ void Player::render(sf::RenderWindow *window)
 
 void Player::fixrender(sf::RenderWindow &window)
 {
-    
-    mMousRec.setPosition(mRealMousePos.x, mRealMousePos.y);
-    std::cout <<"X"<<pPlayerAnimation->getAnimationSpritePosX() << "  Y"<<pPlayerAnimation->getAnimationSpritePosY() << std::endl;
-    
-    mTarXDistance = mRealMousePos.x-pPlayerAnimation->getAnimationSpritePosY();
-    std::cout << "REALMOUSEPOS"<<mMousePos.x << std::endl;
-    mTarYDistance = mRealMousePos.y-pPlayerAnimation->getAnimationSpritePosY();
-    mPlayTarDistance = sqrtf(mTarXDistance*mTarXDistance+mTarYDistance*mTarYDistance);
+   
     
    
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
@@ -84,11 +81,18 @@ void Player::fixrender(sf::RenderWindow &window)
     if (mCalc) {
         mXmovement = mTarXDistance/mPlayTarDistance;
         mYmovement = mTarYDistance/mPlayTarDistance;
-        std::cout << "MXMOVE" << mXmovement <<  " MYMOVE" << mYmovement << std::endl;
+        
         mCalc = false;
     }
+    
+    
+    
     if (mShoot == true) {
          mTestShape.move(mXmovement, mYmovement);
+    }
+    else
+    {
+        mTestShape.setPosition(pPlayerAnimation->getAnimationSpritePosX(), pPlayerAnimation->getAnimationSpritePosY());
     }
   
     window.draw(mMousRec);

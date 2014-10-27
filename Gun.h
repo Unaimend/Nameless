@@ -9,7 +9,7 @@
 class Gun : public Item
 {
 public:
-    Gun(std::string texture, double xpos, double ypos, std::string name, int ID, float damage, float cooldown  );
+    Gun(std::string texture, double xpos, double ypos, std::string name, int ID, float damage, float cooldown, std::vector<Shot*> shootvec  );
     virtual ~Gun();
     virtual void render(sf::RenderWindow *window);
     virtual void update(double frametime);
@@ -17,6 +17,7 @@ public:
 protected:
     int mDamage;
     float mCooldown;
+    std::vector<Shot*> mShotVector;
 private:
 
 

@@ -1,14 +1,15 @@
 #include "SFML/Graphics.hpp"
 #include "Shot.h"
 
-Shot::Shot(sf::Vector2f direction, sf::Vector2f position, sf::Texture *texture, int speed)
+Shot::Shot(sf::Vector2f direction, sf::Vector2f position, std::string texture, int speed)
 {
+    mTexture.loadFromFile(texture);
     pSprite = new sf::Sprite;
-    pSprite->setTexture(*texture);
-    pSprite->setOrigin(texture->getSize().x/2, texture->getSize().y/2);
-    pSprite->setPosition(position);
+    pSprite->setTexture(mTexture);
+    pSprite->setOrigin(mTexture.getSize().x/2, mTexture.getSize().y/2);
+    pSprite->setPosition(0,0);
     //    pSprite->setRotation(direction);
-    pSprite->setScale(0.1, 0.8);
+    pSprite->setScale(5, 5);
     mDirection = direction;
     pClock = new sf::Clock;
     setIsAlive(true);
@@ -36,7 +37,7 @@ void Shot::update(float frametime)
     
 }
 
-void Shot::render(sf::RenderWindow *rw)
+void Shot::render(sf::RenderWindow &rw)
 {
- 
+    
 }

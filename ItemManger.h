@@ -17,6 +17,8 @@
 #include  <vector>
 #include "Player.h"
 #include "Shot.h"
+#include "Gun.h"
+#include "TestGun.h"
 class ItemManger
 {
 public:
@@ -71,8 +73,8 @@ private:
     Item *pTest29;
     Item *pTest30;
     Item *pTest31;
-  
-
+    
+    Gun_TestGun *pTestGun;
     Player mPlayer;
     sf::Event mEvent;
     int mIventoryCounterX = 0;
@@ -82,9 +84,9 @@ private:
     std::vector<Item> mAllItems;
     std::vector<Item> mItemVektor;
     std::vector<Item> mInventoyVektor;
-    std::vector<Shot*> mShootVektor;
     std::vector<Item>::iterator mItemsIter = mAllItems.begin();
-    
+    std::vector<Shot*> mShootVector;
+    std::vector<sf::RectangleShape*> mTestVector;
     std::vector<int> testvec = {0,1};
     int test = 0;
 };

@@ -1,7 +1,7 @@
 #include "Gun.h"
 
 
-Gun::Gun(std::string texture, double xpos, double ypos, std::string name, int ID, float damage, float cooldown )
+Gun::Gun(std::string texture, double xpos, double ypos, std::string name, int ID, float damage, float cooldown,  std::vector<Shot*> shootvec)
 {
     mTexture.loadFromFile(texture);
     mSprite.setTexture(mTexture);
@@ -23,6 +23,7 @@ Gun::~Gun()
 void Gun::render(sf::RenderWindow *window)
 {
     window->draw(mSprite);
+    
 };
 
 void Gun::update(double frametime)

@@ -8,10 +8,10 @@
 class Shot
 {
 public:
-    Shot(sf::Vector2f direction, sf::Vector2f position, sf::Texture *texture, int speed);
+    Shot(sf::Vector2f direction, sf::Vector2f position, std::string texture, int speed);
     ~Shot();
     void update(float frametime);
-    void render(sf::RenderWindow *rw);
+    void render(sf::RenderWindow &rw);
     const sf::Sprite &getSprite(){return *pSprite;};
     const bool getIsAlive(){return misAlive;};
     void setIsAlive(bool isAlive){misAlive = isAlive;};
@@ -21,4 +21,6 @@ private:
     bool misAlive;
     sf::Clock *pClock;
     sf::Sprite *pSprite;
+    sf::Texture mTexture;
+    
 };
