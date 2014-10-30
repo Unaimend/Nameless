@@ -86,7 +86,6 @@ private:
     std::vector<Item> mInventoyVektor;
     std::vector<Item>::iterator mItemsIter = mAllItems.begin();
     std::vector<Shot*> mShootVector;
-    std::vector<sf::RectangleShape*> mTestVector;
     std::vector<int> testvec = {0,1};
     int test = 0;
 };

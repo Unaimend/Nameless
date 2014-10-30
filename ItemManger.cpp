@@ -156,7 +156,7 @@ ItemManger::ItemManger(Player& player)
     pTest31->setScale(1, 1);
     pTest31->setOnGound(true);
     
-    pTestGun = new Gun_TestGun("/Users/Thomas/Desktop/iron helmet.png", 0,0,"PETER", 100, 100, 0.3, mShootVector, mTestVector, mPlayer);
+    pTestGun = new Gun_TestGun("/Users/Thomas/Desktop/iron helmet.png", 0,0,"PETER", 100, 100, 0.3, mShootVector,mPlayer);
     pTest->setOnGound(true);
 
     
@@ -205,9 +205,12 @@ void ItemManger::update(Player &player, double frametime)
     pTestGun->setPositiond(sf::Vector2f(mPlayer.getPlayerSpritePosX()+15,mPlayer.getPlayerSpritePosY() + 20));
     
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-        pTestGun->fire( sf::Vector2f(mPlayer.getPlayerSpritePosX(),mPlayer.getPlayerSpritePosY()), sf::Vector2f(0.6,0.6));
+        pTestGun->fire( sf::Vector2f(mPlayer.getPlayerSpritePosX(),mPlayer.getPlayerSpritePosY()), sf::Vector2f(mPlayer.mXmovement,mPlayer.mYmovement), mPlayer.mTarXDistance, mPlayer.mPlayTarDistance);
+        
+            std::cout << mPlayer.mTarXDistance <<"  " << mPlayer.mTarYDistance << " "<<mPlayer.mPlayTarDistance<< std::endl;
+             std::cout << sin(mPlayer.mTarXDistance/mPlayer.mPlayTarDistance)<< std::endl;
     }
- 
+   
 
 };
 
@@ -223,16 +226,12 @@ void ItemManger::render(sf::RenderWindow *window)
         }
     }
     
-    for(auto it : mTestVector )
-    {
-        window->draw(*it);
-        it->move(mPlayer.mXmovement, mPlayer.mYmovement);
-    }
+
     for(auto it : mShootVector)
     {
         it->render(*window);
+        it->update(mFrametime);
     }
-   std::cout <<"HI"<< mTestVector.size() << std::endl;
 };
 
 void ItemManger::fixrender(sf::RenderWindow *window)

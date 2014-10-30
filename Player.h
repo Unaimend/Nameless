@@ -43,6 +43,9 @@ public:
     int getMagicka(){return mMagica;};
     float       mXmovement;
     float       mYmovement;
+    float       mTarXDistance;
+    float       mTarYDistance;
+    float       mPlayTarDistance;
 private:
     Animation *pPlayerAnimation;
     Inventory mInventory;
@@ -75,9 +78,8 @@ private:
     std::string mEnduranceString;
     sf::Text    mEnduranceText;
     sf::Clock   mEnduranceCLock;
-    float       mPlayTarDistance;
-    float       mTarXDistance;
-    float       mTarYDistance;
+    
+  
     
     sf::RectangleShape mTestShape;
     bool        mShoot = false;

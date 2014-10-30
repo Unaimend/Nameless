@@ -4,11 +4,12 @@
 #include <iostream>
 #include <vector>
 #include "Shot.h"
+#include <math.h>
 
 class Shot
 {
 public:
-    Shot(sf::Vector2f direction, sf::Vector2f position, std::string texture, int speed);
+    Shot(sf::Vector2f direction, sf::Vector2f position, std::string texture, int speed, float winkel);
     ~Shot();
     void update(float frametime);
     void render(sf::RenderWindow &rw);

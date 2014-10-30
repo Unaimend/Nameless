@@ -27,6 +27,7 @@ void Maploader::loadMap()
         *pMap >> temporaryMap;
         mMapVektor.push_back(temporaryMap);
     }
+    
 };
 
 void Maploader::render(sf::RenderWindow *window)
