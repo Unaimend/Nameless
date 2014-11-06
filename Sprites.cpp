@@ -21,6 +21,9 @@ Sprites::Sprites()
     if(NPCZombieTexture.loadFromFile("Opi.png"))
         pLog->writeToFile("Opi geladen");
     
+    if(mStraßenTexture.loadFromFile("Straße.png"))
+        pLog->writeToFile("Straßee geladen");
+    
     NPCZombieSprite.setTexture(NPCZombieTexture);
     BlackSprite.setTexture(BlackTexture);
     WasserSprite.setTexture(WasserTexture);
@@ -69,7 +72,14 @@ Sprites::Sprites()
     mSubRect.width  = 32;
     mSubRect.height = 32;
     pNPCHolzfällerSprite = new sf::Sprite(NPCHolzfällerTexture, mSubRect);
+  
+    mSubRect.left   = 32; // of course, you'll have to fill it in with the right values...
+    mSubRect.top    = 32;
+    mSubRect.width  = 32;
+    mSubRect.height = 32;
     
+    pStraßenSprite = new sf::Sprite(mStraßenTexture, mSubRect);
+   
     pLog->writeToFile("Alle Sprites geladen");
     pLog->closeFile();
    

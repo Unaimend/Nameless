@@ -25,7 +25,8 @@ Zombie::Zombie(sf::Sprite sprite, Player &player, std::string name, int life, in
     //TESTCODDE
     mFont.loadFromFile("sansation.ttf");
     test2.setPosition(0, 0);
-    test2.setCharacterSize(12);
+    test2.setCharacterSize(48);
+    test2.setScale(0.125, 0.125);
     test2.setColor(sf::Color::Red);
     test2.setFont(mFont);
    

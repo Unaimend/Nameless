@@ -26,7 +26,7 @@ Player::Player()
     mMagicaText.setPosition(20, 40);
     mMagicaText.setCharacterSize(20);
     mMagicaText.setColor(sf::Color::Blue);
-  //  mMagicaText.setFont(mFont);
+    //mMagicaText.setFont(mFont);
 
     mMousRec.setOutlineColor(sf::Color::Black);
     mMousRec.setSize(sf::Vector2f(25,25));

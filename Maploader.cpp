@@ -54,6 +54,7 @@ void Maploader::renderTileLayer(sf::RenderWindow *window)
         Sprites::pGrasSpriteOBEN->setPosition(tempmapx*16, tempmapy*16);
         Sprites::pGrasSpriteUNTEN->setPosition(tempmapx*16, tempmapy*16);
         Sprites::BlackSprite.setPosition(tempmapx*16, tempmapy*16);
+        Sprites::pStraßenSprite->setPosition(tempmapx*16, tempmapy*16);
         if (tempmapx == mMapwidth/16) { //Wenn der Counter == Anzahl der max Tiles bestimmt durch die Mapbreite
             tempmapy++;                 //dann erhöhe die Y-Anzahl um 1 und sezte die X-Anzahl auf 0 damit von
             tempmapx = 0;               //links gezeichnet wird
@@ -64,11 +65,11 @@ void Maploader::renderTileLayer(sf::RenderWindow *window)
    
         if(it == "0")
         {
-            window->draw(*Sprites::pGrasSprite);
+            window->draw(*Sprites::pStraßenSprite);
         }
         else if(it == "1")
         {
-            window->draw(Sprites::WasserSprite);
+            window->draw(*Sprites::pStraßenSprite);
         }
         else if (it == "2") {
             window->draw(*Sprites::pWegSprite);

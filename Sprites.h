@@ -29,6 +29,7 @@ protected:
     sf::Texture NPCHolzfällerTexture;
     sf::Texture NPCZombieTexture;
     sf::Texture BlackTexture;
+    sf::Texture mStraßenTexture;
     
     sf::Sprite  NPCZombieSprite;
     sf::Sprite  WasserSprite;
@@ -42,6 +43,9 @@ protected:
     sf::Sprite *pPlayerSprite;
     sf::Sprite *pNPCHolzfällerSprite;
     sf::Sprite BlackSprite;
+    sf::Sprite  *pStraßenSprite;
+    
+  
 
 };
 #endif /* defined(__Nameless__Sprites__) */
