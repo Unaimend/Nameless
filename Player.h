@@ -27,12 +27,13 @@ public:
     void fixrender(sf::RenderWindow &window);
     void update(double frametime);
     void eventHandling(sf::Event event);
-    void setMagicka(int magicka){this->mMagica = magicka;};
-    void setAuflösungsHöhe(float höhe){mResY = höhe;};
+    void setMagicka(const  int magicka){this->mMagica = magicka;};
+    void setAuflösungsHöhe(const float höhe){mResY = höhe;};
     void setAuflösungsBreite(float breite){mResX = breite;};
     void setStartPos(sf::Vector2f startpos){mPlayerPositionX = startpos.x; mPlayerPositionY = startpos.y;};
     float getPlayerSpritePosX(){return pPlayerAnimation->getAnimationSpritePosX();};
     float getPlayerSpritePosY(){return pPlayerAnimation->getAnimationSpritePosY();};
+    
     float getInvPosX(){return mInventory.getInventoryPos().x;};
     float getInvPosY(){return mInventory.getInventoryPos().y;};
     bool getIsGoingRight(){return mIsGoingRight;};
@@ -46,6 +47,7 @@ public:
     float       mTarXDistance;
     float       mTarYDistance;
     float       mPlayTarDistance;
+    int test1;
 private:
     Animation *pPlayerAnimation;
     Inventory mInventory;
@@ -57,7 +59,7 @@ private:
     sf::Vector2i        mMousePos;
     sf::Vector2f        mRealMousePos;
     sf::RectangleShape  mMousRec;
-    //sf::Font mFont;
+    sf::Font mFont;
     float mPlayerPositionX      = 0;
     float mPlayerPositionY      = 0;
     double mFrametime;

@@ -12,13 +12,13 @@ Player::Player()
     
     Sprites::pPlayerSprite->setPosition(mPlayerPositionX, mPlayerPositionY);
     
-    //mFont.loadFromFile("sansation.ttf");
-    //mEnduranceText.setFont(mFont);
+    mFont.loadFromFile("sansation.ttf");
+    mEnduranceText.setFont(mFont);
     mEnduranceText.setCharacterSize(20);
     mEnduranceText.setPosition(20, 60);
     mEnduranceText.setColor(sf::Color::Green);
     
-   // mLifeText.setFont(mFont);
+    mLifeText.setFont(mFont);
     mLifeText.setCharacterSize(20);
     mLifeText.setPosition(20,20);
     mLifeText.setColor(sf::Color::Red);
@@ -26,7 +26,7 @@ Player::Player()
     mMagicaText.setPosition(20, 40);
     mMagicaText.setCharacterSize(20);
     mMagicaText.setColor(sf::Color::Blue);
-    //mMagicaText.setFont(mFont);
+    mMagicaText.setFont(mFont);
 
     mMousRec.setOutlineColor(sf::Color::Black);
     mMousRec.setSize(sf::Vector2f(25,25));
