@@ -29,7 +29,7 @@ private:
     sf::IntRect mSubRect;
     sf::Sprite  mCurrentSprite;
     sf::Clock   mClock;
-    Player      mPlayer;
+    Player      *mPlayer;
     sf::Clock   mAggroTime;
     int         mCPosX;
     int         mCPosY;

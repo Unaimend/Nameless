@@ -1,7 +1,7 @@
 #include "ItemManger.h"
 ItemManger::ItemManger(Player& player)
 {
-    mPlayer = player;
+    mPlayer = &player;
     pTest = new Testitem();
     pTest->setPositiond(sf::Vector2f(50,50));
     pTest->setOnGound(true);
@@ -156,7 +156,7 @@ ItemManger::ItemManger(Player& player)
     pTest31->setScale(1, 1);
     pTest31->setOnGound(true);
     
-    pTestGun = new Gun_TestGun("/Users/Thomas/Desktop/iron helmet.png", 0,0,"PETER", 100, 100, 0.3, mShootVector,mPlayer);
+    pTestGun = new Gun_TestGun("/Users/Thomas/Desktop/iron helmet.png", 0,0,"PETER", 100, 100, 0.3, mShootVector,*mPlayer);
     pTest->setOnGound(true);
 
     
@@ -200,15 +200,15 @@ ItemManger::ItemManger(Player& player)
 
 void ItemManger::update(Player &player, double frametime)
 {
-    mPlayer = player;
+    mPlayer = &player;
     mFrametime = frametime;
-    pTestGun->setPositiond(sf::Vector2f(mPlayer.getPlayerSpritePosX()+15,mPlayer.getPlayerSpritePosY() + 20));
+    pTestGun->setPositiond(sf::Vector2f(mPlayer->getPlayerSpritePosX()+15,mPlayer->getPlayerSpritePosY() + 20));
     
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-        pTestGun->fire( sf::Vector2f(mPlayer.getPlayerSpritePosX(),mPlayer.getPlayerSpritePosY()), sf::Vector2f(mPlayer.mXmovement,mPlayer.mYmovement), mPlayer.mTarXDistance, mPlayer.mPlayTarDistance);
+        pTestGun->fire( sf::Vector2f(mPlayer->getPlayerSpritePosX(),mPlayer->getPlayerSpritePosY()), sf::Vector2f(mPlayer->mXmovement,mPlayer->mYmovement), mPlayer->mTarXDistance, mPlayer->mPlayTarDistance);
         
-            std::cout << mPlayer.mTarXDistance <<"  " << mPlayer.mTarYDistance << " "<<mPlayer.mPlayTarDistance<< std::endl;
-             std::cout << sin(mPlayer.mTarXDistance/mPlayer.mPlayTarDistance)<< std::endl;
+            std::cout << mPlayer->mTarXDistance <<"  " << mPlayer->mTarYDistance << " "<<mPlayer->mPlayTarDistance<< std::endl;
+             std::cout << sin(mPlayer->mTarXDistance/mPlayer->mPlayTarDistance)<< std::endl;
     }
    
 
@@ -217,7 +217,7 @@ void ItemManger::update(Player &player, double frametime)
 void ItemManger::render(sf::RenderWindow *window)
 {
     pTestGun->render(*window);
-    mItemInvVis = mPlayer.getInventoryVis();
+    mItemInvVis = mPlayer->getInventoryVis();
     for (mItemsIter = mAllItems.begin(); mItemsIter != mAllItems.end(); mItemsIter++)
     {
         if (mItemsIter->getOnGround() == true)
@@ -236,7 +236,7 @@ void ItemManger::render(sf::RenderWindow *window)
 
 void ItemManger::fixrender(sf::RenderWindow *window)
 {
-    mItemInvVis = mPlayer.getInventoryVis();
+    mItemInvVis = mPlayer->getInventoryVis();
     for (mItemsIter = mAllItems.begin(); mItemsIter != mAllItems.end(); mItemsIter++)
     {
         if (mItemsIter->getOnGround() == false)
@@ -267,7 +267,7 @@ void ItemManger::eventHandling(sf::Event event)
 
     for (mItemsIter = mAllItems.begin(); mItemsIter != mAllItems.end(); mItemsIter++)
     {
-        if ((mItemsIter->getPositionX() - mPlayer.getPlayerSpritePosX() <24 && mItemsIter->getPositionX() - mPlayer.getPlayerSpritePosX() > -24) && (mItemsIter->getPositionY() - mPlayer.getPlayerSpritePosY() < 24 && mItemsIter->getPositionY() - mPlayer.getPlayerSpritePosY()  > - 24))
+        if ((mItemsIter->getPositionX() - mPlayer->getPlayerSpritePosX() <24 && mItemsIter->getPositionX() - mPlayer->getPlayerSpritePosX() > -24) && (mItemsIter->getPositionY() - mPlayer->getPlayerSpritePosY() < 24 && mItemsIter->getPositionY() - mPlayer->getPlayerSpritePosY()  > - 24))
         {
             if (mEvent.type == sf::Event::KeyPressed && mEvent.key.code == sf::Keyboard::E)
             {
@@ -278,7 +278,7 @@ void ItemManger::eventHandling(sf::Event event)
                     
                     if (mItemsIter->getOnGround() == false)
                     {
-                        mItemsIter->setPositiond(sf::Vector2f(mPlayer.getInvPosX() + 56 * (mIvenCOunterAll % 5)  ,mPlayer.getInvPosY() + 56 * int(mIvenCOunterAll / 5)));
+                        mItemsIter->setPositiond(sf::Vector2f(mPlayer->getInvPosX() + 56 * (mIvenCOunterAll % 5)  ,mPlayer->getInvPosY() + 56 * int(mIvenCOunterAll / 5)));
                     }
                     mIvenCOunterAll++;
                 }
@@ -301,7 +301,7 @@ void ItemManger::setItemPositions()
                     
                     if (mItemsIter->getOnGround() == false)
                     {
-                        mItemsIter->setPositiond(sf::Vector2f(mPlayer.getInvPosX() + 56 * (mIvenCOunterAll % 5)  ,mPlayer.getInvPosY() + 56 * int(mIvenCOunterAll / 5)));
+                        mItemsIter->setPositiond(sf::Vector2f(mPlayer->getInvPosX() + 56 * (mIvenCOunterAll % 5)  ,mPlayer->getInvPosY() + 56 * int(mIvenCOunterAll / 5)));
                     }
                    
                 }

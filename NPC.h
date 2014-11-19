@@ -23,7 +23,7 @@ public:
     void setEvent(sf::Event event);
 private:
     DialogSystem    *NpcDialog;
-    Player          mPlayer;
+    Player          *mPlayer;
     sf::Sprite      mNpcSprite;
     sf::Event       mEvent;
     std::string     mNPCtext;

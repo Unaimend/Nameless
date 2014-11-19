@@ -10,7 +10,7 @@ NPC::NPC( Player &player, sf::Sprite sprite, float xpos, float ypos, std::string
     mNpcText4   = text4;
     mNpcText5 = text5;
     mWelctText = welctext;
-    mPlayer     = player;
+    mPlayer     = &player;
     mNpcPosX    = xpos;
     mNpcPosY    = ypos;
     mNpcSprite  = sprite;
@@ -23,7 +23,7 @@ NPC::NPC( Player &player, sf::Sprite sprite, float xpos, float ypos, std::string
 
 void NPC::render(sf::RenderWindow *window)
 {
-    if (((mNpcSprite.getPosition().x - mPlayer.getPlayerSpritePosX() < 75 && mNpcSprite.getPosition().x - mPlayer.getPlayerSpritePosX() > -75) && ((mNpcSprite.getPosition().y - mPlayer.getPlayerSpritePosY() < 75) && mNpcSprite.getPosition().y - mPlayer.getPlayerSpritePosY() > -75)) && mShowDialog == true && mNPCtext != "0")
+    if (((mNpcSprite.getPosition().x - mPlayer->getPlayerSpritePosX() < 75 && mNpcSprite.getPosition().x - mPlayer->getPlayerSpritePosX() > -75) && ((mNpcSprite.getPosition().y - mPlayer->getPlayerSpritePosY() < 75) && mNpcSprite.getPosition().y - mPlayer->getPlayerSpritePosY() > -75)) && mShowDialog == true && mNPCtext != "0")
     {
         NpcDialog->render(window);
     }
@@ -32,7 +32,7 @@ void NPC::render(sf::RenderWindow *window)
 
 void NPC::nonfixrender(sf::RenderWindow *window)
 {
-    if (((mNpcSprite.getPosition().x - mPlayer.getPlayerSpritePosX() < 75 && mNpcSprite.getPosition().x - mPlayer.getPlayerSpritePosX() > -75) && ((mNpcSprite.getPosition().y - mPlayer.getPlayerSpritePosY() < 75) && mNpcSprite.getPosition().y - mPlayer.getPlayerSpritePosY() > -75)) && mShowAnswerBox == true)
+    if (((mNpcSprite.getPosition().x - mPlayer->getPlayerSpritePosX() < 75 && mNpcSprite.getPosition().x - mPlayer->getPlayerSpritePosX() > -75) && ((mNpcSprite.getPosition().y - mPlayer->getPlayerSpritePosY() < 75) && mNpcSprite.getPosition().y - mPlayer->getPlayerSpritePosY() > -75)) && mShowAnswerBox == true)
     {
         NpcDialog->answerboxrender(window);
     }
@@ -73,7 +73,7 @@ void NPC::setEvent(sf::Event event)
         }
     }
     
-    if (((mNpcSprite.getPosition().x - mPlayer.getPlayerSpritePosX() < 75 && mNpcSprite.getPosition().x - mPlayer.getPlayerSpritePosX() > -75) && ((mNpcSprite.getPosition().y - mPlayer.getPlayerSpritePosY() < 75) && mNpcSprite.getPosition().y - mPlayer.getPlayerSpritePosY() > -75)) && mShowDialog == true)
+    if (((mNpcSprite.getPosition().x - mPlayer->getPlayerSpritePosX() < 75 && mNpcSprite.getPosition().x - mPlayer->getPlayerSpritePosX() > -75) && ((mNpcSprite.getPosition().y - mPlayer->getPlayerSpritePosY() < 75) && mNpcSprite.getPosition().y - mPlayer->getPlayerSpritePosY() > -75)) && mShowDialog == true)
     {
         if (/*mEvent.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::R && mNPCtext == mNpcText1 &&*/ mNpcText1 != "0" && mSchonGetroffen == false)
         {
@@ -119,7 +119,7 @@ void NPC::setEvent(sf::Event event)
         }
     }
     
-    if (mNpcSprite.getPosition().x - mPlayer.getPlayerSpritePosX() > 75 ||  mNpcSprite.getPosition().x - mPlayer.getPlayerSpritePosX() < -75 || mNpcSprite.getPosition().y - mPlayer.getPlayerSpritePosY() > 75 || mNpcSprite.getPosition().y - mPlayer.getPlayerSpritePosY() < -75)
+    if (mNpcSprite.getPosition().x - mPlayer->getPlayerSpritePosX() > 75 ||  mNpcSprite.getPosition().x - mPlayer->getPlayerSpritePosX() < -75 || mNpcSprite.getPosition().y - mPlayer->getPlayerSpritePosY() > 75 || mNpcSprite.getPosition().y - mPlayer->getPlayerSpritePosY() < -75)
     {
         mShowDialog = false;
         mShowAnswerBox = false;

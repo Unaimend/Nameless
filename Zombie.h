@@ -18,7 +18,7 @@ public:
     void attack()const ;
 private:
     NpcAnimation *pAnimation;
-    Player      mPlayer;
+    Player      *mPlayer;
  
 };
 #endif /* defined(__Nameless__Zombie__) */

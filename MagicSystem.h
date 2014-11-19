@@ -19,17 +19,17 @@ class MagicSystem
 public:
     MagicSystem();
     ~MagicSystem();
-    Player getPlayer(){return mPlayer;};
+    Player getPlayer(){return *mPlayer;};
     void render(sf::RenderWindow &window);
     void update(double frametime);
     void cast(Player& player);
     void setSpell(sf::Event events);
     void addSpells();
     void changeSpell();
-    void setPlayer(Player &player){mPlayer = player;};
+    void setPlayer(Player &player){mPlayer = &player;};
     void setMagicka(int magicka){mMana = magicka;};
 private:
-    Player              mPlayer;
+    Player              *mPlayer;
     Enemy               mEnemy;
     sf::Font            font;
     sf::RectangleShape  mSpell1;

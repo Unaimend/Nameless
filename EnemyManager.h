@@ -19,7 +19,7 @@ public:
     void update(double frametime);
 private:
     std::vector<Enemy*> mEnemyVector;
-    Player mPlayer;
+    Player *mPlayer;
     Zombie *pTest;
     Zombie *pTest2;
     

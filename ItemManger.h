@@ -75,7 +75,7 @@ private:
     Item *pTest31;
     
     Gun_TestGun *pTestGun;
-    Player mPlayer;
+    Player *mPlayer;
     sf::Event mEvent;
     int mIventoryCounterX = 0;
     int mIventoryCounterY = 0;

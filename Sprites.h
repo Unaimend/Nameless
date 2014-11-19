@@ -21,11 +21,12 @@ public:
 protected:
     Logfile *pLog;
     sf::IntRect mSubRect;
-    sf::Texture WasserTexture;
+     sf::Texture WasserTexture;
     sf::Texture WegTexture;
     sf::Texture PlayerTexture;
     sf::Texture InventoryTexture;
     sf::Texture TileSet_ATexture;
+    sf::Texture &TileSet_ATextureRef = TileSet_ATexture;
     sf::Texture NPCHolzfällerTexture;
     sf::Texture NPCZombieTexture;
     sf::Texture BlackTexture;

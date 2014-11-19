@@ -73,7 +73,7 @@ void MagicSystem::cast(Player& player)
         pSpell3->setOutlineThickness(2);
         renderMagic = true;
         mFirstSpell = false;
-        pSpell3->setPosition(mPlayer.getPlayerSpritePosX(),mPlayer.getPlayerSpritePosY());
+        pSpell3->setPosition(mPlayer->getPlayerSpritePosX(),mPlayer->getPlayerSpritePosY());
         SpellClock.restart();
         mMana = mMana - 50;
         player.setMagicka(mMana);

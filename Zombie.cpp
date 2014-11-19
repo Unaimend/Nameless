@@ -11,7 +11,7 @@ Zombie::Zombie(sf::Sprite sprite, Player &player, std::string name, int life, in
 {
     mEnemySprite    = sprite;
     mLife           = life;
-    mPlayer         = player;
+    mPlayer         = &player;
     mName           = name;
     mXpos           = xpos;
     mYpos           = ypos;
