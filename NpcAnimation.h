@@ -18,11 +18,12 @@ class NpcAnimation
 public:
     NpcAnimation(sf::Sprite SpriteSheet, int SpriteHeigth, int SpriteWidth, int xpos, int ypos, int maxleft, int maxrigthm, int maxup, int maxdown, Player &player, bool follow, float aggrotime, float aggrorange);
     sf::Sprite      getSprite(){return mSpriteSheet;};
-    sf::FloatRect   getEnemyBoundingBoxes(){return mSpriteSheet.getGlobalBounds();}
+    sf::FloatRect   getEnemyBoundingBoxes(){return mSpriteSheet.getGlobalBounds();};
     void            move(double frametime, int Endurance);
     void            render(sf::RenderWindow *window);
     float           getAnimationSpritePosX(){return mSpriteSheet.getPosition().x;};
     float           getAnimationSpritePosY(){return mSpriteSheet.getPosition().y;};
+   
 
 private:
     sf::Sprite  mSpriteSheet;

@@ -14,8 +14,11 @@ public:
     void update(float frametime);
     void render(sf::RenderWindow &rw);
     const sf::Sprite &getSprite(){return *pSprite;};
+    sf::Rect<float> getBound(){return pSprite->getGlobalBounds();}
     const bool getIsAlive(){return misAlive;};
     void setIsAlive(bool isAlive){misAlive = isAlive;};
+    
+    sf::FloatRect test;
 private:
     sf::Vector2f mDirection;
     float mSpeed;
@@ -23,5 +26,5 @@ private:
     sf::Clock *pClock;
     sf::Sprite *pSprite;
     sf::Texture mTexture;
-    
+       
 };

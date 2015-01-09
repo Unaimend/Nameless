@@ -11,6 +11,7 @@
 #include "ItemManger.h"
 #include "EnemyManager.h"
 #include "AnswerBox.h"
+#include <string>
 #ifndef Neues_SFML_Projekt_Framework_hpp
 #define Neues_SFML_Projekt_Framework_hpp
 
@@ -31,7 +32,7 @@ private:
     void                loadMap();
     void                loadMap2();
     float               getFrameTime();
-    float               getFPS();
+    void               getFPS();
     
     sf::View            mView;
     sf::View            mFixed;
@@ -51,7 +52,9 @@ private:
     int                 Mapwidth;
     int                 mAuflösungsBreite;
     int                 mAuflösungsHöhe;
-    
+    float fps;
+    float *fpS = &fps;
+    std::string fpsString;
     //TESTCDE
     
     ItemManger      *pItemManager;

@@ -10,10 +10,12 @@
 #include <vector>
 #include "Player.h"
 #include "Sprites.h"
+#include "Shot.h"
 class EnemyManager : Sprites
 {
 public:
     EnemyManager(Player& player);
+    EnemyManager(Player& player, std::vector<Shot*> *mShootVec);
     ~EnemyManager();
     void render(sf::RenderWindow *window);
     void update(double frametime);
@@ -22,7 +24,7 @@ private:
     Player *mPlayer;
     Zombie *pTest;
     Zombie *pTest2;
-    
+    std::vector<Shot*> *ShootVec;
 };
 
 #endif /* defined(__Nameless__EnemyManager__) */

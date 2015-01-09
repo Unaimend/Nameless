@@ -4,10 +4,13 @@
 #include <iostream>
 #include "Logfile.h"
 #include "Framework.hpp"
+
 int main(int, char const**)
 {
     Framework framework;
     framework.Run();
+    
+    
     return 0;
 }
 
@@ -25,3 +28,6 @@ while (window->pollEvent(event))
             std::cout << unicode << std::endl;
         }
 }*/
+
+
+//TODO(Thomas) Change the Maprenderer Iterator so that it reads two values e.g. "83" instead of "8" and then "3";

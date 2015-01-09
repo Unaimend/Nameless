@@ -27,9 +27,9 @@ public:
     void setItemVektor(std::vector<Item> &itemvektor){mItemVektor = itemvektor;};
     void setInventoryVektor(std::vector<Item> &inventoryvektor){mInventoyVektor = inventoryvektor;};
     
-    std::vector<Item> getItemVektor(){return mItemVektor;};
+    std::vector<Item> *getItemVektor(){return &mItemVektor;};
     std::vector<Item> getInventoryVektor(){return mInventoyVektor;};
-    
+    std::vector<Shot*> *getShotVektor(){return &mShootVector;};
     void update(Player &player, double frametime);
     void render(sf::RenderWindow *window);
     void fixrender(sf::RenderWindow *window);

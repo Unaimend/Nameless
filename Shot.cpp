@@ -10,12 +10,12 @@ Shot::Shot(sf::Vector2f direction, sf::Vector2f position, std::string texture, i
     pSprite->setOrigin(mTexture.getSize().x/2, mTexture.getSize().y/2);
     pSprite->setPosition(position);
     
-   
+    
     mDirection = direction;
     pClock = new sf::Clock;
     setIsAlive(true);
     mSpeed = speed;
-  
+    test = pSprite->getGlobalBounds();
     //pSprite->setRotation(winkel);
     pClock->restart();
 }
@@ -32,10 +32,10 @@ Shot::~Shot()
 void Shot::update(float frametime)
 {
     
-    pSprite->move(mDirection * mSpeed * frametime);
-    std::cout <<"ROT" <<pSprite->getRotation() << std::endl;
+    pSprite->move((mDirection * mSpeed * frametime )* 2.0f);
+    //std::cout <<"ROT" <<pSprite->getRotation() << std::endl;
     
-    if (pClock->getElapsedTime().asSeconds() > 3.0f) {
+    if (pClock->getElapsedTime().asSeconds() > 2.0f) {
         setIsAlive(false);
     }
     

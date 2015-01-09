@@ -21,8 +21,9 @@ public:
     //void setPlayer(Player player){mPlayer = player;};
     void setxPos(int xpos){mXpos = xpos;};
     void setyPos(int ypos){mYpos = ypos;};
-    
-
+    int getLife(){return mLife; };
+    virtual sf::Sprite getSprite(){return  pAnimation->getSprite();};
+    virtual sf::FloatRect getFloatRect(){return pAnimation->getEnemyBoundingBoxes();};
     
 protected:
     std::string mLifeString;
@@ -40,5 +41,6 @@ protected:
     int         mMaxDown;
     float       mAggrotime;
     float       mAggroRange;
+    sf::RectangleShape mHitBox;
 };
 #endif /* defined(__Nameless__Enemy__) */

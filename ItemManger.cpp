@@ -192,7 +192,7 @@ ItemManger::ItemManger(Player& player)
     mAllItems.push_back(*pTest30);
     mAllItems.push_back(*pTest31);
     
-    //GemAllItems.push_back(*pTestGun);
+    mAllItems.push_back(*pTestGun);
 
     
     
@@ -207,10 +207,10 @@ void ItemManger::update(Player &player, double frametime)
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
         pTestGun->fire( sf::Vector2f(mPlayer->getPlayerSpritePosX(),mPlayer->getPlayerSpritePosY()), sf::Vector2f(mPlayer->mXmovement,mPlayer->mYmovement), mPlayer->mTarXDistance, mPlayer->mPlayTarDistance);
         
-            std::cout << mPlayer->mTarXDistance <<"  " << mPlayer->mTarYDistance << " "<<mPlayer->mPlayTarDistance<< std::endl;
-             std::cout << sin(mPlayer->mTarXDistance/mPlayer->mPlayTarDistance)<< std::endl;
+            //std::cout << mPlayer->mTarXDistance <<"  " << mPlayer->mTarYDistance << " "<<mPlayer->mPlayTarDistance<< std::endl;
+            // std::cout << sin(mPlayer->mTarXDistance/mPlayer->mPlayTarDistance)<< std::endl;
     }
-   
+     
 
 };
 
@@ -231,6 +231,17 @@ void ItemManger::render(sf::RenderWindow *window)
     {
         it->render(*window);
         it->update(mFrametime);
+        
+        
+    }
+    
+    for (auto it = mShootVector.begin(); it != mShootVector.end();) {
+        if ((*it)->getIsAlive() == false)
+        {
+           delete *it;
+            it = mShootVector.erase(it);
+        }
+        else{it++;}
     }
 };
 
@@ -296,8 +307,8 @@ void ItemManger::setItemPositions()
            
                 if (mIvenCOunterAll > 0)
                 {
-                    //mItemsIter->setScale(2, 2);
-                    //mItemsIter->setOnGound(false);
+//                    mItemsIter->setScale(2, 2);
+//                    mItemsIter->setOnGound(false);
                     
                     if (mItemsIter->getOnGround() == false)
                     {

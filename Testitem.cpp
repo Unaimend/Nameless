@@ -25,7 +25,7 @@ void Testitem::render(sf::RenderWindow *window)
 void Testitem::update(double frametime)
 {
     //std::cout << "RICHTIGE UPDATE" << std::endl;
-//    sf::FloatRect test;
+    //sf::FloatRect test;
 //    sf::FloatRect test2(sf::Mouse::getPosition(*mWindow).x, sf::Mouse::getPosition(*mWindow).x, sf::Mouse::getPosition(*mWindow).x, sf::Mouse::getPosition(*mWindow).y);
 //    test.intersects(test2);
 

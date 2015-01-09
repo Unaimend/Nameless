@@ -7,7 +7,7 @@ MagicSystem::MagicSystem()
     mClock.getElapsedTime().asSeconds();
     SpellClock.getElapsedTime().asSeconds();
     addSpells();
-    
+   
     pSpell3 = new sf::RectangleShape();
     pSpell3->setSize(sf::Vector2f(10,10));
     pSpell3->setOutlineColor(sf::Color::Blue);

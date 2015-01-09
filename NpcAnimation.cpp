@@ -25,7 +25,7 @@ NpcAnimation::NpcAnimation(sf::Sprite Spritesheet, int SpriteHeigth, int SpriteW
     mPlayer = &player;
     mShouldFollow = follow;
     mAggroRange = aggrorange;
-    mAggroDuration = 10;
+    mAggroDuration = 3;
 
 };
 
@@ -64,9 +64,6 @@ void NpcAnimation::move(double frametime, int Endurance)
             //mSpriteSheet.move(-100 * frametime, 0);
             mFollowRight = false;
         }
-        
-        
-        
         if (mSpriteSheet.getPosition().y - 50 < mPlayer->getPlayerSpritePosY() && mFollowDown == false && mAggroTime.getElapsedTime().asSeconds() < mAggroDuration)
         {
             mFollowDown = true;
@@ -190,7 +187,7 @@ void NpcAnimation::move(double frametime, int Endurance)
             mClock.restart();
         }
     }
-
+   
 };
 
 void NpcAnimation::render(sf::RenderWindow *window)
