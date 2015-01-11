@@ -15,7 +15,7 @@
 #include "Animation.h"
 #include "Logfile.h"
 #include "Inventory.h"
-
+#include "Parser.h"
 class Player : Sprites
 {
 public:
@@ -49,9 +49,9 @@ public:
     float       mPlayTarDistance;
     int test1;
 private:
+    Parser mParser;
     Animation *pPlayerAnimation;
     Inventory mInventory;
-    
     sf::Event mEvent;
     sf::Sprite PlayerPointer;
     sf::View mView;
@@ -60,8 +60,8 @@ private:
     sf::Vector2f        mRealMousePos;
     sf::RectangleShape  mMousRec;
     sf::Font mFont;
-    float mPlayerPositionX      = 0;
-    float mPlayerPositionY      = 0;
+    float mPlayerPositionX      = 100;
+    float mPlayerPositionY      = 100;
     double mFrametime;
     int mResY, mResX;
     bool  mShowInventory        = false;
@@ -76,7 +76,8 @@ private:
     int         mMagica         = 100;
     std::string mMagicaString;
     sf::Text    mMagicaText;
-    int         mEndurance      = 100;
+    
+    int         mEndurance = 100 ;
     std::string mEnduranceString;
     sf::Text    mEnduranceText;
     sf::Clock   mEnduranceCLock;

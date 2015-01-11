@@ -3,18 +3,18 @@
 
 EnemyManager::EnemyManager(Player& player)
 {
-    mPlayer = &player;
-    pTest = new Zombie(Sprites::NPCZombieSprite, *mPlayer, "Zombie", 1250,0,500,500, 0, 1000, 75, 5);
-    pTest2 = new Zombie(Sprites::NPCZombieSprite, *mPlayer, "Zombie", 1000,200,500,500, 0, 1000, 75, 5);
-    mEnemyVector.push_back(pTest);
-    mEnemyVector.push_back(pTest2);
+//    mPlayer = &player;
+//    pTest = new Zombie(Sprites::NPCZombieSprite, *mPlayer, "Zombie", 1250,0,500,500, 0, 1000, 75, 5);
+//    pTest2 = new Zombie(Sprites::NPCZombieSprite, *mPlayer, "Zombie", 1000,200,500,500, 0, 1000, 75, 5);
+//    mEnemyVector.push_back(pTest);
+//    mEnemyVector.push_back(pTest2);
 };
 
 EnemyManager::EnemyManager(Player& player,std::vector<Shot*> *mShootVec)
 {
     mPlayer = &player;
-    pTest = new Zombie(Sprites::NPCZombieSprite, *mPlayer, "Zombie", 100,0,500,500, 0, 1000, 75, 5);
-    pTest2 = new Zombie(Sprites::NPCZombieSprite, *mPlayer, "Zombie", 100,200,500,500, 0, 1000, 75, 5);
+    pTest = new Zombie(Sprites::NPCZombieSprite, *mPlayer, "Zombie", 100,0,500,500, 0, 1000, 3, 3000);
+    pTest2 = new Zombie(Sprites::NPCZombieSprite, *mPlayer, "Zombie", 100,200,500,500, 0, 1000, 3, 3000);
     mEnemyVector.push_back(pTest);
     mEnemyVector.push_back(pTest2);
     ShootVec = mShootVec;

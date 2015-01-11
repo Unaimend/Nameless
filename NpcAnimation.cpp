@@ -25,7 +25,7 @@ NpcAnimation::NpcAnimation(sf::Sprite Spritesheet, int SpriteHeigth, int SpriteW
     mPlayer = &player;
     mShouldFollow = follow;
     mAggroRange = aggrorange;
-    mAggroDuration = 3;
+    mAggroDuration = 0;
 
 };
 
@@ -33,7 +33,11 @@ NpcAnimation::NpcAnimation(sf::Sprite Spritesheet, int SpriteHeigth, int SpriteW
 void NpcAnimation::move(double frametime, int Endurance)
 {
     mClock.getElapsedTime().asSeconds();
+  
     
+    if (mClock.getElapsedTime().asSeconds() > 3) {
+        mAggroDuration = 3;
+    }
     mLPosX = mSpriteSheet.getPosition().x;
     mLPosY = mSpriteSheet.getPosition().y;
 

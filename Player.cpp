@@ -3,16 +3,24 @@
 
 Player::Player()
 {
-    pPlayerAnimation = new Animation(*Sprites::pPlayerSprite, 32 ,32);
+    //Load Saved Data
+    mEndurance = std::stoi(mParser.mDataToLoad.at(1));
+    pPlayerAnimation->getSprite().setPosition(std::stof(mParser.mDataToLoad[2]), std::stof(mParser.mDataToLoad[3]));
+
+    pPlayerAnimation = new Animation(*Sprites::pPlayerSprite, 32 ,32, std::stof(mParser.mDataToLoad[2]), std::stof(mParser.mDataToLoad[3]));
     mMagica         = 100;
     mIsGoingDown    = pPlayerAnimation->getIsGoingDown();
     mIsGoingUp      = pPlayerAnimation->getIsGoingUp();
     mIsGoingLeft    = pPlayerAnimation->getIsGoingLeft();
     mIsGoingRight   = pPlayerAnimation->getIsGoingRight();
     
-    Sprites::pPlayerSprite->setPosition(mPlayerPositionX, mPlayerPositionY);
     
+    
+    
+    std::cout << "Player.cpp: " <<"PETER" <<std::endl;
+   
     mFont.loadFromFile("sansation.ttf");
+   
     mEnduranceText.setFont(mFont);
     mEnduranceText.setCharacterSize(20);
     mEnduranceText.setPosition(20, 60);
@@ -33,7 +41,7 @@ Player::Player()
     mInventory.setInventoryPos(sf::Vector2f(300,500));
     mMousRec.setOrigin(mMousRec.getSize().x/2,mMousRec.getSize().y/2);
     
-    mTestShape.setPosition(pPlayerAnimation->getAnimationSpritePosX(), pPlayerAnimation->getAnimationSpritePosY());
+    mTestShape.setPosition(std::stof(mParser.mDataToLoad[2]), std::stof(mParser.mDataToLoad[3]));
     mTestShape.setSize(sf::Vector2f(5,5));
     mTestShape.setOrigin(5/2, 5/2);
     
@@ -41,6 +49,10 @@ Player::Player()
 
 Player::~Player()
 {
+    mParser.saveData("", "100");
+    mParser.saveData("", mEnduranceString);
+    mParser.saveData("", std::to_string(pPlayerAnimation->getSprite().getPosition().x));
+    mParser.saveData("", std::to_string(pPlayerAnimation->getSprite().getPosition().y));
     
 };
 void Player::render(sf::RenderWindow *window)
@@ -146,6 +158,7 @@ void Player::update(double frametime)
     
     mView.setCenter(pPlayerAnimation->getSprite().getPosition().x, pPlayerAnimation->getSprite().getPosition().y);
     mFixed.setCenter(mResX/2, mResY/2  );
+    
 };
 
 void Player::eventHandling(sf::Event event)

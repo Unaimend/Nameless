@@ -17,7 +17,7 @@ Framework::Framework()
     mRun            = true;
     Mapheigth       = 100;
     Mapwidth        = 100;
-    std::cout << "motherfucka" << std::endl;
+
 
     pLog->writeToFile("Fenster und Restliche Grundfunktionen initialisiert");
 
@@ -146,7 +146,7 @@ void Framework::getFPS()
 {
     float currentTime = clock2.restart().asSeconds();
     fps = 1.f / currentTime ;
-    std::cout << fps << std::endl;
+    //std::cout << fps << std::endl;
 
 };
 

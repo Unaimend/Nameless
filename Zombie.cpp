@@ -7,7 +7,7 @@
 //
 
 #include "Zombie.h"
-Zombie::Zombie(sf::Sprite sprite, Player &player, std::string name, int life, int xpos, int ypos, int maxrigth, int maxup, int maxdown, float aggrorange, float aggrotime)
+Zombie::Zombie(sf::Sprite sprite, Player &player, std::string name, int life, int xpos, int ypos, int maxrigth, int maxup, int maxdown,float aggrotime, float aggrorange)
 {
     mEnemySprite    = sprite;
     mLife           = life;
@@ -18,7 +18,7 @@ Zombie::Zombie(sf::Sprite sprite, Player &player, std::string name, int life, in
     mMaxRigth       = maxrigth;
     mAggroRange     = aggrorange;
     mAggrotime      = aggrotime;
-    pAnimation      = new NpcAnimation(mEnemySprite, 32,32, xpos,ypos,mMaxLeft, mMaxRigth,mMaxUp,mMaxDown, player, true, mAggroRange, mAggrotime);
+    pAnimation      = new NpcAnimation(mEnemySprite, 32,32, xpos,ypos,mMaxLeft, mMaxRigth,mMaxUp,mMaxDown, player, true,mAggrotime, mAggroRange );
     mEnemySprite.setPosition(mXpos, mYpos);
    
     

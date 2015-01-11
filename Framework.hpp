@@ -12,6 +12,10 @@
 #include "EnemyManager.h"
 #include "AnswerBox.h"
 #include <string>
+
+
+
+
 #ifndef Neues_SFML_Projekt_Framework_hpp
 #define Neues_SFML_Projekt_Framework_hpp
 
@@ -24,6 +28,8 @@ public:
     void Run();
     int getAuflösungsHöhe(){return mAuflösungsHöhe;};
     int getAuflösungsBreite(){return mAuflösungsBreite;};
+    
+   
 private:
     void                Update(double frametime);
     void                EventHandling();
@@ -59,8 +65,9 @@ private:
     
     ItemManger      *pItemManager;
     
+    //AngelScript Testcode
     
-
+   
   
 };
 

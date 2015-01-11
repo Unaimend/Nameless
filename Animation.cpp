@@ -1,6 +1,6 @@
 #include "Animation.h"
 
-Animation::Animation(sf::Sprite Spritesheet, int SpriteHeigth, int SpriteWidth)
+Animation::Animation(sf::Sprite Spritesheet, int SpriteHeigth, int SpriteWidth,float xpos,  float ypos)
 {
     mSpriteSheet    = Spritesheet;
     mSubRect.left   = 32;
@@ -10,6 +10,7 @@ Animation::Animation(sf::Sprite Spritesheet, int SpriteHeigth, int SpriteWidth)
     mSprintSpeed    = 100;
     
     mSpriteSheet.setTextureRect(mSubRect);
+    mSpriteSheet.setPosition(xpos, ypos);
     mCurrentSprite.setPosition(0, 0);
 };
 
