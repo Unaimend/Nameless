@@ -41,7 +41,7 @@ void NpcAnimation::move(double frametime, int Endurance)
     mLPosX = mSpriteSheet.getPosition().x;
     mLPosY = mSpriteSheet.getPosition().y;
 
-    if (((mSpriteSheet.getPosition().x - mPlayer->getPlayerSpritePosX() < mAggroRange + 25 && mSpriteSheet.getPosition().x - mPlayer->getPlayerSpritePosX() > -(mAggroRange + 25)) && ((mSpriteSheet.getPosition().y - mPlayer->getPlayerSpritePosY() < mAggroRange +25 ) && mSpriteSheet.getPosition().y - mPlayer->getPlayerSpritePosY() > -(mAggroRange + 25))) )
+    if (((mSpriteSheet.getPosition().x - mPlayer->getPlayerSpritePosX() < 75 && mSpriteSheet.getPosition().x - mPlayer->getPlayerSpritePosX() > -75) && ((mSpriteSheet.getPosition().y - mPlayer->getPlayerSpritePosY() < 75) && mSpriteSheet.getPosition().y - mPlayer->getPlayerSpritePosY() > -75)) )
     {
         mAggroTime.restart();
     }
@@ -68,22 +68,22 @@ void NpcAnimation::move(double frametime, int Endurance)
             //mSpriteSheet.move(-100 * frametime, 0);
             mFollowRight = false;
         }
-        if (mSpriteSheet.getPosition().y - 100 < mPlayer->getPlayerSpritePosY() && mFollowDown == false && mAggroTime.getElapsedTime().asSeconds() < mAggroDuration)
+        if (mSpriteSheet.getPosition().y - 50 < mPlayer->getPlayerSpritePosY() && mFollowDown == false && mAggroTime.getElapsedTime().asSeconds() < mAggroDuration)
         {
             mFollowDown = true;
            
         }
-        if (mSpriteSheet.getPosition().y  + 100 > mPlayer->getPlayerSpritePosY() && mFollowUp == false && mAggroTime.getElapsedTime().asSeconds() < mAggroDuration)
+        if (mSpriteSheet.getPosition().y  + 50 > mPlayer->getPlayerSpritePosY() && mFollowUp == false && mAggroTime.getElapsedTime().asSeconds() < mAggroDuration)
         {
             mFollowUp = true;
            
         }
-        if (mSpriteSheet.getPosition().x + 100 > mPlayer->getPlayerSpritePosX() && mFollowLeft == false && mAggroTime.getElapsedTime().asSeconds() < mAggroDuration)
+        if (mSpriteSheet.getPosition().x + 50 > mPlayer->getPlayerSpritePosX() && mFollowLeft == false && mAggroTime.getElapsedTime().asSeconds() < mAggroDuration)
         {
             mFollowLeft = true;
       
         }
-        if (mSpriteSheet.getPosition().x - 100 < mPlayer->getPlayerSpritePosX()  && mFollowRight == false && mAggroTime.getElapsedTime().asSeconds() < mAggroDuration )
+        if (mSpriteSheet.getPosition().x - 50 < mPlayer->getPlayerSpritePosX()  && mFollowRight == false && mAggroTime.getElapsedTime().asSeconds() < mAggroDuration )
         {
             mFollowRight = true;
 
