@@ -49,8 +49,11 @@ public:
     float       mPlayTarDistance;
     int test1;
 private:
+    
+    
     Parser mParser;
     Animation *pPlayerAnimation;
+  
     Inventory mInventory;
     sf::Event mEvent;
     sf::Sprite PlayerPointer;
@@ -81,10 +84,9 @@ private:
     std::string mEnduranceString;
     sf::Text    mEnduranceText;
     sf::Clock   mEnduranceCLock;
+   
     
-  
-    
-    sf::RectangleShape mTestShape;
+    //sf::RectangleShape mTestShape;
     bool        mShoot = false;
     bool        mCalc = false;
 

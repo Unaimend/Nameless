@@ -85,6 +85,7 @@ void Maploader::renderTileLayer(sf::RenderWindow *window)
     {
          window->draw(*Sprites::pStraßenSprite);
     }
+   
     tempmapx++;
 }
 

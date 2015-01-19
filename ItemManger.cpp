@@ -155,8 +155,8 @@ ItemManger::ItemManger(Player& player)
     pTest31->setPositiond(sf::Vector2f(100,50));
     pTest31->setScale(1, 1);
     pTest31->setOnGound(true);
-    
-    pTestGun = new Gun_TestGun("/Users/Thomas/Desktop/iron helmet.png", 0,0,"PETER", 100, 100, 0.3, mShootVector,*mPlayer);
+   
+    pTestGun = new Gun_TestGun("/Users/Thomas/Desktop/iron_helmet.png", 0,0,"PETER", 100, 100, 0.3, mShootVector,*mPlayer);
     pTest->setOnGound(true);
 
     

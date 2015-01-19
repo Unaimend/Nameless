@@ -4,11 +4,18 @@
 Player::Player()
 {
     //Load Saved Data
-    mEndurance = std::stoi(mParser.mDataToLoad.at(1));
-    pPlayerAnimation->getSprite().setPosition(std::stof(mParser.mDataToLoad[2]), std::stof(mParser.mDataToLoad[3]));
 
+
+    
+ 
     pPlayerAnimation = new Animation(*Sprites::pPlayerSprite, 32 ,32, std::stof(mParser.mDataToLoad[2]), std::stof(mParser.mDataToLoad[3]));
-    mMagica         = 100;
+    mEndurance = std::stoi(mParser.mDataToLoad.at(1));
+
+
+
+    
+    
+      mMagica         = 100;
     mIsGoingDown    = pPlayerAnimation->getIsGoingDown();
     mIsGoingUp      = pPlayerAnimation->getIsGoingUp();
     mIsGoingLeft    = pPlayerAnimation->getIsGoingLeft();
@@ -41,9 +48,10 @@ Player::Player()
     mInventory.setInventoryPos(sf::Vector2f(300,500));
     mMousRec.setOrigin(mMousRec.getSize().x/2,mMousRec.getSize().y/2);
     
-    mTestShape.setPosition(std::stof(mParser.mDataToLoad[2]), std::stof(mParser.mDataToLoad[3]));
-    mTestShape.setSize(sf::Vector2f(5,5));
-    mTestShape.setOrigin(5/2, 5/2);
+   // mTestShape.setPosition(std::stof(mParser.mDataToLoad[2]), std::stof(mParser.mDataToLoad[3]));
+   // mTestShape.setSize(sf::Vector2f(5,5));
+    //mTestShape.setOrigin(5/2, 5/2);
+    
     
 };
 
@@ -70,7 +78,7 @@ void Player::render(sf::RenderWindow *window)
     mFixed.setSize(sf::Vector2f(mResX, mResY));
     window->setView(mView);
     pPlayerAnimation->render(window);
-    window->draw(mTestShape);
+   // window->draw(mTestShape);
     window->setView(mFixed);
 
     window->draw(mEnduranceText);
@@ -90,7 +98,10 @@ void Player::fixrender(sf::RenderWindow &window)
         mShoot = true;
         mCalc = true;
     }
-    if (mCalc) {
+    
+    
+    if (mCalc)
+    {
         mXmovement = mTarXDistance/mPlayTarDistance;
         mYmovement = mTarYDistance/mPlayTarDistance;
         
@@ -98,15 +109,15 @@ void Player::fixrender(sf::RenderWindow &window)
     }
     
     
-    
-    if (mShoot == true) {
-         mTestShape.move(mXmovement, mYmovement);
-    }
-    else
-    {
-        mTestShape.setPosition(pPlayerAnimation->getAnimationSpritePosX(), pPlayerAnimation->getAnimationSpritePosY());
-    }
-  
+//    if (mShoot == true)
+//    {
+//         mTestShape.move(mXmovement, mYmovement);
+//    }
+//    else
+//    {
+//        mTestShape.setPosition(pPlayerAnimation->getAnimationSpritePosX(), pPlayerAnimation->getAnimationSpritePosY());
+//    }
+//  
     window.draw(mMousRec);
 };
 

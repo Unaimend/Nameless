@@ -26,5 +26,7 @@ private:
     sf::Clock *pClock;
     sf::Sprite *pSprite;
     sf::Texture mTexture;
+    sf::IntRect mSubRect;
+    
        
 };

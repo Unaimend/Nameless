@@ -10,7 +10,7 @@
 
 Testitem::Testitem()
 {
-    mTexture.loadFromFile("/Users/Thomas/Desktop/iron helmet.png");
+    mTexture.loadFromFile("/Users/Thomas/Desktop/iron_helmet.png");
     mSprite.setTexture(mTexture);
 
        // mWindow = &window;

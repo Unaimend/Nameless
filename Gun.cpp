@@ -13,6 +13,7 @@ Gun::Gun(std::string texture, double xpos, double ypos, std::string name, int ID
     mDamage = damage;
     mCooldown = cooldown;
     
+    
 };
 
 Gun::~Gun()

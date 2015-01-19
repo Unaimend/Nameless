@@ -74,12 +74,12 @@ void Framework::Update(double frametime)
 {
 
     getFPS();
-    mPlayer1.update(mFrameTime);
+   mPlayer1.update(mFrameTime);
     pNPC_01->update(mFrameTime);
-    //mPlayerMagicSystem.update(mFrameTime);
+    mPlayerMagicSystem.update(mFrameTime);
     pItemManager->update(mPlayer1, mFrameTime);
     pEnemyManger->update(mFrameTime);
-    mView.setCenter(mPlayer1.getPlayerSpritePosX(), mPlayer1.getPlayerSpritePosY());
+   mView.setCenter(mPlayer1.getPlayerSpritePosX(), mPlayer1.getPlayerSpritePosY());
     mFixed.setCenter(mAuflösungsBreite/2, mAuflösungsHöhe/2  );
     fpsString = std::to_string(*fpS);
 }

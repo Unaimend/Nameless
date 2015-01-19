@@ -22,48 +22,49 @@ public:
     Parser()
     {
         pIfStream = new std::ifstream("Save.txt");
-       
+
         readData();
-        
+
         pIfStream->close();
-         std::cout << "CALEED" << std::endl;
+        
         pOfStream = new std::ofstream("Save.txt");
     };
     ~Parser()
     {
          pOfStream->close();
     };
-    
+
     void saveData(std::string name, std::string value)
     {
-         
-        *pOfStream <<name + value + "\n";
-       
+
+        *pOfStream << name + value + "\n";
+
         std::cout << "DATA SAVED" << std::endl;
     };
     void readData()
-    { 
-        std::cout << "FUNC CALL2" << std::endl;
+    {
+        
         while (std::getline(*pIfStream,mData))
         {
             for(unsigned int i = 0; i < strlen(chars); ++i)
             {
                 // you need include <algorithm> to use general algorithms like std::remove()
                 mData.erase (std::remove(mData.begin(), mData.end(), chars[i]), mData.end());
+                //Kommatas löschen um casten von string zu einem anderen Typ zu ermöglichen.
             }
 
             mDataToLoad.push_back(mData);
-           
+
         }
-        
-        
+
+
     };
     std::vector<std::string> mDataToLoad;
-        std::string mData;
+    std::string mData;
 private:
     std::ofstream *pOfStream;
     std::ifstream *pIfStream;
-    
+
 
     int test = 12;
     char chars[3] {","};

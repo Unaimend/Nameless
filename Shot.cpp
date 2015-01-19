@@ -4,12 +4,19 @@
 Shot::Shot(sf::Vector2f direction, sf::Vector2f position, std::string texture, int speed, float winkel)
 {
     mTexture.loadFromFile(texture);
-    pSprite = new sf::Sprite;
+    
+  
+    
+    mSubRect.top = 0;
+    mSubRect.left = 0;
+    mSubRect.width = 8;
+    mSubRect.height = 8;
+
+    pSprite = new sf::Sprite(mTexture, mSubRect);
     pSprite->setTexture(mTexture);
-    pSprite->setScale(0.1, 1);
+    pSprite->setScale(1, 1);
     pSprite->setOrigin(mTexture.getSize().x/2, mTexture.getSize().y/2);
     pSprite->setPosition(position);
-    
     
     mDirection = direction;
     pClock = new sf::Clock;
