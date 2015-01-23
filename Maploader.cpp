@@ -9,7 +9,9 @@ Maploader::Maploader(std::string filepath, int Mapheigth, int Mapwidth)
     temporaryMap        = "0";
     mMapVektorIterator  = mMapVektor.begin();
     pMap                = new std::ifstream(mFilepath);
-    //loadMap();
+    
+    Sprites::pWohnBlock_01->setPosition(420, 190);
+    loadMap();
     loadMap2();
     
  
@@ -39,74 +41,101 @@ void Maploader::render(sf::RenderWindow *window)
     
 }
 
+
 void Maploader::renderTileLayer(sf::RenderWindow *window)
 {
-
-    for(auto it : TileMap)
+    
+    
+    
+    
+    for(auto it : mMapVektor)
     {
-   
-    if (tempmapx == 20) { //Wenn der Counter == Anzahl der max Tiles bestimmt durch die Mapbreite
-        tempmapy++;                 //dann erhöhe die Y-Anzahl um 1 und sezte die X-Anzahl auf 0 damit von
-        tempmapx = 0;               //links gezeichnet wird
-    }
-    if (tempmapy == 20) {    //Wenn du ganz unten bist fange wieder oben an.
-        tempmapy = 0;
-    }
-        
-        
         Sprites::WasserSprite.setPosition(tempmapx*16, tempmapy*16);
         Sprites::pWegSprite->setPosition(tempmapx*16, tempmapy*16);
         Sprites::pGrasSprite->setPosition(tempmapx*16, tempmapy*16);
         Sprites::pGrasSpriteOL->setPosition(tempmapx*16, tempmapy*16);
-        Sprites::pGrasSpriteOBEN->setPosition (tempmapx*16, tempmapy*16);
+        Sprites::pGrasSpriteOBEN->setPosition(tempmapx*16, tempmapy*16);
         Sprites::pGrasSpriteUNTEN->setPosition(tempmapx*16, tempmapy*16);
         Sprites::BlackSprite.setPosition(tempmapx*16, tempmapy*16);
         Sprites::pStraßenSprite->setPosition(tempmapx*16, tempmapy*16);
-    //LOL DIE MAP IST(X)21
-    if(it == "78")
-    {
-        window->draw(*Sprites::pStraßenSprite);
-    }
-    else if(it == "34")
-    {
-        window->draw(*Sprites::pGrasSprite);
-    }
-    else if (it == "35")
-    {
-        window->draw(*Sprites::pWegSprite);
-    }
-//    else if (it == "92") {
-//        window->draw(*Sprites::pStraßenSprite);
-//    }
-//    else if (it == "32") {
-//        window->draw(*Sprites::pStraßenSprite);
-//    }
-//    else if (it == "42") {
-//        window->draw(*Sprites::pStraßenSprite);
-//    }
-//    else if(it == "77")
-//    {
-//         window->draw(*Sprites::pStraßenSprite);
-//    }
-//    else if(it == "43")
-//    {
-//        window->draw(*Sprites::pGrasSprite);
-//    }
-    else
-    {
-        window->draw(Sprites::BlackSprite);
-    }
+        Sprites::pBeton->setPosition(tempmapx*16, tempmapy*16);
+        Sprites::pMittelSauberSprite->setPosition(tempmapx*16, tempmapy*16);
+        Sprites::pBürgerSteigObenMitte->setPosition(tempmapx*16, tempmapy*16);
+        Sprites::pBürgerSteigUntenMitte->setPosition(tempmapx*16, tempmapy*16);
+        Sprites::pKreuzung->setPosition(tempmapx*16, tempmapy*16);
+        Sprites::pBürgerSteigLinks->setPosition(tempmapx*16, tempmapy*16);
+        Sprites::pBürgerSteigRechts->setPosition(tempmapx*16, tempmapy*16);
+        Sprites::pMittelHochSauberSprite->setPosition(tempmapx*16, tempmapy*16);
+        Sprites::pKurveLinks->setPosition(tempmapx*16, tempmapy*16);
+        Sprites::pKurveRechts->setPosition(tempmapx*16, tempmapy*16);
+        if (tempmapx == mMapwidth/16 ) { //Wenn der Counter == Anzahl der max Tiles bestimmt durch die Mapbreite
+            tempmapy++;                 //dann erhöhe die Y-Anzahl um 1 und sezte die X-Anzahl auf 0 damit von
+            tempmapx = 0;               //links gezeichnet wird
+        }
+        if (tempmapy == mMapheigth/16)  {    //Wenn du ganz unten bist fange wieder oben an.
+            tempmapy = 0;
+        }
+    
+        if(it == "0")
+        {
+            window->draw(*Sprites::pStraßenSprite);
+        }
+        else if(it == "1")
+        {
+            window->draw(Sprites::WasserSprite);
+        }
+        else if (it == "2") {
+            window->draw(*Sprites::pBeton);
+        }
+        else if (it == "3") {
+            window->draw(*Sprites::pMittelSauberSprite);
+        }
+        else if (it == "4") {
+            window->draw(*Sprites::pBürgerSteigObenMitte);
+        }
+        else if (it == "5") {
+            window->draw(*Sprites::pBürgerSteigUntenMitte);
+        }
+        else if (it == "6") {
+            window->draw(*Sprites::pBürgerSteigLinks);
+        }
+        else if (it == "7") {
+            window->draw(*Sprites::pBürgerSteigRechts);
+        }
+        else if (it == "8") {
+            window->draw(*Sprites::pMittelHochSauberSprite);
+        }
+        else if (it == "9") {
+            window->draw(*Sprites::pKurveLinks);
+        }
+        else if (it == "10") {
+            window->draw(*Sprites::pKurveRechts);
+        }
+        else if (it == "98") {
+            window->draw(*Sprites::pWohnBlock_01);
+        }
+        else if (it == "99") {
+            window->draw(*Sprites::pKreuzung);
+        }
+        else if(it == "-1")
+        {
+            window->draw(Sprites::BlackSprite);
+        }
+        tempmapx++;
         
-    tempmapx++;
+    }
+
+
+
 }
 
 
-};
+
 
 
 void Maploader::loadMap2()
 {
-        teststream = new std::ifstream("/Users/Thomas/Desktop/TestMaps/TEST 2.txt");
+        teststream = new std::ifstream("/Users/Thomas/Desktop/TestMaps/Test 2.txt");
         
         
         //Könnte bei größeren Maps Probleme verursachen
@@ -249,50 +278,76 @@ void Maploader::loadMap2()
 
 
 
-//{
-//    for(auto it : mMapVektor)
-//    {
-//        Sprites::WasserSprite.setPosition(tempmapx*16, tempmapy*16);
-//        Sprites::pWegSprite->setPosition(tempmapx*16, tempmapy*16);
-//        Sprites::pGrasSprite->setPosition(tempmapx*16, tempmapy*16);
-//        Sprites::pGrasSpriteOL->setPosition(tempmapx*16, tempmapy*16);
-//        Sprites::pGrasSpriteOBEN->setPosition(tempmapx*16, tempmapy*16);
-//        Sprites::pGrasSpriteUNTEN->setPosition(tempmapx*16, tempmapy*16);
-//        Sprites::BlackSprite.setPosition(tempmapx*16, tempmapy*16);
-//        Sprites::pStraßenSprite->setPosition(tempmapx*16, tempmapy*16);
-//        if (tempmapx == mMapwidth/16) { //Wenn der Counter == Anzahl der max Tiles bestimmt durch die Mapbreite
-//            tempmapy++;                 //dann erhöhe die Y-Anzahl um 1 und sezte die X-Anzahl auf 0 damit von
-//            tempmapx = 0;               //links gezeichnet wird
-//        }
-//        if (tempmapy == mMapheigth/16) {    //Wenn du ganz unten bist fange wieder oben an.
-//            tempmapy = 0;
-//        }
-//
-//        if(it == "0")
-//        {
-//            window->draw(*Sprites::pStraßenSprite);
-//        }
-//        else if(it == "1")
-//        {
-//            window->draw(*Sprites::pStraßenSprite);
-//        }
-//        else if (it == "2") {
-//            window->draw(*Sprites::pWegSprite);
-//        }
-//        else if (it == "3") {
-//            window->draw(*Sprites::pGrasSpriteOL);
-//        }
-//        else if (it == "4") {
-//            window->draw(*Sprites::pGrasSpriteOBEN);
-//        }
-//        else if (it == "5") {
-//            window->draw(*Sprites::pGrasSpriteUNTEN);
-//        }
-//        else if(it == "-1")
-//        {
-//            window->draw(Sprites::BlackSprite);
-//        }
-//        tempmapx++;
-//    }
 
+
+
+
+
+
+
+
+
+
+
+
+
+//for(auto it : TileMap)
+//{
+//    
+//    if (tempmapx == 20) { //Wenn der Counter == Anzahl der max Tiles bestimmt durch die Mapbreite
+//        tempmapy++;                 //dann erhöhe die Y-Anzahl um 1 und sezte die X-Anzahl auf 0 damit von
+//        tempmapx = 0;               //links gezeichnet wird
+//    }
+//    if (tempmapy == 20) {    //Wenn du ganz unten bist fange wieder oben an.
+//        tempmapy = 0;
+//    }
+//    
+//    
+//    Sprites::WasserSprite.setPosition(tempmapx*16, tempmapy*16);
+//    Sprites::pWegSprite->setPosition(tempmapx*16, tempmapy*16);
+//    Sprites::pGrasSprite->setPosition(tempmapx*16, tempmapy*16);
+//    Sprites::pGrasSpriteOL->setPosition(tempmapx*16, tempmapy*16);
+//    Sprites::pGrasSpriteOBEN->setPosition (tempmapx*16, tempmapy*16);
+//    Sprites::pGrasSpriteUNTEN->setPosition(tempmapx*16, tempmapy*16);
+//    Sprites::BlackSprite.setPosition(tempmapx*16, tempmapy*16);
+//    Sprites::pStraßenSprite->setPosition(tempmapx*16, tempmapy*16);
+//    //LOL DIE MAP IST(X)21
+//    tempmapx++;
+//    if(it == "78")
+//    {
+//        window->draw(*Sprites::pStraßenSprite);
+//    }
+//    else if(it == "34")
+//    {
+//        window->draw(*Sprites::pGrasSprite);
+//    }
+//    else if (it == "35")
+//    {
+//        window->draw(Sprites::WasserSprite);
+//    }
+//    else if (it == "77")
+//    {
+//        window->draw(*Sprites::pWegSprite);
+//    }
+//    //    else if (it == "32") {
+//    //        window->draw(*Sprites::pStraßenSprite);
+//    //    }
+//    //    else if (it == "42") {
+//    //        window->draw(*Sprites::pStraßenSprite);
+//    //    }
+//    //    else if(it == "77")
+//    //    {
+//    //         window->draw(*Sprites::pStraßenSprite);
+//    //    }
+//    //    else if(it == "43")
+//    //    {
+//    //        window->draw(*Sprites::pGrasSprite);
+//    //    }
+//    else
+//    {
+//        window->draw(Sprites::BlackSprite);
+//    }
+//    
+//}
+//
 

@@ -37,8 +37,8 @@ private:
     std::vector<std::string> mMapVektor;
     std::vector<std::string>::iterator mMapVektorIterator;
     int mMapheigth, mMapwidth;
-    int tempmapx = 0;
-    int tempmapy = 0;
+    int tempmapx = 1;   //ER FUNKTIONIERT BEI1 , beim alten Loader
+    int tempmapy = 0;   //FUNKTIONIERT bei 0,beim alten Loader
 
     float grasscolor = 255;
     

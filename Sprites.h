@@ -31,6 +31,9 @@ protected:
     sf::Texture NPCZombieTexture;
     sf::Texture BlackTexture;
     sf::Texture mStraßenTexture;
+    sf::Texture mBetonTexture;
+    sf::Texture mMittelSauber;
+    sf::Texture mWohnBlock_01;
     
     sf::Sprite  NPCZombieSprite;
     sf::Sprite  WasserSprite;
@@ -45,7 +48,17 @@ protected:
     sf::Sprite *pNPCHolzfällerSprite;
     sf::Sprite BlackSprite;
     sf::Sprite  *pStraßenSprite;
-    
+    sf::Sprite *pBeton;
+    sf::Sprite *pMittelSauberSprite;
+    sf::Sprite *pMittelHochSauberSprite;
+    sf::Sprite *pBürgerSteigObenMitte;
+    sf::Sprite *pBürgerSteigUntenMitte;
+    sf::Sprite  *pKreuzung;
+    sf::Sprite  *pWohnBlock_01;
+    sf::Sprite  *pBürgerSteigLinks;
+    sf::Sprite  *pBürgerSteigRechts;
+    sf::Sprite  *pKurveLinks;
+    sf::Sprite  *pKurveRechts;
   
 
 };

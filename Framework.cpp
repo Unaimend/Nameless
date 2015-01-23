@@ -12,6 +12,9 @@ Framework::Framework()
     pRenderWindow->setFramerateLimit(60);
     pMainEvent      = new sf::Event;
     pClock          = new sf::Clock;
+    mPlayer1.setAuflösungsBreite(mAuflösungsBreite);
+    mPlayer1.setAuflösungsHöhe(mAuflösungsHöhe);
+    mPlayer1.setStartPos(sf::Vector2f(0,0));
     pMap            = new Maploader("Map.txt", mAuflösungsHöhe, mAuflösungsBreite);
     pNPC_01         = new NPC(mPlayer1, *Sprites::pNPCHolzfällerSprite, 290,510, "Hallo mein, \nName ist Willfried. \nWillkommen in unserem \nbescheidenen Dorf.\n ","Ich bin der FUUUEEEEHHHHRER.","Die Hauser werden\nnoch geliefert.","Keine Ahnung", "Da wo deine Mama ist, hahahaha.", "Wilfired", "Ahh, du bists wieder." );
     mRun            = true;
@@ -21,9 +24,7 @@ Framework::Framework()
 
     pLog->writeToFile("Fenster und Restliche Grundfunktionen initialisiert");
 
-    mPlayer1.setAuflösungsBreite(mAuflösungsBreite);
-    mPlayer1.setAuflösungsHöhe(mAuflösungsHöhe);
-    mPlayer1.setStartPos(sf::Vector2f(0,0));
+   
 
     mPlayerMagicSystem.setPlayer(mPlayer1);
     mPlayerMagicSystem.setMagicka(mPlayer1.getMagicka());

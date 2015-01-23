@@ -39,7 +39,6 @@ private:
     void                loadMap2();
     float               getFrameTime();
     void               getFPS();
-    
     sf::View            mView;
     sf::View            mFixed;
     sf::RenderWindow    *pRenderWindow;
@@ -47,11 +46,11 @@ private:
     sf::Clock           *pClock;
     sf::Clock           clock2;
     Logfile             *pLog;
-    Player              mPlayer1;
     Maploader           *pMap;
     NPC                 *pNPC_01;
     MagicSystem         mPlayerMagicSystem;
     EnemyManager        *pEnemyManger;
+    Player              mPlayer1;
     double              mFrameTime;
     bool                mRun;
     int                 Mapheigth;

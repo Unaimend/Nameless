@@ -23,6 +23,8 @@ Sprites::Sprites()
     
     if(mStraßenTexture.loadFromFile("Straße.png"))
         pLog->writeToFile("Straßee geladen");
+    mWohnBlock_01.loadFromFile("/Users/Thomas/Google Drive/Game/Grafiken/Objekte/Wohnblock -1.png");
+    mBetonTexture.loadFromFile("Straße.png");
     
     NPCZombieSprite.setTexture(NPCZombieTexture);
     BlackSprite.setTexture(BlackTexture);
@@ -80,6 +82,72 @@ Sprites::Sprites()
     
     pStraßenSprite = new sf::Sprite(mStraßenTexture, mSubRect);
    
+    mSubRect.left = 16;
+    mSubRect.top = 0;
+    mSubRect.width = 16;
+    mSubRect.height = 16;
+    
+    pBeton = new sf::Sprite(mBetonTexture, mSubRect);
+    
+    mSubRect.left = 0;
+    mSubRect.top = 32;
+    pMittelSauberSprite = new sf::Sprite(mBetonTexture, mSubRect);
+    
+    mSubRect.left = 48;
+    mSubRect.top = 80;
+    pBürgerSteigObenMitte = new sf::Sprite(mBetonTexture, mSubRect);
+    
+    mSubRect.left = 48;
+    mSubRect.top = 16;
+    pBürgerSteigUntenMitte = new sf::Sprite(mBetonTexture, mSubRect);
+    
+    mSubRect.left = 80;
+    mSubRect.top = 0;
+    pKreuzung = new sf::Sprite(mBetonTexture, mSubRect);
+    
+    mSubRect.top = 0;
+    mSubRect.left = 0;
+    mSubRect.width = 130;
+    mSubRect.height = 160;
+    
+    pWohnBlock_01 = new sf::Sprite(mWohnBlock_01, mSubRect);
+    
+    mSubRect.top = 48;
+    mSubRect.left = 16;
+    mSubRect.width = 16;
+    mSubRect.height = 16;
+    
+    pBürgerSteigLinks = new sf::Sprite(mBetonTexture, mSubRect);
+    mSubRect.top = 48;
+    mSubRect.left = 80;
+    mSubRect.width = 16;
+    mSubRect.height = 16;
+    
+    pBürgerSteigRechts = new sf::Sprite(mBetonTexture, mSubRect);
+    
+    mSubRect.top = 0;
+    mSubRect.left = 64;
+    mSubRect.width = 16;
+    mSubRect.height = 16;
+    
+    pMittelHochSauberSprite = new sf::Sprite(mBetonTexture, mSubRect);
+    
+    mSubRect.top = 64;
+    mSubRect.left = 80;
+    mSubRect.width = 16;
+    mSubRect.height = 16;
+    
+    pKurveLinks = new sf::Sprite(mBetonTexture, mSubRect);
+    
+    
+    mSubRect.top = 64;
+    mSubRect.left = 16;
+    mSubRect.width = 16;
+    mSubRect.height = 16;
+    
+    pKurveRechts = new sf::Sprite(mBetonTexture, mSubRect);
+    
+    
     pLog->writeToFile("Alle Sprites geladen");
     pLog->closeFile();
    

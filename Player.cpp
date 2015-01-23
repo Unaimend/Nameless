@@ -65,6 +65,8 @@ Player::~Player()
 };
 void Player::render(sf::RenderWindow *window)
 {
+    //DEBUG AUSAUDER AUFM 100
+    mEndurance = 100;
     mMousePos = sf::Mouse::getPosition(*window);
     mRealMousePos = window->mapPixelToCoords(mMousePos);
     mTarXDistance = mRealMousePos.x-pPlayerAnimation->getAnimationSpritePosX();
