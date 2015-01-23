@@ -36,12 +36,12 @@ public:
     
     float getInvPosX(){return mInventory.getInventoryPos().x;};
     float getInvPosY(){return mInventory.getInventoryPos().y;};
-    bool getIsGoingRight(){return mIsGoingRight;};
-    bool getIsGoingLeft(){return mIsGoingLeft;};
+    bool  getIsGoingRight(){return mIsGoingRight;};
+    bool  getIsGoingLeft(){return mIsGoingLeft;};
     bool getIsGoingUp(){return mIsGoingUp;};
     bool getIsGoingDown(){return mIsGoingDown;};
     bool getInventoryVis(){return mInventory.getInvVisibility();};
-    int getMagicka(){return mMagica;};
+    int  getMagicka(){return mMagica;};
     float       mXmovement;
     float       mYmovement;
     float       mTarXDistance;
@@ -62,12 +62,12 @@ private:
     sf::Vector2i        mMousePos;
     sf::Vector2f        mRealMousePos;
     sf::RectangleShape  mMousRec;
-    sf::Font mFont;
-    float mPlayerPositionX      = 100;
-    float mPlayerPositionY      = 100;
-    double mFrametime;
-    int mResY, mResX;
-    bool  mShowInventory        = false;
+    sf::Font    mFont;
+    float       mPlayerPositionX      = 100;
+    float       mPlayerPositionY      = 100;
+    double      mFrametime;
+    int         mResY, mResX;
+    bool        mShowInventory        = false;
     bool        mIsStanding     = false;
     bool        mIsGoingRight;
     bool        mIsGoingLeft;

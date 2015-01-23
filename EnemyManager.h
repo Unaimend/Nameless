@@ -24,6 +24,7 @@ private:
     Player *mPlayer;
     Zombie *pTest;
     Zombie *pTest2;
+    Zombie *pTest3;
     std::vector<Shot*> *ShootVec;
 };
 

@@ -15,8 +15,10 @@ EnemyManager::EnemyManager(Player& player,std::vector<Shot*> *mShootVec)
     mPlayer = &player;
     pTest = new Zombie(Sprites::NPCZombieSprite, *mPlayer, "Zombie", 100,0,500,500, 0, 1000, 3, 150);
     pTest2 = new Zombie(Sprites::NPCZombieSprite, *mPlayer, "Zombie", 100,200,500,500, 0, 1000, 3, 150);
+    pTest3 = new Zombie(Sprites::NPCZombieSprite, *mPlayer, "Zombie", 123,132,500,500, 0, 1000, 3, 150);
     mEnemyVector.push_back(pTest);
     mEnemyVector.push_back(pTest2);
+    mEnemyVector.push_back(pTest3);
     ShootVec = mShootVec;
 };
 

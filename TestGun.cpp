@@ -22,7 +22,7 @@ void Gun_TestGun::render(sf::RenderWindow& window)
 
 void Gun_TestGun::fire(sf::Vector2f playerpos, sf::Vector2f targetpos, float xdis, float ptdis)
 {
-    Shot *pp = new Shot(targetpos, playerpos,"/Users/Thomas/Google Drive/Game/Grafiken/Objekte/LaserShoot01.png" ,100, sin(xdis/ptdis) * 180/3.141);
+    Shot *pp = new Shot(targetpos, sf::Vector2f(this->getPositionX(),this->getPositionY()),"/Users/Thomas/Google Drive/Game/Grafiken/Objekte/LaserShoot01.png" ,100, sin(xdis/ptdis) * 180/3.1415);
     pShootVector->push_back(pp);
    
 };

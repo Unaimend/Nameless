@@ -44,14 +44,7 @@ void Maploader::renderTileLayer(sf::RenderWindow *window)
 
     for(auto it : TileMap)
     {
-    Sprites::WasserSprite.setPosition(tempmapx*16, tempmapy*16);
-    Sprites::pWegSprite->setPosition(tempmapx*16, tempmapy*16);
-    Sprites::pGrasSprite->setPosition(tempmapx*16, tempmapy*16);
-    Sprites::pGrasSpriteOL->setPosition(tempmapx*16, tempmapy*16);
-    Sprites::pGrasSpriteOBEN->setPosition(tempmapx*16, tempmapy*16);
-    Sprites::pGrasSpriteUNTEN->setPosition(tempmapx*16, tempmapy*16);
-    Sprites::BlackSprite.setPosition(tempmapx*16, tempmapy*16);
-    Sprites::pStraßenSprite->setPosition(tempmapx*16, tempmapy*16);
+   
     if (tempmapx == 20) { //Wenn der Counter == Anzahl der max Tiles bestimmt durch die Mapbreite
         tempmapy++;                 //dann erhöhe die Y-Anzahl um 1 und sezte die X-Anzahl auf 0 damit von
         tempmapx = 0;               //links gezeichnet wird
@@ -59,33 +52,51 @@ void Maploader::renderTileLayer(sf::RenderWindow *window)
     if (tempmapy == 20) {    //Wenn du ganz unten bist fange wieder oben an.
         tempmapy = 0;
     }
-    
-    if(it == "33")
+        
+        
+        Sprites::WasserSprite.setPosition(tempmapx*16, tempmapy*16);
+        Sprites::pWegSprite->setPosition(tempmapx*16, tempmapy*16);
+        Sprites::pGrasSprite->setPosition(tempmapx*16, tempmapy*16);
+        Sprites::pGrasSpriteOL->setPosition(tempmapx*16, tempmapy*16);
+        Sprites::pGrasSpriteOBEN->setPosition (tempmapx*16, tempmapy*16);
+        Sprites::pGrasSpriteUNTEN->setPosition(tempmapx*16, tempmapy*16);
+        Sprites::BlackSprite.setPosition(tempmapx*16, tempmapy*16);
+        Sprites::pStraßenSprite->setPosition(tempmapx*16, tempmapy*16);
+    //LOL DIE MAP IST(X)21
+    if(it == "78")
     {
         window->draw(*Sprites::pStraßenSprite);
     }
-    else if(it == "78")
+    else if(it == "34")
     {
-        window->draw(*Sprites::pStraßenSprite);
+        window->draw(*Sprites::pGrasSprite);
     }
-    else if (it == "89")
+    else if (it == "35")
     {
-        window->draw(*Sprites::pStraßenSprite);
+        window->draw(*Sprites::pWegSprite);
     }
-    else if (it == "92") {
-        window->draw(*Sprites::pStraßenSprite);
-    }
-    else if (it == "32") {
-        window->draw(*Sprites::pStraßenSprite);
-    }
-    else if (it == "42") {
-        window->draw(*Sprites::pStraßenSprite);
-    }
-    else if(it == "77")
+//    else if (it == "92") {
+//        window->draw(*Sprites::pStraßenSprite);
+//    }
+//    else if (it == "32") {
+//        window->draw(*Sprites::pStraßenSprite);
+//    }
+//    else if (it == "42") {
+//        window->draw(*Sprites::pStraßenSprite);
+//    }
+//    else if(it == "77")
+//    {
+//         window->draw(*Sprites::pStraßenSprite);
+//    }
+//    else if(it == "43")
+//    {
+//        window->draw(*Sprites::pGrasSprite);
+//    }
+    else
     {
-         window->draw(*Sprites::pStraßenSprite);
+        window->draw(Sprites::BlackSprite);
     }
-   
+        
     tempmapx++;
 }
 
@@ -95,7 +106,7 @@ void Maploader::renderTileLayer(sf::RenderWindow *window)
 
 void Maploader::loadMap2()
 {
-        teststream = new std::ifstream("/Users/Thomas/Desktop/TestMaps/TEST2 2.txt");
+        teststream = new std::ifstream("/Users/Thomas/Desktop/TestMaps/TEST 2.txt");
         
         
         //Könnte bei größeren Maps Probleme verursachen

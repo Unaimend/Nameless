@@ -22,12 +22,12 @@ while (window->pollEvent(event))
 {////////////////////////////////////////////////////////////
     if (event.type == sf::Event::TextEntered) {//
         unicode = event.text.unicode;           //
-        unicode = static_cast<char>(unicode);
-        if (test.find(unicode) < 100    )
+        unicode = static_cast<  char>(unicode);
+        if (test.find(unicode) < 100 )
         {
             std::cout << unicode << std::endl;
         }
 }*/
 
 
-//TODO(Thomas) Change the Maprenderer Iterator so that it reads two values e.g. "83" instead of "8" and then "3";
+//Das komplette Tilesystem neuschreiben so, dass jedes Tile einer Klasse entspricht von der ich die Position und Art abfragen kann, damit ich spezielle bereiche wie Spawnareas, Zäune etc erstellen kann, denn dadurch kann man easy colision etc. machen.

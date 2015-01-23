@@ -303,19 +303,15 @@ void ItemManger::setItemPositions()
 {
     for (mItemsIter = mAllItems.begin(); mItemsIter != mAllItems.end(); mItemsIter++)
     {
-       
-           
-                if (mIvenCOunterAll > 0)
-                {
+            if (mIvenCOunterAll > 0)
+            {
 //                    mItemsIter->setScale(2, 2);
 //                    mItemsIter->setOnGound(false);
-                    
-                    if (mItemsIter->getOnGround() == false)
-                    {
-                        mItemsIter->setPositiond(sf::Vector2f(mPlayer->getInvPosX() + 56 * (mIvenCOunterAll % 5)  ,mPlayer->getInvPosY() + 56 * int(mIvenCOunterAll / 5)));
-                    }
-                   
+                if (mItemsIter->getOnGround() == false)
+                {
+                    mItemsIter->setPositiond(sf::Vector2f(mPlayer->getInvPosX() + 56 * (mIvenCOunterAll % 5)  ,mPlayer->getInvPosY() + 56 * int(mIvenCOunterAll / 5)));
                 }
+            }
     }
     
 

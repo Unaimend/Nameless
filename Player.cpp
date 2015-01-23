@@ -15,7 +15,7 @@ Player::Player()
 
     
     
-      mMagica         = 100;
+    mMagica         = 100;
     mIsGoingDown    = pPlayerAnimation->getIsGoingDown();
     mIsGoingUp      = pPlayerAnimation->getIsGoingUp();
     mIsGoingLeft    = pPlayerAnimation->getIsGoingLeft();
@@ -48,8 +48,8 @@ Player::Player()
     mInventory.setInventoryPos(sf::Vector2f(300,500));
     mMousRec.setOrigin(mMousRec.getSize().x/2,mMousRec.getSize().y/2);
     
-   // mTestShape.setPosition(std::stof(mParser.mDataToLoad[2]), std::stof(mParser.mDataToLoad[3]));
-   // mTestShape.setSize(sf::Vector2f(5,5));
+    //mTestShape.setPosition(std::stof(mParser.mDataToLoad[2]), std::stof(mParser.mDataToLoad[3]));
+    //mTestShape.setSize(sf::Vector2f(5,5));
     //mTestShape.setOrigin(5/2, 5/2);
     
     
@@ -169,7 +169,6 @@ void Player::update(double frametime)
     
     mView.setCenter(pPlayerAnimation->getSprite().getPosition().x, pPlayerAnimation->getSprite().getPosition().y);
     mFixed.setCenter(mResX/2, mResY/2  );
-    
 };
 
 void Player::eventHandling(sf::Event event)
