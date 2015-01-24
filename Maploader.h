@@ -13,11 +13,13 @@
 #include <vector>
 #include <fstream>
 #include <type_traits>
+#include "Tiles.h"
+#include "Player.h"
 class   Maploader : Sprites
 {
 
 public:
-    Maploader(std::string filepath, int Mapheigth, int Mapwidth);
+    Maploader(std::string filepath, int Mapheigth, int Mapwidth, Player& player);
     ~Maploader();
     std::vector<std::string> getMapVektor(){return mMapVektor;};
     void render(sf::RenderWindow *window);
@@ -61,7 +63,8 @@ private:
     std::string heigth, width;              //Höhe und Breite der Map, wir später zu Int konvertiert.
     std::vector<std::string> TileMap;       //Enthält die fertige Map, die bereit zum rendern ist.
     std::vector<std::string> ObjectMap;
-    
+    std::vector<Tile*> mNewVector;
+    Player* mPlayer;
     
     std::string nwstring = "";
     int iheigth;

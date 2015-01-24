@@ -14,24 +14,32 @@
 class Tile
 {
 public:
-    Tile(bool isdoor, int xtele, int ytele, int xpos, int ypos, bool iscollider);
-    virtual ~Tile();
-    virtual void    render(sf::RenderWindow& window);
-    virtual void    update();
-    virtual int     getID();
-    virtual float   getPosX();
-    virtual float   getPosY();
-    virtual bool    getIsCollission();
+    
+    Tile()
+    {
+    };
+    Tile(bool isdoor, int xtele, int ytele, int xpos, int ypos, bool iscollider, sf::Sprite sprite) :
+    mIsDoor(isdoor), mTeleportToX(xtele), mTeleportToY(ytele), mPosX(xpos), mPosY(ypos),
+    mIsCollider(iscollider), mSprite(sprite)
+    {
+    };
+    
+    ~Tile(){};
+    virtual void    render(sf::RenderWindow& window) = 0;
+    virtual void    update() = 0;
+    float           getPosX(){};
+    float           getPosY(){};
+    bool            getIsCollission(){};
 
     
 
 private:
-    bool    mIsDoor;
-    int     mTeleportToX;
-    int     mTeleportToY; //Die Koordinaten zu den telportiert wird, wenn's ne Tür ist
-    float   mPosX;
-    float   mPosY;
-    bool    mIsCollider;
-    int     mID;
+    bool        mIsDoor;
+    int         mTeleportToX;
+    int         mTeleportToY; //Die Koordinaten zu den telportiert wird, wenn's ne Tür ist
+    float       mPosX;
+    float       mPosY;
+    bool        mIsCollider;
+    sf::Sprite mSprite;
 };
 #endif /* defined(__Nameless__Tiles__) */

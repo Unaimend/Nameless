@@ -1,7 +1,7 @@
 #include "Maploader.h"
 #include <Logfile.h>
 
-Maploader::Maploader(std::string filepath, int Mapheigth, int Mapwidth)
+Maploader::Maploader(std::string filepath, int Mapheigth, int Mapwidth, Player& player)
 {
     mMapheigth          = Mapheigth;
     mMapwidth           = Mapwidth;
@@ -10,6 +10,7 @@ Maploader::Maploader(std::string filepath, int Mapheigth, int Mapwidth)
     mMapVektorIterator  = mMapVektor.begin();
     pMap                = new std::ifstream(mFilepath);
     
+    mPlayer = &player;
     Sprites::pWohnBlock_01->setPosition(420, 190);
     loadMap();
     loadMap2();

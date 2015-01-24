@@ -15,7 +15,7 @@ Framework::Framework()
     mPlayer1.setAuflösungsBreite(mAuflösungsBreite);
     mPlayer1.setAuflösungsHöhe(mAuflösungsHöhe);
     mPlayer1.setStartPos(sf::Vector2f(0,0));
-    pMap            = new Maploader("Map.txt", mAuflösungsHöhe, mAuflösungsBreite);
+    pMap            = new Maploader("Map.txt", mAuflösungsHöhe, mAuflösungsBreite, mPlayer1);
     pNPC_01         = new NPC(mPlayer1, *Sprites::pNPCHolzfällerSprite, 290,510, "Hallo mein, \nName ist Willfried. \nWillkommen in unserem \nbescheidenen Dorf.\n ","Ich bin der FUUUEEEEHHHHRER.","Die Hauser werden\nnoch geliefert.","Keine Ahnung", "Da wo deine Mama ist, hahahaha.", "Wilfired", "Ahh, du bists wieder." );
     mRun            = true;
     Mapheigth       = 100;
@@ -157,7 +157,7 @@ void Framework::loadMap()
     pMap = nullptr;
     mAuflösungsHöhe = 12*16;
     mAuflösungsBreite = 12*16;
-    pMap = new Maploader("Map1.txt", mAuflösungsHöhe, mAuflösungsBreite);
+   // pMap = new Maploader("Map1.txt", mAuflösungsHöhe, mAuflösungsBreite);
 };
 
 void Framework::loadMap2()
@@ -166,7 +166,7 @@ void Framework::loadMap2()
     pMap = nullptr;
     mAuflösungsBreite = 1680;
     mAuflösungsHöhe = 1456;
-    pMap = new Maploader("Map.txt", mAuflösungsHöhe, mAuflösungsBreite);
+    //pMap = new Maploader("Map.txt", mAuflösungsHöhe, mAuflösungsBreite);
 };
 
 void Framework::Quit()
