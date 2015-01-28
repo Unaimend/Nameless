@@ -2,19 +2,18 @@
 #include <Logfile.h>
 
 Maploader::Maploader(std::string filepath, int Mapheigth, int Mapwidth, Player& player)
+: mFilepath(filepath), mMapheigth(Mapheigth), mMapwidth(Mapwidth), mPlayer(player)
 {
-    mMapheigth          = Mapheigth;
-    mMapwidth           = Mapwidth;
-    mFilepath           = filepath;
+    
     temporaryMap        = "0";
     mMapVektorIterator  = mMapVektor.begin();
     pMap                = new std::ifstream(mFilepath);
     
-    mPlayer = &player;
+    
     Sprites::pWohnBlock_01->setPosition(420, 190);
     loadMap();
     loadMap2();
-    
+    fillMapVector();
  
 };
 
@@ -32,14 +31,14 @@ void Maploader::loadMap()
         mMapVektor.push_back(temporaryMap);
     }
     
-};
+};DDD
 
 void Maploader::render(sf::RenderWindow *window)
 {
 
-    
-    renderTileLayer(window);
-    
+    std::cout <<mPlayer.getPlayerSpritePosX()   << std::endl;
+    //renderTileLayer(window);
+    alternativeRendere(window);
 }
 
 
@@ -277,15 +276,100 @@ void Maploader::loadMap2()
 }
 
 
+//CHWCK OB KOREEKTE KLASSE
+void Maploader::fillMapVector()
+{
+    for(auto it : mMapVektor)
+    {
+//        Sprites::WasserSprite.setPosition(tempmapx*16, tempmapy*16);
+//        Sprites::pWegSprite->setPosition(tempmapx*16, tempmapy*16);
+//        Sprites::pGrasSprite->setPosition(tempmapx*16, tempmapy*16);
+//        Sprites::pGrasSpriteOL->setPosition(tempmapx*16, tempmapy*16);
+//        Sprites::pGrasSpriteOBEN->setPosition(tempmapx*16, tempmapy*16);
+//        Sprites::pGrasSpriteUNTEN->setPosition(tempmapx*16, tempmapy*16);
+//        Sprites::BlackSprite.setPosition(tempmapx*16, tempmapy*16);
+//        Sprites::pStraßenSprite->setPosition(tempmapx*16, tempmapy*16);
+//        Sprites::pBeton->setPosition(tempmapx*16, tempmapy*16);
+//        Sprites::pMittelSauberSprite->setPosition(tempmapx*16, tempmapy*16);
+//        Sprites::pBürgerSteigObenMitte->setPosition(tempmapx*16, tempmapy*16);
+//        Sprites::pBürgerSteigUntenMitte->setPosition(tempmapx*16, tempmapy*16);
+//        Sprites::pKreuzung->setPosition(tempmapx*16, tempmapy*16);
+//        Sprites::pBürgerSteigLinks->setPosition(tempmapx*16, tempmapy*16);
+//        Sprites::pBürgerSteigRechts->setPosition(tempmapx*16, tempmapy*16);
+//        Sprites::pMittelHochSauberSprite->setPosition(tempmapx*16, tempmapy*16);
+//        Sprites::pKurveLinks->setPosition(tempmapx*16, tempmapy*16);
+//        Sprites::pKurveRechts->setPosition(tempmapx*16, tempmapy*16);
+        if (tempmapx == mMapwidth/16 ) { //Wenn der Counter == Anzahl der max Tiles bestimmt durch die Mapbreite
+            tempmapy++;                 //dann erhöhe die Y-Anzahl um 1 und sezte die X-Anzahl auf 0 damit von
+            tempmapx = 0;               //links gezeichnet wird
+        }
+        if (tempmapy == mMapheigth/16)  {    //Wenn du ganz unten bist fange wieder oben an.
+            tempmapy = 0;
+        }
+        
+        if(it == "0")
+        {
+            //window->draw(*Sprites::pStraßenSprite);
+            std::cout << "Y" << tempmapy*16 << std::endl;
+            StraßenTile *p = new StraßenTile(0,0,0,tempmapx*16.0, tempmapy*16.0,0, *Sprites::pStraßenSprite);
+            mNewMapVector.push_back(p);
+            
+        }
+        else if(it == "1")
+        {
+            //window->draw(Sprites::WasserSprite);
+        }
+        else if (it == "2") {
+            //window->draw(*Sprites::pBeton);
+        }
+        else if (it == "3") {
+            //window->draw(*Sprites::pMittelSauberSprite);
+        }
+        else if (it == "4") {
+            //window->draw(*Sprites::pBürgerSteigObenMitte);
+        }
+        else if (it == "5") {
+            //window->draw(*Sprites::pBürgerSteigUntenMitte);
+        }
+        else if (it == "6") {
+            //////window->draw(*Sprites::pMittelHochSauberSprite);
+        }
+        else if (it == "9") {
+            //window->draw(*Sprites::pKurveLinks);
+        }
+        else if (it == "10") {
+            //window->draw(*Sprites::pKurveRechts);
+        }
+        else if (it == "98") {
+            //window->draw(*Sprites::pWohnBlock_01);
+        }
+        else if (it == "99") {
+            // window->draw(*Sprites::pKreuzung);
+        }
+        else if(it == "-1")
+        {
+            //window->draw(Sprites::BlackSprite);
+        }
+        tempmapx++;
+        
+    }
+
+};
 
 
 
 
 
 
+void    Maploader::alternativeRendere(sf::RenderWindow *window)
+{
+    for(auto it : mNewMapVector)
+    {
+    
+        it->render(*window);
+    };
 
-
-
+};
 
 
 

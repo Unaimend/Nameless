@@ -11,8 +11,9 @@
 
 #include <stdio.h>
 #include "Tiles.h"
-class StraßenTile : Tile
+class StraßenTile : public Tile
 {
+public:
     ~StraßenTile(){};
     StraßenTile(bool isdoor, int xtele, int ytele, int xpos, int ypos, bool iscollider, sf::Sprite sprite);
     virtual void    render(sf::RenderWindow& window);

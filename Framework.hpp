@@ -59,7 +59,7 @@ private:
     int                 mAuflösungsHöhe;
     float fps;
     float *fpS = &fps;
-    std::string fpsString;
+    
     //TESTCDE
     
     ItemManger      *pItemManager;

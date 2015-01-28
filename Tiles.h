@@ -10,6 +10,7 @@
 #define __Nameless__Tiles__
 
 #include <stdio.h>
+#include <iostream>
 #include "SFML/Graphics.hpp"
 class Tile
 {
@@ -22,18 +23,20 @@ public:
     mIsDoor(isdoor), mTeleportToX(xtele), mTeleportToY(ytele), mPosX(xpos), mPosY(ypos),
     mIsCollider(iscollider), mSprite(sprite)
     {
+        mSprite.setPosition(xpos, ypos);
+        std::cout << "call " << mPosY<< std::endl;
     };
     
     ~Tile(){};
     virtual void    render(sf::RenderWindow& window) = 0;
     virtual void    update() = 0;
-    float           getPosX(){};
-    float           getPosY(){};
-    bool            getIsCollission(){};
+    float           getPosX(){return mPosX;};
+    float           getPosY(){return mPosY;};
+    bool            getIsCollission(){mIsCollider;};
 
     
 
-private:
+protected:
     bool        mIsDoor;
     int         mTeleportToX;
     int         mTeleportToY; //Die Koordinaten zu den telportiert wird, wenn's ne Tür ist

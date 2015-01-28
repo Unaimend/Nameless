@@ -15,6 +15,8 @@
 #include <type_traits>
 #include "Tiles.h"
 #include "Player.h"
+#include "Tiles.h"
+#include "StraßenTile.h"
 class   Maploader : Sprites
 {
 
@@ -63,12 +65,20 @@ private:
     std::string heigth, width;              //Höhe und Breite der Map, wir später zu Int konvertiert.
     std::vector<std::string> TileMap;       //Enthält die fertige Map, die bereit zum rendern ist.
     std::vector<std::string> ObjectMap;
-    std::vector<Tile*> mNewVector;
-    Player* mPlayer;
+    
+    Player& mPlayer;
     
     std::string nwstring = "";
     int iheigth;
     int iwidth;
+    
+    
+    
+    //TESCODE
+    std::vector<Tile*> mNewMapVector;
+    void fillMapVector();
+    void alternativeRendere(sf::RenderWindow *window);
+    
     
  
 };

@@ -8,8 +8,9 @@ Framework::Framework()
     pLog = new Logfile("Logfile.log");
     mAuflösungsBreite = 1680;
     mAuflösungsHöhe = 1456;
-    pRenderWindow   = new sf::RenderWindow(sf::VideoMode(mAuflösungsBreite,mAuflösungsHöhe,32), "title" +fpsString);
-    pRenderWindow->setFramerateLimit(60);
+   
+    pRenderWindow   = new sf::RenderWindow(sf::VideoMode(mAuflösungsBreite,mAuflösungsHöhe,32), "title" );
+    pRenderWindow->setFramerateLimit(80);
     pMainEvent      = new sf::Event;
     pClock          = new sf::Clock;
     mPlayer1.setAuflösungsBreite(mAuflösungsBreite);
@@ -74,7 +75,7 @@ void Framework::Run()
 void Framework::Update(double frametime)
 {
 
-    getFPS();
+     //getFPS();
    mPlayer1.update(mFrameTime);
     pNPC_01->update(mFrameTime);
     mPlayerMagicSystem.update(mFrameTime);
@@ -82,7 +83,7 @@ void Framework::Update(double frametime)
     pEnemyManger->update(mFrameTime);
    mView.setCenter(mPlayer1.getPlayerSpritePosX(), mPlayer1.getPlayerSpritePosY());
     mFixed.setCenter(mAuflösungsBreite/2, mAuflösungsHöhe/2  );
-    fpsString = std::to_string(*fpS);
+  
 }
 
 
@@ -147,7 +148,8 @@ void Framework::getFPS()
 {
     float currentTime = clock2.restart().asSeconds();
     fps = 1.f / currentTime ;
-    //std::cout << fps << std::endl;
+    
+    std::cout << fps << std::endl;
 
 };
 

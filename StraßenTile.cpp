@@ -8,14 +8,14 @@
 
 #include "StraßenTile.h"
 StraßenTile::StraßenTile(bool isdoor, int xtele, int ytele, int xpos, int ypos, bool iscollider, sf::Sprite sprite) :
-Tile(isdoor, xtele, ytele, xpos, ytele, isdoor, sprite)
+Tile(isdoor, xtele, ytele, xpos, ypos, isdoor, sprite)
 {
 
 };
 
 void StraßenTile::render(sf::RenderWindow& window)
 {
-
+    window.draw(mSprite);
 };
 
 
